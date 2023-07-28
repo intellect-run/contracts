@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structreg_1_1codex" kind="struct" language="C++" prot="public">
+    <compoundname>reg::codex</compoundname>
+    <includes refid="registrator_8hpp" local="no">registrator.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structreg_1_1codex_1a693d39ae934502a3e2e70fd6c755a8f3" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name reg::codex::lang</definition>
+        <argsstring></argsstring>
+        <name>lang</name>
+        <qualifiedname>reg::codex::lang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>языковой код кодекса </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="209" column="21" bodyfile="registrator.hpp" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1codex_1a258f707ead7be7ec9c17971a6aa253ce" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::codex::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>reg::codex::version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>версия кодекса </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="210" column="18" bodyfile="registrator.hpp" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1codex_1ad8cedcb1abd7d01d65ec385430dfb059" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::codex::subversion</definition>
+        <argsstring></argsstring>
+        <name>subversion</name>
+        <qualifiedname>reg::codex::subversion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>субверсия кодекса (устанавливается автоматически) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="211" column="18" bodyfile="registrator.hpp" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1codex_1a8c38b9af481700287fd2ff12b8030e73" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string reg::codex::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>reg::codex::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>содержание кодекса </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="212" column="21" bodyfile="registrator.hpp" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structreg_1_1codex_1ac1f859ca19807429a6d20d016200a487" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::codex::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>reg::codex::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="214" column="18" bodyfile="registrator.hpp" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structreg_1_1codex_1a4cca6dc678834f9debca9d20031f01da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>uint128_t reg::codex::langandvers</definition>
+        <argsstring>() const</argsstring>
+        <name>langandvers</name>
+        <qualifiedname>reg::codex::langandvers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="215" column="19" bodyfile="registrator.hpp" bodystart="215" bodyend="215"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения кодекса и версий </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Table: codex</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: _me</title><para></para>
+</simplesect>
+Хранит текущие версии кодекса для языковых кодов; </para>
+    </detaileddescription>
+    <location file="registrator.hpp" line="208" column="5" bodyfile="registrator.hpp" bodystart="208" bodyend="218"/>
+    <listofallmembers>
+      <member refid="structreg_1_1codex_1a8c38b9af481700287fd2ff12b8030e73" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>data</name></member>
+      <member refid="structreg_1_1codex_1a693d39ae934502a3e2e70fd6c755a8f3" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>lang</name></member>
+      <member refid="structreg_1_1codex_1a4cca6dc678834f9debca9d20031f01da" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>langandvers</name></member>
+      <member refid="structreg_1_1codex_1ac1f859ca19807429a6d20d016200a487" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>primary_key</name></member>
+      <member refid="structreg_1_1codex_1ad8cedcb1abd7d01d65ec385430dfb059" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>subversion</name></member>
+      <member refid="structreg_1_1codex_1a258f707ead7be7ec9c17971a6aa253ce" prot="public" virt="non-virtual"><scope>reg::codex</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structreg_1_1authority" kind="struct" language="C++" prot="public">
+    <compoundname>reg::authority</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structreg_1_1authority_1a1c9e7ccff15fe2e3b5d8883cd3c480ce" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t reg::authority::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <qualifiedname>reg::authority::threshold</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="106" column="45" bodyfile="registrator.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1authority_1a2a23ceaea2774c6f96224e6a78653ffd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structreg_1_1key__weight" kindref="compound">key_weight</ref> &gt;</type>
+        <definition>std::vector&lt;key_weight&gt; reg::authority::keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <qualifiedname>reg::authority::keys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="107" column="33" bodyfile="registrator.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1authority_1a64f9a9d2f1f1fe8954f60155454d813a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structreg_1_1permission__level__weight" kindref="compound">permission_level_weight</ref> &gt;</type>
+        <definition>std::vector&lt;permission_level_weight&gt; reg::authority::accounts</definition>
+        <argsstring></argsstring>
+        <name>accounts</name>
+        <qualifiedname>reg::authority::accounts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="108" column="20" bodyfile="registrator.hpp" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1authority_1a919e0157171f9e624231cc9fe1ea1b6a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structreg_1_1wait__weight" kindref="compound">wait_weight</ref> &gt;</type>
+        <definition>std::vector&lt;wait_weight&gt; reg::authority::waits</definition>
+        <argsstring></argsstring>
+        <name>waits</name>
+        <qualifiedname>reg::authority::waits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="109" column="32" bodyfile="registrator.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="registrator.hpp" line="105" column="4" bodyfile="registrator.hpp" bodystart="105" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structreg_1_1authority_1a64f9a9d2f1f1fe8954f60155454d813a" prot="public" virt="non-virtual"><scope>reg::authority</scope><name>accounts</name></member>
+      <member refid="structreg_1_1authority_1a2a23ceaea2774c6f96224e6a78653ffd" prot="public" virt="non-virtual"><scope>reg::authority</scope><name>keys</name></member>
+      <member refid="structreg_1_1authority_1a1c9e7ccff15fe2e3b5d8883cd3c480ce" prot="public" virt="non-virtual"><scope>reg::authority</scope><name>threshold</name></member>
+      <member refid="structreg_1_1authority_1a919e0157171f9e624231cc9fe1ea1b6a" prot="public" virt="non-virtual"><scope>reg::authority</scope><name>waits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

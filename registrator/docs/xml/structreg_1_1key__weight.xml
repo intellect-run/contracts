@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structreg_1_1key__weight" kind="struct" language="C++" prot="public">
+    <compoundname>reg::key_weight</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structreg_1_1key__weight_1ae8f2fc0a5004b7a5050b99fa9f6bb451" prot="public" static="no" mutable="no">
+        <type>eosio::public_key</type>
+        <definition>eosio::public_key reg::key_weight::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>reg::key_weight::key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="90" column="26" bodyfile="registrator.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1key__weight_1ad69ec338b7ca4d67627c138c8f280849" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t reg::key_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>reg::key_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="91" column="26" bodyfile="registrator.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="registrator.hpp" line="89" column="4" bodyfile="registrator.hpp" bodystart="89" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structreg_1_1key__weight_1ae8f2fc0a5004b7a5050b99fa9f6bb451" prot="public" virt="non-virtual"><scope>reg::key_weight</scope><name>key</name></member>
+      <member refid="structreg_1_1key__weight_1ad69ec338b7ca4d67627c138c8f280849" prot="public" virt="non-virtual"><scope>reg::key_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

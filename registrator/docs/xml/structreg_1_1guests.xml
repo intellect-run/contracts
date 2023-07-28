@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structreg_1_1guests" kind="struct" language="C++" prot="public">
+    <compoundname>reg::guests</compoundname>
+    <includes refid="registrator_8hpp" local="no">registrator.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structreg_1_1guests_1a3191cc04108a4ea6b82171bbec8a7ec8" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name reg::guests::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>reg::guests::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>имя аккаунта гостя </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="125" column="21" bodyfile="registrator.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1a43cfb72ad561074ac81c3f26a6095a05" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name reg::guests::registrator</definition>
+        <argsstring></argsstring>
+        <name>registrator</name>
+        <qualifiedname>reg::guests::registrator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>имя аккаунта регистратора гостя </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="127" column="21" bodyfile="registrator.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1af69019b687d2792af2a510d2cac46795" prot="public" static="no" mutable="no">
+        <type>eosio::public_key</type>
+        <definition>eosio::public_key reg::guests::public_key</definition>
+        <argsstring></argsstring>
+        <name>public_key</name>
+        <qualifiedname>reg::guests::public_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>публичный ключ гостя, который использовался в качестве активного ключа и на который будут переданы права владельца после оплаты </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="128" column="27" bodyfile="registrator.hpp" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1ad7dfdd3c5d84be688c1933d821d8d6ee" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset reg::guests::cpu</definition>
+        <argsstring></argsstring>
+        <name>cpu</name>
+        <qualifiedname>reg::guests::cpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>количество системного токена, закладываемого в CPU </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="129" column="22" bodyfile="registrator.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1ad8f18a65748bbb47d53117a30109450b" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset reg::guests::net</definition>
+        <argsstring></argsstring>
+        <name>net</name>
+        <qualifiedname>reg::guests::net</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>количество системного токена, закладываемого в NET </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="130" column="22" bodyfile="registrator.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1a1a296d20e542616311333b702d2f73aa" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool reg::guests::set_referer</definition>
+        <argsstring></argsstring>
+        <name>set_referer</name>
+        <qualifiedname>reg::guests::set_referer</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>флаг автоматической регистрации партёром (не используется) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="131" column="14" bodyfile="registrator.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1aba0f1649df8b8997ac86d7cfdccc796d" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec reg::guests::expiration</definition>
+        <argsstring></argsstring>
+        <name>expiration</name>
+        <qualifiedname>reg::guests::expiration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>дата истечения пользования аккаунтом </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="132" column="31" bodyfile="registrator.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreg_1_1guests_1aa8fffe410ab7e64b8d22a106868f2814" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset reg::guests::to_pay</definition>
+        <argsstring></argsstring>
+        <name>to_pay</name>
+        <qualifiedname>reg::guests::to_pay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>количество токенов к оплате </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="134" column="22" bodyfile="registrator.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structreg_1_1guests_1a3060ea604e5c9afcea9f576d97a48af4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::guests::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>reg::guests::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return username - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="136" column="18" bodyfile="registrator.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structreg_1_1guests_1abf1b27ca3657ff967f918a3ce5aa619b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::guests::byexpr</definition>
+        <argsstring>() const</argsstring>
+        <name>byexpr</name>
+        <qualifiedname>reg::guests::byexpr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return expiration - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="137" column="18" bodyfile="registrator.hpp" bodystart="137" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="structreg_1_1guests_1af5e43b1679dd3753f6cc668de93af083" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reg::guests::byreg</definition>
+        <argsstring>() const</argsstring>
+        <name>byreg</name>
+        <qualifiedname>reg::guests::byreg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return registrator - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator.hpp" line="138" column="18" bodyfile="registrator.hpp" bodystart="138" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения объектов гостей </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Table: guests</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: _me</title><para></para>
+</simplesect>
+Хранит аккаунты, зарегистрированные в системе в качестве гостей, чьи права владельца аккаунта принадлежат регистратору _me. </para>
+    </detaileddescription>
+    <location file="registrator.hpp" line="124" column="5" bodyfile="registrator.hpp" bodystart="124" bodyend="141"/>
+    <listofallmembers>
+      <member refid="structreg_1_1guests_1abf1b27ca3657ff967f918a3ce5aa619b" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>byexpr</name></member>
+      <member refid="structreg_1_1guests_1af5e43b1679dd3753f6cc668de93af083" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>byreg</name></member>
+      <member refid="structreg_1_1guests_1ad7dfdd3c5d84be688c1933d821d8d6ee" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>cpu</name></member>
+      <member refid="structreg_1_1guests_1aba0f1649df8b8997ac86d7cfdccc796d" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>expiration</name></member>
+      <member refid="structreg_1_1guests_1ad8f18a65748bbb47d53117a30109450b" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>net</name></member>
+      <member refid="structreg_1_1guests_1a3060ea604e5c9afcea9f576d97a48af4" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>primary_key</name></member>
+      <member refid="structreg_1_1guests_1af69019b687d2792af2a510d2cac46795" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>public_key</name></member>
+      <member refid="structreg_1_1guests_1a43cfb72ad561074ac81c3f26a6095a05" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>registrator</name></member>
+      <member refid="structreg_1_1guests_1a1a296d20e542616311333b702d2f73aa" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>set_referer</name></member>
+      <member refid="structreg_1_1guests_1aa8fffe410ab7e64b8d22a106868f2814" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>to_pay</name></member>
+      <member refid="structreg_1_1guests_1a3191cc04108a4ea6b82171bbec8a7ec8" prot="public" virt="non-virtual"><scope>reg::guests</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

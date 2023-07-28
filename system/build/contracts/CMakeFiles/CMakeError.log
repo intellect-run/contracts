@@ -1,0 +1,80 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/local/eosio.cdt/bin/eosio-cc 
+Build flags: ;-O3;
+Id flags:  
+
+The output was:
+255
+/usr/local/eosio.cdt/bin/wasm-ld: error: cannot open /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCCompilerId.c.o: No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/local/eosio.cdt/bin/eosio-cpp 
+Build flags: ;-O3;
+Id flags:  
+
+The output was:
+255
+/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: main(int, char**)
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+
+/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_platform
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+
+/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_compiler
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+
+/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_language_dialect_default
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+
+/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_arch
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+>>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /Users/darksun/dacom-code/MMM/contracts/system/build/contracts/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a3d99/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a3d99.dir/build.make CMakeFiles/cmTC_a3d99.dir/build
+Building C object CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj
+/usr/local/eosio.cdt/bin/eosio-cc   -O3     -v -o CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj   -c /usr/local/Cellar/cmake/3.16.4/share/cmake/Modules/CMakeCCompilerABI.c
+clang version 7.0.0 (https://github.com/eosio/clang.git 6b886302a11a8419b76e469794ff9d0c531a4b4b) (https://github.com/eosio/llvm 9a9ff09d4302331d3289fdf58a64213506b4aefb)
+Target: x86_64-apple-darwin20.2.0
+Thread model: posix
+InstalledDir: /usr/local/eosio.cdt/bin
+Linking C executable cmTC_a3d99.wasm
+/usr/local/Cellar/cmake/3.16.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3d99.dir/link.txt --verbose=1
+/usr/local/eosio.cdt/bin/eosio-ld  -v CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj -o cmTC_a3d99.wasm 
+eosio-ld: Unknown command line argument '-v'.  Try: '/usr/local/eosio.cdt/bin/eosio-ld -help'
+eosio-ld: Did you mean '-L'?
+make[4]: *** [cmTC_a3d99.wasm] Error 1
+make[3]: *** [cmTC_a3d99/fast] Error 2
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /Users/darksun/dacom-code/MMM/contracts/system/build/contracts/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0bbf0/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_0bbf0.dir/build.make CMakeFiles/cmTC_0bbf0.dir/build
+Building CXX object CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/local/eosio.cdt/bin/eosio-cpp    -O3     -v -o CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/local/Cellar/cmake/3.16.4/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+clang version 7.0.0 (https://github.com/eosio/clang.git 6b886302a11a8419b76e469794ff9d0c531a4b4b) (https://github.com/eosio/llvm 9a9ff09d4302331d3289fdf58a64213506b4aefb)
+Target: x86_64-apple-darwin20.2.0
+Thread model: posix
+InstalledDir: /usr/local/eosio.cdt/bin
+Linking CXX executable cmTC_0bbf0.wasm
+/usr/local/Cellar/cmake/3.16.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bbf0.dir/link.txt --verbose=1
+/usr/local/eosio.cdt/bin/eosio-ld  -v CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_0bbf0.wasm 
+eosio-ld: Unknown command line argument '-v'.  Try: '/usr/local/eosio.cdt/bin/eosio-ld -help'
+eosio-ld: Did you mean '-L'?
+make[4]: *** [cmTC_0bbf0.wasm] Error 1
+make[3]: *** [cmTC_0bbf0/fast] Error 2
+
+
+
+

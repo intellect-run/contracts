@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/darksun/dacom-code/MMM/contracts/system/contracts/eosio.token/include/eosio.token/eosio.token.hpp
+eosiolib/asset.hpp
+-
+eosiolib/eosio.hpp
+-
+string
+-
+
+/Users/darksun/dacom-code/MMM/contracts/system/contracts/eosio.token/src/eosio.token.cpp
+eosio.token/eosio.token.hpp
+-
+
