@@ -1,17 +1,24 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/darksun/dacom-code/MMM/contracts/system/contracts/eosio.system/src/eosio.system.cpp" "/Users/darksun/dacom-code/MMM/contracts/system/build/contracts/eosio.system/CMakeFiles/eosio.system.dir/src/eosio.system.cpp.obj"
-  )
-set(CMAKE_CXX_COMPILER_ID "Clang")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/Users/darksun/dacom-code/MMM/contracts/system/contracts/eosio.system/include"
-  "/Users/darksun/dacom-code/MMM/contracts/system/contracts/eosio.system/../eosio.token/include"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/project/system/contracts/eosio.system/src/block_info.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/block_info.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/block_info.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/delegate_bandwidth.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/delegate_bandwidth.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/delegate_bandwidth.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/eosio.system.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/eosio.system.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/eosio.system.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/exchange_state.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/exchange_state.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/exchange_state.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/limit_auth_changes.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/limit_auth_changes.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/limit_auth_changes.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/name_bidding.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/name_bidding.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/name_bidding.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/native.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/native.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/native.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/powerup.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/powerup.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/powerup.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/producer_pay.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/producer_pay.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/producer_pay.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/rex.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/rex.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/rex.cpp.obj.d"
+  "/project/system/contracts/eosio.system/src/voting.cpp" "eosio.system/CMakeFiles/eosio.system.dir/src/voting.cpp.obj" "gcc" "eosio.system/CMakeFiles/eosio.system.dir/src/voting.cpp.obj.d"
   )
 
 # Targets to which this target links.

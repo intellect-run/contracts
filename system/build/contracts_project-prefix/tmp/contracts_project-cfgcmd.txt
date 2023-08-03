@@ -1,1 +1,1 @@
-cmd='/usr/local/Cellar/cmake/3.16.4/bin/cmake;-DCMAKE_TOOLCHAIN_FILE=/usr/local/eosio.cdt/lib/cmake/eosio.cdt/EosioWasmToolchain.cmake;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'
+cmd='/usr/bin/cmake;-DCMAKE_BUILD_TYPE=Release;-DCMAKE_TOOLCHAIN_FILE=/usr/opt/cdt/4.0.0/lib/cmake/cdt/CDTWasmToolchain.cmake;-DSYSTEM_CONFIGURABLE_WASM_LIMITS=ON;-DSYSTEM_BLOCKCHAIN_PARAMETERS=ON;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

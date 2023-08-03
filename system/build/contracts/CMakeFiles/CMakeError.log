@@ -1,79 +1,79 @@
 Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /usr/local/eosio.cdt/bin/eosio-cc 
-Build flags: ;-O3;
+Compiler: /usr/bin/cdt-cc 
+Build flags: -O3
 Id flags:  
 
 The output was:
 255
-/usr/local/eosio.cdt/bin/wasm-ld: error: cannot open /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCCompilerId.c.o: No such file or directory
+wasm-ld: error: fatal failure: contract with no actions and trying to create dispatcher
+Exit due to wasm-ld failure
 
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /usr/local/eosio.cdt/bin/eosio-cpp 
-Build flags: ;-O3;
+Compiler: /usr/bin/cdt-cpp 
+Build flags: -O3
 Id flags:  
 
 The output was:
 255
-/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: main(int, char**)
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
-
-/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_platform
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
-
-/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_compiler
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
-
-/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_language_dialect_default
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
-
-/usr/local/eosio.cdt/bin/wasm-ld: error: duplicate symbol: info_arch
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
->>> defined in /var/folders/08/l9zcmvwn0g15j9_yr2_zd_y80000gn/T//CMakeCXXCompilerId.cpp.o
+wasm-ld: error: fatal failure: contract with no actions and trying to create dispatcher
+Exit due to wasm-ld failure
 
 
 Detecting C compiler ABI info failed to compile with the following output:
-Change Dir: /Users/darksun/dacom-code/MMM/contracts/system/build/contracts/CMakeFiles/CMakeTmp
+Change Dir: /project/system/build/contracts/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_a3d99/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a3d99.dir/build.make CMakeFiles/cmTC_a3d99.dir/build
-Building C object CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj
-/usr/local/eosio.cdt/bin/eosio-cc   -O3     -v -o CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj   -c /usr/local/Cellar/cmake/3.16.4/share/cmake/Modules/CMakeCCompilerABI.c
-clang version 7.0.0 (https://github.com/eosio/clang.git 6b886302a11a8419b76e469794ff9d0c531a4b4b) (https://github.com/eosio/llvm 9a9ff09d4302331d3289fdf58a64213506b4aefb)
-Target: x86_64-apple-darwin20.2.0
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3d7b5/fast && gmake[3]: Entering directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_3d7b5.dir/build.make CMakeFiles/cmTC_3d7b5.dir/build
+gmake[4]: Entering directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d7b5.dir/CMakeCCompilerABI.c.obj
+/usr/bin/cdt-cc   -O3    -v -MD -MT CMakeFiles/cmTC_3d7b5.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_3d7b5.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_3d7b5.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+clang version 9.0.1 (https://github.com/AntelopeIO/cdt-clang 1baf03bbaa65a20b3de00fede1bc039666006c8c) (https://github.com/AntelopeIO/cdt-llvm 6a0991f5118ef11008c88c3f5e6ce2692642ffb8)
+Target: x86_64-unknown-linux-gnu
 Thread model: posix
-InstalledDir: /usr/local/eosio.cdt/bin
-Linking C executable cmTC_a3d99.wasm
-/usr/local/Cellar/cmake/3.16.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3d99.dir/link.txt --verbose=1
-/usr/local/eosio.cdt/bin/eosio-ld  -v CMakeFiles/cmTC_a3d99.dir/CMakeCCompilerABI.c.obj -o cmTC_a3d99.wasm 
-eosio-ld: Unknown command line argument '-v'.  Try: '/usr/local/eosio.cdt/bin/eosio-ld -help'
-eosio-ld: Did you mean '-L'?
-make[4]: *** [cmTC_a3d99.wasm] Error 1
-make[3]: *** [cmTC_a3d99/fast] Error 2
+InstalledDir: /project/system/build/contracts/CMakeFiles/CMakeTmp
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Linking C executable cmTC_3d7b5.wasm
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d7b5.dir/link.txt --verbose=1
+/usr/bin/cdt-ld  -v CMakeFiles/cmTC_3d7b5.dir/CMakeCCompilerABI.c.obj -o cmTC_3d7b5.wasm 
+cdt-ld: Unknown command line argument '-v'.  Try: '/usr/bin/cdt-ld --help'
+cdt-ld: Did you mean '  -L'?
+gmake[4]: *** [CMakeFiles/cmTC_3d7b5.dir/build.make:100: cmTC_3d7b5.wasm] Error 1
+gmake[4]: Leaving directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+gmake[3]: *** [Makefile:127: cmTC_3d7b5/fast] Error 2
+gmake[3]: Leaving directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
 
 
 
 
 Detecting CXX compiler ABI info failed to compile with the following output:
-Change Dir: /Users/darksun/dacom-code/MMM/contracts/system/build/contracts/CMakeFiles/CMakeTmp
+Change Dir: /project/system/build/contracts/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_0bbf0/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_0bbf0.dir/build.make CMakeFiles/cmTC_0bbf0.dir/build
-Building CXX object CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj
-/usr/local/eosio.cdt/bin/eosio-cpp    -O3     -v -o CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/local/Cellar/cmake/3.16.4/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-clang version 7.0.0 (https://github.com/eosio/clang.git 6b886302a11a8419b76e469794ff9d0c531a4b4b) (https://github.com/eosio/llvm 9a9ff09d4302331d3289fdf58a64213506b4aefb)
-Target: x86_64-apple-darwin20.2.0
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_38c2a/fast && gmake[3]: Entering directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_38c2a.dir/build.make CMakeFiles/cmTC_38c2a.dir/build
+gmake[4]: Entering directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_38c2a.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/bin/cdt-cpp   -O3    -v -MD -MT CMakeFiles/cmTC_38c2a.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles/cmTC_38c2a.dir/CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_38c2a.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang version 9.0.1 (https://github.com/AntelopeIO/cdt-clang 1baf03bbaa65a20b3de00fede1bc039666006c8c) (https://github.com/AntelopeIO/cdt-llvm 6a0991f5118ef11008c88c3f5e6ce2692642ffb8)
+Target: x86_64-unknown-linux-gnu
 Thread model: posix
-InstalledDir: /usr/local/eosio.cdt/bin
-Linking CXX executable cmTC_0bbf0.wasm
-/usr/local/Cellar/cmake/3.16.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bbf0.dir/link.txt --verbose=1
-/usr/local/eosio.cdt/bin/eosio-ld  -v CMakeFiles/cmTC_0bbf0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_0bbf0.wasm 
-eosio-ld: Unknown command line argument '-v'.  Try: '/usr/local/eosio.cdt/bin/eosio-ld -help'
-eosio-ld: Did you mean '-L'?
-make[4]: *** [cmTC_0bbf0.wasm] Error 1
-make[3]: *** [cmTC_0bbf0/fast] Error 2
+InstalledDir: /project/system/build/contracts/CMakeFiles/CMakeTmp
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Linking CXX executable cmTC_38c2a.wasm
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38c2a.dir/link.txt --verbose=1
+/usr/bin/cdt-ld  -v CMakeFiles/cmTC_38c2a.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_38c2a.wasm 
+cdt-ld: Unknown command line argument '-v'.  Try: '/usr/bin/cdt-ld --help'
+cdt-ld: Did you mean '  -L'?
+gmake[4]: *** [CMakeFiles/cmTC_38c2a.dir/build.make:100: cmTC_38c2a.wasm] Error 1
+gmake[4]: Leaving directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
+gmake[3]: *** [Makefile:127: cmTC_38c2a/fast] Error 2
+gmake[3]: Leaving directory '/project/system/build/contracts/CMakeFiles/CMakeTmp'
 
 
 

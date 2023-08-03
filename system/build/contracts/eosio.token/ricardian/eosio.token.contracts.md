@@ -4,7 +4,7 @@
 spec_version: "0.2.0"
 title: Close Token Balance
 summary: 'Close {{nowrap owner}}’s zero quantity balance'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
 ---
 
 {{owner}} agrees to close their zero quantity balance for the {{symbol_to_symbol_code symbol}} token.
@@ -17,7 +17,7 @@ RAM will be refunded to the RAM payer of the {{symbol_to_symbol_code symbol}} to
 spec_version: "0.2.0"
 title: Create New Token
 summary: 'Create a new token'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
 ---
 
 {{$action.account}} agrees to create a new token with symbol {{asset_to_symbol_code maximum_supply}} to be managed by {{issuer}}.
@@ -34,7 +34,7 @@ RAM will deducted from {{$action.account}}’s resources to create the necessary
 spec_version: "0.2.0"
 title: Issue Tokens into Circulation
 summary: 'Issue {{nowrap quantity}} into circulation and transfer into {{nowrap to}}’s account'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
 ---
 
 The token manager agrees to issue {{quantity}} into circulation, and transfer it into {{to}}’s account.
@@ -53,7 +53,7 @@ This action does not allow the total quantity to exceed the max allowed supply o
 spec_version: "0.2.0"
 title: Open Token Balance
 summary: 'Open a zero quantity balance for {{nowrap owner}}'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
 ---
 
 {{ram_payer}} agrees to establish a zero quantity balance for {{owner}} for the {{symbol_to_symbol_code symbol}} token.
@@ -66,7 +66,7 @@ If {{owner}} does not have a balance for {{symbol_to_symbol_code symbol}}, {{ram
 spec_version: "0.2.0"
 title: Remove Tokens from Circulation
 summary: 'Remove {{nowrap quantity}} from circulation'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654
 ---
 
 The token manager agrees to remove {{quantity}} from circulation, taken from their own account.
@@ -81,7 +81,7 @@ The token manager agrees to remove {{quantity}} from circulation, taken from the
 spec_version: "0.2.0"
 title: Transfer Tokens
 summary: 'Send {{nowrap quantity}} from {{nowrap from}} to {{nowrap to}}'
-icon: http://127.0.0.1/ricardian_assets/eosio.contracts/icons/transfer.png#5dfad0df72772ee1ccc155e670c1d124f5c5122f1d5027565df38b418042d1dd
+icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/transfer.png#5dfad0df72772ee1ccc155e670c1d124f5c5122f1d5027565df38b418042d1dd
 ---
 
 {{from}} agrees to send {{quantity}} to {{to}}.

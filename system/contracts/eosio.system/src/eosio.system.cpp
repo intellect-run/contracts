@@ -1,37 +1,41 @@
 #include <eosio.system/eosio.system.hpp>
-#include <eosiolib/dispatcher.hpp>
-#include <eosiolib/crypto.h>
+#include <eosio.token/eosio.token.hpp>
 
-#include "producer_pay.cpp"
-#include "delegate_bandwidth.cpp"
-#include "voting.cpp"
-#include "exchange_state.cpp"
-#include "rex.cpp"
+#include <eosio/crypto.hpp>
+#include <eosio/dispatcher.hpp>
+
+#include <cmath>
 
 namespace eosiosystem {
 
+   using eosio::current_time_point;
+   using eosio::token;
+
+   double get_continuous_rate(int64_t annual_rate) {
+      return std::log1p(double(annual_rate)/double(100*inflation_precision));
+   }
+
    system_contract::system_contract( name s, name code, datastream<const char*> ds )
    :native(s,code,ds),
-    _voters(_self, _self.value),
-    _producers(_self, _self.value),
-    _producers2(_self, _self.value),
-    _global(_self, _self.value),
-    _global2(_self, _self.value),
-    _global3(_self, _self.value),
-    _rammarket(_self, _self.value),
-    _rexpool(_self, _self.value),
-    _rexfunds(_self, _self.value),
-    _rexbalance(_self, _self.value),
-    _rexorders(_self, _self.value),
-    _guests(_registrator, _registrator.value),
-    _commitee(_self, _self.value)
+    _voters(get_self(), get_self().value),
+    _producers(get_self(), get_self().value),
+    _producers2(get_self(), get_self().value),
+    _global(get_self(), get_self().value),
+    _global2(get_self(), get_self().value),
+    _global3(get_self(), get_self().value),
+    _global4(get_self(), get_self().value),
+    _rammarket(get_self(), get_self().value),
+    _rexpool(get_self(), get_self().value),
+    _rexretpool(get_self(), get_self().value),
+    _rexretbuckets(get_self(), get_self().value),
+    _rexfunds(get_self(), get_self().value),
+    _rexbalance(get_self(), get_self().value),
+    _rexorders(get_self(), get_self().value)
    {
-      //print( "construct system\n" );
       _gstate  = _global.exists() ? _global.get() : get_default_parameters();
       _gstate2 = _global2.exists() ? _global2.get() : eosio_global_state2{};
       _gstate3 = _global3.exists() ? _global3.get() : eosio_global_state3{};
-      _commstate = _commitee.exists() ? _commitee.get() : eosio_commitee{};
-      
+      _gstate4 = _global4.exists() ? _global4.get() : get_default_inflation_parameters();
    }
 
    eosio_global_state system_contract::get_default_parameters() {
@@ -40,19 +44,12 @@ namespace eosiosystem {
       return dp;
    }
 
-   time_point system_contract::current_time_point() {
-      const static time_point ct{ microseconds{ static_cast<int64_t>( current_time() ) } };
-      return ct;
-   }
-
-   time_point_sec system_contract::current_time_point_sec() {
-      const static time_point_sec cts{ current_time_point() };
-      return cts;
-   }
-
-   block_timestamp system_contract::current_block_time() {
-      const static block_timestamp cbt{ current_time_point() };
-      return cbt;
+   eosio_global_state4 system_contract::get_default_inflation_parameters() {
+      eosio_global_state4 gs4;
+      gs4.continuous_rate      = get_continuous_rate(default_annual_rate);
+      gs4.inflation_pay_factor = default_inflation_pay_factor;
+      gs4.votepay_factor       = default_votepay_factor;
+      return gs4;
    }
 
    symbol system_contract::core_symbol()const {
@@ -61,16 +58,16 @@ namespace eosiosystem {
    }
 
    system_contract::~system_contract() {
-      _global.set( _gstate, _self );
-      _global2.set( _gstate2, _self );
-      _global3.set( _gstate3, _self );
-      _commitee.set( _commstate, _self );
+      _global.set( _gstate, get_self() );
+      _global2.set( _gstate2, get_self() );
+      _global3.set( _gstate3, get_self() );
+      _global4.set( _gstate4, get_self() );
    }
 
-   void system_contract::setram( uint64_t max_ram_size, double devider ) {
-      require_auth( _self );
+   void system_contract::setram( uint64_t max_ram_size ) {
+      require_auth( get_self() );
 
-      check( _gstate.max_ram_size <= max_ram_size, "ram may only be increased" ); /// decreasing ram might result market maker issues
+      check( _gstate.max_ram_size < max_ram_size, "ram may only be increased" ); /// decreasing ram might result market maker issues
       check( max_ram_size < 1024ll*1024*1024*1024*1024, "ram size is unrealistic" );
       check( max_ram_size > _gstate.total_ram_bytes_reserved, "attempt to set max below reserved" );
 
@@ -82,18 +79,13 @@ namespace eosiosystem {
        */
       _rammarket.modify( itr, same_payer, [&]( auto& m ) {
          m.base.balance.amount += delta;
-         
-         if (devider != 0){
-            m.base.balance.amount = m.base.balance.amount / devider;
-         };
-
       });
 
       _gstate.max_ram_size = max_ram_size;
    }
 
    void system_contract::update_ram_supply() {
-      auto cbt = current_block_time();
+      auto cbt = eosio::current_block_time();
 
       if( cbt <= _gstate2.last_ram_increase ) return;
 
@@ -110,36 +102,142 @@ namespace eosiosystem {
       _gstate2.last_ram_increase = cbt;
    }
 
-   /**
-    *  Sets the rate of increase of RAM in bytes per block. It is capped by the uint16_t to
-    *  a maximum rate of 3 TB per year.
-    *
-    *  If update_ram_supply hasn't been called for the most recent block, then new ram will
-    *  be allocated at the old rate up to the present block before switching the rate.
-    */
    void system_contract::setramrate( uint16_t bytes_per_block ) {
-      require_auth( _self );
+      require_auth( get_self() );
 
       update_ram_supply();
       _gstate2.new_ram_per_block = bytes_per_block;
    }
 
-   void system_contract::setparams( const eosio::blockchain_parameters& params ) {
-      require_auth( _self );
+#ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
+   extern "C" [[eosio::wasm_import]] void set_parameters_packed(const void*, size_t);
+#endif
+
+   void system_contract::setparams( const blockchain_parameters_t& params ) {
+      require_auth( get_self() );
       (eosio::blockchain_parameters&)(_gstate) = params;
       check( 3 <= _gstate.max_authority_depth, "max_authority_depth should be at least 3" );
+#ifndef SYSTEM_BLOCKCHAIN_PARAMETERS
       set_blockchain_parameters( params );
+#else
+      constexpr size_t param_count = 18;
+      // an upper bound on the serialized size
+      char buf[1 + sizeof(params) + param_count];
+      datastream<char*> stream(buf, sizeof(buf));
+
+      stream << uint8_t(17);
+      stream << uint8_t(0) << params.max_block_net_usage
+             << uint8_t(1) << params.target_block_net_usage_pct
+             << uint8_t(2) << params.max_transaction_net_usage
+             << uint8_t(3) << params.base_per_transaction_net_usage
+             << uint8_t(4) << params.net_usage_leeway
+             << uint8_t(5) << params.context_free_discount_net_usage_num
+             << uint8_t(6) << params.context_free_discount_net_usage_den
+
+             << uint8_t(7) << params.max_block_cpu_usage
+             << uint8_t(8) << params.target_block_cpu_usage_pct
+             << uint8_t(9) << params.max_transaction_cpu_usage
+             << uint8_t(10) << params.min_transaction_cpu_usage
+
+             << uint8_t(11) << params.max_transaction_lifetime
+             << uint8_t(12) << params.deferred_trx_expiration_window
+             << uint8_t(13) << params.max_transaction_delay
+             << uint8_t(14) << params.max_inline_action_size
+             << uint8_t(15) << params.max_inline_action_depth
+             << uint8_t(16) << params.max_authority_depth;
+      if(params.max_action_return_value_size)
+      {
+         stream << uint8_t(17) << params.max_action_return_value_size.value();
+         ++buf[0];
+      }
+
+      set_parameters_packed(buf, stream.tellp());
+#endif
    }
 
-   void system_contract::setpriv( name account, uint8_t ispriv ) {
-      require_auth( _self );
-      set_privileged( account.value, ispriv );
+#ifdef SYSTEM_CONFIGURABLE_WASM_LIMITS
+
+   // The limits on contract WebAssembly modules
+   struct wasm_parameters
+   {
+      uint32_t max_mutable_global_bytes;
+      uint32_t max_table_elements;
+      uint32_t max_section_elements;
+      uint32_t max_linear_memory_init;
+      uint32_t max_func_local_bytes;
+      uint32_t max_nested_structures;
+      uint32_t max_symbol_bytes;
+      uint32_t max_module_bytes;
+      uint32_t max_code_bytes;
+      uint32_t max_pages;
+      uint32_t max_call_depth;
+   };
+
+   static constexpr wasm_parameters default_limits = {
+       .max_mutable_global_bytes = 1024,
+       .max_table_elements = 1024,
+       .max_section_elements = 8192,
+       .max_linear_memory_init = 64*1024,
+       .max_func_local_bytes = 8192,
+       .max_nested_structures = 1024,
+       .max_symbol_bytes = 8192,
+       .max_module_bytes = 20*1024*1024,
+       .max_code_bytes = 20*1024*1024,
+       .max_pages = 528,
+       .max_call_depth = 251
+   };
+
+   static constexpr wasm_parameters high_limits = {
+       .max_mutable_global_bytes = 8192,
+       .max_table_elements = 8192,
+       .max_section_elements = 8192,
+       .max_linear_memory_init = 16*64*1024,
+       .max_func_local_bytes = 8192,
+       .max_nested_structures = 1024,
+       .max_symbol_bytes = 8192,
+       .max_module_bytes = 20*1024*1024,
+       .max_code_bytes = 20*1024*1024,
+       .max_pages = 528,
+       .max_call_depth = 1024
+   };
+
+   extern "C" [[eosio::wasm_import]] void set_wasm_parameters_packed( const void*, size_t );
+
+   void set_wasm_parameters( const wasm_parameters& params )
+   {
+      char buf[sizeof(uint32_t) + sizeof(params)] = {};
+      memcpy(buf + sizeof(uint32_t), &params, sizeof(params));
+      set_wasm_parameters_packed( buf, sizeof(buf) );
    }
 
-   void system_contract::setalimits( name account, int64_t ram, int64_t net, int64_t cpu ) {
-      require_auth( _self );
+   void system_contract::wasmcfg( const name& settings )
+   {
+      require_auth( get_self() );
+      if( settings == "default"_n || settings == "low"_n )
+      {
+         set_wasm_parameters( default_limits );
+      }
+      else if( settings == "high"_n )
+      {
+         set_wasm_parameters( high_limits );
+      }
+      else
+      {
+         check(false, "Unknown configuration");
+      }
+   }
 
-      user_resources_table userres( _self, account.value );
+#endif
+
+   void system_contract::setpriv( const name& account, uint8_t ispriv ) {
+      require_auth( get_self() );
+      set_privileged( account, ispriv );
+   }
+
+   void system_contract::setalimits( const name& account, int64_t ram, int64_t net, int64_t cpu ) {
+      require_auth( get_self() );
+
+      user_resources_table userres( get_self(), account.value );
       auto ritr = userres.find( account.value );
       check( ritr == userres.end(), "only supports unlimited accounts" );
 
@@ -151,14 +249,14 @@ namespace eosiosystem {
          check( !(ram_managed || net_managed || cpu_managed), "cannot use setalimits on an account with managed resources" );
       }
 
-      set_resource_limits( account.value, ram, net, cpu );
+      set_resource_limits( account, ram, net, cpu );
    }
 
-   void system_contract::setacctram( name account, std::optional<int64_t> ram_bytes ) {
-      require_auth( _self );
+   void system_contract::setacctram( const name& account, const std::optional<int64_t>& ram_bytes ) {
+      require_auth( get_self() );
 
       int64_t current_ram, current_net, current_cpu;
-      get_resource_limits( account.value, &current_ram, &current_net, &current_cpu );
+      get_resource_limits( account, current_ram, current_net, current_cpu );
 
       int64_t ram = 0;
 
@@ -167,7 +265,7 @@ namespace eosiosystem {
          check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::ram_managed ),
                 "RAM of account is already unmanaged" );
 
-         user_resources_table userres( _self, account.value );
+         user_resources_table userres( get_self(), account.value );
          auto ritr = userres.find( account.value );
 
          ram = ram_gift_bytes;
@@ -196,14 +294,14 @@ namespace eosiosystem {
          ram = *ram_bytes;
       }
 
-      set_resource_limits( account.value, ram, current_net, current_cpu );
+      set_resource_limits( account, ram, current_net, current_cpu );
    }
 
-   void system_contract::setacctnet( name account, std::optional<int64_t> net_weight ) {
-      require_auth( _self );
+   void system_contract::setacctnet( const name& account, const std::optional<int64_t>& net_weight ) {
+      require_auth( get_self() );
 
       int64_t current_ram, current_net, current_cpu;
-      get_resource_limits( account.value, &current_ram, &current_net, &current_cpu );
+      get_resource_limits( account, current_ram, current_net, current_cpu );
 
       int64_t net = 0;
 
@@ -212,7 +310,7 @@ namespace eosiosystem {
          check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::net_managed ),
                 "Network bandwidth of account is already unmanaged" );
 
-         user_resources_table userres( _self, account.value );
+         user_resources_table userres( get_self(), account.value );
          auto ritr = userres.find( account.value );
 
          if( ritr != userres.end() ) {
@@ -240,14 +338,14 @@ namespace eosiosystem {
          net = *net_weight;
       }
 
-      set_resource_limits( account.value, current_ram, net, current_cpu );
+      set_resource_limits( account, current_ram, net, current_cpu );
    }
 
-   void system_contract::setacctcpu( name account, std::optional<int64_t> cpu_weight ) {
-      require_auth( _self );
+   void system_contract::setacctcpu( const name& account, const std::optional<int64_t>& cpu_weight ) {
+      require_auth( get_self() );
 
       int64_t current_ram, current_net, current_cpu;
-      get_resource_limits( account.value, &current_ram, &current_net, &current_cpu );
+      get_resource_limits( account, current_ram, current_net, current_cpu );
 
       int64_t cpu = 0;
 
@@ -256,7 +354,7 @@ namespace eosiosystem {
          check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::cpu_managed ),
                 "CPU bandwidth of account is already unmanaged" );
 
-         user_resources_table userres( _self, account.value );
+         user_resources_table userres( get_self(), account.value );
          auto ritr = userres.find( account.value );
 
          if( ritr != userres.end() ) {
@@ -284,11 +382,16 @@ namespace eosiosystem {
          cpu = *cpu_weight;
       }
 
-      set_resource_limits( account.value, current_ram, current_net, cpu );
+      set_resource_limits( account, current_ram, current_net, cpu );
    }
 
-   void system_contract::rmvproducer( name producer ) {
-      require_auth( _self );
+   void system_contract::activate( const eosio::checksum256& feature_digest ) {
+      require_auth( get_self() );
+      preactivate_feature( feature_digest );
+   }
+
+   void system_contract::rmvproducer( const name& producer ) {
+      require_auth( get_self() );
       auto prod = _producers.find( producer.value );
       check( prod != _producers.end(), "producer not found" );
       _producers.modify( prod, same_payer, [&](auto& p) {
@@ -297,110 +400,27 @@ namespace eosiosystem {
    }
 
    void system_contract::updtrevision( uint8_t revision ) {
-      require_auth( _self );
+      require_auth( get_self() );
       check( _gstate2.revision < 255, "can not increment revision" ); // prevent wrap around
       check( revision == _gstate2.revision + 1, "can only increment revision by one" );
       check( revision <= 1, // set upper bound to greatest revision supported in the code
-                    "specified revision is not yet supported by the code" );
+             "specified revision is not yet supported by the code" );
       _gstate2.revision = revision;
    }
 
-   void system_contract::bidname( name bidder, name newname, asset bid ) {
-      require_auth( bidder );
-      check( newname.suffix() == newname, "you can only bid on top-level suffix" );
-
-      check( (bool)newname, "the empty name is not a valid account name to bid on" );
-      check( (newname.value & 0xFull) == 0, "13 character names are not valid account names to bid on" );
-      check( (newname.value & 0x1F0ull) == 0, "accounts with 12 character names and no dots can be created without bidding required" );
-      check( !is_account( newname ), "account already exists" );
-      check( bid.symbol == core_symbol(), "asset must be system token" );
-      check( bid.amount > 0, "insufficient bid" );
-
-      INLINE_ACTION_SENDER(eosio::token, transfer)(
-         token_account, { {bidder, active_permission} },
-         { bidder, names_account, bid, std::string("bid name ")+ newname.to_string() }
-      );
-
-      name_bid_table bids(_self, _self.value);
-      print( name{bidder}, " bid ", bid, " on ", name{newname}, "\n" );
-      auto current = bids.find( newname.value );
-      if( current == bids.end() ) {
-
-        //Check min about by length
-         eosio::string name_string = newname.to_string();
-         uint64_t name_length = name_string.length();
-
-         if (_gstate.total_activated_stake < min_activated_stake){
-           if ((name_length == 10 ) || (name_length == 11 ))
-            check(bid.amount >= 20000, "2.0000 UNIT is minimum bid for current length");
-
-           if ((name_length == 8 ) || (name_length == 9 ))
-            check(bid.amount >= 30000, "3.0000 UNIT is minimum bid for current length");
-
-           if ((name_length == 6 ) || (name_length == 7 ))
-            check(bid.amount >= 100000, "10.0000 UNIT is minimum bid for current length");
-
-           if ((name_length >= 2 ) || (name_length <= 5 ))
-            check(bid.amount >= 1000000, "100.0000 UNIT is minimum bid for current length");
-
-           if (name_length == 1 )
-            check(false, "Accounts with current length is not on sale");
-        }
-
-         bids.emplace( bidder, [&]( auto& b ) {
-            b.newname = newname;
-            b.high_bidder = bidder;
-            b.high_bid = bid.amount;
-            b.last_bid_time = current_time_point();
-         });
-
-
-      } else {
-         check( current->high_bid > 0, "this auction has already closed" );
-         check( bid.amount - current->high_bid > (current->high_bid / 10), "must increase bid by 10%" );
-         check( current->high_bidder != bidder, "account is already highest bidder" );
-
-         bid_refund_table refunds_table(_self, newname.value);
-
-         auto it = refunds_table.find( current->high_bidder.value );
-         if ( it != refunds_table.end() ) {
-            refunds_table.modify( it, same_payer, [&](auto& r) {
-                  r.amount += asset( current->high_bid, core_symbol() );
-               });
-         } else {
-            refunds_table.emplace( bidder, [&](auto& r) {
-                  r.bidder = current->high_bidder;
-                  r.amount = asset( current->high_bid, core_symbol() );
-               });
-         }
-
-         transaction t;
-         t.actions.emplace_back( permission_level{_self, active_permission},
-                                 _self, "bidrefund"_n,
-                                 std::make_tuple( current->high_bidder, newname )
-         );
-         t.delay_sec = 0;
-         uint128_t deferred_id = (uint128_t(newname.value) << 64) | current->high_bidder.value;
-         cancel_deferred( deferred_id );
-         t.send( deferred_id, bidder );
-
-         bids.modify( current, bidder, [&]( auto& b ) {
-            b.high_bidder = bidder;
-            b.high_bid = bid.amount;
-            b.last_bid_time = current_time_point();
-         });
+   void system_contract::setinflation( int64_t annual_rate, int64_t inflation_pay_factor, int64_t votepay_factor ) {
+      require_auth(get_self());
+      check(annual_rate >= 0, "annual_rate can't be negative");
+      if ( inflation_pay_factor < pay_factor_precision ) {
+         check( false, "inflation_pay_factor must not be less than " + std::to_string(pay_factor_precision) );
       }
-   }
-
-   void system_contract::bidrefund( name bidder, name newname ) {
-      bid_refund_table refunds_table(_self, newname.value);
-      auto it = refunds_table.find( bidder.value );
-      check( it != refunds_table.end(), "refund not found" );
-      INLINE_ACTION_SENDER(eosio::token, transfer)(
-         token_account, { {names_account, active_permission}, {bidder, active_permission} },
-         { names_account, bidder, asset(it->amount), std::string("refund bid on name ")+(name{newname}).to_string() }
-      );
-      refunds_table.erase( it );
+      if ( votepay_factor < pay_factor_precision ) {
+         check( false, "votepay_factor must not be less than " + std::to_string(pay_factor_precision) );
+      }
+      _gstate4.continuous_rate      = get_continuous_rate(annual_rate);
+      _gstate4.inflation_pay_factor = inflation_pay_factor;
+      _gstate4.votepay_factor       = votepay_factor;
+      _global4.set( _gstate4, get_self() );
    }
 
    /**
@@ -412,13 +432,13 @@ namespace eosiosystem {
     *  who can create accounts with the creator's name as a suffix.
     *
     */
-   void native::newaccount( name              creator,
-                            name              newact,
+   void native::newaccount( const name&       creator,
+                            const name&       new_account_name,
                             ignore<authority> owner,
                             ignore<authority> active ) {
 
-      if( creator != _self ) {
-         uint64_t tmp = newact.value >> 4;
+      if( creator != get_self() ) {
+         uint64_t tmp = new_account_name.value >> 4;
          bool has_dot = false;
 
          for( uint32_t i = 0; i < 12; ++i ) {
@@ -426,60 +446,50 @@ namespace eosiosystem {
            tmp >>= 5;
          }
          if( has_dot ) { // or is less than 12 characters
-            
-            auto suffix = newact.suffix();
-            
-            
-            if( suffix == newact ) {
-               // name_bid_table bids(_self, _self.value);
-               // auto current = bids.find( newact.value );
-               // check( current != bids.end(), "no active bid for name" );
-               // check( current->high_bidder == creator, "only highest bidder can claim" );
-               // check( current->high_bid < 0, "auction for name is not closed yet" );
-               // bids.erase( current );
+            auto suffix = new_account_name.suffix();
+            if( suffix == new_account_name ) {
+               name_bid_table bids(get_self(), get_self().value);
+               auto current = bids.find( new_account_name.value );
+               check( current != bids.end(), "no active bid for name" );
+               check( current->high_bidder == creator, "only highest bidder can claim" );
+               check( current->high_bid < 0, "auction for name is not closed yet" );
+               bids.erase( current );
             } else {
-               if ( creator != _registrator ) {
-                  check( creator == suffix, "only suffix may create this account" );   
-               }
+               check( creator == suffix, "only suffix may create this account" );
             }
          }
       }
 
+      user_resources_table  userres( get_self(), new_account_name.value );
 
-      //TODO check registrator permissions
-      
-      user_resources_table  userres( _self, newact.value);
-
-      userres.emplace( newact, [&]( auto& res ) {
-        res.owner = newact;
+      userres.emplace( new_account_name, [&]( auto& res ) {
+        res.owner = new_account_name;
         res.net_weight = asset( 0, system_contract::get_core_symbol() );
         res.cpu_weight = asset( 0, system_contract::get_core_symbol() );
       });
 
-      set_resource_limits( newact.value, 0, 0, 0 );
+      set_resource_limits( new_account_name, 0, 0, 0 );
    }
 
-   void native::setabi( name acnt, const std::vector<char>& abi ) {
-      eosio::multi_index< "abihash"_n, abi_hash >  table(_self, _self.value);
+   void native::setabi( const name& acnt, const std::vector<char>& abi,
+                        const binary_extension<std::string>& memo ) {
+      eosio::multi_index< "abihash"_n, abi_hash >  table(get_self(), get_self().value);
       auto itr = table.find( acnt.value );
       if( itr == table.end() ) {
          table.emplace( acnt, [&]( auto& row ) {
-            row.owner= acnt;
-            sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
+            row.owner = acnt;
+            row.hash = eosio::sha256(const_cast<char*>(abi.data()), abi.size());
          });
       } else {
          table.modify( itr, same_payer, [&]( auto& row ) {
-            sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
+            row.hash = eosio::sha256(const_cast<char*>(abi.data()), abi.size());
          });
       }
    }
 
-   void system_contract::init( unsigned_int version, symbol core, int64_t init_market_amount ) {
-      require_auth( _self );
+   void system_contract::init( unsigned_int version, const symbol& core ) {
+      require_auth( get_self() );
       check( version.value == 0, "unsupported version for init action" );
-
-      //TODO version 2 and add global economic table
-      
 
       auto itr = _rammarket.find(ramcore_symbol.raw());
       check( itr == _rammarket.end(), "system contract has already been initialized" );
@@ -488,332 +498,17 @@ namespace eosiosystem {
       check( system_token_supply.symbol == core, "specified core symbol does not exist (precision mismatch)" );
 
       check( system_token_supply.amount > 0, "system token supply must be greater than 0" );
-      
-      _rammarket.emplace( _self, [&]( auto& m ) {
+      _rammarket.emplace( get_self(), [&]( auto& m ) {
          m.supply.amount = 100000000000000ll;
          m.supply.symbol = ramcore_symbol;
          m.base.balance.amount = int64_t(_gstate.free_ram());
          m.base.balance.symbol = ram_symbol;
-         m.quote.balance.amount = init_market_amount;
+         m.quote.balance.amount = system_token_supply.amount / 1000;
          m.quote.balance.symbol = core;
       });
 
-      INLINE_ACTION_SENDER(eosio::token, open)( token_account, { _self, active_permission },
-                                                { rex_account, core, _self } );
-   
+      token::open_action open_act{ token_account, { {get_self(), active_permission} } };
+      open_act.send( rex_account, core, get_self() );
    }
-
-
-   void system_contract::seteparams( int64_t new_tokens_per_block, int64_t to_producers_percent, int64_t to_saving_percent, int64_t per_block_pay_percent, int64_t per_vote_pay_percent, bool spraying_enabled, int64_t new_tokens_for_spraying, int64_t spraying_period_in_blocks, int64_t spraying_rotation_percent, int64_t spraying_core_funds_percent, name core_host ){
-         
-      require_auth(_self);
-      eosio::check(to_producers_percent + to_saving_percent == 100, "to_producers_percent and to_saving_percent should be 100 in their summ");
-      eosio::check(per_block_pay_percent + per_vote_pay_percent == 100, "per_block_pay_percent and per_vote_pay_percent should be 100 in their summ");
-      
-      if (spraying_enabled == true) {
-      
-         eosio::check(spraying_period_in_blocks > 0, "spraying_period_in_blocks should be more then 0");
-         eosio::check(spraying_rotation_percent + spraying_core_funds_percent == 100, "spraying_rotation_percent and spraying_core_funds_percent should be 100 in their summ");
-         eosio::check(core_host != ""_n, "host for spraying should be setted");
-      } else {
-         eosio::check(spraying_rotation_percent == 0 && spraying_core_funds_percent == 0, "spraying_rotation_percent and spraying_core_funds_percent should be 0");
-      }
-
-      _commstate.new_tokens_per_block = new_tokens_per_block;
-      _commstate.to_producers_percent = to_producers_percent;
-      _commstate.to_saving_percent = to_saving_percent;
-      _commstate.per_block_pay_percent = per_block_pay_percent;
-      _commstate.per_vote_pay_percent = per_vote_pay_percent;
-      _commstate.spraying_enabled = spraying_enabled;
-      _commstate.new_tokens_for_spraying = new_tokens_for_spraying;
-      _commstate.spraying_period_in_blocks = spraying_period_in_blocks;
-      _commstate.spraying_rotation_percent = spraying_rotation_percent;
-      _commstate.spraying_core_funds_percent = spraying_core_funds_percent;
-      _commstate.core_host = core_host;
-      
-   }
-
-
-   void system_contract::activate(const time_point_sec activate_at){
-      require_auth(_self);
-      
-      auto time = seconds(activate_at.sec_since_epoch());
-      _gstate.thresh_activated_stake_time = time_point{ microseconds{time}} ;
-   }
-
-
-   void system_contract::compensate(const asset compensate_asset){
-      require_auth(core_account);
-      check(compensate_asset.symbol == system_contract::get_core_symbol(), "Only core symbol can be used for compensation");
-
-      INLINE_ACTION_SENDER(eosio::token, transfer)(
-          token_account, { {saving_account, active_permission} },
-          { saving_account, core_account, compensate_asset, std::string("transfers tokens from reserve for risk compensation")}
-     );
-
-   }
-
-   void system_contract::putreserve(const name contract, const name username, const asset quantity, const std::string memo){
-      require_auth(saving_account);
-
-      funds_index funds(_self, _self.value);
-      auto by_contract_and_symbol = funds.template get_index<"codeandsmbl"_n>();
-      auto by_contract_and_symbol_ids = combine_ids(contract.value, quantity.symbol.code().raw());    
-      auto fund = by_contract_and_symbol.find(by_contract_and_symbol_ids);
-      
-      if (fund == by_contract_and_symbol.end()) {
-          funds.emplace(_self, [&](auto &f){
-            f.id = funds.available_primary_key();
-            f.quantity = quantity;
-            f.contract = contract;
-          });
-      } else {
-          by_contract_and_symbol.modify(fund, _self, [&](auto &f){
-            f.quantity += quantity;
-          });
-      }
-   }
-
-   void system_contract::addben( eosio::name producer, eosio::name benefactor, std::string memo) {
-      
-      require_auth(producer);
-      benefactors_index benefactors(_self, _self.value);
-
-      auto by_producer_and_benefactor = benefactors.template get_index<"byprodben"_n>();
-      auto by_producer_and_benefactor_ids = combine_ids(producer.value, benefactor.value);    
-      auto ben = by_producer_and_benefactor.find(by_producer_and_benefactor_ids);
-      
-      eosio::check(ben == by_producer_and_benefactor.end(), "Benefactor is already exist for current producer");
-      
-      //TODO check not more then 12 benefactors for one producer
-
-      benefactors.emplace(producer, [&](auto &b) {
-         b.id = benefactors.available_primary_key();
-         b.producer = producer;
-         b.benefactor = benefactor;
-         b.memo = memo;
-         b.installed_at = current_time_point();
-      });
-
-   }
-
-   void system_contract::delben( eosio::name producer, eosio::name benefactor ) {
-   
-      require_auth(producer);
-
-      benefactors_index benefactors(_self, _self.value);
-      auto by_producer_and_benefactor = benefactors.template get_index<"byprodben"_n>();
-      auto by_producer_and_benefactor_ids = combine_ids(producer.value, benefactor.value);    
-      auto ben = by_producer_and_benefactor.find(by_producer_and_benefactor_ids);
-      
-      eosio::check(ben != by_producer_and_benefactor.end(), "Benefactor is not founded");
-      
-      by_producer_and_benefactor.erase(ben);
-
-   }
-
-
-   void system_contract::takereserve(const name host, const name token_contract, const asset amount, const std::string memo){
-      require_auth(core_account);
-      
-      //TODO переделать логику капитально! 
-
-      funds_index funds(_self, _self.value);
-      
-      auto by_contract_and_symbol = funds.template get_index<"codeandsmbl"_n>();
-      auto by_contract_and_symbol_ids = combine_ids(token_contract.value, amount.symbol.code().raw());    
-      auto fund = by_contract_and_symbol.find(by_contract_and_symbol_ids);
-      
-      eosio::check(fund != by_contract_and_symbol.end(), "Reserve fund for current token is not found");
-      eosio::check(fund -> quantity >= amount, "Not enought reserve amount for take");
-      
-      //проверяю на системный токен
-      if (token_contract == "eosio.token"_n && amount.symbol == system_contract::get_core_symbol()){
-         //если системный - получаю производителей
-         auto idx = _producers.get_index<"prototalvote"_n>();
-         bool is_top_producer = false;
-         uint64_t top_producers = 0;
-
-         //проверяю топ-21 производителей на соответствие хосту
-         for ( auto it = idx.cbegin(); it != idx.cend() && top_producers < 21 && 0 < it->total_votes && it->active(); ++it ) {
-            top_producers += 1;
-            is_top_producer = true;
-
-            if (it -> owner == host ) {
-               //эмитирую из резерва на хоста
-               by_contract_and_symbol.modify(fund, _self, [&](auto &f) {
-                  f.quantity -= amount;
-               });
-               action(
-                  permission_level{ _self, "active"_n },
-                  core_account, "emitquote"_n,
-                  std::make_tuple( host, amount, token_contract) 
-               ).send();
-               INLINE_ACTION_SENDER(eosio::token, transfer) (
-                token_contract, { {saving_account, active_permission} },
-                { saving_account, core_account, amount, memo }
-              );
-
-            } 
-         }
-
-
-         //Эмиссия на бенефакторов 
-         benefactors_index benefactors(_self, _self.value);
-         auto by_producer_and_benefactor = benefactors.template get_index<"byben"_n>();
-         auto by_producer_and_benefactor_ids = host.value; 
-
-         auto ben = by_producer_and_benefactor.find(by_producer_and_benefactor_ids);
-
-         if (ben != by_producer_and_benefactor.end()) {
-            auto idx = _producers.get_index<"prototalvote"_n>();
-            top_producers = 0;
-            for ( auto it = idx.cbegin(); it != idx.cend() && top_producers < 21 && 0 < it->total_votes && it->active(); ++it ) {
-               if (ben -> producer == it -> owner ) {
-                  //эмитирую из резерва на хоста
-                  by_contract_and_symbol.modify(fund, _self, [&](auto &f) {
-                     f.quantity -= amount;
-                  });
-
-                  action(
-                     permission_level{ _self, "active"_n },
-                     core_account, "emitquote"_n,
-                     std::make_tuple( host, amount, token_contract) 
-                  ).send();
-
-                  INLINE_ACTION_SENDER(eosio::token, transfer) (
-                   token_contract, { {saving_account, active_permission} },
-                   { saving_account, core_account, amount, memo }
-                 );
-                  
-               }
-            }
-         }
-
-      } else {
-        eosio::check(false, "Only system token can be used for now");
-        //  by_contract_and_symbol.modify(fund, _self, [&](auto &f) {
-        //     f.quantity -= amount;
-        //  });
-
-        //  INLINE_ACTION_SENDER(eosio::token, transfer) (
-        //   token_contract, { {saving_account, active_permission} },
-        //   { saving_account, core_account, amount, memo }
-        // );
-        // action(
-               //    permission_level{ _self, "active"_n },
-               //    core_account, "emitquote"_n,
-               //    std::make_tuple( host, amount, token_contract) 
-               // ).send();
-               
-      }
-
-
-   };
-
-   void system_contract::inprodincome(const name contract, const asset income) {
-      require_auth(core_account);
-      // check(income.symbol == system_contract::get_core_symbol(), "Only core symbol can be used for compensation");
-      // check(contract == "eosio.token"_n, "Wrong token contract");
-
-      if (contract ==  "eosio.token"_n && income.symbol == system_contract::get_core_symbol()){
-         //FOR NATIVE
-         
-         uint64_t to_producers = uint64_t((double)income.amount * (double)_commstate.to_producers_percent / 100); 
-         uint64_t to_saving   = uint64_t((double)income.amount * (double)_commstate.to_saving_percent / 100); 
-
-         uint64_t to_per_block_pay = uint64_t((double)to_producers * (double)_commstate.per_block_pay_percent / 100);
-         uint64_t to_per_vote_pay  = uint64_t((double)to_producers * (double)_commstate.per_vote_pay_percent / 100);
-         
-
-         funds_index funds(_self, _self.value);
-         auto by_contract_and_symbol = funds.template get_index<"codeandsmbl"_n>();
-         auto by_contract_and_symbol_ids = combine_ids(contract.value, income.symbol.code().raw());    
-         auto fund = by_contract_and_symbol.find(by_contract_and_symbol_ids);
-       
-         if (fund == by_contract_and_symbol.end()) {
-             funds.emplace(_self, [&](auto &f){
-               f.id = funds.available_primary_key();
-               f.quantity = asset(to_saving, core_symbol());
-               f.contract = contract;
-             });
-         } else {
-             by_contract_and_symbol.modify(fund, _self, [&](auto &f){
-               f.quantity += asset(to_saving, core_symbol());
-             });
-         }
-         
-        INLINE_ACTION_SENDER(eosio::token, transfer)(
-          contract, { {core_account, active_permission} },
-          { core_account, bpay_account, asset(to_per_block_pay, core_symbol()), "fund per-block bucket" }
-        );
-
-        INLINE_ACTION_SENDER(eosio::token, transfer)(
-          contract, { {core_account, active_permission} },
-          { core_account, vpay_account, asset(to_per_vote_pay, core_symbol()), "fund per-vote bucket" }
-        );
-
-        INLINE_ACTION_SENDER(eosio::token, transfer)(
-          contract, { {core_account, active_permission} },
-          { core_account, saving_account, asset(to_saving, core_symbol()), "to saving global fund" }
-        );
-
-         _gstate.pervote_bucket          += to_per_vote_pay;
-         _gstate.perblock_bucket         += to_per_block_pay;
-         _gstate.last_pervote_bucket_fill = current_time_point();
-
-      } else { //NON_NATIVE
-
-        auto to_saving = income; // 100% to saving
-         
-        funds_index funds(_self, _self.value);
-        auto by_contract_and_symbol = funds.template get_index<"codeandsmbl"_n>();
-        auto by_contract_and_symbol_ids = combine_ids(contract.value, to_saving.symbol.code().raw());    
-        auto fund = by_contract_and_symbol.find(by_contract_and_symbol_ids);
-    
-        if (fund == by_contract_and_symbol.end()){
-          funds.emplace(_self, [&](auto &f){
-            f.id = funds.available_primary_key();
-            f.quantity = to_saving;
-            f.contract = contract;
-          });
-        } else {
-          by_contract_and_symbol.modify(fund, _self, [&](auto &f){
-            f.quantity += to_saving;
-          });
-        }
-
-         INLINE_ACTION_SENDER(eosio::token, transfer) (
-          contract, { {core_account, active_permission} },
-          { core_account, saving_account, to_saving, "to saving global fund" }
-        );
-      }
-      
-
-   }
-
-
 
 } /// eosio.system
-
-
-EOSIO_DISPATCH( eosiosystem::system_contract,
-     // native.hpp (newaccount definition is actually in eosio.system.cpp)
-     (newaccount)(updateauth)(deleteauth)(linkauth)(unlinkauth)(canceldelay)(onerror)(setabi)
-     // eosio.system.cpp
-     (emit)(init)(seteparams)(setram)(setramrate)(setparams)(setpriv)(setalimits)(setacctram)(setacctnet)(setacctcpu)
-     (rmvproducer)(updtrevision)(bidname)(bidrefund)
-     // rex.cpp
-     (deposit)(withdraw)(buyrex)(unstaketorex)(sellrex)(cnclrexorder)(rentcpu)(rentnet)(fundcpuloan)(fundnetloan)
-     (defcpuloan)(defnetloan)(updaterex)(consolidate)(mvtosavings)(mvfrsavings)(setrex)(rexexec)(closerex)
-     // delegate_bandwidth.cpp
-     (buyrambytes)(buyram)(sellram)(delegatebw)(undelegatebw)(refund)
-     // voting.cpp
-     (regproducer)(unregprod)(voteproducer)(regproxy)
-     // producer_pay.cpp
-     (onblock)(claimrewards)(update)(pushupdate)
-     (checkstatus)
-     (activate)(compensate)(inprodincome)
-     (putreserve)(takereserve)
-     (addben)(delben)
-)

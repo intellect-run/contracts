@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/eosio.wrap.dir/src/eosio.wrap.cpp.obj"
+  "CMakeFiles/eosio.wrap.dir/src/eosio.wrap.cpp.obj.d"
   "eosio.wrap.pdb"
   "eosio.wrap.wasm"
 )

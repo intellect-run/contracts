@@ -8,7 +8,6 @@
 #include <boost/test/included/unit_test.hpp>
 #include <fc/log/logger.hpp>
 #include <eosio/chain/exceptions.hpp>
-#include <Runtime/Runtime.h>
 
 #include "eosio.system_tester.hpp"
 
@@ -31,7 +30,12 @@ boost::unit_test::test_suite* init_unit_test_suite(int argc, char* argv[]) {
          break;
       }
    }
-   if(!is_verbose) fc::logger::get(DEFAULT_LOGGER).set_log_level(fc::log_level::off);
+   
+   if(is_verbose) {
+      fc::logger::get(DEFAULT_LOGGER).set_log_level(fc::log_level::debug);
+   } else {
+      fc::logger::get(DEFAULT_LOGGER).set_log_level(fc::log_level::off);
+   }
 
    // Register fc::exception translator
    boost::unit_test::unit_test_monitor.template register_exception_translator<fc::exception>(&translate_fc_exception);

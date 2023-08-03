@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/eosio.msig.dir/src/eosio.msig.cpp.obj"
+  "CMakeFiles/eosio.msig.dir/src/eosio.msig.cpp.obj.d"
   "eosio.msig.pdb"
   "eosio.msig.wasm"
 )

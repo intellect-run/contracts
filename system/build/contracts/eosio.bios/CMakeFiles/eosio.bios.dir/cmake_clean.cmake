@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/eosio.bios.dir/src/eosio.bios.cpp.obj"
+  "CMakeFiles/eosio.bios.dir/src/eosio.bios.cpp.obj.d"
   "eosio.bios.pdb"
   "eosio.bios.wasm"
 )

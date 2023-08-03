@@ -1,10 +1,11 @@
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/asset.hpp>
-#include <eosiolib/system.hpp>
-#include <eosiolib/time.hpp>
-#include <eosiolib/multi_index.hpp>
-#include <eosiolib/contract.hpp>
-#include <eosiolib/crypto.hpp>
+#include <eosio/eosio.hpp>
+#include <eosio/asset.hpp>
+#include <eosio/system.hpp>
+#include <eosio/time.hpp>
+#include <eosio/multi_index.hpp>
+#include <eosio/contract.hpp>
+#include <eosio/crypto.hpp>
+
 #include "exchange_state.hpp"
 
 /**
@@ -25,24 +26,20 @@
 /**
  * @brief      Начните ознакомление здесь.
 */
-class [[eosio::contract]] reg : public eosio::contract {
+class [[eosio::contract]] registrator : public eosio::contract {
 
 public:
-    reg( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
+    registrator( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
     {}
 
     // [[eosio::action]] void addguest(eosio::name username, eosio::name registrator, eosio::public_key public_key, eosio::asset d_cpu, eosio::asset d_net);
-    [[eosio::action]] void update();
+    [[eosio::action]] void update(eosio::name username, std::string nickname, std::string meta);
     static void add_balance(eosio::name payer, eosio::name username, eosio::asset quantity, uint64_t code);
 
-    [[eosio::action]] void payforguest(eosio::name payer, eosio::name username, eosio::asset quantity);
+    [[eosio::action]] void pay(eosio::name payer, eosio::name username, eosio::asset quantity);
     
-    [[eosio::action]] void regaccount(eosio::name payer, eosio::name referer, eosio::name newaccount, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, bool is_guest, bool set_referer);
+    [[eosio::action]] void regaccount(eosio::name registrator, eosio::name referer, eosio::name username, std::string nickname, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string fullname, std::string birthdate, std::string country, std::string city, std::string address, std::string phone, std::string meta);
     [[eosio::action]] void changekey(eosio::name username, eosio::public_key public_key);
-
-    [[eosio::action]] void setcodex(eosio::name lang, uint64_t version, std::string data);
-    [[eosio::action]] void signcodex(eosio::name username, eosio::name lang, uint64_t version);
-
 
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
     
@@ -59,7 +56,7 @@ public:
     
     static const uint64_t _GUEST_EXPIRATION = 1209600;              /*!< продолжительность гостевого периода, после которого, аккаунт может быть отозван */
     // static const uint64_t _GUEST_EXPIRATION = 10; //10 secs
-    static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("MAVRO"),4); /*!< системный токен */
+    static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("SYS"),4); /*!< системный токен */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"), 4); /*!< идентификационный токен рынка оперативной памяти */
 
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
@@ -72,6 +69,11 @@ public:
     * @}
     */
     
+
+    eosio::checksum256 hashit(std::string str) const
+    {
+        return eosio::sha256(const_cast<char*>(str.c_str()), str.size());
+    }
 
 
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
@@ -116,34 +118,46 @@ public:
     /**
      * @brief      Таблица хранения объектов гостей
      * @ingroup public_tables
-     * @table guests
+     * @table accounts
      * @contract _me
      * @scope _me
      * @details Хранит аккаунты, зарегистрированные в системе в качестве гостей, чьи права владельца аккаунта принадлежат регистратору _me. 
     */
-    struct [[eosio::table]] guests {
-        eosio::name username;             /*!< имя аккаунта гостя */
-        
-        eosio::name registrator;          /*!< имя аккаунта регистратора гостя */
-        eosio::public_key public_key;     /*!< публичный ключ гостя, который использовался в качестве активного ключа и на который будут переданы права владельца после оплаты */
-        eosio::asset cpu;                 /*!< количество системного токена, закладываемого в CPU */
-        eosio::asset net;                 /*!< количество системного токена, закладываемого в NET */
-        bool set_referer = false;         /*!< флаг автоматической регистрации партёром (не используется) */
-        eosio::time_point_sec expiration; /*!< дата истечения пользования аккаунтом */
 
+
+    struct [[eosio::table]] accounts {
+        eosio::name username;             /*!< имя аккаунта */
+        eosio::name status;               /*!< статус аккаунта */
+        eosio::name registrator;          /*!< имя аккаунта регистратора */
+        eosio::name referer; 
+
+        std::string nickname; 
+        eosio::checksum256 nickhash; 
+        
+        eosio::time_point_sec registered_at;
         eosio::asset to_pay;              /*!< количество токенов к оплате */
         
-        uint64_t primary_key() const {return username.value;}     /*!< return username - primary_key */
-        uint64_t byexpr() const {return expiration.sec_since_epoch();} /*!< return expiration - secondary_key 2 */
-        uint64_t byreg() const {return registrator.value;}            /*!< return registrator - secondary_key 3 */
+        std::string fullname;
+        std::string birthdate;
+        std::string country;
+        std::string city;
+        std::string address;
+        std::string phone;
 
-        EOSLIB_SERIALIZE(guests, (username)(registrator)(public_key)(cpu)(net)(set_referer)(expiration)(to_pay))
+        std::string meta;
+
+        uint64_t primary_key() const {return username.value;}     /*!< return username - primary_key */
+        
+        uint64_t byreg() const {return registrator.value;}            /*!< return registrator - secondary_key 3 */
+        uint64_t bystatus() const {return status.value;}            /*!< return registrator - secondary_key 3 */
+
+        EOSLIB_SERIALIZE(accounts, (username)(status)(registrator)(referer)(nickname)(nickhash)(registered_at)(to_pay)(fullname)(birthdate)(country)(city)(address)(phone)(meta))
     };
 
-    typedef eosio::multi_index<"guests"_n, guests,
-       eosio::indexed_by< "byexpr"_n, eosio::const_mem_fun<guests, uint64_t, &guests::byexpr>>,
-       eosio::indexed_by< "byreg"_n, eosio::const_mem_fun<guests, uint64_t, &guests::byreg>>
-    > guests_index;
+    typedef eosio::multi_index<"accounts"_n, accounts,
+       eosio::indexed_by< "bystatus"_n, eosio::const_mem_fun<accounts, uint64_t, &accounts::bystatus>>,
+       eosio::indexed_by< "byreg"_n, eosio::const_mem_fun<accounts, uint64_t, &accounts::byreg>>
+    > accounts_index;
 
 
 

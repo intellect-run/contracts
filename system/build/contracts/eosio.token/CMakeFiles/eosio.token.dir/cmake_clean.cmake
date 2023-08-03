@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/eosio.token.dir/src/eosio.token.cpp.obj"
+  "CMakeFiles/eosio.token.dir/src/eosio.token.cpp.obj.d"
   "eosio.token.pdb"
   "eosio.token.wasm"
 )

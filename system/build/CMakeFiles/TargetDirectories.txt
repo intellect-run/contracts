@@ -1,4 +1,3 @@
-/Users/darksun/dacom-code/MMM/contracts/system/build/CMakeFiles/rebuild_cache.dir
-/Users/darksun/dacom-code/MMM/contracts/system/build/CMakeFiles/edit_cache.dir
-/Users/darksun/dacom-code/MMM/contracts/system/build/CMakeFiles/contracts_unit_tests.dir
-/Users/darksun/dacom-code/MMM/contracts/system/build/CMakeFiles/contracts_project.dir
+/project/system/build/CMakeFiles/contracts_project.dir
+/project/system/build/CMakeFiles/edit_cache.dir
+/project/system/build/CMakeFiles/rebuild_cache.dir
