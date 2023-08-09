@@ -8,6 +8,7 @@
 #include <eosio/singleton.hpp>
 
 static constexpr eosio::name _me = "soviet"_n;             /*!< собственное имя аккаунта контракта */
+static constexpr eosio::name _registrator = "registrator"_n;  /*!< имя аккаунта контракта регистратора */
   
 
 namespace eosio {
@@ -19,6 +20,8 @@ public:
   [[eosio::action]] void addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights);
   [[eosio::action]] void rmadmin(eosio::name chairman, eosio::name username);
   [[eosio::action]] void setadmrights(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights);
+
+  [[eosio::action]] void regaccount(eosio::name username);
 
 
   
@@ -38,6 +41,7 @@ public:
   using exec_action = eosio::action_wrapper<"exec"_n, &soviet::exec>;
   using invalidate_action =
       eosio::action_wrapper<"invalidate"_n, &soviet::invalidate>;
+  using regaccount_action = eosio::action_wrapper<"regaccount"_n, &soviet::regaccount>;
 
   
   struct [[eosio::table, eosio::contract("soviet")]] proposal {
@@ -77,6 +81,39 @@ public:
 
   typedef eosio::multi_index< "admins"_n, admins > admin_index;
 
+
+
+  struct [[eosio::table, eosio::contract("decisions")]] decisions {
+    uint64_t id;
+    eosio::name type; // openproposal | regaccount | exchange | contribute | withdraw
+    uint64_t secondary_id;
+
+    std::vector<eosio::name> votes_for;
+    std::vector<eosio::name> votes_agains;
+    std::vector<eosio::name> votes_abstained;
+
+    bool approved = false;   //сигнальный флаг, что решение советом принято
+    bool validated = false;   //сигнальный флаг, что администратор подтверждает валидность
+    bool authorized = false; //получена авторизация председателя после голосования и валидации до исполнения
+    bool executed = false;   //исполнять будем отдельным действием для торжественности момента
+
+    uint64_t primary_key() const { return id; }
+      
+  };
+
+  typedef eosio::multi_index< "decisions"_n, decisions > decision_index;
+
+
+
+  struct [[eosio::table, eosio::contract("soviet")]] newusers {
+    uint64_t id;
+    eosio::name username;
+    
+    uint64_t primary_key() const { return id; }
+      
+  };
+
+  typedef eosio::multi_index< "newusers"_n, newusers > newusers_index;
 
 
 };

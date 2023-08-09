@@ -6,15 +6,14 @@
 #include <eosio/contract.hpp>
 #include <eosio/crypto.hpp>
 
-static constexpr eosio::name _me = "tokenmarket"_n;
+static constexpr eosio::name _me = "marketplace"_n;
 
-// #define isDebug = TRUE
-class [[eosio::contract]] tokenmarket : public eosio::contract {
+class [[eosio::contract]] marketplace : public eosio::contract {
 
 
 public:
 
-    tokenmarket( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
+    marketplace( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
     {}
 
     [[eosio::action]] void update();

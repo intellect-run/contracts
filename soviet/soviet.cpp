@@ -36,6 +36,26 @@ void soviet::invalidate() {
 }
 
 
+void soviet::regaccount(eosio::name username) { 
+  require_auth(_registrator);
+
+  newusers_index newusers(_me, _me.value);
+  auto newuser = newusers.find(username.value);
+
+  newusers.emplace(_me, [&](auto &n){
+    n.id = username.value;
+    n.username = username;
+  });
+
+  decision_index decisions(_me, _me.value);
+  decisions.emplace(_me, [&](auto &d){
+    d.id = dicisions.available_primary_key();
+    d.type = "regaccount"_n;
+    d.secondary_id = username.value;
+  });
+}
+
+
 void soviet::createboard(eosio::name chairman, std::vector<eosio::name> members, uint64_t expired_after_days){
   require_auth(chairman);
 
@@ -117,7 +137,7 @@ extern "C" {
       switch (action) {
 
         EOSIO_DISPATCH_HELPER(
-            soviet, (propose)(approve)(unapprove)(cancel)(exec)(invalidate)(createboard))
+            soviet, (propose)(approve)(unapprove)(cancel)(exec)(invalidate)(createboard)(regaccount))
       }
 
     } else {

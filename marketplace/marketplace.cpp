@@ -1,15 +1,15 @@
-#include "tokenmarket.hpp"
+#include "marketplace.hpp"
 #include <eosio/transaction.hpp>
 
 using namespace eosio;
 
 
-void tokenmarket::addbalance(eosio::name contract, eosio::name username, eosio::asset quantity, std::string memo) {
+void marketplace::addbalance(eosio::name contract, eosio::name username, eosio::asset quantity, std::string memo) {
    //TODO addbalance
    //TODO subbalance
 }
 
-[[eosio::action]] void tokenmarket::update() {
+[[eosio::action]] void marketplace::update() {
 
 }
 
@@ -20,7 +20,7 @@ extern "C" {
    void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
         if (code == _me.value) {
           if (action == "update"_n.value){
-            execute_action(name(receiver), name(code), &tokenmarket::update);
+            execute_action(name(receiver), name(code), &marketplace::update);
           }
         } else {
           if (action == "transfer"_n.value){
@@ -35,7 +35,7 @@ extern "C" {
             auto op = eosio::unpack_action_data<transfer>();
 
             if (op.to == _me){
-              tokenmarket::addbalance(name(code), op.from, op.quantity, op.memo);
+              marketplace::addbalance(name(code), op.from, op.quantity, op.memo);
             }
           }
         }
