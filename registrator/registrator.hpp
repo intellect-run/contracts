@@ -39,6 +39,8 @@ public:
     [[eosio::action]] void pay(eosio::name payer, eosio::name username, eosio::asset quantity);
     
     [[eosio::action]] void regaccount(eosio::name registrator, eosio::name referer, eosio::name username, std::string nickname, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string fullname, std::string birthdate, std::string country, std::string city, std::string address, std::string phone, std::string meta);
+    [[eosio::action]] void confirmreg(eosio::name username);
+    
     [[eosio::action]] void changekey(eosio::name username, eosio::public_key public_key);
 
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
@@ -51,7 +53,7 @@ public:
     
     static constexpr eosio::name _me = "registrator"_n;             /*!< собственное имя аккаунта контракта */
     static constexpr eosio::name _partners = "part"_n;              /*!< имя аккаунта контракта хранилища партнёров */
-    static constexpr eosio::name _core = "unicore"_n;               /*!< имя аккаунта цифровой экономики ядра */
+    static constexpr eosio::name _soviet = "soviet"_n;               /*!< имя аккаунта цифровой экономики ядра */
     static constexpr eosio::name _system_account = "eosio"_n;       /*!< имя аккаунта системного контракта */
     
     static const uint64_t _GUEST_EXPIRATION = 1209600;              /*!< продолжительность гостевого периода, после которого, аккаунт может быть отозван */

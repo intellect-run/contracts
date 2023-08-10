@@ -204,8 +204,8 @@ using namespace eosio;
    * @details Метод оплаты вызывается гостем после пополнения своего баланса как регистратора. 
    * Оплата списывается с баланса регистратора, а права владельца заменяются на публичный ключ, указанный в объекте гостя.
    */
-  [[eosio::action]] void registrator::pay(eosio::name payer, eosio::name username, eosio::asset quantity) {
-    require_auth(payer);
+  [[eosio::action]] void registrator::confirmreg(eosio::name username) {
+    require_auth(_soviet);
 
     accounts_index accounts(_me, _me.value);
     auto account = accounts.find(username.value);
@@ -216,12 +216,6 @@ using namespace eosio;
 
     //CHECK and mofidy balance
     eosio::check(balance -> quantity >= account -> to_pay, "Not enought balance for pay");
-    eosio::asset remain = quantity - account -> to_pay;
-      
-    if (remain.amount > 0) {
-      //TODO spread to targer cooperative funds
-      registrator::add_balance(payer, "eosio.saving"_n, remain, "eosio.token"_n.value);
-    }
     
     if (balance -> quantity == quantity) {
 

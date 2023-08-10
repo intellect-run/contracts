@@ -12,7 +12,6 @@ class [[eosio::contract]] marketplace : public eosio::contract {
 
 
 public:
-
     marketplace( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
     {}
 
@@ -21,7 +20,6 @@ public:
     
     static void addbalance(eosio::name contract, eosio::name username, eosio::asset quantity, std::string memo);
         
-    
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
         return (uint128_t{x} << 64) | y;
     };
