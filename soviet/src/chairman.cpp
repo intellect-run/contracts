@@ -39,22 +39,26 @@ void soviet::authorize(eosio::name chairman, uint64_t decision_id) {
 
 
 void soviet::createboard(eosio::name chairman, std::vector<eosio::name> members, uint64_t expired_after_days){
-  require_auth(chairman);
+  require_auth(_chairman); 
 
   board_index boards(_me, _me.value);
 
-  auto begin = boards.begin();
-  eosio::check(begin == boards.end(), "Совет еще не создан");
+  auto board = boards.find(0);
+  eosio::check(board == boards.end(), "Совет уже создан");
 
-  //TODO check for chairman setted in members
+  // Проверка на наличие председателя в списке членов совета
+  eosio::check(std::find(members.begin(), members.end(), chairman) != members.end(), "Председатель должен быть в списке членов совета");
 
   boards.emplace(chairman, [&](auto &b){
     b.id = boards.available_primary_key();
     b.members = members;
+    b.chairman = chairman;
     b.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     b.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + expired_after_days * 86400);
   });
+
 }
+
 
 //TODO modify members, but cannot delete chairman
 
@@ -70,7 +74,7 @@ uint64_t soviet::get_members_count(uint64_t board_id) {
 };
 
 
-uint64_t get_consensus_percent(uint64_t board_id) {
+uint64_t soviet::get_consensus_percent(uint64_t board_id) {
   board_index boards(_me, _me.value);
 
   auto board = boards.find(board_id);

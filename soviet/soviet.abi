@@ -36,9 +36,64 @@
             ]
         },
         {
-            "name": "approve",
+            "name": "authorize",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "autochair",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "action_type",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "automate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "action_type",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "automator",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "action_type",
+                    "type": "name"
+                }
+            ]
         },
         {
             "name": "boards",
@@ -57,6 +112,10 @@
                     "type": "time_point_sec"
                 },
                 {
+                    "name": "consensus",
+                    "type": "uint64"
+                },
+                {
                     "name": "chairman",
                     "type": "name"
                 },
@@ -67,9 +126,18 @@
             ]
         },
         {
-            "name": "cancel",
+            "name": "cancelvote",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
         },
         {
             "name": "createboard",
@@ -90,17 +158,7 @@
             ]
         },
         {
-            "name": "exec",
-            "base": "",
-            "fields": []
-        },
-        {
-            "name": "invalidate",
-            "base": "",
-            "fields": []
-        },
-        {
-            "name": "proposal",
+            "name": "decisions",
             "base": "",
             "fields": [
                 {
@@ -108,19 +166,94 @@
                     "type": "uint64"
                 },
                 {
+                    "name": "board_id",
+                    "type": "uint64"
+                },
+                {
                     "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "proposer",
+                    "name": "secondary_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "votes_for",
+                    "type": "name[]"
+                },
+                {
+                    "name": "votes_against",
+                    "type": "name[]"
+                },
+                {
+                    "name": "approved",
+                    "type": "bool"
+                },
+                {
+                    "name": "validated",
+                    "type": "bool"
+                },
+                {
+                    "name": "authorized",
+                    "type": "bool"
+                },
+                {
+                    "name": "executed",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "disautochair",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "action_type",
                     "type": "name"
                 }
             ]
         },
         {
-            "name": "propose",
+            "name": "disautomate",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "automation_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "exec",
+            "base": "",
+            "fields": [
+                {
+                    "name": "executer",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "regaccount",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                }
+            ]
         },
         {
             "name": "rmadmin",
@@ -155,9 +288,46 @@
             ]
         },
         {
-            "name": "unapprove",
+            "name": "validate",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "voteagainst",
+            "base": "",
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "votefor",
+            "base": "",
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
         }
     ],
     "actions": [
@@ -167,13 +337,23 @@
             "ricardian_contract": ""
         },
         {
-            "name": "approve",
-            "type": "approve",
+            "name": "authorize",
+            "type": "authorize",
             "ricardian_contract": ""
         },
         {
-            "name": "cancel",
-            "type": "cancel",
+            "name": "autochair",
+            "type": "autochair",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "automate",
+            "type": "automate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "cancelvote",
+            "type": "cancelvote",
             "ricardian_contract": ""
         },
         {
@@ -182,18 +362,23 @@
             "ricardian_contract": ""
         },
         {
+            "name": "disautochair",
+            "type": "disautochair",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "disautomate",
+            "type": "disautomate",
+            "ricardian_contract": ""
+        },
+        {
             "name": "exec",
             "type": "exec",
             "ricardian_contract": ""
         },
         {
-            "name": "invalidate",
-            "type": "invalidate",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "propose",
-            "type": "propose",
+            "name": "regaccount",
+            "type": "regaccount",
             "ricardian_contract": ""
         },
         {
@@ -207,8 +392,18 @@
             "ricardian_contract": ""
         },
         {
-            "name": "unapprove",
-            "type": "unapprove",
+            "name": "validate",
+            "type": "validate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "voteagainst",
+            "type": "voteagainst",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "votefor",
+            "type": "votefor",
             "ricardian_contract": ""
         }
     ],
@@ -221,6 +416,20 @@
             "key_types": []
         },
         {
+            "name": "autochair",
+            "type": "autochair",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "automator",
+            "type": "automator",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
             "name": "boards",
             "type": "boards",
             "index_type": "i64",
@@ -228,8 +437,8 @@
             "key_types": []
         },
         {
-            "name": "proposal",
-            "type": "proposal",
+            "name": "decisions",
+            "type": "decisions",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

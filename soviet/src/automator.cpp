@@ -120,7 +120,7 @@ void soviet::autochair(eosio::name chairman, eosio::name action_type) {
   is_valid_action(action_type);
 
   autochair_index autochair(_me, _me.value);
-  auto ac = autochair.find(action_type);
+  auto ac = autochair.find(action_type.value);
   eosio::check(ac == autochair.end(), "Действие уже автоматизировано");
 
   autochair.emplace(chairman, [&](auto &a){
@@ -133,7 +133,7 @@ void soviet::disautochair(eosio::name chairman, eosio::name action_type) {
   soviet::is_valid_chairman(chairman);
 
   autochair_index autochair(_me, _me.value);
-  auto ac = autochair.find(action_type);
+  auto ac = autochair.find(action_type.value);
   eosio::check(ac != autochair.end(), "Действие не найдено");
 
   autochair.erase(ac);

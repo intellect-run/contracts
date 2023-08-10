@@ -10,6 +10,7 @@
 static constexpr eosio::name _me = "soviet"_n;             /*!< собственное имя аккаунта контракта */
 static constexpr eosio::name _registrator = "registrator"_n;  /*!< имя аккаунта контракта регистратора */
 static constexpr eosio::name _REGACCOUNT = "regaccount"_n;  /*!< код имени действия на регистрацию */
+static constexpr eosio::name _chairman = "chairman"_n;  /*!< имя аккаунта председателя */
 
 
 namespace eosio {
