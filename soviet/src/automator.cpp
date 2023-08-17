@@ -38,22 +38,22 @@ void soviet::check_and_sign_by_members(eosio::name action_type, uint64_t decisio
   eosio::check(board != boards.end(), "Совет не найден");
 
   automator_index automator(_me, _me.value);
-  auto by_action_index = automator.template get_index<"byaction"_n>();
+  auto by_member_action_index = automator.template get_index<"bymembaction"_n>();
 
   decision_index decisions(_me, _me.value);
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(), "Решение не найдено");
 
   for (const auto& member : board->members) {
-    auto autom = by_action_index.find(action_type.value);
-    if (autom != by_action_index.end() && autom->member == member) {
-      
+    auto idx = soviet::combine_ids(member.value, action_type.value);
+    
+    auto autom = by_member_action_index.find(idx);
+    if (autom != by_member_action_index.end()) {
       // Проверяем, голосовал ли участник ранее
       if (std::find(decision->votes_for.begin(), decision->votes_for.end(), member) != decision->votes_for.end() ||
           std::find(decision->votes_against.begin(), decision->votes_against.end(), member) != decision->votes_against.end()) {
         continue; // Если голосовал, пропускаем этого участника
       }
-
       action(
         permission_level{member, "active"_n},
         _me,
@@ -62,7 +62,6 @@ void soviet::check_and_sign_by_members(eosio::name action_type, uint64_t decisio
       ).send();
     }
   }
-
 }
 
 
@@ -85,11 +84,13 @@ void soviet::automate(eosio::name member, eosio::name action_type) {
   eosio::check(board != boards.end(), "Совет не найден");
 
   automator_index automator(_me, _me.value);
-  auto by_action_index = automator.template get_index<"byaction"_n>();
+  auto by_member_action_index = automator.template get_index<"bymembaction"_n>();
+
+  auto idx = soviet::combine_ids(member.value, action_type.value);
             
-  auto autom = by_action_index.find(action_type.value);
+  auto autom = by_member_action_index.find(idx);
   
-  eosio::check(autom == by_action_index.end(), "Автоматизация по данному действию уже установлена");
+  eosio::check(autom == by_member_action_index.end(), "Автоматизация по данному действию уже установлена");
 
   automator.emplace(member, [&](auto &a){
     a.id = automator.available_primary_key();

@@ -18,6 +18,10 @@
                 {
                     "name": "rights",
                     "type": "name[]"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
@@ -32,6 +36,10 @@
                 {
                     "name": "rights",
                     "type": "name[]"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
@@ -135,6 +143,16 @@
                 },
                 {
                     "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "change",
+            "base": "",
+            "fields": [
+                {
+                    "name": "order_id",
                     "type": "uint64"
                 }
             ]
@@ -354,6 +372,11 @@
         {
             "name": "cancelvote",
             "type": "cancelvote",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "change",
+            "type": "change",
             "ricardian_contract": ""
         },
         {

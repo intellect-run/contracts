@@ -36,10 +36,9 @@ public:
     [[eosio::action]] void update(eosio::name username, std::string nickname, std::string meta);
     static void add_balance(eosio::name payer, eosio::name username, eosio::asset quantity, uint64_t code);
 
-    [[eosio::action]] void pay(eosio::name payer, eosio::name username, eosio::asset quantity);
+    [[eosio::action]] void confirmreg(eosio::name username);
     
     [[eosio::action]] void regaccount(eosio::name registrator, eosio::name referer, eosio::name username, std::string nickname, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string fullname, std::string birthdate, std::string country, std::string city, std::string address, std::string phone, std::string meta);
-    [[eosio::action]] void confirmreg(eosio::name username);
     
     [[eosio::action]] void changekey(eosio::name username, eosio::public_key public_key);
 

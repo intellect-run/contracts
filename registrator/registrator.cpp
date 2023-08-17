@@ -86,6 +86,13 @@ using namespace eosio;
 
     } 
   
+    action(
+        permission_level{ _me, "active"_n},
+        _soviet,
+        "regaccount"_n,
+        std::make_tuple(username)
+    ).send();
+
 
     accounts.emplace(registrator, [&](auto &acc){
       acc.username = username;
@@ -93,7 +100,10 @@ using namespace eosio;
       acc.registrator = registrator;
       acc.referer = referer;
       acc.nickname = nickname;
-      acc.nickhash = registrator::hashit(nickname);
+
+      if (nickname != "")
+        acc.nickhash = registrator::hashit(nickname);
+
       acc.registered_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
       acc.to_pay = registrator == username ? asset(_MIN_AMOUNT, _SYMBOL) : total_pay + eosio::asset(_MIN_AMOUNT, _SYMBOL);
       acc.fullname = fullname;
@@ -146,7 +156,7 @@ using namespace eosio;
    * и заменяет им активные права доступа. Отозванные аккаунты помещаются в таблицу reserved для дальнейшего использования или полного удаления.
    */
   [[eosio::action]] void registrator::changekey(eosio::name username, eosio::public_key public_key){
-    require_auth(_me);
+    require_auth(_soviet);
 
     accounts_index accounts(_me, _me.value);
 
@@ -212,27 +222,25 @@ using namespace eosio;
     eosio::check(account != accounts.end(), "account is not found");
 
     balances_index balances(_me, _me.value);
-    auto balance = balances.find(payer.value);
+    auto balance = balances.find(_me.value);
 
+    
     //CHECK and mofidy balance
     eosio::check(balance -> quantity >= account -> to_pay, "Not enought balance for pay");
     
-    if (balance -> quantity == quantity) {
+    if (balance -> quantity == account -> to_pay) {
 
       balances.erase(balance);
 
     } else {
       
-      balances.modify(balance, payer, [&](auto &b){
+      balances.modify(balance, _soviet, [&](auto &b){
         b.quantity -= account -> to_pay;
       });
 
     }
  
-    eosio::check((account->to_pay).amount <= quantity.amount, "Wrong amount");
-    eosio::check((account->to_pay).symbol == quantity.symbol, "Wrong symbol");
-       
-    accounts.modify(account, payer, [&](auto &g){
+    accounts.modify(account, _soviet, [&](auto &g){
       g.status = "member"_n;
     });
    
@@ -251,8 +259,8 @@ extern "C" {
         if (code == registrator::_me.value) {
           if (action == "update"_n.value){
             execute_action(name(receiver), name(code), &registrator::update);
-          } else if (action == "pay"_n.value){
-            execute_action(name(receiver), name(code), &registrator::pay);
+          } else if (action == "confirmreg"_n.value){
+            execute_action(name(receiver), name(code), &registrator::confirmreg);
           } else if (action == "regaccount"_n.value){
             execute_action(name(receiver), name(code), &registrator::regaccount);
           } else if (action == "changekey"_n.value){

@@ -1,13 +1,15 @@
-#include "soviet.hpp"
 #include <eosio/action.hpp>
 #include <eosio/crypto.hpp>
 #include <eosio/permission.hpp>
+
+#include "soviet.hpp"
 
 #include "src/admin.cpp"
 #include "src/chairman.cpp"
 #include "src/regaccount.cpp"
 #include "src/voting.cpp"
 #include "src/automator.cpp"
+#include "src/marketplace.cpp"
 
 using namespace eosio;
 
@@ -23,6 +25,8 @@ void soviet::exec(eosio::name executer, uint64_t decision_id) {
 
   if (decision -> type == _REGACCOUNT) {
     soviet::regaccount_effect(executer, decision->id, name(decision->secondary_id));
+  } else if (decision -> type == _CHANGE){
+    soviet::change_effect(executer, decision->id, name(decision->secondary_id));
   }
 }
 
@@ -44,13 +48,15 @@ extern "C" {
             //ADMIN
             (addadmin)(rmadmin)(setadmrights)(validate)
             //CHAIRMAN
-            (automate)(disautomate)(authorize)(createboard)(autochair)(disautochair)
+            (authorize)(createboard)
             //VOTING
             (votefor)(voteagainst)(cancelvote)
             //REGACCOUNT
             (regaccount)
+            //MARKETPLACE
+            (change)
             //AUTOMATOR
-
+            (automate)(disautomate)(autochair)(disautochair)
             )
       }
 

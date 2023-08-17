@@ -120,20 +120,12 @@
             ]
         },
         {
-            "name": "pay",
+            "name": "confirmreg",
             "base": "",
             "fields": [
                 {
-                    "name": "payer",
-                    "type": "name"
-                },
-                {
                     "name": "username",
                     "type": "name"
-                },
-                {
-                    "name": "quantity",
-                    "type": "asset"
                 }
             ]
         },
@@ -265,8 +257,8 @@
             "ricardian_contract": ""
         },
         {
-            "name": "pay",
-            "type": "pay",
+            "name": "confirmreg",
+            "type": "confirmreg",
             "ricardian_contract": ""
         },
         {

@@ -1,7 +1,7 @@
 using namespace eosio;
 
 
-void soviet::addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights) {
+void soviet::addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta) {
   require_auth(chairman);
 
   admin_index admins(_me, _me.value);
@@ -11,10 +11,14 @@ void soviet::addadmin(eosio::name chairman, eosio::name username, std::vector<eo
   eosio::check(board != boards.end(), "Совет еще не создан");
   eosio::check(board -> chairman == chairman, "Вы не председатель, чтобы добавлять админов!");
 
-  admins.emplace(chairman, [&](auto &a){
-    a.username = username;
-    a.rights = rights;
-  });
+  auto admin = admins.find(username.value);
+
+  if (admin == admins.end())
+    admins.emplace(chairman, [&](auto &a){
+      a.username = username;
+      a.rights = rights;
+      a.meta = meta;
+    });
 
 };
 
