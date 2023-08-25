@@ -75,8 +75,8 @@ void soviet::validate(eosio::name username, uint64_t decision_id) {
     d.validated = true;
   });
   
-  soviet::check_and_sign_by_members(decision -> type, decision_id);
+  // soviet::check_and_sign_by_members(decision -> type, decision_id);
 
-  soviet::check_and_sign_by_chairman(decision -> type, decision_id);
+  // soviet::check_and_sign_by_chairman(decision -> type, decision_id);
 
 }

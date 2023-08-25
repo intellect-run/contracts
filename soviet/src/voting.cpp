@@ -63,8 +63,13 @@ void add_vote_against(eosio::name member, uint64_t decision_id) {
 
 
 void soviet::votefor(eosio::name member, uint64_t decision_id) { 
-  require_auth(member);
-
+  
+  if (!has_auth(member)) {
+    require_auth(permission_level{member, "provide"_n});
+  } else {
+    require_auth(member);
+  }
+  
   is_valid_member(member);
   check_for_any_vote_exist(member, decision_id);
 
@@ -84,7 +89,13 @@ void soviet::votefor(eosio::name member, uint64_t decision_id) {
 
 
 void soviet::voteagainst(eosio::name member, uint64_t decision_id) { 
-  require_auth(member);
+  
+  if (!has_auth(member)) {
+    require_auth(permission_level{member, "provide"_n});
+  } else {
+    require_auth(member);
+  }
+  
   is_valid_member(member);
   check_for_any_vote_exist(member, decision_id);
   add_vote_against(member, decision_id);
@@ -92,7 +103,12 @@ void soviet::voteagainst(eosio::name member, uint64_t decision_id) {
 
 
 void soviet::cancelvote(eosio::name member, uint64_t decision_id) {
-  require_auth(member);
+  
+  if (!has_auth(member)) {
+    require_auth(permission_level{member, "provide"_n});
+  } else {
+    require_auth(member);
+  }
 
   decision_index decisions(_me, _me.value); 
   auto decision_it = decisions.find(decision_id);

@@ -5,7 +5,7 @@ void soviet::change(uint64_t order_id) {
 
   decision_index decisions(_me, _me.value);
   decisions.emplace(_me, [&](auto &d){
-    d.id = decisions.available_primary_key();
+    d.id = soviet::get_global_id("decisions"_n);
     d.type = _CHANGE;
     d.secondary_id = order_id;
   });

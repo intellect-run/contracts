@@ -30,6 +30,24 @@ void soviet::exec(eosio::name executer, uint64_t decision_id) {
   }
 }
 
+uint64_t soviet::get_global_id(eosio::name key) {
+    counts_index counts(_me, _me.value);
+    auto count = counts.find(key.value);
+    uint64_t id = 1;
+
+    if (count == counts.end()) {
+      counts.emplace(_me, [&](auto &c) {
+        c.key = key;
+        c.value = id;
+      });
+    } else {
+      id = count->value + 1;
+      counts.modify(count, _me, [&](auto &c) { c.value = id; });
+    }
+
+    return id;
+  }
+
 
 
 extern "C" {
@@ -56,7 +74,7 @@ extern "C" {
             //MARKETPLACE
             (change)
             //AUTOMATOR
-            (automate)(disautomate)(autochair)(disautochair)
+            (automate)(disautomate)
             )
       }
 

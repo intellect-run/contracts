@@ -4,7 +4,7 @@
     "types": [],
     "structs": [
         {
-            "name": "approve",
+            "name": "accept",
             "base": "",
             "fields": [
                 {
@@ -12,8 +12,44 @@
                     "type": "name"
                 },
                 {
-                    "name": "order_id",
+                    "name": "exchange_id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "addpieces",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "new_pieces",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "admins",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "rights",
+                    "type": "name[]"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
@@ -22,7 +58,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "order_id",
+                    "name": "exchange_id",
                     "type": "uint64"
                 }
             ]
@@ -46,7 +82,7 @@
             ]
         },
         {
-            "name": "confirm",
+            "name": "cancel",
             "base": "",
             "fields": [
                 {
@@ -54,7 +90,21 @@
                     "type": "name"
                 },
                 {
-                    "name": "order_id",
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "complete",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
                     "type": "uint64"
                 }
             ]
@@ -78,32 +128,6 @@
             ]
         },
         {
-            "name": "create",
-            "base": "",
-            "fields": [
-                {
-                    "name": "creator",
-                    "type": "name"
-                },
-                {
-                    "name": "category",
-                    "type": "name"
-                },
-                {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
-                    "name": "price",
-                    "type": "asset"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "decline",
             "base": "",
             "fields": [
@@ -112,7 +136,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "order_id",
+                    "name": "exchange_id",
                     "type": "uint64"
                 },
                 {
@@ -122,7 +146,7 @@
             ]
         },
         {
-            "name": "items",
+            "name": "exchange",
             "base": "",
             "fields": [
                 {
@@ -130,11 +154,11 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "creator",
-                    "type": "name"
+                    "name": "parent_id",
+                    "type": "uint64"
                 },
                 {
-                    "name": "category",
+                    "name": "type",
                     "type": "name"
                 },
                 {
@@ -142,30 +166,108 @@
                     "type": "name"
                 },
                 {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
                     "name": "contract",
                     "type": "name"
                 },
                 {
-                    "name": "price",
+                    "name": "price_for_piece",
                     "type": "asset"
                 },
                 {
-                    "name": "quantity",
+                    "name": "remain_pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "blocked_pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "delivered_pieces",
                     "type": "uint64"
                 },
                 {
                     "name": "data",
                     "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
         {
-            "name": "newitem",
+            "name": "exchange_params",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "price_for_piece",
+                    "type": "asset"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "moderate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "newid",
             "base": "",
             "fields": [
                 {
                     "name": "id",
                     "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "offer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "params",
+                    "type": "exchange_params"
                 }
             ]
         },
@@ -174,11 +276,21 @@
             "base": "",
             "fields": [
                 {
-                    "name": "buyer",
+                    "name": "params",
+                    "type": "exchange_params"
+                }
+            ]
+        },
+        {
+            "name": "prohibit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "item_id",
+                    "name": "exchange_id",
                     "type": "uint64"
                 },
                 {
@@ -188,32 +300,52 @@
             ]
         },
         {
-            "name": "orders",
+            "name": "publish",
             "base": "",
             "fields": [
                 {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "item_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "requester",
+                    "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "price",
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "unpublish",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "update",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "price_for_piece",
                     "type": "asset"
                 },
                 {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
-                    "name": "status",
-                    "type": "name"
+                    "name": "data",
+                    "type": "string"
                 },
                 {
                     "name": "meta",
@@ -224,8 +356,13 @@
     ],
     "actions": [
         {
-            "name": "approve",
-            "type": "approve",
+            "name": "accept",
+            "type": "accept",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "addpieces",
+            "type": "addpieces",
             "ricardian_contract": ""
         },
         {
@@ -234,13 +371,13 @@
             "ricardian_contract": ""
         },
         {
-            "name": "confirm",
-            "type": "confirm",
+            "name": "cancel",
+            "type": "cancel",
             "ricardian_contract": ""
         },
         {
-            "name": "create",
-            "type": "create",
+            "name": "complete",
+            "type": "complete",
             "ricardian_contract": ""
         },
         {
@@ -249,17 +386,54 @@
             "ricardian_contract": ""
         },
         {
-            "name": "newitem",
-            "type": "newitem",
+            "name": "moderate",
+            "type": "moderate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "newid",
+            "type": "newid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "offer",
+            "type": "offer",
             "ricardian_contract": ""
         },
         {
             "name": "order",
             "type": "order",
             "ricardian_contract": ""
+        },
+        {
+            "name": "prohibit",
+            "type": "prohibit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "publish",
+            "type": "publish",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "unpublish",
+            "type": "unpublish",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "update",
+            "type": "update",
+            "ricardian_contract": ""
         }
     ],
     "tables": [
+        {
+            "name": "admins",
+            "type": "admins",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
         {
             "name": "balance",
             "type": "balance",
@@ -275,15 +449,8 @@
             "key_types": []
         },
         {
-            "name": "items",
-            "type": "items",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "orders",
-            "type": "orders",
+            "name": "exchange",
+            "type": "exchange",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

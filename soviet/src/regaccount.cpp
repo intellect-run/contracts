@@ -6,7 +6,7 @@ void soviet::regaccount(eosio::name username) {
   decision_index decisions(_me, _me.value);
 
   decisions.emplace(_me, [&](auto &d){
-    d.id = decisions.available_primary_key();
+    d.id = soviet::get_global_id("decisions"_n);
     d.type = _REGACCOUNT;
     d.secondary_id = username.value;
   });

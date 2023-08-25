@@ -9,8 +9,9 @@
 
 static constexpr eosio::name _me = "soviet"_n;             /*!< собственное имя аккаунта контракта */
 static constexpr eosio::name _registrator = "registrator"_n;  /*!< имя аккаунта контракта регистратора */
-static constexpr eosio::name _REGACCOUNT = "regaccount"_n;  /*!< код имени действия на регистрацию */
 static constexpr eosio::name _marketplace = "marketplace"_n; /*!< имя аккаунта контракта маркетплейса */
+
+static constexpr eosio::name _REGACCOUNT = "regaccount"_n;  /*!< код имени действия на регистрацию */
 static constexpr eosio::name _CHANGE = "change"_n;  /*!< код имени действия на регистрацию */
 
 static constexpr eosio::name _chairman = "chairman"_n;  /*!< имя аккаунта председателя */
@@ -24,6 +25,8 @@ public:
   static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
     return (uint128_t{x} << 64) | y;
   };
+
+  uint64_t get_global_id(eosio::name key);
 
   //sovet.cpp
   [[eosio::action]] void exec(eosio::name executer, uint64_t decision_id);
@@ -40,17 +43,12 @@ public:
   static void regaccount_effect(eosio::name executer, uint64_t decision_id, eosio::name username);
 
   //automator.cpp
-  [[eosio::action]] void automate(eosio::name member, eosio::name action_type);
+  [[eosio::action]] void automate(eosio::name member, eosio::name action_type, eosio::name provider, std::string private_key);
   [[eosio::action]] void disautomate(eosio::name member, uint64_t automation_id );
-  static void check_and_sign_by_chairman(eosio::name action_type, uint64_t decision_id);
-  static void check_and_sign_by_members(eosio::name action_type, uint64_t decision_id);
-
+  
   //chairman.cpp
   [[eosio::action]] void authorize(eosio::name chairman, uint64_t decision_id);
   [[eosio::action]] void createboard(eosio::name chairman, std::vector<eosio::name> members, uint64_t expired_after_days);
-  [[eosio::action]] void autochair(eosio::name chairman, eosio::name action_type);
-  [[eosio::action]] void disautochair(eosio::name chairman, eosio::name action_type);
-  
   static uint64_t get_members_count(uint64_t board_id);
   static uint64_t get_consensus_percent(uint64_t board_id);
   static void is_valid_member(eosio::name member);
@@ -67,6 +65,31 @@ public:
   static void change_effect(eosio::name executer, uint64_t decision_id, eosio::name username);
 
 };
+  
+
+  struct [[eosio::table, eosio::contract("soviet")]] counts {
+    eosio::name key;
+    eosio::name secondary_key;
+    uint64_t value;
+
+    uint64_t primary_key() const {
+      return key.value;
+    } /*!< return id - primary_key */
+    uint128_t keyskey() const {
+      return soviet::combine_ids(key.value, secondary_key.value);
+    } /*!< (contract, blocked_now.symbol) - комбинированный secondary_key для
+         получения курса по имени выходного контракта и символу */
+    uint128_t keyvalue() const {
+      return soviet::combine_ids(key.value, value);
+    } /*!< (contract, blocked_now.symbol) - комбинированный secondary_key для
+         получения курса по имени выходного контракта и символу */
+  };
+
+  typedef eosio::multi_index<
+      "counts"_n, counts,
+      eosio::indexed_by<"keyskey"_n, eosio::const_mem_fun<counts, uint128_t,
+                                                          &counts::keyskey>>>
+      counts_index;
 
 
   struct [[eosio::table, eosio::contract("soviet")]] boards {
@@ -141,6 +164,8 @@ public:
     uint64_t id;
     eosio::name member;
     eosio::name action_type;
+    eosio::name provider;
+    std::string private_key;
 
     uint64_t primary_key() const { return id; }
     uint128_t by_member_and_action_type() const { return soviet::combine_ids(member.value, action_type.value); }
@@ -154,12 +179,18 @@ public:
   > automator_index;
 
 
-  struct [[eosio::table, eosio::contract("soviet")]] autochair {
+  struct [[eosio::table, eosio::contract("soviet")]] autochairman {
+    uint64_t id;
     eosio::name action_type;
+    eosio::name provider;
+    std::string private_key;
     
-    uint64_t primary_key() const { return action_type.value; }    
+    uint64_t primary_key() const { return id; }    
+    uint64_t by_action() const {return action_type.value;}
   };
 
-  typedef eosio::multi_index< "autochair"_n, autochair> autochair_index;
+  typedef eosio::multi_index< "autochairman"_n, autochairman,
+    eosio::indexed_by<"byaction"_n, eosio::const_mem_fun<autochairman, uint64_t, &autochairman::by_action>>
+  > autochair_index;
 
 }

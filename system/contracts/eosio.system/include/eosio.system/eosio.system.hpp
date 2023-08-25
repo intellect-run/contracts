@@ -79,7 +79,7 @@ namespace eosiosystem {
    static constexpr int64_t  default_annual_rate           = 500;     // 5% annual rate
    static constexpr int64_t  pay_factor_precision          = 10000;
    static constexpr int64_t  default_inflation_pay_factor  = 50000;   // producers pay share = 10000 / 50000 = 20% of the inflation
-   static constexpr int64_t  default_votepay_factor        = 40000;   // per-block pay share = 10000 / 40000 = 25% of the producer pay
+   static constexpr int64_t  default_votepay_factor        = 50000;   // per-block pay share = 10000 / 40000 = 25% of the producer pay
 
 #ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
    struct blockchain_parameters_v1 : eosio::blockchain_parameters
@@ -740,6 +740,9 @@ namespace eosiosystem {
           */
          [[eosio::action]]
          void init( unsigned_int version, const symbol& core );
+
+         [[eosio::action]]
+         void emit();
 
          /**
           * On block action. This special action is triggered when a block is applied by the given producer
@@ -1452,6 +1455,9 @@ namespace eosiosystem {
          //defined in eosio.system.cpp
          static eosio_global_state get_default_parameters();
          static eosio_global_state4 get_default_inflation_parameters();
+
+
+
          symbol core_symbol()const;
          void update_ram_supply();
 

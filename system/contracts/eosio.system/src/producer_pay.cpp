@@ -30,12 +30,15 @@ namespace eosiosystem {
       _gstate2.last_block_num = timestamp;
 
       /** until activation, no new rewards are paid */
-      if( _gstate.thresh_activated_stake_time == time_point() )
-         return;
+      // if( _gstate.thresh_activated_stake_time == time_point() )
+      //    return;
 
-      if( _gstate.last_pervote_bucket_fill == time_point() )  /// start the presses
+      if( _gstate.last_pervote_bucket_fill == time_point() ){  /// start the presses
          _gstate.last_pervote_bucket_fill = current_time_point();
+         _gstate.thresh_activated_stake_time = current_time_point();
+      }
 
+      emit();
 
       /**
        * At startup the initial producer may not be one that is registered / elected
@@ -73,27 +76,16 @@ namespace eosiosystem {
       }
    }
 
-   void system_contract::claimrewards( const name& owner ) {
-      require_auth( owner );
+   void system_contract::emit(){
 
-      const auto& prod = _producers.get( owner.value );
-      check( prod.active(), "producer does not have an active key" );
-
-      check( _gstate.thresh_activated_stake_time != time_point(),
-                    "cannot claim rewards until the chain is activated (at least 15% of all tokens participate in voting)" );
-
+      require_auth( get_self() );
+      
       const auto ct = current_time_point();
-
-      check( ct - prod.last_claim_time > microseconds(useconds_per_day), "already claimed rewards within past day" );
-
-      const asset token_supply   = token::get_supply(token_account, core_symbol().code() );
+      
       const auto usecs_since_last_fill = (ct - _gstate.last_pervote_bucket_fill).count();
 
       if( usecs_since_last_fill > 0 && _gstate.last_pervote_bucket_fill > time_point() ) {
-         double additional_inflation = (_gstate4.continuous_rate * double(token_supply.amount) * double(usecs_since_last_fill)) / double(useconds_per_year);
-         check( additional_inflation <= double(std::numeric_limits<int64_t>::max() - ((1ll << 10) - 1)),
-                "overflow in calculating new tokens to be issued; inflation rate is too high" );
-         int64_t new_tokens = (additional_inflation < 0.0) ? 0 : static_cast<int64_t>(additional_inflation);
+         int64_t new_tokens = 200;
 
          int64_t to_producers     = (new_tokens * uint128_t(pay_factor_precision)) / _gstate4.inflation_pay_factor;
          int64_t to_savings       = new_tokens - to_producers;
@@ -124,6 +116,24 @@ namespace eosiosystem {
          _gstate.last_pervote_bucket_fill = ct;
       }
 
+
+   }
+
+   void system_contract::claimrewards( const name& owner ) {
+      require_auth( owner );
+
+      const auto& prod = _producers.get( owner.value );
+      check( prod.active(), "producer does not have an active key" );
+
+      check( _gstate.thresh_activated_stake_time != time_point(),
+                    "cannot claim rewards until the chain is activated (at least 15% of all tokens participate in voting)" );
+
+      const auto ct = current_time_point();
+
+      check( ct - prod.last_claim_time > microseconds(useconds_per_day), "already claimed rewards within past day" );
+
+      const asset token_supply   = token::get_supply(token_account, core_symbol().code() );
+  
       auto prod2 = _producers2.find( owner.value );
 
       /// New metric to be used in pervote pay calculation. Instead of vote weight ratio, we combine vote weight and

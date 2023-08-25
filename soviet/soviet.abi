@@ -58,16 +58,24 @@
             ]
         },
         {
-            "name": "autochair",
+            "name": "autochairman",
             "base": "",
             "fields": [
                 {
-                    "name": "chairman",
-                    "type": "name"
+                    "name": "id",
+                    "type": "uint64"
                 },
                 {
                     "name": "action_type",
                     "type": "name"
+                },
+                {
+                    "name": "provider",
+                    "type": "name"
+                },
+                {
+                    "name": "private_key",
+                    "type": "string"
                 }
             ]
         },
@@ -82,6 +90,14 @@
                 {
                     "name": "action_type",
                     "type": "name"
+                },
+                {
+                    "name": "provider",
+                    "type": "name"
+                },
+                {
+                    "name": "private_key",
+                    "type": "string"
                 }
             ]
         },
@@ -100,6 +116,14 @@
                 {
                     "name": "action_type",
                     "type": "name"
+                },
+                {
+                    "name": "provider",
+                    "type": "name"
+                },
+                {
+                    "name": "private_key",
+                    "type": "string"
                 }
             ]
         },
@@ -153,6 +177,24 @@
             "fields": [
                 {
                     "name": "order_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "counts",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "name"
+                },
+                {
+                    "name": "secondary_key",
+                    "type": "name"
+                },
+                {
+                    "name": "value",
                     "type": "uint64"
                 }
             ]
@@ -218,20 +260,6 @@
                 {
                     "name": "executed",
                     "type": "bool"
-                }
-            ]
-        },
-        {
-            "name": "disautochair",
-            "base": "",
-            "fields": [
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "action_type",
-                    "type": "name"
                 }
             ]
         },
@@ -360,11 +388,6 @@
             "ricardian_contract": ""
         },
         {
-            "name": "autochair",
-            "type": "autochair",
-            "ricardian_contract": ""
-        },
-        {
             "name": "automate",
             "type": "automate",
             "ricardian_contract": ""
@@ -382,11 +405,6 @@
         {
             "name": "createboard",
             "type": "createboard",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "disautochair",
-            "type": "disautochair",
             "ricardian_contract": ""
         },
         {
@@ -439,8 +457,8 @@
             "key_types": []
         },
         {
-            "name": "autochair",
-            "type": "autochair",
+            "name": "autochairman",
+            "type": "autochairman",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
@@ -455,6 +473,13 @@
         {
             "name": "boards",
             "type": "boards",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "counts",
+            "type": "counts",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

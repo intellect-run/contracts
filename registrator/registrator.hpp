@@ -57,7 +57,7 @@ public:
     
     static const uint64_t _GUEST_EXPIRATION = 1209600;              /*!< продолжительность гостевого периода, после которого, аккаунт может быть отозван */
     // static const uint64_t _GUEST_EXPIRATION = 10; //10 secs
-    static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("SYS"),4); /*!< системный токен */
+    static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("AXON"),4); /*!< системный токен */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"), 4); /*!< идентификационный токен рынка оперативной памяти */
 
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
