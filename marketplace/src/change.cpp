@@ -261,7 +261,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
     action(
       permission_level{ _me, "active"_n },
       change -> contract, "transfer"_n,
-      std::make_tuple( _me, change -> username, change -> price_for_piece, std::string("Возврат по заявке: ", exchange_id)) 
+      std::make_tuple( _me, change -> username, change -> price_for_piece, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
     ).send();
   }; 
   
@@ -335,7 +335,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
       action(
           permission_level{ _me, "active"_n },
           change -> contract, "transfer"_n,
-          std::make_tuple( _me, parent_change -> username, quantity, std::string("Возврат по заявке: ", exchange_id)) 
+          std::make_tuple( _me, parent_change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
       ).send();
 
     } else if (change -> type == "offer"_n) { //дочерняя заявка на поставку товара
@@ -343,7 +343,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
       action(
           permission_level{ _me, "active"_n },
           change -> contract, "transfer"_n,
-          std::make_tuple( _me, change -> username, quantity, std::string("Возврат по заявке: ", exchange_id)) 
+          std::make_tuple( _me, change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
       ).send();
     }
   }
@@ -438,7 +438,7 @@ void marketplace::cancel_child_order(eosio::name username, uint64_t exchange_id)
     action(
         permission_level{ _me, "active"_n },
         change -> contract, "transfer"_n,
-        std::make_tuple( _me, change -> username, quantity, std::string("Возврат по заявке: ", exchange_id)) 
+        std::make_tuple( _me, change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
     ).send();
   }  
 }

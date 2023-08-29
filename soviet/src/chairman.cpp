@@ -23,6 +23,7 @@ void soviet::authorize(eosio::name chairman, uint64_t decision_id) {
   require_auth(chairman);
 
   board_index boards(_me, _me.value);
+  oracle_index oracle(_me, _me.value);
 
   auto board = boards.find(0);
 
@@ -35,6 +36,12 @@ void soviet::authorize(eosio::name chairman, uint64_t decision_id) {
   decisions.modify(decision, chairman, [&](auto &d){
     d.authorized = true;
   });
+
+  auto ora = oracle.find(decision -> id);
+  
+  if (ora != oracle.end())
+    oracle.erase(ora);
+
 }
 
 
@@ -49,8 +56,9 @@ void soviet::createboard(eosio::name chairman, std::vector<eosio::name> members,
   // Проверка на наличие председателя в списке членов совета
   eosio::check(std::find(members.begin(), members.end(), chairman) != members.end(), "Председатель должен быть в списке членов совета");
 
-  boards.emplace(chairman, [&](auto &b){
+  boards.emplace(chairman, [&](auto &b) {
     b.id = boards.available_primary_key();
+    b.parent_id = 0; //если кооперативный участок >= 0
     b.members = members;
     b.chairman = chairman;
     b.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());

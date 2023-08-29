@@ -30,7 +30,9 @@ public:
 
   //sovet.cpp
   [[eosio::action]] void exec(eosio::name executer, uint64_t decision_id);
+  [[eosio::action]] void newid(uint64_t id);
   
+
   //admin.cpp
   [[eosio::action]] void addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta);
   [[eosio::action]] void rmadmin(eosio::name chairman, eosio::name username);
@@ -179,18 +181,12 @@ public:
   > automator_index;
 
 
-  struct [[eosio::table, eosio::contract("soviet")]] autochairman {
+  struct [[eosio::table, eosio::contract("soviet")]] oracle {
     uint64_t id;
-    eosio::name action_type;
-    eosio::name provider;
-    std::string private_key;
     
     uint64_t primary_key() const { return id; }    
-    uint64_t by_action() const {return action_type.value;}
   };
 
-  typedef eosio::multi_index< "autochairman"_n, autochairman,
-    eosio::indexed_by<"byaction"_n, eosio::const_mem_fun<autochairman, uint64_t, &autochairman::by_action>>
-  > autochair_index;
+  typedef eosio::multi_index< "oracle"_n, oracle> oracle_index;
 
 }

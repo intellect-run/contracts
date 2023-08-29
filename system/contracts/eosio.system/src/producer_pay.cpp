@@ -76,7 +76,7 @@ namespace eosiosystem {
       }
    }
 
-   void system_contract::emit(){
+   void system_contract::emit() {
 
       require_auth( get_self() );
       

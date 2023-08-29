@@ -4,12 +4,19 @@ void soviet::regaccount(eosio::name username) {
   require_auth(_registrator);
 
   decision_index decisions(_me, _me.value);
-
+  auto id = soviet::get_global_id("decisions"_n);
   decisions.emplace(_me, [&](auto &d){
-    d.id = soviet::get_global_id("decisions"_n);
+    d.id = id;
     d.type = _REGACCOUNT;
     d.secondary_id = username.value;
   });
+
+  action(
+    permission_level{ _me, "active"_n},
+    _me,
+    "newid"_n,
+    std::make_tuple(id)
+  ).send();
 };
 
 

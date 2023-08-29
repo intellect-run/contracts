@@ -58,28 +58,6 @@
             ]
         },
         {
-            "name": "autochairman",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "action_type",
-                    "type": "name"
-                },
-                {
-                    "name": "provider",
-                    "type": "name"
-                },
-                {
-                    "name": "private_key",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "automate",
             "base": "",
             "fields": [
@@ -292,6 +270,26 @@
             ]
         },
         {
+            "name": "newid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "oracle",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "regaccount",
             "base": "",
             "fields": [
@@ -418,6 +416,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "newid",
+            "type": "newid",
+            "ricardian_contract": ""
+        },
+        {
             "name": "regaccount",
             "type": "regaccount",
             "ricardian_contract": ""
@@ -457,13 +460,6 @@
             "key_types": []
         },
         {
-            "name": "autochairman",
-            "type": "autochairman",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
             "name": "automator",
             "type": "automator",
             "index_type": "i64",
@@ -487,6 +483,13 @@
         {
             "name": "decisions",
             "type": "decisions",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "oracle",
+            "type": "oracle",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

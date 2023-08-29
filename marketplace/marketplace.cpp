@@ -78,7 +78,9 @@ using namespace eosio;
  * @param id идентификатор
  * @param type тип идентификатора
  */
-[[eosio::action]] void marketplace::newid(uint64_t id, eosio::name type) {};
+[[eosio::action]] void marketplace::newid(uint64_t id, eosio::name type) {
+  require_auth(_me);
+};
 
 
 extern "C" {

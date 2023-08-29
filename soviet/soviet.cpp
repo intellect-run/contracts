@@ -13,6 +13,9 @@
 
 using namespace eosio;
 
+[[eosio::action]] void soviet::newid(uint64_t decision_id) {
+  require_auth(_me);
+};
 
 void soviet::exec(eosio::name executer, uint64_t decision_id) { 
   require_auth(executer);
@@ -62,7 +65,7 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //main
-            (exec)
+            (exec)(newid)
             //ADMIN
             (addadmin)(rmadmin)(setadmrights)(validate)
             //CHAIRMAN
