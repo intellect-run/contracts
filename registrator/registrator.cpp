@@ -135,7 +135,6 @@ using namespace eosio;
     individuals.emplace(registrator, [&](auto &acc){
       acc.username = username;
       acc.coop_id = coop_id;
-      acc.status = "guest"_n;
       acc.registrator = registrator;
       acc.first_name = first_name;
       acc.second_name = second_name;

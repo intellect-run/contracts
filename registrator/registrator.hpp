@@ -124,7 +124,6 @@ public:
     struct [[eosio::table]] individuals {
         eosio::name username;             /*!< имя аккаунта */
         uint64_t coop_id;
-        eosio::name status;
         eosio::name registrator;          /*!< имя аккаунта регистратора */
         std::string first_name;
         std::string second_name;
@@ -139,14 +138,12 @@ public:
 
         uint64_t primary_key() const {return username.value;}     /*!< return username - primary_key */
         uint64_t by_coop() const {return coop_id;}
-        uint64_t by_status() const {return status.value;}
         uint64_t byregistr() const {return registrator.value;}            /*!< return registrator - secondary_key 3 */
         
     };
 
     typedef eosio::multi_index<"individuals"_n, individuals,
        eosio::indexed_by< "bycoop"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::by_coop>>,
-       eosio::indexed_by< "bystatus"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::by_status>>,
        eosio::indexed_by< "byregistr"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::byregistr>>
     > individuals_index;
 
