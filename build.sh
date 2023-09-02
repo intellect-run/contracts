@@ -1,6 +1,31 @@
 #!/bin/bash
 
-# Проверяем, задан ли аргумент
+# Получение ветки из аргументов командной строки
+while getopts ":n:" opt; do
+  case $opt in
+    n)
+      branch="$OPTARG"
+      ;;
+    \?)
+      echo "Неверный параметр: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Параметр -$OPTARG требует аргумента." >&2
+      exit 1
+      ;;
+  esac
+done
+
+# Проверка наличия заданной ветки
+if [ -n "$branch" ]; then
+  # Переключение на заданную ветку
+  git checkout "$branch"
+  # Мерж изменений из master в текущую ветку
+  git merge master
+fi
+
+# Проверяем, задан ли аргумент для контрактов
 if [ "$1" != "" ]; then
   contracts=$1
 else

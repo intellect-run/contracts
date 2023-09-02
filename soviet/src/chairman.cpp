@@ -2,19 +2,19 @@ using namespace eosio;
 
 
 void soviet::is_valid_member(eosio::name member) {
-  board_index boards(_me, _me.value);
-  auto board = boards.find(0);
+  union_index unions(_me, _me.value);
+  auto uni = unions.find(0);
   
   // Проверяем, является ли участник членом совета
-  eosio::check(std::find(board->members.begin(), board->members.end(), member) != board->members.end(), "Вы не являетесь членом совета");
+  eosio::check(std::find(uni->members.begin(), uni->members.end(), member) != uni->members.end(), "Вы не являетесь членом совета");
 };
 
 
 void soviet::is_valid_chairman(eosio::name chairman) {
-  board_index boards(_me, _me.value);
-  auto board = boards.find(0);
+  union_index unions(_me, _me.value);
+  auto uni = unions.find(0);
   
-  eosio::check(board -> chairman == chairman, "Вы не председатель");
+  eosio::check(uni -> chairman == chairman, "Вы не председатель");
   
 };
 
@@ -22,13 +22,13 @@ void soviet::is_valid_chairman(eosio::name chairman) {
 void soviet::authorize(eosio::name chairman, uint64_t decision_id) { 
   require_auth(chairman);
 
-  board_index boards(_me, _me.value);
+  union_index unions(_me, _me.value);
   oracle_index oracle(_me, _me.value);
 
-  auto board = boards.find(0);
+  auto uni = unions.find(0);
 
-  eosio::check(board != boards.end(), "Совет не найден");
-  eosio::check(board -> chairman == chairman, "Только председатель совета может авторизовать решение");
+  eosio::check(uni != unions.end(), "Совет не найден");
+  eosio::check(uni -> chairman == chairman, "Только председатель совета может авторизовать решение");
   
   decision_index decisions(_me, _me.value);
   auto decision = decisions.find(decision_id);
@@ -45,24 +45,38 @@ void soviet::authorize(eosio::name chairman, uint64_t decision_id) {
 }
 
 
-void soviet::createboard(eosio::name chairman, std::vector<eosio::name> members, uint64_t expired_after_days){
+void soviet::createunion(uint64_t coop_id, uint64_t parent_id, eosio::name chairman, std::vector<eosio::name> members){
   require_auth(_chairman); 
 
-  board_index boards(_me, _me.value);
+  coops_index coops(_ano, _ano.value);
+  auto coop = coops.find(coop_id);
 
-  auto board = boards.find(0);
-  eosio::check(board == boards.end(), "Совет уже создан");
+  eosio::check(coop != coops.end(), "Кооператив не найден");
+  print("coop -> status: ", coop -> status);
+
+  eosio::check(coop -> status == "run"_n, "Кооператив отключен");
+  eosio::check(coop -> chairman == chairman, "Только председатель кооператива может создать совет | участок");
+
+  union_index unions(_me, _me.value);
+  auto uni = unions.find(coop_id);
+  eosio::check(uni == unions.end(), "Совет уже создан");
+
+  if (parent_id > 0) {
+    auto parent_board = unions.find(parent_id);
+    eosio::check(parent_board != unions.end(), "Родительский совет не найден");
+    eosio::check(parent_board -> parent_id == 0, "Только совет кооператива может создавать кооперативные участки");
+    eosio::check(parent_board -> chairman == chairman, "Только председатель совета кооператива может создавать кооперативные участки");
+  };
 
   // Проверка на наличие председателя в списке членов совета
   eosio::check(std::find(members.begin(), members.end(), chairman) != members.end(), "Председатель должен быть в списке членов совета");
 
-  boards.emplace(chairman, [&](auto &b) {
-    b.id = boards.available_primary_key();
-    b.parent_id = 0; //если кооперативный участок >= 0
+  unions.emplace(chairman, [&](auto &b) {
+    b.id = unions.available_primary_key();
+    b.parent_id = parent_id; //если кооперативный участок >= 0
     b.members = members;
     b.chairman = chairman;
     b.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    b.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + expired_after_days * 86400);
   });
 
 }
@@ -71,23 +85,13 @@ void soviet::createboard(eosio::name chairman, std::vector<eosio::name> members,
 //TODO modify members, but cannot delete chairman
 
 
-uint64_t soviet::get_members_count(uint64_t board_id) {
-  board_index boards(_me, _me.value);
+uint64_t soviet::get_members_count(uint64_t union_id) {
+  union_index unions(_me, _me.value);
 
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
+  auto uni = unions.find(union_id);
+  eosio::check(uni != unions.end(), "Совет не найден");
 
-  return board->members.size();
-
-};
-
-
-uint64_t soviet::get_consensus_percent(uint64_t board_id) {
-  board_index boards(_me, _me.value);
-
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
-
-  return board -> consensus;
+  return uni->members.size();
 
 };
+

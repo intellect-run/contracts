@@ -8,6 +8,10 @@
             "base": "",
             "fields": [
                 {
+                    "name": "union_id",
+                    "type": "uint64"
+                },
+                {
                     "name": "chairman",
                     "type": "name"
                 },
@@ -106,36 +110,6 @@
             ]
         },
         {
-            "name": "boards",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "expired_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "consensus",
-                    "type": "uint64"
-                },
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "members",
-                    "type": "name[]"
-                }
-            ]
-        },
-        {
             "name": "cancelvote",
             "base": "",
             "fields": [
@@ -178,9 +152,17 @@
             ]
         },
         {
-            "name": "createboard",
+            "name": "createunion",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
                 {
                     "name": "chairman",
                     "type": "name"
@@ -188,10 +170,6 @@
                 {
                     "name": "members",
                     "type": "name[]"
-                },
-                {
-                    "name": "expired_after_days",
-                    "type": "uint64"
                 }
             ]
         },
@@ -274,7 +252,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -304,6 +282,10 @@
             "base": "",
             "fields": [
                 {
+                    "name": "union_id",
+                    "type": "uint64"
+                },
+                {
                     "name": "chairman",
                     "type": "name"
                 },
@@ -317,6 +299,10 @@
             "name": "setadmrights",
             "base": "",
             "fields": [
+                {
+                    "name": "union_id",
+                    "type": "uint64"
+                },
                 {
                     "name": "chairman",
                     "type": "name"
@@ -332,9 +318,39 @@
             ]
         },
         {
+            "name": "unions",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "members",
+                    "type": "name[]"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
             "name": "validate",
             "base": "",
             "fields": [
+                {
+                    "name": "union_id",
+                    "type": "uint64"
+                },
                 {
                     "name": "username",
                     "type": "name"
@@ -401,8 +417,8 @@
             "ricardian_contract": ""
         },
         {
-            "name": "createboard",
-            "type": "createboard",
+            "name": "createunion",
+            "type": "createunion",
             "ricardian_contract": ""
         },
         {
@@ -467,13 +483,6 @@
             "key_types": []
         },
         {
-            "name": "boards",
-            "type": "boards",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
             "name": "counts",
             "type": "counts",
             "index_type": "i64",
@@ -490,6 +499,13 @@
         {
             "name": "oracle",
             "type": "oracle",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "unions",
+            "type": "unions",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

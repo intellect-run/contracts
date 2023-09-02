@@ -4,7 +4,7 @@
     "types": [],
     "structs": [
         {
-            "name": "accounts",
+            "name": "balance",
             "base": "",
             "fields": [
                 {
@@ -12,15 +12,25 @@
                     "type": "name"
                 },
                 {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "catalog",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coop_id",
+                    "type": "uint64"
+                },
+                {
                     "name": "status",
-                    "type": "name"
-                },
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
-                    "name": "referer",
                     "type": "name"
                 },
                 {
@@ -32,15 +42,119 @@
                     "type": "checksum256"
                 },
                 {
-                    "name": "registered_at",
-                    "type": "time_point_sec"
+                    "name": "type",
+                    "type": "name"
                 },
                 {
-                    "name": "to_pay",
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "payed",
                     "type": "asset"
                 },
                 {
-                    "name": "fullname",
+                    "name": "meta",
+                    "type": "string"
+                },
+                {
+                    "name": "registered_at",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "changekey",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "public_key",
+                    "type": "public_key"
+                }
+            ]
+        },
+        {
+            "name": "confirmreg",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "coops",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "system_name",
+                    "type": "name"
+                },
+                {
+                    "name": "status",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "individuals",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coop_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "status",
+                    "type": "name"
+                },
+                {
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
+                    "name": "first_name",
+                    "type": "string"
+                },
+                {
+                    "name": "second_name",
+                    "type": "string"
+                },
+                {
+                    "name": "middle_name",
                     "type": "string"
                 },
                 {
@@ -70,69 +184,13 @@
             ]
         },
         {
-            "name": "balance",
+            "name": "newaccount",
             "base": "",
             "fields": [
                 {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "quantity",
-                    "type": "asset"
-                }
-            ]
-        },
-        {
-            "name": "changekey",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "public_key",
-                    "type": "public_key"
-                }
-            ]
-        },
-        {
-            "name": "codex",
-            "base": "",
-            "fields": [
-                {
-                    "name": "lang",
-                    "type": "name"
-                },
-                {
-                    "name": "version",
+                    "name": "coop_id",
                     "type": "uint64"
                 },
-                {
-                    "name": "subversion",
-                    "type": "uint64"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "confirmreg",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "regaccount",
-            "base": "",
-            "fields": [
                 {
                     "name": "registrator",
                     "type": "name"
@@ -166,7 +224,37 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "fullname",
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "regindivid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coop_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "first_name",
+                    "type": "string"
+                },
+                {
+                    "name": "second_name",
+                    "type": "string"
+                },
+                {
+                    "name": "middle_name",
                     "type": "string"
                 },
                 {
@@ -192,42 +280,6 @@
                 {
                     "name": "meta",
                     "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "reserved",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "registrator",
-                    "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "signs",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "lang",
-                    "type": "name"
-                },
-                {
-                    "name": "version",
-                    "type": "uint64"
-                },
-                {
-                    "name": "signed_at",
-                    "type": "time_point_sec"
                 }
             ]
         },
@@ -262,9 +314,14 @@
             "ricardian_contract": ""
         },
         {
-            "name": "regaccount",
-            "type": "regaccount",
-            "ricardian_contract": "---\nspec_version: \"0.2.0\"\ntitle: Регистрация пайщика\nsummary: Контракт предоставляет форму заявления на вступление в цифровой кооператив\nicon: @ICON_BASE_URL@/@REX_ICON_URI@\nvars: \n  - name: fullname\n    label: ФИО\n    hint: Введите ваше фамилия, имя и отчество\n\n  - name: birthdate\n    label: Дата рождения\n    hint: Введите дату рождения\n\n  - name: phone\n    label: Номер телефона\n    hint: Введите ваш номер телефона \n\n  - name: country\n    label: Страна\n    hint: Введите вашу страну регистрации\n\n  - name: city\n    label: Город\n    hint: Введите ваш город регистрации\n\n  - name: address\n    label: Адрес\n    hint: Введите ваш полный адрес регистрации\n\n---\n\n<h3 style=\"text-align: center;\" class=\"header\">Заявление</h3>\n<p style=\"margin-bottom: 50px; text-align: center; \"> о приёме физического лица в пайщики Цифрового Потребительского Кооператива \"Восход\".</p>\n\n<br/>  \n\nЗаявитель: \n{{fullname}}\n{{birthdate}}\n{{phone}}\n{{country}}\n{{city}}\n{{address}}\n<br/>\n\nПрошу принять меня в пайщики потребительского кооператива \"Восход\", далее по тексту заявления \"Общество\". Потверждаю, что с Уставом и иными публичными нормативными документами Общества ознакомлен(а).\n\n<br/>\n\nСтав пайщиком Общества, обязуюсь соблюдать требования Устава и иных публичных нормативных документов Общества и выполнять обязанности члена Общества, а также уполномачиваю Председателя кооперативного участка \"Центр\" принимать участие с правом голоса в Общих собраниях уполномоченных Общества, на период моего членства в Обществе при собственноручно мною указанном кооперативном участке. \n\n<br/>\n\nОбязуюсь своевременно внести в Общество вступительный (100 рублей) и минимальный паевой (100 рублей) взносы в порядке, предусмотренном Уставом Общества. \n\n<br/>\n\nВыражаю своё согласие на генерацию моей внутренней ЭЦП (Электронно-Цифровой Подписи) для подписания документооборота в моём Личном Кабинете, в рамках внутренней деятельности Общества, в соответствии с Положением о внутренней ЭЦП Общества.\n\n<br/>\n\nВыражаю своё согласие с тем, что информация, отправляемая Обществом в sms-сообщениях на указанный мной номер телефона или в сообщениях на указанный мной адрес электронной почты или в сообщениях телеграм-бота, привязанного к моему телефону, приравняется к уведомлению меня Обществом в письменной форме."
+            "name": "newaccount",
+            "type": "newaccount",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "regindivid",
+            "type": "regindivid",
+            "ricardian_contract": ""
         },
         {
             "name": "update",
@@ -274,13 +331,6 @@
     ],
     "tables": [
         {
-            "name": "accounts",
-            "type": "accounts",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
             "name": "balance",
             "type": "balance",
             "index_type": "i64",
@@ -288,22 +338,22 @@
             "key_types": []
         },
         {
-            "name": "codex",
-            "type": "codex",
+            "name": "catalog",
+            "type": "catalog",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "reserved",
-            "type": "reserved",
+            "name": "coops",
+            "type": "coops",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "signs",
-            "type": "signs",
+            "name": "individuals",
+            "type": "individuals",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

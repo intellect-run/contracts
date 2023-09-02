@@ -69,7 +69,7 @@ extern "C" {
             //ADMIN
             (addadmin)(rmadmin)(setadmrights)(validate)
             //CHAIRMAN
-            (authorize)(createboard)
+            (authorize)(createunion)
             //VOTING
             (votefor)(voteagainst)(cancelvote)
             //REGACCOUNT

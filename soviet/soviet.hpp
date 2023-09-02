@@ -8,6 +8,7 @@
 #include <eosio/singleton.hpp>
 
 static constexpr eosio::name _me = "soviet"_n;             /*!< собственное имя аккаунта контракта */
+static constexpr eosio::name _ano = "ano"_n;             /*!< имя аккаунта контракта АНО */
 static constexpr eosio::name _registrator = "registrator"_n;  /*!< имя аккаунта контракта регистратора */
 static constexpr eosio::name _marketplace = "marketplace"_n; /*!< имя аккаунта контракта маркетплейса */
 
@@ -30,14 +31,14 @@ public:
 
   //sovet.cpp
   [[eosio::action]] void exec(eosio::name executer, uint64_t decision_id);
-  [[eosio::action]] void newid(uint64_t id);
+  [[eosio::action]] void newid(uint64_t decision_id);
   
 
   //admin.cpp
-  [[eosio::action]] void addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta);
-  [[eosio::action]] void rmadmin(eosio::name chairman, eosio::name username);
-  [[eosio::action]] void setadmrights(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights);
-  [[eosio::action]] void validate(eosio::name username, uint64_t decision_id);
+  [[eosio::action]] void addadmin(uint64_t union_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta);
+  [[eosio::action]] void rmadmin(uint64_t union_id, eosio::name chairman, eosio::name username);
+  [[eosio::action]] void setadmrights(uint64_t union_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights);
+  [[eosio::action]] void validate(uint64_t union_id, eosio::name username, uint64_t decision_id);
   
   //regaccount.cpp
   [[eosio::action]] void regaccount(eosio::name username);
@@ -50,9 +51,9 @@ public:
   
   //chairman.cpp
   [[eosio::action]] void authorize(eosio::name chairman, uint64_t decision_id);
-  [[eosio::action]] void createboard(eosio::name chairman, std::vector<eosio::name> members, uint64_t expired_after_days);
-  static uint64_t get_members_count(uint64_t board_id);
-  static uint64_t get_consensus_percent(uint64_t board_id);
+  [[eosio::action]] void createunion(uint64_t coop_id, uint64_t parent_id, eosio::name chairman, std::vector<eosio::name> members);
+  static uint64_t get_members_count(uint64_t union_id);
+  
   static void is_valid_member(eosio::name member);
   static void is_valid_chairman(eosio::name chairman);
   static void is_valid_action(eosio::name action_type);
@@ -94,23 +95,21 @@ public:
       counts_index;
 
 
-  struct [[eosio::table, eosio::contract("soviet")]] boards {
+  struct [[eosio::table, eosio::contract("soviet")]] unions {
     uint64_t id;
-    eosio::time_point_sec created_at;
-    eosio::time_point_sec expired_at;
-    
-    uint64_t consensus = 50;
+    uint64_t parent_id;
     eosio::name chairman;
     std::vector<eosio::name> members;
-
+    eosio::time_point_sec created_at;
+    
     uint64_t primary_key() const { return id; }
     uint64_t bychairman() const { return chairman.value; }
         
   };
 
-  typedef eosio::multi_index< "boards"_n, boards,
-    eosio::indexed_by< "bychairman"_n, eosio::const_mem_fun<boards, uint64_t, &boards::bychairman>>
-   > board_index;
+  typedef eosio::multi_index< "unions"_n, unions,
+    eosio::indexed_by< "bychairman"_n, eosio::const_mem_fun<unions, uint64_t, &unions::bychairman>>
+   > union_index;
 
 
 
@@ -188,5 +187,22 @@ public:
   };
 
   typedef eosio::multi_index< "oracle"_n, oracle> oracle_index;
+
+
+  struct [[eosio::table, eosio::contract("ano")]] coops {
+    uint64_t id;
+    eosio::name system_name;
+    eosio::name status;
+    eosio::name chairman;
+    eosio::name registrator;
+    std::string data;
+    std::string message;
+
+    uint64_t primary_key() const {
+      return id;
+    };
+  };
+
+  typedef eosio::multi_index<"coops"_n, coops> coops_index;
 
 }

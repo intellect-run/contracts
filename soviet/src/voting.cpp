@@ -61,11 +61,10 @@ void add_vote_against(eosio::name member, uint64_t decision_id) {
   });
 }
 
-
 void soviet::votefor(eosio::name member, uint64_t decision_id) { 
   
   if (!has_auth(member)) {
-    require_auth(permission_level{member, "provide"_n});
+    require_auth(permission_level{member, "oracle"_n});
   } else {
     require_auth(member);
   }
@@ -78,7 +77,7 @@ void soviet::votefor(eosio::name member, uint64_t decision_id) {
   votes_for_count++;
 
   uint64_t total_members = get_members_count(0);
-  uint64_t consensus_percent = get_consensus_percent(0);
+  uint64_t consensus_percent = 50;
   
   // Рассчитываем, больше ли количество голосов "за" заданного процента консенсуса от общего количества участников
   bool approved = votes_for_count * 100 > total_members * consensus_percent;
@@ -118,7 +117,7 @@ void soviet::cancelvote(eosio::name member, uint64_t decision_id) {
   auto vote_for_it = std::find(decision_it->votes_for.begin(), decision_it->votes_for.end(), member);
   if (vote_for_it != decision_it->votes_for.end()) {
     uint64_t total_members = get_members_count(0);
-    uint64_t consensus_percent = get_consensus_percent(0);
+    uint64_t consensus_percent = 50;
 
     decisions.modify(decision_it, _me, [&](auto& row) {
       row.votes_for.erase(vote_for_it);

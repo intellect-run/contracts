@@ -1,15 +1,15 @@
 using namespace eosio;
 
 
-void soviet::addadmin(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta) {
+void soviet::addadmin(uint64_t union_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta) {
   require_auth(chairman);
 
   admin_index admins(_me, _me.value);
-  board_index boards(_me, _me.value);
+  union_index unions(_me, _me.value);
 
-  auto board = boards.find(0);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Вы не председатель, чтобы добавлять админов!");
+  auto uni = unions.find(union_id);
+  eosio::check(uni != unions.end(), "Совет еще не создан");
+  eosio::check(uni -> chairman == chairman, "Вы не председатель, чтобы добавлять админов!");
 
   auto admin = admins.find(username.value);
 
@@ -23,15 +23,15 @@ void soviet::addadmin(eosio::name chairman, eosio::name username, std::vector<eo
 };
 
 
-void soviet::rmadmin(eosio::name chairman, eosio::name username) {
+void soviet::rmadmin(uint64_t union_id, eosio::name chairman, eosio::name username) {
   require_auth(chairman);
 
   admin_index admins(_me, _me.value);
-  board_index boards(_me, _me.value);
+  union_index unions(_me, _me.value);
 
-  auto board = boards.find(0);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Вы не председатель, чтобы удалять админов!");
+  auto uni = unions.find(union_id);
+  eosio::check(uni != unions.end(), "Совет еще не создан");
+  eosio::check(uni -> chairman == chairman, "Вы не председатель, чтобы удалять админов!");
   
   auto admin = admins.find(username.value);
   eosio::check(admin != admins.end(), "Администратор не найден");
@@ -41,15 +41,15 @@ void soviet::rmadmin(eosio::name chairman, eosio::name username) {
 };
 
 
-void soviet::setadmrights(eosio::name chairman, eosio::name username, std::vector<eosio::name> rights) {
+void soviet::setadmrights(uint64_t union_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights) {
   require_auth(chairman);
 
   admin_index admins(_me, _me.value);
-  board_index boards(_me, _me.value);
+  union_index unions(_me, _me.value);
 
-  auto board = boards.find(0);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Только председатель может изменять права администраторов");
+  auto uni = unions.find(union_id);
+  eosio::check(uni != unions.end(), "Совет еще не создан");
+  eosio::check(uni -> chairman == chairman, "Только председатель может изменять права администраторов");
 
   auto admin = admins.find(username.value);
   eosio::check(admin != admins.end(), "Администратор не найден");
@@ -60,8 +60,13 @@ void soviet::setadmrights(eosio::name chairman, eosio::name username, std::vecto
 };
   
 
-void soviet::validate(eosio::name username, uint64_t decision_id) { 
+void soviet::validate(uint64_t union_id, eosio::name username, uint64_t decision_id) { 
   require_auth(username);
+
+  union_index unions(_me, _me.value);
+  auto uni = unions.find(union_id);
+  eosio::check(uni != unions.end(), "Совет еще не создан");
+
   admin_index admins(_me, _me.value);
 
   auto admin = admins.find(username.value);

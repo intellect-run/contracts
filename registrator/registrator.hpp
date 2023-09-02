@@ -32,14 +32,14 @@ public:
     registrator( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
     {}
 
-    // [[eosio::action]] void addguest(eosio::name username, eosio::name registrator, eosio::public_key public_key, eosio::asset d_cpu, eosio::asset d_net);
     [[eosio::action]] void update(eosio::name username, std::string nickname, std::string meta);
     static void add_balance(eosio::name payer, eosio::name username, eosio::asset quantity, uint64_t code);
 
     [[eosio::action]] void confirmreg(eosio::name username);
     
-    [[eosio::action]] void regaccount(eosio::name registrator, eosio::name referer, eosio::name username, std::string nickname, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string fullname, std::string birthdate, std::string country, std::string city, std::string address, std::string phone, std::string meta);
-    
+    [[eosio::action]] void regindivid(uint64_t coop_id, eosio::name registrator, eosio::name username, std::string first_name, std::string second_name, std::string middle_name, std::string birthdate, std::string country, std::string city, std::string address, std::string phone, std::string meta);
+    [[eosio::action]] void newaccount(uint64_t coop_id, eosio::name registrator, eosio::name referer, eosio::name username, std::string nickname, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta);
+
     [[eosio::action]] void changekey(eosio::name username, eosio::public_key public_key);
 
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
@@ -53,18 +53,15 @@ public:
     static constexpr eosio::name _me = "registrator"_n;             /*!< собственное имя аккаунта контракта */
     static constexpr eosio::name _partners = "part"_n;              /*!< имя аккаунта контракта хранилища партнёров */
     static constexpr eosio::name _soviet = "soviet"_n;               /*!< имя аккаунта цифровой экономики ядра */
+    static constexpr eosio::name _ano = "ano"_n;               /*!< имя аккаунта контракта АНО */
     static constexpr eosio::name _system_account = "eosio"_n;       /*!< имя аккаунта системного контракта */
     
-    static const uint64_t _GUEST_EXPIRATION = 1209600;              /*!< продолжительность гостевого периода, после которого, аккаунт может быть отозван */
-    // static const uint64_t _GUEST_EXPIRATION = 10; //10 secs
     static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("AXON"),4); /*!< системный токен */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"), 4); /*!< идентификационный токен рынка оперативной памяти */
 
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
 
     static const uint64_t _MIN_AMOUNT = 10000;           /*!< комиссия, взымаемая регистратором за пользование гостевым аккаунтом */
-        
-    static const uint64_t _BASKET = 3;                  /*!< количество гостевых аккаунтов, которые могут быть отозваны за один вызов действия */
     
     /**
     * @}
@@ -119,26 +116,19 @@ public:
     /**
      * @brief      Таблица хранения объектов гостей
      * @ingroup public_tables
-     * @table accounts
+     * @table individuals
      * @contract _me
      * @scope _me
-     * @details Хранит аккаунты, зарегистрированные в системе в качестве гостей, чьи права владельца аккаунта принадлежат регистратору _me. 
+     * @details 
     */
-
-
-    struct [[eosio::table]] accounts {
+    struct [[eosio::table]] individuals {
         eosio::name username;             /*!< имя аккаунта */
-        eosio::name status;               /*!< статус аккаунта */
+        uint64_t coop_id;
+        eosio::name status;
         eosio::name registrator;          /*!< имя аккаунта регистратора */
-        eosio::name referer; 
-
-        std::string nickname; 
-        eosio::checksum256 nickhash; 
-        
-        eosio::time_point_sec registered_at;
-        eosio::asset to_pay;              /*!< количество токенов к оплате */
-        
-        std::string fullname;
+        std::string first_name;
+        std::string second_name;
+        std::string middle_name;
         std::string birthdate;
         std::string country;
         std::string city;
@@ -148,38 +138,63 @@ public:
         std::string meta;
 
         uint64_t primary_key() const {return username.value;}     /*!< return username - primary_key */
+        uint64_t by_coop() const {return coop_id;}
+        uint64_t by_status() const {return status.value;}
+        uint64_t byregistr() const {return registrator.value;}            /*!< return registrator - secondary_key 3 */
         
-        uint64_t byreg() const {return registrator.value;}            /*!< return registrator - secondary_key 3 */
-        uint64_t bystatus() const {return status.value;}            /*!< return registrator - secondary_key 3 */
-
-        EOSLIB_SERIALIZE(accounts, (username)(status)(registrator)(referer)(nickname)(nickhash)(registered_at)(to_pay)(fullname)(birthdate)(country)(city)(address)(phone)(meta))
     };
 
-    typedef eosio::multi_index<"accounts"_n, accounts,
-       eosio::indexed_by< "bystatus"_n, eosio::const_mem_fun<accounts, uint64_t, &accounts::bystatus>>,
-       eosio::indexed_by< "byreg"_n, eosio::const_mem_fun<accounts, uint64_t, &accounts::byreg>>
-    > accounts_index;
-
+    typedef eosio::multi_index<"individuals"_n, individuals,
+       eosio::indexed_by< "bycoop"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::by_coop>>,
+       eosio::indexed_by< "bystatus"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::by_status>>,
+       eosio::indexed_by< "byregistr"_n, eosio::const_mem_fun<individuals, uint64_t, &individuals::byregistr>>
+    > individuals_index;
 
 
     /**
      * @brief      Таблица хранения отозванных аккаунтов гостей
      * @ingroup public_tables
-     * @table reserved
+     * @table newaccounts
      * @contract _me
      * @scope _me
      * @details Хранит аккаунты, отозванные у гостей путём замены их активного ключа на ключ регистратора за истечением срока давности без поступления оплаты.
     */
-    struct [[eosio::table]] reserved {
+    struct [[eosio::table]] catalog {
         eosio::name username;         /*!< имя аккаунта гостя */
+        uint64_t coop_id;
+        eosio::name status;               /*!< статус аккаунта "" - никто, "member" */
+        std::string nickname; 
+        eosio::checksum256 nickhash; 
+        
+        eosio::name type;               //invidual | coorparate
         eosio::name registrator;      /*!< имя аккаунта регистратора */
+        eosio::name referer;
+        eosio::asset payed;           /*!< количество токенов к оплате */
+        std::string meta;
+        eosio::time_point_sec registered_at;
 
         uint64_t primary_key() const {return username.value;} /*!< return username - primary_key */
+        uint64_t by_coop() const {return coop_id;}
+        uint64_t by_referer() const {return referer.value;}
+        uint64_t by_amount() const {return payed.amount;}
+        uint64_t by_type() const {return type.value;}
+        uint64_t by_status() const{return status.value;}
+        uint64_t by_registr() const {return registrator.value;}
 
-        EOSLIB_SERIALIZE(reserved, (username)(registrator))
+        eosio::checksum256 bynickhash() const { return nickhash; } 
+
     };
 
-    typedef eosio::multi_index<"reserved"_n, reserved> reserved_index;
+    typedef eosio::multi_index<"catalog"_n, catalog,
+       eosio::indexed_by< "bycoop"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_coop>>,
+       eosio::indexed_by< "byreferer"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_referer>>,
+       eosio::indexed_by< "bytype"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_type>>,
+       eosio::indexed_by< "bystatus"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_status>>,
+       eosio::indexed_by< "byregistr"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_registr>>,
+       eosio::indexed_by< "byamount"_n, eosio::const_mem_fun<catalog, uint64_t, &catalog::by_amount>>,
+       eosio::indexed_by<"bynickhash"_n, eosio::const_mem_fun<catalog, eosio::checksum256, &catalog::bynickhash>>
+    
+    > catalog_index;
  
 
     /**
@@ -212,51 +227,21 @@ public:
     
 
 
-    /**
-     * @brief      Таблица хранения кодекса и версий
-     * @ingroup public_tables
-     * @table codex
-     * @contract _me
-     * @scope _me
-     * @details Хранит текущие версии кодекса для языковых кодов;
-    */
-    struct [[eosio::table]] codex {
-        eosio::name lang;         /*!< языковой код кодекса */
-        uint64_t version;      /*!< версия кодекса*/
-        uint64_t subversion;   /*!< субверсия кодекса (устанавливается автоматически) */
-        std::string data;      /*!< содержание кодекса*/
+    struct [[eosio::table, eosio::contract("registrator")]] coops {
+        uint64_t id;
+        eosio::name system_name;
+        eosio::name status;
+        eosio::name chairman;
+        eosio::name registrator;
+        std::string data;
+        std::string message;
 
-        uint64_t primary_key() const {return lang.value;} /*!< return lang - primary_key */
-        uint128_t langandvers() const { return combine_ids(lang.value, version); }
-    
-        EOSLIB_SERIALIZE(codex, (lang)(version)(subversion)(data))
+        uint64_t primary_key() const {
+          return id;
+        };
     };
 
-    typedef eosio::multi_index<"codex"_n, codex,
-      eosio::indexed_by<"langandvers"_n, eosio::const_mem_fun<codex, uint128_t, &codex::langandvers>>
-    > codex_index;
- 
+    typedef eosio::multi_index<"coops"_n, coops> coops_index;
 
 
-    /**
-     * @brief      Таблица хранения подписей кодекса
-     * @ingroup public_tables
-     * @table signs
-     * @contract _me
-     * @scope _me
-     * @details Хранит аккаунты, отозванные у гостей путём замены их активного ключа на ключ регистратора за истечением срока давности без поступления оплаты.
-    */
-    struct [[eosio::table]] signs {
-        eosio::name username;         /*!< имя подписанта */
-        eosio::name lang;      /*!< версия кодекса*/
-        uint64_t version;      /*!< подписанная версия кодекса*/
-        eosio::time_point_sec signed_at;      /*!< дата подписания */
-
-        uint64_t primary_key() const {return username.value;} /*!< return username - primary_key */
-
-        EOSLIB_SERIALIZE(signs, (username)(lang)(version)(signed_at))
-    };
-
-    typedef eosio::multi_index<"signs"_n, signs> signs_index;
- 
 };
