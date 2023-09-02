@@ -46,7 +46,7 @@ void soviet::authorize(eosio::name chairman, uint64_t decision_id) {
 
 
 void soviet::createunion(uint64_t coop_id, uint64_t parent_id, eosio::name chairman, std::vector<eosio::name> members){
-  require_auth(_chairman); 
+  require_auth(chairman); 
 
   coops_index coops(_ano, _ano.value);
   auto coop = coops.find(coop_id);
