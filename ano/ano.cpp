@@ -54,6 +54,7 @@ void ano::startcoop(eosio::name chairman, eosio::name registrator, std::string d
   ).send();
 
   uint64_t coop_id = get_global_id("coops"_n);
+  
   coops.emplace(_me, [&](auto &c){
     c.id = coop_id;
     c.system_name = system_name;

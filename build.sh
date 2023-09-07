@@ -2,9 +2,9 @@
 
 # Проверяем, задан ли аргумент
 if [ "$1" != "" ]; then
-  contracts=$1
+	contracts=$1
 else
-  contracts="*"
+	contracts="*"
 fi
 
 # Счетчик контрактов
@@ -12,9 +12,9 @@ count=0
 
 # Запуск контейнера Docker
 docker run --rm --name cdt_v4.0.0 \
-    --volume $(pwd):/project \
-    -w /project \
-    dacomfoundation/cdt_v4.0.0 /bin/bash -c "
+	--volume $(pwd):/project \
+	-w /project \
+	dicoop/cdt_v4.0.0 /bin/bash -c "
 
 # Перебираем все папки в директории
 for folder in $contracts/ ; do
