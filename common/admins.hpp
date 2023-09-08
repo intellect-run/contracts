@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * @brief Таблица администраторов для контракта "soviet"
  * 
@@ -14,7 +16,7 @@
  * @endcode
  */
 
-struct [[eosio::table, eosio::contract("soviet")]] admins {
+struct [[eosio::table, eosio::contract(SOVIET)]] admins {
   eosio::name username; ///< Уникальное имя администратора
   std::vector<eosio::name> rights; ///< Список прав администратора
   std::string meta; ///< Дополнительная информация об администраторе

@@ -12,7 +12,7 @@
 #include "../common/counts.hpp"
 #include "../common/permissions.hpp"
 
-class [[eosio::contract]] ano : public eosio::contract {
+class [[eosio::contract(ANO)]] ano : public eosio::contract {
 
 public:
   ano(eosio::name receiver, eosio::name code,

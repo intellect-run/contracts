@@ -11,7 +11,7 @@ void soviet::automate(eosio::name member, eosio::name action_type, eosio::name p
 
   require_auth(member);
   
-  automator_index automator(_me, _me.value);
+  automator_index automator(_soviet, _soviet.value);
   auto by_member_action_index = automator.template get_index<"bymembaction"_n>();
 
   if (action_type == "authorize"_n){
@@ -20,7 +20,7 @@ void soviet::automate(eosio::name member, eosio::name action_type, eosio::name p
     is_valid_action(action_type);  
   };
   
-  auto idx = soviet::combine_ids(member.value, action_type.value);
+  auto idx = combine_ids(member.value, action_type.value);
             
   auto autom = by_member_action_index.find(idx);
   
@@ -42,7 +42,7 @@ void soviet::disautomate(eosio::name member, uint64_t automation_id ) {
 
   soviet::is_valid_member(member);
 
-  automator_index automator(_me, _me.value);
+  automator_index automator(_soviet, _soviet.value);
   auto autom = automator.find(automation_id);
 
   eosio::check(autom -> member == member, "Это не ваша автоматизация для удаления");

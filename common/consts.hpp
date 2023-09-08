@@ -1,3 +1,11 @@
+#define ANO "ano"
+#define DRAFT "draft"
+#define MARKETPLACE "marketplace"
+#define SOVIET "soviet"
+#define REGISTRATOR "registrator"
+#define SYSTEM "eosio"
+#define PARTNERS "part"
+
 static constexpr eosio::name _ano = "ano"_n;
 static constexpr eosio::name _draft = "draft"_n;
 static constexpr eosio::name _marketplace =
@@ -9,7 +17,8 @@ static constexpr eosio::name _system = "eosio"_n;
 static constexpr eosio::name _partners =
       "part"_n; /*!< имя аккаунта контракта хранилища партнёров */
 
-
+static constexpr eosio::name _regaccount_action = "regaccount"_n;
+static constexpr eosio::name _change_action = "change"_n;
 
 static constexpr eosio::symbol _root_symbol =
     eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */

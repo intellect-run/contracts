@@ -134,24 +134,6 @@
             ]
         },
         {
-            "name": "counts",
-            "base": "",
-            "fields": [
-                {
-                    "name": "key",
-                    "type": "name"
-                },
-                {
-                    "name": "secondary_key",
-                    "type": "name"
-                },
-                {
-                    "name": "value",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
             "name": "createunion",
             "base": "",
             "fields": [
@@ -478,13 +460,6 @@
         {
             "name": "automator",
             "type": "automator",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "counts",
-            "type": "counts",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

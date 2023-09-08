@@ -3,7 +3,7 @@
 
 
 /**
- * @brief Таблица балансов для контракта "marketplace"
+ * @brief Таблица балансов
  *
  * Эта таблица используется для хранения информации о балансах пользователей в системе.
  *
@@ -19,7 +19,7 @@
  * auto balance = balances.find(id);
  * @endcode
  */
-struct [[eosio::table, eosio::contract("marketplace")]] balances_base {
+struct [[eosio::table]] balances_base {
   uint64_t id;          /*!< идентификатор баланса */
   eosio::name contract; /*!< имя контракта токена */
   eosio::asset quantity; /*!< количество токенов на балансе */

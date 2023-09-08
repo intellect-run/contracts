@@ -2,7 +2,7 @@ using namespace eosio;
 
 
 void soviet::is_valid_member(eosio::name member) {
-  union_index unions(_me, _me.value);
+  union_index unions(_soviet, _soviet.value);
   auto uni = unions.find(0);
   
   // Проверяем, является ли участник членом совета
@@ -11,7 +11,7 @@ void soviet::is_valid_member(eosio::name member) {
 
 
 void soviet::is_valid_chairman(eosio::name chairman) {
-  union_index unions(_me, _me.value);
+  union_index unions(_soviet, _soviet.value);
   auto uni = unions.find(0);
   
   eosio::check(uni -> chairman == chairman, "Вы не председатель");
@@ -22,15 +22,15 @@ void soviet::is_valid_chairman(eosio::name chairman) {
 void soviet::authorize(eosio::name chairman, uint64_t decision_id) { 
   require_auth(chairman);
 
-  union_index unions(_me, _me.value);
-  oracle_index oracle(_me, _me.value);
+  union_index unions(_soviet, _soviet.value);
+  oracle_index oracle(_soviet, _soviet.value);
 
   auto uni = unions.find(0);
 
   eosio::check(uni != unions.end(), "Совет не найден");
   eosio::check(uni -> chairman == chairman, "Только председатель совета может авторизовать решение");
   
-  decision_index decisions(_me, _me.value);
+  decision_index decisions(_soviet, _soviet.value);
   auto decision = decisions.find(decision_id);
 
   decisions.modify(decision, chairman, [&](auto &d){
@@ -57,7 +57,7 @@ void soviet::createunion(uint64_t coop_id, uint64_t parent_id, eosio::name chair
   eosio::check(coop -> status == "run"_n, "Кооператив отключен");
   eosio::check(coop -> chairman == chairman, "Только председатель кооператива может создать совет | участок");
 
-  union_index unions(_me, _me.value);
+  union_index unions(_soviet, _soviet.value);
   auto uni = unions.find(coop_id);
   eosio::check(uni == unions.end(), "Совет уже создан");
 
@@ -86,7 +86,7 @@ void soviet::createunion(uint64_t coop_id, uint64_t parent_id, eosio::name chair
 
 
 uint64_t soviet::get_members_count(uint64_t union_id) {
-  union_index unions(_me, _me.value);
+  union_index unions(_soviet, _soviet.value);
 
   auto uni = unions.find(union_id);
   eosio::check(uni != unions.end(), "Совет не найден");

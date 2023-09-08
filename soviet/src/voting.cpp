@@ -3,7 +3,7 @@ using namespace eosio;
 
 void check_for_any_vote_exist(eosio::name member, uint64_t decision_id) {
   // Инициализация таблицы решений
-  decision_index decisions(_me, _me.value);
+  decision_index decisions(_soviet, _soviet.value);
 
   // Поиск решения по decision_id
   auto decision = decisions.find(decision_id);
@@ -19,7 +19,7 @@ void check_for_any_vote_exist(eosio::name member, uint64_t decision_id) {
 
 std::pair<uint64_t, uint64_t> get_votes_count(uint64_t decision_id) {
   // Инициализация таблицы решений
-  decision_index decisions(_me, _me.value);
+  decision_index decisions(_soviet, _soviet.value);
 
   // Поиск решения по decision_id
   auto decision_it = decisions.find(decision_id);
@@ -33,14 +33,14 @@ std::pair<uint64_t, uint64_t> get_votes_count(uint64_t decision_id) {
 
 void add_vote_for(eosio::name member, uint64_t decision_id, bool approved) {
   // Инициализация таблицы решений
-  decision_index decisions(_me, _me.value);
+  decision_index decisions(_soviet, _soviet.value);
 
   // Поиск решения по decision_id
   auto decision_it = decisions.find(decision_id);
   eosio::check(decision_it != decisions.end(), "Решение с данным ID не найдено.");
 
   // Модифицируем запись в таблице
-  decisions.modify(decision_it, _me, [&](auto& row) {
+  decisions.modify(decision_it, _soviet, [&](auto& row) {
     row.votes_for.push_back(member); // Добавляем участника в голоса за
     row.approved = approved;
   });
@@ -49,14 +49,14 @@ void add_vote_for(eosio::name member, uint64_t decision_id, bool approved) {
 
 void add_vote_against(eosio::name member, uint64_t decision_id) {
   // Инициализация таблицы решений
-  decision_index decisions(_me, _me.value);
+  decision_index decisions(_soviet, _soviet.value);
 
   // Поиск решения по decision_id
   auto decision_it = decisions.find(decision_id);
   eosio::check(decision_it != decisions.end(), "Решение с данным ID не найдено.");
 
   // Модифицируем запись в таблице
-  decisions.modify(decision_it, _me, [&](auto& row) {
+  decisions.modify(decision_it, _soviet, [&](auto& row) {
     row.votes_against.push_back(member); // Добавляем участника в голоса против
   });
 }
@@ -109,7 +109,7 @@ void soviet::cancelvote(eosio::name member, uint64_t decision_id) {
     require_auth(member);
   }
 
-  decision_index decisions(_me, _me.value); 
+  decision_index decisions(_soviet, _soviet.value); 
   auto decision_it = decisions.find(decision_id);
   eosio::check(decision_it != decisions.end(), "Решение не найдено.");
 
@@ -119,7 +119,7 @@ void soviet::cancelvote(eosio::name member, uint64_t decision_id) {
     uint64_t total_members = get_members_count(0);
     uint64_t consensus_percent = 50;
 
-    decisions.modify(decision_it, _me, [&](auto& row) {
+    decisions.modify(decision_it, _soviet, [&](auto& row) {
       row.votes_for.erase(vote_for_it);
       uint64_t votes_for_count = row.votes_for.size();
       row.approved = (votes_for_count * 100 / total_members) > consensus_percent;
@@ -129,7 +129,7 @@ void soviet::cancelvote(eosio::name member, uint64_t decision_id) {
   // Удаление голоса "против", если он существует
   auto vote_against_it = std::find(decision_it->votes_against.begin(), decision_it->votes_against.end(), member);
   if (vote_against_it != decision_it->votes_against.end()) {
-    decisions.modify(decision_it, _me, [&](auto& row) {
+    decisions.modify(decision_it, _soviet, [&](auto& row) {
       row.votes_against.erase(vote_against_it);
     });
   }
