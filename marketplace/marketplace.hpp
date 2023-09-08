@@ -16,16 +16,13 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
-#include "include/utils.hpp"  
-#include "include/admins.hpp"
-#include "include/change.hpp"
-#include "include/balances.hpp"
+#include "../common/consts.hpp"
+#include "../common/utils.hpp"
+#include "../common/admins.hpp"
+#include "../common/counts.hpp"
+#include "../common/balances.hpp"
 
 
-static constexpr eosio::name _me = "marketplace"_n; /*!< имя контракта */
-static constexpr eosio::name _soviet = "soviet"_n; /*!< дополнительная константа */
-static constexpr eosio::symbol _SYMBOL = eosio::symbol(eosio::symbol_code("AXON"),4); /*!< системный токен */
-static constexpr eosio::name _CONTRACT = "eosio.token"_n; /*!< системный контракт */
        
 /**
  * @class marketplace
@@ -41,7 +38,7 @@ public:
    */
   marketplace(eosio::name receiver, eosio::name code,
               eosio::datastream<const char *> ds)
-      : eosio::contract(receiver, code, ds) {}
+      : eosio::contract(receiver, code, ds){}
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
@@ -68,6 +65,7 @@ public:
    * @param data Дополнительные данные, специфичные для заявки (например, условия обмена)
    * @param meta Метаданные, содержащие дополнительную информацию о заявке (например, описание товара)
    */
+
   struct exchange_params {
     eosio::name username; /*!< имя пользователя */
     uint64_t parent_id; /*!< идентификатор родительской заявки */
@@ -104,52 +102,61 @@ public:
   [[eosio::action]] void unpublish(eosio::name username, uint64_t exchange_id);
   [[eosio::action]] void publish(eosio::name username, uint64_t exchange_id);
 
+  struct [[eosio::table, eosio::contract("marketplace")]] balances : balances_base {};
+  struct [[eosio::table, eosio::contract("marketplace")]] counts : counts_base {};
 
-
-
-  //balances.cpp
-  static void add_balance(eosio::name username, eosio::asset quantity,
-                          eosio::name contract);
-  static void sub_balance(eosio::name username, eosio::asset quantity,
-                          eosio::name contract);
-
-  
-  static uint64_t get_global_id(eosio::name key) {
-    counts_index counts(_me, _me.value);
-    auto count = counts.find(key.value);
-    uint64_t id = 1;
-
-    if (count == counts.end()) {
-      counts.emplace(_me, [&](auto &c) {
-        c.key = key;
-        c.value = id;
-      });
-    } else {
-      id = count->value + 1;
-      counts.modify(count, _me, [&](auto &c) { c.value = id; });
-    }
-
-    return id;
-  }
 
   /**
-   * @struct counts
-   * @brief Структура для учета глобальных идентификаторов
+   * @brief Таблица обменов для контракта "marketplace"
+   *
+   * Эта таблица используется для хранения информации об обменных заявках в системе.
+   *
+   * @param id Идентификатор обмена, используемый как первичный ключ
+   * @param parent_id Идентификатор родительской заявки (если есть)
+   * @param type Тип обмена (покупка, продажа и т.д.)
+   * @param status Статус обмена (например, "опубликовано", "на модерации" и т.д.)
+   * @param username Имя пользователя, создавшего заявку
+   * @param contract Имя контракта токена
+   * @param price_for_piece Цена за единицу товара в заявке
+   * @param remain_pieces Оставшееся количество товара
+   * @param blocked_pieces Заблокированное количество товара
+   * @param delivered_pieces Количество доставленного товара
+   * @param data Дополнительные данные, связанные с заявкой
+   * @param meta Метаданные заявки
+   *
+   * Дополнительные индексы по status, type и parent_id позволяют искать заявки по этим полям.
+   *
+   * Пример использования:
+   * @code
+   * exchange_index exchange(_me, _me.value);
+   * auto exchange_order = exchange.find(id);
+   * @endcode
    */
-  struct [[eosio::table, eosio::contract("marketplace")]] counts {
-    eosio::name key;
-    eosio::name secondary_key;
-    uint64_t value;
+  struct [[eosio::table, eosio::contract("marketplace")]] exchange {
+    uint64_t id;                 /*!< идентификатор обмена */
+    uint64_t parent_id;          /*!< идентификатор родительской заявки */
+    eosio::name type;            /*!< тип обмена */
+    eosio::name status;          /*!< статус обмена */
+    eosio::name username;        /*!< имя пользователя */
+    eosio::name contract;        /*!< имя контракта токена */
+    eosio::asset price_for_piece;/*!< цена за единицу товара */
+    uint64_t remain_pieces;      /*!< оставшееся количество товара */
+    uint64_t blocked_pieces;     /*!< заблокированное количество товара */
+    uint64_t delivered_pieces;   /*!< количество доставленного товара */
+    std::string data;            /*!< дополнительные данные */
+    std::string meta;            /*!< метаданные заявки */
 
-    uint64_t primary_key() const { return key.value; } /*!< return id - primary_key */
-    uint128_t keyskey() const { return combine_ids(key.value, secondary_key.value); } /*!< комбинированный secondary_key для получения курса */
-    uint128_t keyvalue() const { return combine_ids(key.value, value); } /*!< комбинированный secondary_key для получения курса */
+    uint64_t primary_key() const { return id; } /*!< return id - primary_key */
+    uint64_t by_status() const { return status.value; } /*!< индекс по статусу */
+    uint64_t by_type() const { return type.value; } /*!< индекс по типу */
+    uint64_t by_parent() const { return parent_id; } /*!< индекс по родительскому ID */
   };
 
   typedef eosio::multi_index<
-      "counts"_n, counts,
-      eosio::indexed_by<"keyskey"_n, eosio::const_mem_fun<counts, uint128_t,
-                                                          &counts::keyskey>>>
-      counts_index;
+      "exchange"_n, exchange,
+      eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
+      eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
+      eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>>
+      exchange_index; /*!< Тип мультииндекса для таблицы обменов */
 
 };

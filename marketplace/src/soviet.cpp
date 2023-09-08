@@ -16,7 +16,7 @@ using namespace eosio;
 [[eosio::action]] void marketplace::authorize(uint64_t exchange_id) {
   require_auth(_soviet);
 
-  exchange_index exchange(_me, _me.value);
+  exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
 
   eosio::check(change != exchange.end(), "Ордер не найден");

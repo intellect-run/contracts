@@ -1,23 +1,6 @@
-/**
- * @file marketplace.cpp
- * @brief Основной файл реализации контракта "marketplace"
- *
- * Этот файл включает в себя основную реализацию контракта "marketplace", включая обработку событий и логику управления токенами.
- * Здесь загружаются все необходимые файлы и определяются действия, которые контракт может выполнять.
- *
- * @include "marketplace.hpp"
- * @include "src/soviet.cpp"
- * @include "src/balances.cpp"
- * @include "src/admins.cpp"
- * @include "src/change.cpp"
- */
-
-
 #include "marketplace.hpp"
 #include <eosio/transaction.hpp>
-
 #include "src/soviet.cpp"
-#include "src/balances.cpp"
 #include "src/admins.cpp"
 #include "src/change.cpp"
 
@@ -79,7 +62,7 @@ using namespace eosio;
  * @param type тип идентификатора
  */
 [[eosio::action]] void marketplace::newid(uint64_t id, eosio::name type) {
-  require_auth(_me);
+  require_auth(_marketplace);
 };
 
 
@@ -87,7 +70,7 @@ extern "C" {
 
 /// Метод apply реализует диспетчеризацию событий для этого контракта
 void apply(uint64_t receiver, uint64_t code, uint64_t action) {
-  if (code == _me.value) {
+  if (code == _marketplace.value) {
     switch (action) {
       EOSIO_DISPATCH_HELPER(marketplace, (newid)
         //change
@@ -110,8 +93,8 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
 
       auto op = eosio::unpack_action_data<transfer>();
       // Если перевод направлен на аккаунт контракта, обновляем баланс
-      if (op.to == _me) {
-        marketplace::add_balance(op.from, op.quantity, eosio::name(code));
+      if (op.to == _marketplace) {
+        add_balance(_marketplace, op.from, op.quantity, eosio::name(code));
       }
     }
   }

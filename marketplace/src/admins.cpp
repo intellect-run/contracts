@@ -4,7 +4,7 @@ using namespace eosio;
 [[eosio::action]] void marketplace::moderate(eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_me, _me.value);
+  exchange_index exchange(_marketplace, _marketplace.value);
   
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
@@ -25,7 +25,7 @@ using namespace eosio;
 [[eosio::action]] void marketplace::prohibit(eosio::name username, uint64_t exchange_id, std::string meta) { 
   require_auth(username);
   
-  exchange_index exchange(_me, _me.value);
+  exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
@@ -51,7 +51,7 @@ using namespace eosio;
 [[eosio::action]] void marketplace::unpublish(eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_me, _me.value);
+  exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
   eosio::check(change->username == username, "У вас нет права на снятие данной заявки");
@@ -73,7 +73,7 @@ using namespace eosio;
 [[eosio::action]] void marketplace::publish(eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_me, _me.value);
+  exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
   eosio::check(change->username == username, "У вас нет права на публикацию данной заявки");

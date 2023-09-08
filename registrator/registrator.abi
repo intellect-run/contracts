@@ -92,40 +92,6 @@
             ]
         },
         {
-            "name": "coops",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "system_name",
-                    "type": "name"
-                },
-                {
-                    "name": "status",
-                    "type": "name"
-                },
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                },
-                {
-                    "name": "message",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "individuals",
             "base": "",
             "fields": [
@@ -336,13 +302,6 @@
         {
             "name": "catalog",
             "type": "catalog",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "coops",
-            "type": "coops",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

@@ -1,21 +1,48 @@
-using namespace eosio;
+// В файле common_methods.hpp:
+// using namespace eosio;
+
+
 /**
- * @brief Добавление баланса пользователю.
+ * @brief Таблица балансов для контракта "marketplace"
  *
- * Этот метод вызывается при прямом входящем переводе токенов на контракт. Добавляет указанное количество токенов к балансу пользователя.
+ * Эта таблица используется для хранения информации о балансах пользователей в системе.
  *
- * @param username Имя пользователя, чей баланс нужно увеличить.
- * @param quantity Количество токенов, которое нужно добавить.
- * @param contract Учетная запись контракта токена.
+ * @param id Идентификатор баланса, используемый как первичный ключ
+ * @param contract Имя контракта токена
+ * @param quantity Количество токенов на балансе
+ *
+ * Дополнительный индекс по комбинации contract и symbol позволяет искать баланс по этим двум полям.
+ *
+ * Пример использования:
+ * @code
+ * balances_index balances(_me, username.value);
+ * auto balance = balances.find(id);
+ * @endcode
  */
-void marketplace::add_balance(eosio::name username, eosio::asset quantity,
-                              eosio::name contract) {
+struct [[eosio::table, eosio::contract("marketplace")]] balances_base {
+  uint64_t id;          /*!< идентификатор баланса */
+  eosio::name contract; /*!< имя контракта токена */
+  eosio::asset quantity; /*!< количество токенов на балансе */
+
+  uint64_t primary_key() const { return id; } /*!< return id - primary_key */
+
+  uint128_t byconsym() const {
+    return combine_ids(contract.value, quantity.symbol.code().raw());
+  } /*!< возвращает уникальный индекс, сформированный из значения contract и символа токена */
+};
+
+typedef eosio::multi_index<"balance"_n, balances_base, eosio::indexed_by<"byconsym"_n, eosio::const_mem_fun<balances_base, uint128_t, &balances_base::byconsym>>> balances_index; /*!< Тип мультииндекса для таблицы балансов */
+
+
+
+void add_balance(eosio::name source, eosio::name username, eosio::asset quantity,
+                                  eosio::name contract) {
   // Если баланс не найден, создаем новую запись.
   // В противном случае, увеличиваем существующий баланс.
   
   require_auth(username);
 
-  balances_index balances(_me, username.value);
+  balances_index balances(source, username.value);
 
   auto balances_by_contract_and_symbol =
       balances.template get_index<"byconsym"_n>();
@@ -26,16 +53,17 @@ void marketplace::add_balance(eosio::name username, eosio::asset quantity,
       balances_by_contract_and_symbol.find(contract_and_symbol_index);
 
   if (balance == balances_by_contract_and_symbol.end()) {
-    balances.emplace(_me, [&](auto &b) {
+    balances.emplace(source, [&](auto &b) {
       b.id = balances.available_primary_key();
       b.contract = contract;
       b.quantity = quantity;
     });
   } else {
     balances_by_contract_and_symbol.modify(
-        balance, _me, [&](auto &b) { b.quantity += quantity; });
+        balance, source, [&](auto &b) { b.quantity += quantity; });
   };
 }
+
 
 /**
  * @brief Вычитание баланса у пользователя.
@@ -49,12 +77,12 @@ void marketplace::add_balance(eosio::name username, eosio::asset quantity,
  * @param quantity Количество токенов, которое нужно вычесть.
  * @param contract Учетная запись контракта токена.
  */
-void marketplace::sub_balance(eosio::name username, eosio::asset quantity,
+void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity,
                               eosio::name contract) {
   // Если после вычитания баланс равен нулю, удаляем запись.
   // В противном случае, уменьшаем существующий баланс.
   
-  balances_index balances(_me, username.value);
+  balances_index balances(source, username.value);
 
   auto balances_by_contract_and_symbol =
       balances.template get_index<"byconsym"_n>();
@@ -76,6 +104,6 @@ void marketplace::sub_balance(eosio::name username, eosio::asset quantity,
   } else {
 
     balances_by_contract_and_symbol.modify(
-        balance, _me, [&](auto &b) { b.quantity -= quantity; });
+        balance, source, [&](auto &b) { b.quantity -= quantity; });
   }
 }

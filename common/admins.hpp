@@ -1,7 +1,5 @@
-using namespace eosio;
-
 /**
- * @brief Таблица администраторов для контракта "marketplace"
+ * @brief Таблица администраторов для контракта "soviet"
  * 
  * Эта таблица используется для хранения информации об администраторах и их правах в системе.
  * 
@@ -15,9 +13,8 @@ using namespace eosio;
  * auto admin = admins.find(username.value);
  * @endcode
  */
-using namespace eosio;
 
-struct [[eosio::table, eosio::contract("marketplace")]] admins {
+struct [[eosio::table, eosio::contract("soviet")]] admins {
   eosio::name username; ///< Уникальное имя администратора
   std::vector<eosio::name> rights; ///< Список прав администратора
   std::string meta; ///< Дополнительная информация об администраторе
