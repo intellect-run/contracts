@@ -1,22 +1,33 @@
 #pragma once
 
-struct [[eosio::table, eosio::contract(ANO)]] coops {
-  uint64_t id;
-  eosio::name system_name;
-  eosio::name status;
-  eosio::name chairman;
-  eosio::name registrator;
-  std::string data;
-  std::string message;
+struct [[eosio::table, eosio::contract(REGISTRATOR)]] members {
+  eosio::name username;
+  eosio::time_point_sec created_at;
+  eosio::time_point_sec last_update;
+  bool is_accepted;
+  bool is_initial;
+  bool is_minimum;
+  std::string position_title;
+  eosio::name position;
+    // (7, _('chairman')),
+		  // (6, _('vpchairman')),
+		  // (5, _('director')),
+		  // (4, _('vpdirector')),
+		  // (3, _('boardmember')),
+		  // (2, _('execmember')),
+		  // (1, _('votingmember')),
+		  // (0, _('assocmember')),
 
-  uint64_t primary_key() const {
-    return id;
-  };
+ uint64_t primary_key() const {
+    return username.value;
+ } /*!< return username - primary_key */
+
 };
 
-typedef eosio::multi_index<"coops"_n, coops> coops_index;
+typedef eosio::multi_index< "members"_n, members> members_index;
 
-struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
+
+struct [[eosio::table, eosio::contract(SOVIET)]] documents {
   uint64_t id;
   uint64_t board_id;
   eosio::name type; // openproposal | +regaccount | change | contribute | withdraw
@@ -41,16 +52,16 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   uint64_t byexecuted() const { return executed; }
 };
 
-typedef eosio::multi_index< "decisions"_n, decisions,
-  eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bysecondary>>,
-  eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bytype>>,
-  eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byapproved>>,
-  eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byvalidated>>,
-  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byauthorized>>,
-  eosio::indexed_by<"byexecuted"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byexecuted>>
-> decision_index;
+typedef eosio::multi_index< "documents"_n, documents,
+  eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<documents, uint64_t, &documents::bysecondary>>,
+  eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<documents, uint64_t, &documents::bytype>>,
+  eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<documents, uint64_t, &documents::byapproved>>,
+  eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<documents, uint64_t, &documents::byvalidated>>,
+  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<documents, uint64_t, &documents::byauthorized>>,
+  eosio::indexed_by<"byexecuted"_n, eosio::const_mem_fun<documents, uint64_t, &documents::byexecuted>>
+> documents_index;
  
-struct [[eosio::table, eosio::contract(SOVIET)]] unions {
+struct [[eosio::table, eosio::contract(SOVIET)]] boards {
   uint64_t id;
   uint64_t parent_id;
   eosio::name chairman;
@@ -62,9 +73,39 @@ struct [[eosio::table, eosio::contract(SOVIET)]] unions {
       
 };
 
-typedef eosio::multi_index< "unions"_n, unions,
-  eosio::indexed_by< "bychairman"_n, eosio::const_mem_fun<unions, uint64_t, &unions::bychairman>>
- > union_index;
+typedef eosio::multi_index< "boards"_n, boards,
+  eosio::indexed_by< "bychairman"_n, eosio::const_mem_fun<boards, uint64_t, &boards::bychairman>>
+ > boards_index;
 
 
+/**
+ * @brief Таблица администраторов для контракта "soviet"
+ * 
+ * Эта таблица используется для хранения информации об администраторах и их правах в системе.
+ * 
+ * @param username Имя администратора, используемое как первичный ключ
+ * @param rights Вектор прав, которыми обладает администратор
+ * @param meta Дополнительная метаинформация, связанная с администратором
+ * 
+ * Пример использования:
+ * @code
+ * admins_index admins(_me, _me.value);
+ * auto admin = admins.find(username.value);
+ * @endcode
+ */
 
+struct [[eosio::table, eosio::contract(SOVIET)]] staff {
+  eosio::name username; ///< Уникальное имя администратора
+  std::vector<eosio::name> rights; ///< Список прав администратора
+  std::string meta; ///< Дополнительная информация об администраторе
+  
+  uint64_t primary_key() const { return username.value; } ///< Первичный ключ для индексации по имени администратора
+};
+
+typedef eosio::multi_index<"staff"_n, staff> staff_index; ///< Тип мультииндекса для таблицы администраторов
+///
+///
+// struct [[eosio::table, eosio::contract(SOVIET)]] managers {
+//   
+// }; 
+//

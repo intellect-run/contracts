@@ -1,6 +1,7 @@
 #include "registrator.hpp"
 using namespace eosio;
 
+
 /*
  * 1. Регистрация аккаунта в каталог через АНО с данными в хранилище АНО (Фио и
  * что что еще, наверное)
@@ -9,17 +10,13 @@ using namespace eosio;
  * 3. Оповещение АНО о изменении статуса аккаунта?
  */
 
+
 [[eosio::action]] void registrator::newaccount(
-    uint64_t coop_id, eosio::name registrator, eosio::name referer,
-    eosio::name username, std::string nickname, eosio::public_key public_key,
+    eosio::name registrator, eosio::name referer,
+    eosio::name username, std::string uid, eosio::public_key public_key,
     eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta) {
   require_auth(registrator);
-
-  coops_index coops(_ano, _ano.value);
-  auto coop = coops.find(coop_id);
-  eosio::check(coop != coops.end(), "Кооператив не обнаружен");
-
-  //активные разрешения
+  
   authority active_auth;
   active_auth.threshold = 1;
   key_weight keypermission{public_key, 1};
@@ -47,19 +44,19 @@ using namespace eosio;
          std::make_tuple(_registrator, username, net, cpu, true))
       .send();
 
-  catalog_index catalog(_registrator, _registrator.value);
-  auto card = catalog.find(username.value);
+  accounts_index accounts(_registrator, _registrator.value);
+  auto card = accounts.find(username.value);
 
-  eosio::check(card == catalog.end(), "account has been already registered");
+  eosio::check(card == accounts.end(), "account has been already registered");
 
-  catalog.emplace(registrator, [&](auto &n) {
+  accounts.emplace(registrator, [&](auto &n) {
     n.username = username;
-    n.coop_id = coop_id;
+    n.status = "pending"_n;
     n.registrator = registrator;
-    n.payed = total_pay;
+    n.registration_amount = total_pay;
     n.referer = referer;
-    n.nickname = nickname;
-    n.nickhash = hashit(nickname);
+    n.uid = uid;
+    n.uid_hash = hashit(uid);
     n.registered_at =
         eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     n.meta = meta;
@@ -93,52 +90,102 @@ using namespace eosio;
  * Флаг set_referer используется для автоматической установки партнёра в
  реферальную структуру, что не обязательно.
  */
-[[eosio::action]] void registrator::regindivid(
-    uint64_t coop_id, eosio::name registrator, eosio::name username,
-    std::string first_name, std::string second_name, std::string middle_name,
-    std::string birthdate, std::string country, std::string city,
-    std::string address, std::string phone, std::string meta) {
+[[eosio::action]] void registrator::reguser(
+  eosio::name registrator, eosio::name username,
+      std::string profile, std::string meta){  
+
   require_auth(registrator);
 
-  coops_index coops(_ano, _ano.value);
-  auto coop = coops.find(coop_id);
-  eosio::check(coop != coops.end(), "Кооператив не обнаружен");
-  eosio::check(coop->registrator == registrator,
-               "У вас нет прав на регистрацию пайщиков в кооперативе");
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(registrator.value);
+  eosio::check(account != accounts.end(), "Регистратор не найден");
 
-  catalog_index catalog(_registrator, _registrator.value);
-  auto card = catalog.find(username.value);
+  orgs_index orgs(_registrator, _registrator.value);
+  auto registrator_org = orgs.find(registrator.value);
+  eosio::check(registrator_org != orgs.end(), "Регистратор не найден");
+  eosio::check(registrator_org -> is_cooperative == true && account -> verification.is_verified == true,"Регистрация пользователей доступна только для кооперативов");
 
-  eosio::check(card != catalog.end(), "Участник не найден в картотеке");
+  auto new_user = accounts.find(username.value);
+  eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке");
 
-  catalog.modify(card, registrator, [&](auto &c) {
-    c.type = "individual"_n;
+  accounts.modify(new_user, registrator, [&](auto &c) {
+    c.type = "user"_n;
     c.meta = meta;
   });
 
-  individuals_index individuals(_registrator, _registrator.value);
-  auto individ = individuals.find(username.value);
+  users_index users(_registrator, _registrator.value);
+  auto user = users.find(username.value);
 
-  eosio::check(individ == individuals.end(), "account already registered");
+  eosio::check(user == users.end(), "Участник уже зарегистрирован");
 
-  action(permission_level{_registrator, "active"_n}, _soviet, "regaccount"_n,
-         std::make_tuple(username))
-      .send();
-
-  individuals.emplace(registrator, [&](auto &acc) {
+   users.emplace(registrator, [&](auto &acc) {
     acc.username = username;
-    acc.coop_id = coop_id;
-    acc.registrator = registrator;
-    acc.first_name = first_name;
-    acc.second_name = second_name;
-    acc.middle_name = middle_name;
-    acc.birthdate = birthdate;
-    acc.country = country;
-    acc.city = city;
-    acc.address = address;
-    acc.phone = phone;
+    acc.profile = profile;
   });
 }
+
+[[eosio::action]] void registrator::verificate(eosio::name username){
+  require_auth(_ano);
+
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+  eosio::check(account != accounts.end(), "Аккаунт не найден");
+  
+  accounts.modify(account, _ano, [&](auto &a){
+    a.verification.verificator = _ano;
+    a.verification.is_verified = true;
+    a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+  });
+
+  }
+
+
+
+[[eosio::action]] void registrator::regorg(new_org_struct new_org) {
+    require_auth(new_org.username);  
+
+    orgs_index orgs(_registrator, _registrator.value);
+
+    orgs.emplace(_ano, [&](auto& org) {
+      org.username = new_org.username;
+      org.name = new_org.name;
+      org.short_name = new_org.short_name;
+      org.address = new_org.address;
+      org.ogrn = new_org.ogrn;
+      org.inn = new_org.inn;
+      org.logo = new_org.logo;
+      org.phone = new_org.phone;
+      org.email = new_org.email;
+      org.registration = new_org.registration;
+      org.website = new_org.website;
+      org.accounts = new_org.accounts;
+      org.is_cooperative = new_org.is_cooperative;
+      org.coop_type = new_org.coop_type;
+      org.token_contract = new_org.token_contract;
+      org.slug = new_org.slug;
+      org.announce = new_org.announce;
+      org.description = new_org.description;
+      org.initial = new_org.initial;
+      org.minimum = new_org.minimum;
+      org.membership = new_org.membership;
+      org.period = new_org.period;
+    });   
+
+}
+
+
+[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, uint64_t position){
+  require_auth(username);
+
+  members_index members(_registrator, coop_username.value);
+  auto member = members.find(username.value);
+  eosio::check(member == members.end(), "Участник уже является членом кооператива"); 
+
+  action(permission_level{_registrator, "active"_n}, _soviet, "regaccount"_n,
+         std::make_tuple(coop_username, username, position_title, position))
+  .send();
+};
 
 /**
  * @brief      Метод обновления профиля
@@ -150,19 +197,19 @@ using namespace eosio;
  таблицу reserved для дальнейшего использования или полного удаления.
  */
 [[eosio::action]] void registrator::update(eosio::name username,
-                                           std::string nickname,
+                                           std::string uid,
                                            std::string meta) {
   require_auth(username);
 
-  catalog_index catalog(_registrator, _registrator.value);
+  accounts_index accounts(_registrator, _registrator.value);
 
-  auto card = catalog.find(username.value);
+  auto account = accounts.find(username.value);
 
-  eosio::check(card != catalog.end(), "account is not registered");
+  eosio::check(account != accounts.end(), "account is not registered");
 
-  catalog.modify(card, username, [&](auto &acc) {
-    acc.nickname = nickname;
-    acc.nickhash = hashit(nickname);
+  accounts.modify(account, username, [&](auto &acc) {
+    acc.uid = uid;
+    acc.uid_hash = hashit(uid);
     acc.meta = meta;
   });
 }
@@ -180,11 +227,11 @@ using namespace eosio;
                                               eosio::public_key public_key) {
   require_auth(_soviet);
 
-  catalog_index catalog(_registrator, _registrator.value);
+  accounts_index accounts(_registrator, _registrator.value);
 
-  auto card = catalog.find(username.value);
+  auto card = accounts.find(username.value);
 
-  if (card != catalog.end()) {
+  if (card != accounts.end()) {
     authority active_auth;
     active_auth.threshold = 1;
     key_weight keypermission{public_key, 1};
@@ -195,7 +242,7 @@ using namespace eosio;
                   eosio::name("eosio"), eosio::name("updateauth"),
                   std::tuple(card->username, eosio::name("active"),
                              eosio::name("owner"), active_auth))
-        .send();
+    .send();
   }
 }
 /**
@@ -209,14 +256,26 @@ using namespace eosio;
  * регистратора. Оплата списывается с баланса регистратора, а права владельца
  * заменяются на публичный ключ, указанный в объекте гостя.
  */
-[[eosio::action]] void registrator::confirmreg(eosio::name username) {
+[[eosio::action]] void registrator::confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position) {
   require_auth(_soviet);
 
-  catalog_index catalog(_registrator, _registrator.value);
-  auto card = catalog.find(username.value);
-  eosio::check(card != catalog.end(), "account is not found");
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(member.value);
+  eosio::check(account != accounts.end(), "account is not found");
 
-  catalog.modify(card, _soviet, [&](auto &g) { g.status = "member"_n; });
+  accounts.modify(account, _soviet, [&](auto &g) { g.status = "active"_n; });
+
+  members_index members(_registrator, coop_username.value);
+  members.emplace(_soviet, [&](auto &m){
+    m.username = member;
+    m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.is_accepted = true;
+    m.is_initial = true;
+    m.is_minimum = true;
+    m.position_title = position_title;
+    m.position = position;
+  });
 }
 
 extern "C" {
@@ -230,27 +289,20 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
       execute_action(name(receiver), name(code), &registrator::confirmreg);
     } else if (action == "newaccount"_n.value) {
       execute_action(name(receiver), name(code), &registrator::newaccount);
-    } else if (action == "regindivid"_n.value) {
-      execute_action(name(receiver), name(code), &registrator::regindivid);
+    } else if (action == "reguser"_n.value) {
+      execute_action(name(receiver), name(code), &registrator::reguser);
     } else if (action == "changekey"_n.value) {
       execute_action(name(receiver), name(code), &registrator::changekey);
+    } else if (action == "joincoop"_n.value) {
+      execute_action(name(receiver), name(code), &registrator::joincoop);
     }
-
-  } else {
-    if (action == "transfer"_n.value) {
-
-      struct transfer {
-        eosio::name from;
-        eosio::name to;
-        eosio::asset quantity;
-        std::string memo;
-      };
-
+} else { if (action == "transfer"_n.value) { struct transfer { eosio::name from; eosio::name to; eosio::asset quantity; std::string memo; };
       auto op = eosio::unpack_action_data<transfer>();
       if (op.to == _registrator) {
 
         eosio::name username = eosio::name(op.memo.c_str());
-        registrator::add_balance(_registrator, username, op.quantity, code);
+        
+        add_balance(_registrator, username, op.quantity, eosio::name(code));
       }
     }
   }

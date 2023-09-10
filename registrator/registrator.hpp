@@ -13,6 +13,7 @@
 #include "../common/utils.hpp"
 #include "../common/balances.hpp"
 #include "../common/users.hpp"
+
 /**
 \defgroup public_consts CONSTS
 \brief Константы контракта
@@ -31,6 +32,7 @@
 /**
  * @brief      Начните ознакомление здесь.
  */
+
 class [[eosio::contract(REGISTRATOR)]] registrator : public eosio::contract {
 
 public:
@@ -38,18 +40,32 @@ public:
               eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
 
-  [[eosio::action]] void update(eosio::name username, std::string nickname,
+  [[eosio::action]] void update(eosio::name username, std::string uid,
                                 std::string meta);
-  [[eosio::action]] void confirmreg(eosio::name username);
+  [[eosio::action]] void confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position);
 
-  [[eosio::action]] void regindivid(
-      uint64_t coop_id, eosio::name registrator, eosio::name username,
-      std::string first_name, std::string second_name, std::string middle_name,
-      std::string birthdate, std::string country, std::string city,
-      std::string address, std::string phone, std::string meta);
+  [[eosio::action]] void reguser(
+      eosio::name registrator, eosio::name username,
+      std::string profile, std::string meta);
+
+  [[eosio::action]] void regorg(new_org_struct new_org);
+
+  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, uint64_t position);
+  
+
+  [[eosio::action]] void verificate(eosio::name username);
+  // {
+  //     require_auth(get_self());  // или другие проверки авторизации по вашему усмотрению
+  //
+  //     orgs_table organizations(get_self(), get_self().value);
+  //     organizations.emplace(get_self(), [&](auto& org) {
+  //         org = new_org;  // Просто копируем все поля из new_org в org
+  //     });
+  // }
+  //
   [[eosio::action]] void newaccount(
-      uint64_t coop_id, eosio::name registrator, eosio::name referer,
-      eosio::name username, std::string nickname, eosio::public_key public_key,
+      eosio::name registrator, eosio::name referer,
+      eosio::name username, std::string uid, eosio::public_key public_key,
       eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,
@@ -66,6 +82,6 @@ public:
    * @}
    */
 
- struct [[eosio::table, eosio::contract("registrator")]] balances : balances_base {};
+struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
   
 };

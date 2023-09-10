@@ -11,6 +11,7 @@
 #include "../common/coops.hpp"
 #include "../common/counts.hpp"
 #include "../common/permissions.hpp"
+#include "../common/balances.hpp"
 
 class [[eosio::contract(ANO)]] ano : public eosio::contract {
 
@@ -19,13 +20,11 @@ public:
       eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
 
-  [[eosio::action]] void startcoop(eosio::name chairman,
-                                   eosio::name registrator, std::string data);
-  [[eosio::action]] void stopcoop(uint64_t id, std::string reason);
   [[eosio::action]] void newid(uint64_t coop_id);
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
-  struct [[eosio::table, eosio::contract("ano")]] counts : counts_base {};
+  struct [[eosio::table, eosio::contract(ANO)]] counts : counts_base {};
 
+  struct [[eosio::table, eosio::contract(ANO)]] balances : balances_base {};
 };

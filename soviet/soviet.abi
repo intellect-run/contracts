@@ -8,7 +8,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "union_id",
+                    "name": "board_id",
                     "type": "uint64"
                 },
                 {
@@ -56,7 +56,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -110,6 +110,32 @@
             ]
         },
         {
+            "name": "boards",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "members",
+                    "type": "name[]"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
             "name": "cancelvote",
             "base": "",
             "fields": [
@@ -118,7 +144,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -134,7 +160,30 @@
             ]
         },
         {
-            "name": "createunion",
+            "name": "counts",
+            "base": "counts_base",
+            "fields": []
+        },
+        {
+            "name": "counts_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "name"
+                },
+                {
+                    "name": "secondary_key",
+                    "type": "name"
+                },
+                {
+                    "name": "value",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "createboard",
             "base": "",
             "fields": [
                 {
@@ -156,7 +205,21 @@
             ]
         },
         {
-            "name": "decisions",
+            "name": "disautomate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "automation_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "documents",
             "base": "",
             "fields": [
                 {
@@ -202,20 +265,6 @@
             ]
         },
         {
-            "name": "disautomate",
-            "base": "",
-            "fields": [
-                {
-                    "name": "member",
-                    "type": "name"
-                },
-                {
-                    "name": "automation_id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
             "name": "exec",
             "base": "",
             "fields": [
@@ -224,17 +273,22 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
+        },
+        {
+            "name": "managers",
+            "base": "",
+            "fields": []
         },
         {
             "name": "newid",
             "base": "",
             "fields": [
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -264,7 +318,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "union_id",
+                    "name": "board_id",
                     "type": "uint64"
                 },
                 {
@@ -282,7 +336,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "union_id",
+                    "name": "board_id",
                     "type": "uint64"
                 },
                 {
@@ -300,37 +354,11 @@
             ]
         },
         {
-            "name": "unions",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "parent_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "members",
-                    "type": "name[]"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                }
-            ]
-        },
-        {
             "name": "validate",
             "base": "",
             "fields": [
                 {
-                    "name": "union_id",
+                    "name": "board_id",
                     "type": "uint64"
                 },
                 {
@@ -338,7 +366,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -352,7 +380,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -366,7 +394,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "decision_id",
+                    "name": "document_id",
                     "type": "uint64"
                 }
             ]
@@ -399,8 +427,8 @@
             "ricardian_contract": ""
         },
         {
-            "name": "createunion",
-            "type": "createunion",
+            "name": "createboard",
+            "type": "createboard",
             "ricardian_contract": ""
         },
         {
@@ -465,8 +493,29 @@
             "key_types": []
         },
         {
-            "name": "decisions",
-            "type": "decisions",
+            "name": "boards",
+            "type": "boards",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "counts",
+            "type": "counts",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "documents",
+            "type": "documents",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "managers",
+            "type": "managers",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
@@ -474,13 +523,6 @@
         {
             "name": "oracle",
             "type": "oracle",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "unions",
-            "type": "unions",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

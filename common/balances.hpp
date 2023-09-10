@@ -1,7 +1,3 @@
-// В файле common_methods.hpp:
-// using namespace eosio;
-
-
 /**
  * @brief Таблица балансов
  *
@@ -19,7 +15,7 @@
  * auto balance = balances.find(id);
  * @endcode
  */
-struct [[eosio::table]] balances_base {
+struct balances_base {
   uint64_t id;          /*!< идентификатор баланса */
   eosio::name contract; /*!< имя контракта токена */
   eosio::asset quantity; /*!< количество токенов на балансе */
@@ -31,7 +27,7 @@ struct [[eosio::table]] balances_base {
   } /*!< возвращает уникальный индекс, сформированный из значения contract и символа токена */
 };
 
-typedef eosio::multi_index<"balance"_n, balances_base, eosio::indexed_by<"byconsym"_n, eosio::const_mem_fun<balances_base, uint128_t, &balances_base::byconsym>>> balances_index; /*!< Тип мультииндекса для таблицы балансов */
+typedef eosio::multi_index<"balances"_n, balances_base, eosio::indexed_by<"byconsym"_n, eosio::const_mem_fun<balances_base, uint128_t, &balances_base::byconsym>>> balances_index; /*!< Тип мультииндекса для таблицы балансов */
 
 
 
@@ -39,9 +35,9 @@ void add_balance(eosio::name source, eosio::name username, eosio::asset quantity
                                   eosio::name contract) {
   // Если баланс не найден, создаем новую запись.
   // В противном случае, увеличиваем существующий баланс.
-  
-  require_auth(username);
 
+  
+  eosio::check(username != ""_n, "В поле memo должен быть указан получатель баланса");
   balances_index balances(source, username.value);
 
   auto balances_by_contract_and_symbol =

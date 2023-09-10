@@ -4,6 +4,29 @@
     "types": [],
     "structs": [
         {
+            "name": "balances",
+            "base": "balances_base",
+            "fields": []
+        },
+        {
+            "name": "balances_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
             "name": "coops",
             "base": "",
             "fields": [
@@ -121,6 +144,13 @@
         }
     ],
     "tables": [
+        {
+            "name": "balances",
+            "type": "balances",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
         {
             "name": "coops",
             "type": "coops",

@@ -3,10 +3,10 @@ using namespace eosio;
 void soviet::change(uint64_t order_id) { 
   require_auth(_marketplace);
 
-  decision_index decisions(_soviet, _soviet.value);
-  auto id = get_global_id(_soviet, "decisions"_n);
+  documents_index documents(_soviet, _soviet.value);
+  auto id = get_global_id(_soviet, "documents"_n);
   
-  decisions.emplace(_soviet, [&](auto &d){
+  documents.emplace(_soviet, [&](auto &d){
     d.id = id;
     d.type = _change_action;
     d.secondary_id = order_id;
@@ -22,9 +22,9 @@ void soviet::change(uint64_t order_id) {
 };
 
 
-void soviet::change_effect(eosio::name executer, uint64_t decision_id, eosio::name username) { 
-  decision_index decisions(_soviet, _soviet.value);
-  auto decision = decisions.find(decision_id);
+void soviet::change_effect(eosio::name executer, uint64_t document_id, eosio::name username) { 
+  documents_index documents(_soviet, _soviet.value);
+  auto document = documents.find(document_id);
   
   action(
       permission_level{ _soviet, "active"_n},
@@ -33,7 +33,7 @@ void soviet::change_effect(eosio::name executer, uint64_t decision_id, eosio::na
       std::make_tuple(username)
   ).send();
     
-  decisions.modify(decision, executer, [&](auto &d){
+  documents.modify(document, executer, [&](auto &d){
     d.executed = true;
   });
 

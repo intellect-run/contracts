@@ -3,9 +3,9 @@ using namespace eosio;
 void soviet::regaccount(eosio::name username) { 
   require_auth(_registrator);
 
-  decision_index decisions(_soviet, _soviet.value);
-  auto id = get_global_id(_soviet, "decisions"_n);
-  decisions.emplace(_soviet, [&](auto &d){
+  documents_index documents(_soviet, _soviet.value);
+  auto id = get_global_id(_soviet, "documents"_n);
+  documents.emplace(_soviet, [&](auto &d){
     d.id = id;
     d.type = _regaccount_action;
     d.secondary_id = username.value;
@@ -20,9 +20,9 @@ void soviet::regaccount(eosio::name username) {
 };
 
 
-void soviet::regaccount_effect(eosio::name executer, uint64_t decision_id, eosio::name username) { 
-  decision_index decisions(_soviet, _soviet.value);
-  auto decision = decisions.find(decision_id);
+void soviet::regaccount_effect(eosio::name executer, uint64_t document_id, eosio::name username) { 
+  documents_index documents(_soviet, _soviet.value);
+  auto document = documents.find(document_id);
   
   action(
       permission_level{ _soviet, "active"_n},
@@ -31,7 +31,7 @@ void soviet::regaccount_effect(eosio::name executer, uint64_t decision_id, eosio
       std::make_tuple(username)
   ).send();
     
-  decisions.modify(decision, executer, [&](auto &d){
+  documents.modify(document, executer, [&](auto &d){
     d.executed = true;
   });
 

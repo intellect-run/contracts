@@ -1,4 +1,4 @@
-struct [[eosio::table]] counts_base {
+struct counts_base {
   eosio::name key;
   eosio::name secondary_key;
   uint64_t value;

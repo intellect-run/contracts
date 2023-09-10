@@ -1,9 +1,7 @@
 #include <eosio/action.hpp>
 #include <eosio/crypto.hpp>
 #include <eosio/permission.hpp>
-
 #include "soviet.hpp"
-
 #include "src/admin.cpp"
 #include "src/chairman.cpp"
 #include "src/regaccount.cpp"
@@ -13,23 +11,23 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::newid(uint64_t decision_id) {
+[[eosio::action]] void soviet::newid(uint64_t document_id) {
   require_auth(_soviet);
 };
 
-void soviet::exec(eosio::name executer, uint64_t decision_id) { 
+void soviet::exec(eosio::name executer, uint64_t document_id) { 
   require_auth(executer);
 
-  decision_index decisions(_soviet, _soviet.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(),"Решение не найдено в оперативной памяти");
-  eosio::check(decision -> authorized == true, "Только авторизованное решение может быть выполнено");
-  eosio::check(decision -> executed == false, "Решение уже исполнено");
+  documents_index documents(_soviet, _soviet.value);
+  auto document = documents.find(document_id);
+  eosio::check(document != documents.end(),"Решение не найдено в оперативной памяти");
+  eosio::check(document -> authorized == true, "Только авторизованное решение может быть выполнено");
+  eosio::check(document -> executed == false, "Решение уже исполнено");
 
-  if (decision -> type == _regaccount_action) {
-    soviet::regaccount_effect(executer, decision->id, name(decision->secondary_id));
-  } else if (decision -> type == _change_action){
-    soviet::change_effect(executer, decision->id, name(decision->secondary_id));
+  if (document -> type == _regaccount_action) {
+    soviet::regaccount_effect(executer, document->id, name(document->secondary_id));
+  } else if (document -> type == _change_action){
+    soviet::change_effect(executer, document->id, name(document->secondary_id));
   }
 }
 
@@ -39,7 +37,6 @@ extern "C" {
   void apply(uint64_t receiver, uint64_t code, uint64_t action) {
 
     if (code == _soviet.value) {
-      
       switch (action) {
 
         EOSIO_DISPATCH_HELPER (
@@ -49,7 +46,7 @@ extern "C" {
             //ADMIN
             (addadmin)(rmadmin)(setadmrights)(validate)
             //CHAIRMAN
-            (authorize)(createunion)
+            (authorize)(createboard)
             //VOTING
             (votefor)(voteagainst)(cancelvote)
             //REGACCOUNT
@@ -73,11 +70,8 @@ extern "C" {
         };
 
         auto op = eosio::unpack_action_data<transfer>();
-        
         if (op.to == _soviet) {
-        
           eosio::check(false, "Совет не принимает взятки (входящие переводы) :))");
-          
         }
       }
     }
