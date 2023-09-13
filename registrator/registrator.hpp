@@ -50,7 +50,7 @@ public:
 
   [[eosio::action]] void regorg(new_org_struct new_org);
 
-  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, uint64_t position);
+  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string draft_data);
   
 
   [[eosio::action]] void verificate(eosio::name username);
@@ -82,6 +82,6 @@ public:
    * @}
    */
 
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
-  
+  struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
+ 
 };

@@ -28,6 +28,7 @@
 struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t id;                 /*!< идентификатор обмена */
   uint64_t parent_id;          /*!< идентификатор родительской заявки */
+  eosio::name coop_username;      /*!< имя аккаунта кооператива */
   eosio::name type;            /*!< тип обмена */
   eosio::name status;          /*!< статус обмена */
   eosio::name username;        /*!< имя пользователя */
@@ -40,6 +41,7 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   std::string meta;            /*!< метаданные заявки */
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
+  uint64_t by_coop() const {return coop_username.value;} /*!< кооператив */
   uint64_t by_status() const { return status.value; } /*!< индекс по статусу */
   uint64_t by_type() const { return type.value; } /*!< индекс по типу */
   uint64_t by_parent() const { return parent_id; } /*!< индекс по родительскому ID */
@@ -47,6 +49,7 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
 
 typedef eosio::multi_index<
     "exchange"_n, exchange,
+    eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_coop>>,
     eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
     eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
     eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>>

@@ -432,46 +432,58 @@ namespace eosiosystem {
     *  who can create accounts with the creator's name as a suffix.
     *
     */
-   void native::newaccount( const name&       creator,
-                            const name&       new_account_name,
-                            ignore<authority> owner,
-                            ignore<authority> active ) {
 
-      if( creator != get_self() ) {
-         uint64_t tmp = new_account_name.value >> 4;
-         bool has_dot = false;
 
-         for( uint32_t i = 0; i < 12; ++i ) {
-           has_dot |= !(tmp & 0x1f);
-           tmp >>= 5;
-         }
-         if( has_dot ) { // or is less than 12 characters
-            auto suffix = new_account_name.suffix();
-            if( suffix == new_account_name ) {
-               name_bid_table bids(get_self(), get_self().value);
-               auto current = bids.find( new_account_name.value );
-               check( current != bids.end(), "no active bid for name" );
-               check( current->high_bidder == creator, "only highest bidder can claim" );
-               check( current->high_bid < 0, "auction for name is not closed yet" );
-               bids.erase( current );
-            } else {
-               check( creator == suffix, "only suffix may create this account" );
-            }
-         }
-      }
 
-      user_resources_table  userres( get_self(), new_account_name.value );
+void native::newaccount(const name& creator, 
+                        const name& new_account_name, 
+                        ignore<authority> owner, 
+                        ignore<authority> active) {
+    
+    std::string account_name_str = new_account_name.to_string();
+    size_t name_length = account_name_str.size();
+    size_t dot_position = account_name_str.find('.');
 
-      userres.emplace( new_account_name, [&]( auto& res ) {
+    // Проверка на максимум одну точку в имени аккаунта
+    int dot_count = std::count(account_name_str.begin(), account_name_str.end(), '.');
+    check(dot_count <= 1, "Account name can contain only one dot.");
+
+    if (name_length <= _auction_name_length_limit) {
+        // Не должны содержать точку
+        check(dot_position == std::string::npos, "Short domain names should not contain a dot.");
+        
+        // Регистрация только через аукцион
+        name_bid_table bids(get_self(), get_self().value);
+        auto current = bids.find(new_account_name.value);
+        check(current != bids.end(), "no active bid for name");
+        check(current->high_bidder == creator, "only highest bidder can claim");
+        check(current->high_bid < 0, "auction for name is not closed yet");
+        bids.erase(current);
+    } else if (name_length > _auction_name_length_limit && name_length < 12) {
+        // Регистрация возможна только при наличии подписи аккаунта `_registrator`
+        require_auth(_registrator);
+        check(dot_position == std::string::npos, "Names from 6 to 11 characters cannot have dots.");
+    }
+
+    if (dot_position != std::string::npos) {
+        check(dot_position != 0, "Account name should not start with a dot.");
+        
+        auto suffix = new_account_name.suffix();
+        check(suffix.length() <= _auction_name_length_limit, "Suffix must be a valid domain name with length <= 5.");
+        check(creator == suffix, "only suffix owner may create this account");
+    }
+
+    user_resources_table userres(get_self(), new_account_name.value);
+    userres.emplace(new_account_name, [&](auto& res) {
         res.owner = new_account_name;
-        res.net_weight = asset( 0, system_contract::get_core_symbol() );
-        res.cpu_weight = asset( 0, system_contract::get_core_symbol() );
-      });
+        res.net_weight = asset(0, system_contract::get_core_symbol());
+        res.cpu_weight = asset(0, system_contract::get_core_symbol());
+    });
 
-      set_resource_limits( new_account_name, 0, 0, 0 );
-   }
+    set_resource_limits(new_account_name, 0, 0, 0);
+}
 
-   void native::setabi( const name& acnt, const std::vector<char>& abi,
+void native::setabi( const name& acnt, const std::vector<char>& abi,
                         const binary_extension<std::string>& memo ) {
       eosio::multi_index< "abihash"_n, abi_hash >  table(get_self(), get_self().value);
       auto itr = table.find( acnt.value );

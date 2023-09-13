@@ -15,6 +15,7 @@
 #include <optional>
 #include <string>
 #include <type_traits>
+#include "../../../../../common/consts.hpp"
 
 #ifdef CHANNEL_RAM_AND_NAMEBID_FEES_TO_REX
 #undef CHANNEL_RAM_AND_NAMEBID_FEES_TO_REX

@@ -27,40 +27,6 @@
             ]
         },
         {
-            "name": "coops",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "system_name",
-                    "type": "name"
-                },
-                {
-                    "name": "status",
-                    "type": "name"
-                },
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                },
-                {
-                    "name": "message",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "counts",
             "base": "counts_base",
             "fields": []
@@ -92,38 +58,6 @@
                     "type": "uint64"
                 }
             ]
-        },
-        {
-            "name": "startcoop",
-            "base": "",
-            "fields": [
-                {
-                    "name": "chairman",
-                    "type": "name"
-                },
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "stopcoop",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "reason",
-                    "type": "string"
-                }
-            ]
         }
     ],
     "actions": [
@@ -131,29 +65,12 @@
             "name": "newid",
             "type": "newid",
             "ricardian_contract": ""
-        },
-        {
-            "name": "startcoop",
-            "type": "startcoop",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "stopcoop",
-            "type": "stopcoop",
-            "ricardian_contract": ""
         }
     ],
     "tables": [
         {
             "name": "balances",
             "type": "balances",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "coops",
-            "type": "coops",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

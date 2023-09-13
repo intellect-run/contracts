@@ -4,9 +4,13 @@
     "types": [],
     "structs": [
         {
-            "name": "addadmin",
+            "name": "addstaff",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
                 {
                     "name": "board_id",
                     "type": "uint64"
@@ -21,25 +25,7 @@
                 },
                 {
                     "name": "rights",
-                    "type": "name[]"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "admins",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "rights",
-                    "type": "name[]"
+                    "type": "right[]"
                 },
                 {
                     "name": "meta",
@@ -52,11 +38,15 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
                     "name": "chairman",
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -65,6 +55,14 @@
             "name": "automate",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "board_id",
+                    "type": "uint64"
+                },
                 {
                     "name": "member",
                     "type": "name"
@@ -78,7 +76,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "private_key",
+                    "name": "encrypted_private_key",
                     "type": "string"
                 }
             ]
@@ -92,6 +90,14 @@
                     "type": "uint64"
                 },
                 {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "board_id",
+                    "type": "uint64"
+                },
+                {
                     "name": "member",
                     "type": "name"
                 },
@@ -100,12 +106,44 @@
                     "type": "name"
                 },
                 {
-                    "name": "provider",
+                    "name": "permission_name",
                     "type": "name"
                 },
                 {
-                    "name": "private_key",
+                    "name": "encrypted_private_key",
                     "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "autosigner",
+            "base": "",
+            "fields": [
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "board_member",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "is_voting",
+                    "type": "bool"
+                },
+                {
+                    "name": "position_title",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "name"
                 }
             ]
         },
@@ -118,19 +156,27 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "parent_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "chairman",
+                    "name": "type",
                     "type": "name"
                 },
                 {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
                     "name": "members",
-                    "type": "name[]"
+                    "type": "board_member[]"
                 },
                 {
                     "name": "created_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "last_update",
                     "type": "time_point_sec"
                 }
             ]
@@ -140,11 +186,15 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
                     "name": "member",
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -154,8 +204,34 @@
             "base": "",
             "fields": [
                 {
-                    "name": "order_id",
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "changes",
+            "base": "",
+            "fields": [
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "is_paid",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_recieved",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_withdrawed",
+                    "type": "bool"
                 }
             ]
         },
@@ -187,39 +263,33 @@
             "base": "",
             "fields": [
                 {
-                    "name": "coop_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "parent_id",
-                    "type": "uint64"
+                    "name": "coop_username",
+                    "type": "name"
                 },
                 {
                     "name": "chairman",
                     "type": "name"
                 },
                 {
-                    "name": "members",
-                    "type": "name[]"
-                }
-            ]
-        },
-        {
-            "name": "disautomate",
-            "base": "",
-            "fields": [
-                {
-                    "name": "member",
+                    "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "automation_id",
-                    "type": "uint64"
+                    "name": "members",
+                    "type": "board_member[]"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
                 }
             ]
         },
         {
-            "name": "documents",
+            "name": "decisions",
             "base": "",
             "fields": [
                 {
@@ -227,15 +297,15 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "board_id",
-                    "type": "uint64"
+                    "name": "coop_username",
+                    "type": "name"
                 },
                 {
                     "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "card_id",
                     "type": "uint64"
                 },
                 {
@@ -259,8 +329,34 @@
                     "type": "bool"
                 },
                 {
+                    "name": "certified",
+                    "type": "bool"
+                },
+                {
                     "name": "executed",
                     "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "disautomate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "board_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "member",
+                    "type": "name"
+                },
+                {
+                    "name": "automation_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -273,50 +369,91 @@
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
         },
         {
-            "name": "managers",
+            "name": "joincoop",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "position_title",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "joincoops",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "is_paid",
+                    "type": "bool"
+                },
+                {
+                    "name": "notice",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "newid",
             "base": "",
             "fields": [
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
         },
         {
-            "name": "oracle",
+            "name": "right",
             "base": "",
             "fields": [
                 {
-                    "name": "id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "regaccount",
-            "base": "",
-            "fields": [
+                    "name": "contract",
+                    "type": "name"
+                },
                 {
-                    "name": "username",
+                    "name": "action_name",
                     "type": "name"
                 }
             ]
         },
         {
-            "name": "rmadmin",
+            "name": "rmstaff",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
                 {
                     "name": "board_id",
                     "type": "uint64"
@@ -332,9 +469,13 @@
             ]
         },
         {
-            "name": "setadmrights",
+            "name": "setrights",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
                 {
                     "name": "board_id",
                     "type": "uint64"
@@ -349,7 +490,33 @@
                 },
                 {
                     "name": "rights",
-                    "type": "name[]"
+                    "type": "right[]"
+                }
+            ]
+        },
+        {
+            "name": "staff",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "position_title",
+                    "type": "string"
+                },
+                {
+                    "name": "rights",
+                    "type": "right[]"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "time_point_sec"
                 }
             ]
         },
@@ -357,6 +524,10 @@
             "name": "validate",
             "base": "",
             "fields": [
+                {
+                    "name": "coop_username",
+                    "type": "name"
+                },
                 {
                     "name": "board_id",
                     "type": "uint64"
@@ -366,7 +537,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -376,11 +547,15 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
                     "name": "member",
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -390,11 +565,15 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coop_username",
+                    "type": "name"
+                },
+                {
                     "name": "member",
                     "type": "name"
                 },
                 {
-                    "name": "document_id",
+                    "name": "decision_id",
                     "type": "uint64"
                 }
             ]
@@ -402,8 +581,8 @@
     ],
     "actions": [
         {
-            "name": "addadmin",
-            "type": "addadmin",
+            "name": "addstaff",
+            "type": "addstaff",
             "ricardian_contract": ""
         },
         {
@@ -442,23 +621,23 @@
             "ricardian_contract": ""
         },
         {
+            "name": "joincoop",
+            "type": "joincoop",
+            "ricardian_contract": ""
+        },
+        {
             "name": "newid",
             "type": "newid",
             "ricardian_contract": ""
         },
         {
-            "name": "regaccount",
-            "type": "regaccount",
+            "name": "rmstaff",
+            "type": "rmstaff",
             "ricardian_contract": ""
         },
         {
-            "name": "rmadmin",
-            "type": "rmadmin",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "setadmrights",
-            "type": "setadmrights",
+            "name": "setrights",
+            "type": "setrights",
             "ricardian_contract": ""
         },
         {
@@ -479,15 +658,15 @@
     ],
     "tables": [
         {
-            "name": "admins",
-            "type": "admins",
+            "name": "automator",
+            "type": "automator",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "automator",
-            "type": "automator",
+            "name": "autosigner",
+            "type": "autosigner",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
@@ -500,6 +679,13 @@
             "key_types": []
         },
         {
+            "name": "changes",
+            "type": "changes",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
             "name": "counts",
             "type": "counts",
             "index_type": "i64",
@@ -507,22 +693,22 @@
             "key_types": []
         },
         {
-            "name": "documents",
-            "type": "documents",
+            "name": "decisions",
+            "type": "decisions",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "managers",
-            "type": "managers",
+            "name": "joincoops",
+            "type": "joincoops",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "oracle",
-            "type": "oracle",
+            "name": "staff",
+            "type": "staff",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

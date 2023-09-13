@@ -20,10 +20,6 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "verification",
-                    "type": "verification"
-                },
-                {
                     "name": "uid",
                     "type": "string"
                 },
@@ -189,6 +185,18 @@
                     "type": "time_point_sec"
                 },
                 {
+                    "name": "last_min_pay",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "position_title",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "name"
+                },
+                {
                     "name": "is_accepted",
                     "type": "bool"
                 },
@@ -201,12 +209,8 @@
                     "type": "bool"
                 },
                 {
-                    "name": "position_title",
-                    "type": "string"
-                },
-                {
-                    "name": "position",
-                    "type": "name"
+                    "name": "is_voting",
+                    "type": "bool"
                 }
             ]
         },
@@ -361,6 +365,10 @@
                 {
                     "name": "username",
                     "type": "name"
+                },
+                {
+                    "name": "verification",
+                    "type": "verification"
                 },
                 {
                     "name": "name",
@@ -521,6 +529,10 @@
                 {
                     "name": "profile",
                     "type": "string"
+                },
+                {
+                    "name": "verification",
+                    "type": "verification"
                 }
             ]
         },
@@ -579,7 +591,7 @@
         {
             "name": "joincoop",
             "type": "joincoop",
-            "ricardian_contract": ""
+            "ricardian_contract": "<!DOCTYPE html>\n<html lang=\"en\"> \n  <head>\n    <meta charset=\"utf-8\">\n    <title>Заявление //заголовок</title>\n    <meta name=\"description\" content=\"Контракт предоставляет форму заявления на вступление в цифровой кооператив //краткое описание\">\n    <meta name=\"version\" content=\"0.0.1\">\n  </head>\n  <body>\n\n<h1>Заявление</h1>\n<p>о приёме {% if member.is_organization %}юридического{% else %}физического{% endif %} лица в пайщики {{coop.shortname}}.</p>\n<h2>Заявитель:</h2>\n<ul>\n  {% if member %}\n    <li>{{ member.shortname }} {% trans ‘represented by’ %} {{ user.first_name }} {{ user.last_name }}, {{ user.position }}</li>\n  {% else %}\n    <li>{{ user.first_name }} {{ user.last_name }}</li>\n  {% endif %}\n</ul>\n\n<p>Прошу принять меня в пайщики потребительского кооператива {{ coop.shortname }}, далее по тексту заявления \"Общество\". Подтверждаю, что с Уставом и иными публичными нормативными документами Общества ознакомлен(а).</p>\n\n<p>Став пайщиком Общества, обязуюсь соблюдать требования Устава и иных публичных нормативных документов Общества и выполнять обязанности члена Общества, а также уполномачиваю Председателя кооперативного участка \"Центр\" принимать участие с правом голоса в Общих собраниях уполномоченных Общества, на период моего членства в Обществе при собственноручно мною указанном кооперативном участке. </p>\n\n<p>Обязуюсь своевременно внести в Общество {% if coop.initial %} вступительный {{ coop.initial }} {{ coop.currency }}{% endif %} {% if coop.minimum %} и минимальный паевой {{ coop.minimum }} {{ coop.currency }}{% endif %} взносы в порядке, предусмотренном Уставом Общества.</p>\n\n<p>Выражаю своё согласие на генерацию моей внутренней ЭЦП (Электронно-Цифровой Подписи) для подписания документооборота в моём Личном Кабинете, в рамках внутренней деятельности Общества, в соответствии с Положением о внутренней ЭЦП Общества.</p>\n\n<p>Выражаю своё согласие с тем, что информация, отправляемая Обществом в sms-сообщениях на указанный мной номер телефона или в сообщениях на указанный мной адрес электронной почты или в сообщениях телеграм-бота, привязанного к моему телефону, приравняется к уведомлению меня Обществом в письменной форме.</p>\n\n  </body>\n</html>"
         },
         {
             "name": "newaccount",

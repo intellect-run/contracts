@@ -69,7 +69,7 @@ public:
   struct exchange_params {
     eosio::name username; /*!< имя пользователя */
     uint64_t parent_id; /*!< идентификатор родительской заявки */
-    eosio::name contract; /*!< имя контракта токена */
+    eosio::name coop_username;/*!< название кооператива*/
     uint64_t pieces; /*!< количество частей (штук) */
     eosio::asset price_for_piece; /*!< цена за единицу (штуку) товара */
     std::string data; /*!< дополнительные данные */

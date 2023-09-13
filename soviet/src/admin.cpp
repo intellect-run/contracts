@@ -1,89 +1,89 @@
 using namespace eosio;
 
-void soviet::addadmin(uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights, std::string meta) {
+void soviet::addstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<right> rights, std::string position_title) {
   require_auth(chairman);
 
-  admins_index admins(_soviet, _soviet.value);
-  boards_index boards(_soviet, _soviet.value);
+  staff_index staff(_soviet, coop_username.value);
+  boards_index boards(_soviet, coop_username.value);
 
   auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Вы не председатель, чтобы добавлять админов!");
+  eosio::check(board != boards.end(), "Совет не найден");
+  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может добавлять персонал");
 
-  auto admin = admins.find(username.value);
+  auto persona = staff.find(username.value);
 
-  if (admin == admins.end())
-    admins.emplace(chairman, [&](auto &a){
+  if (persona == staff.end())
+    staff.emplace(chairman, [&](auto &a){
       a.username = username;
+      a.position_title = position_title;
       a.rights = rights;
-      a.meta = meta;
     });
 
 };
 
 
-void soviet::rmadmin(uint64_t board_id, eosio::name chairman, eosio::name username) {
+void soviet::rmstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username) {
   require_auth(chairman);
 
-  admins_index admins(_soviet, _soviet.value);
-  boards_index boards(_soviet, _soviet.value);
+  staff_index staff(_soviet, coop_username.value);
+  boards_index boards(_soviet, coop_username.value);
 
   auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Вы не председатель, чтобы удалять админов!");
-  
-  auto admin = admins.find(username.value);
-  eosio::check(admin != admins.end(), "Администратор не найден");
+  eosio::check(board != boards.end(), "Совет не найден");
+  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может удалять персонал");
 
-  admins.erase(admin);
+  auto persona = staff.find(username.value);
+  eosio::check(persona != staff.end(), "Персона не найдена");
+
+  staff.erase(persona);
 
 };
 
 
-void soviet::setadmrights(uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<eosio::name> rights) {
+void soviet::setrights(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<right> rights) {
   require_auth(chairman);
 
-  admins_index admins(_soviet, _soviet.value);
-  boards_index boards(_soviet, _soviet.value);
+  staff_index staff(_soviet, coop_username.value);
+  boards_index boards(_soviet, coop_username.value);
 
   auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет еще не создан");
-  eosio::check(board -> chairman == chairman, "Только председатель может изменять права администраторов");
+  eosio::check(board != boards.end(), "Совет не найден");
+  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может удалять персонал");
 
-  auto admin = admins.find(username.value);
-  eosio::check(admin != admins.end(), "Администратор не найден");
+  auto persona = staff.find(username.value);
+  eosio::check(persona != staff.end(), "Персона не найдена");
 
-  admins.modify(admin, chairman, [&](auto &a){
+  staff.modify(persona, chairman, [&](auto &a){
     a.rights = rights;
   });  
 };
   
 
-void soviet::validate(uint64_t board_id, eosio::name username, uint64_t document_id) { 
+void soviet::validate(eosio::name coop_username, uint64_t board_id, eosio::name username, uint64_t decision_id) { 
   require_auth(username);
 
-  boards_index boards(_soviet, _soviet.value);
+  boards_index boards(_soviet, coop_username.value);
   auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет еще не создан");
+  eosio::check(board != boards.end(), "Совет не найден");
 
-  admins_index admins(_soviet, _soviet.value);
+  staff_index staff(_soviet, coop_username.value);
+  auto persona = staff.find(username.value);
+  
+  eosio::check(persona -> has_right(_soviet, "validate"_n), "Недостаточно прав доступа");
 
-  auto admin = admins.find(username.value);
-  eosio::check(admin != admins.end(), "У вас нет прав администратора");
+  decisions_index decisions(_soviet, coop_username.value);
+  auto decision = decisions.find(decision_id);
+  eosio::check(decision != decisions.end(), "Документ не найден");
 
-  documents_index documents(_soviet, _soviet.value);
-  auto document = documents.find(document_id);
-  eosio::check(document != documents.end(), "Решение не найдено");
-
-  documents.modify(document, username, [&](auto &d){
+  decisions.modify(decision, username, [&](auto &d){
     d.validated = true;
   });
-  
-  oracle_index oracle(_soviet, _soviet.value);  
-  auto ora = oracle.find(document -> id);
-  
-  if (ora == oracle.end())
-    oracle.emplace(_soviet, [&](auto &o) {
-      o.id = document -> id;
+
+  autosigner_index autosigner(_soviet, coop_username.value);  
+  auto signer = autosigner.find(decision -> id);
+
+  if (signer == autosigner.end())
+    autosigner.emplace(_soviet, [&](auto &o) {
+      o.decision_id = decision -> id;
     });
 }

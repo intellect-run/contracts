@@ -96,15 +96,12 @@ using namespace eosio;
 
   require_auth(registrator);
 
-  accounts_index accounts(_registrator, _registrator.value);
-  auto account = accounts.find(registrator.value);
-  eosio::check(account != accounts.end(), "Регистратор не найден");
-
   orgs_index orgs(_registrator, _registrator.value);
   auto registrator_org = orgs.find(registrator.value);
   eosio::check(registrator_org != orgs.end(), "Регистратор не найден");
-  eosio::check(registrator_org -> is_cooperative == true && account -> verification.is_verified == true,"Регистрация пользователей доступна только для кооперативов");
+  eosio::check(registrator_org -> is_coop() && registrator_org -> is_verified(),"Регистрация пользователей доступна только для кооперативов");
 
+  accounts_index accounts(_registrator, _registrator.value); 
   auto new_user = accounts.find(username.value);
   eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке");
 
@@ -130,15 +127,30 @@ using namespace eosio;
   accounts_index accounts(_registrator, _registrator.value);
   auto account = accounts.find(username.value);
   eosio::check(account != accounts.end(), "Аккаунт не найден");
-  
-  accounts.modify(account, _ano, [&](auto &a){
-    a.verification.verificator = _ano;
-    a.verification.is_verified = true;
-    a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-  });
-
+ 
+  if (account -> type == "user"_n){
+    users_index users(_registrator, _registrator.value);
+    auto user = users.find(username.value);
+    eosio::check(user != users.end(), "Пользователь не найден");
+    users.modify(user, _ano, [&](auto &a){
+      a.verification.verificator = _ano;
+      a.verification.is_verified = true;
+      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
+ } else if (account -> type == "org"_n){
+    orgs_index orgs(_registrator, _registrator.value);
+    auto org = orgs.find(username.value);
+    eosio::check(org != orgs.end(), "Организация не найдена");
+    
+    orgs.modify(org, _ano, [&](auto &a){
+      a.verification.verificator = _ano;
+      a.verification.is_verified = true;
+      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
   }
+}
 
 
 
@@ -175,14 +187,14 @@ using namespace eosio;
 }
 
 
-[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, uint64_t position){
+[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string draft_data){
   require_auth(username);
 
   members_index members(_registrator, coop_username.value);
   auto member = members.find(username.value);
   eosio::check(member == members.end(), "Участник уже является членом кооператива"); 
 
-  action(permission_level{_registrator, "active"_n}, _soviet, "regaccount"_n,
+  action(permission_level{_registrator, "active"_n}, _soviet, "joincoop"_n,
          std::make_tuple(coop_username, username, position_title, position))
   .send();
 };

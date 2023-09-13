@@ -4,30 +4,30 @@
 #include "soviet.hpp"
 #include "src/admin.cpp"
 #include "src/chairman.cpp"
-#include "src/regaccount.cpp"
+#include "src/joincoop.cpp"
 #include "src/voting.cpp"
 #include "src/automator.cpp"
 #include "src/marketplace.cpp"
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::newid(uint64_t document_id) {
+[[eosio::action]] void soviet::newid(uint64_t decision_id) {
   require_auth(_soviet);
 };
 
-void soviet::exec(eosio::name executer, uint64_t document_id) { 
+void soviet::exec(eosio::name executer, eosio::name coop_username, uint64_t decision_id) { 
   require_auth(executer);
 
-  documents_index documents(_soviet, _soviet.value);
-  auto document = documents.find(document_id);
-  eosio::check(document != documents.end(),"Решение не найдено в оперативной памяти");
-  eosio::check(document -> authorized == true, "Только авторизованное решение может быть выполнено");
-  eosio::check(document -> executed == false, "Решение уже исполнено");
+  decisions_index decisions(_soviet, _soviet.value);
+  auto decision = decisions.find(decision_id);
+  eosio::check(decision != decisions.end(),"Решение не найдено в оперативной памяти");
+  eosio::check(decision -> authorized == true, "Только авторизованное решение может быть выполнено");
+  eosio::check(decision -> executed == false, "Решение уже исполнено");
 
-  if (document -> type == _regaccount_action) {
-    soviet::regaccount_effect(executer, document->id, name(document->secondary_id));
-  } else if (document -> type == _change_action){
-    soviet::change_effect(executer, document->id, name(document->secondary_id));
+  if (decision -> type == _regaccount_action) {
+    soviet::joincoop_effect(executer, coop_username, decision->id, decision->card_id);
+  } else if (decision -> type == _change_action){
+    soviet::change_effect(executer, coop_username, decision->id, decision->card_id);
   }
 }
 
@@ -44,13 +44,13 @@ extern "C" {
             //main
             (exec)(newid)
             //ADMIN
-            (addadmin)(rmadmin)(setadmrights)(validate)
+            (addstaff)(rmstaff)(setrights)(validate)
             //CHAIRMAN
             (authorize)(createboard)
             //VOTING
             (votefor)(voteagainst)(cancelvote)
             //REGACCOUNT
-            (regaccount)
+            (joincoop)
             //MARKETPLACE
             (change)
             //AUTOMATOR

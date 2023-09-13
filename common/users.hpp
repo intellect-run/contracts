@@ -37,7 +37,6 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   "deleted" - удален пользователем;
   */
   uint64_t reputation;
-  verification verification;
   std::string uid;
   eosio::checksum256 uid_hash;
   eosio::name type;        // user | org
@@ -58,9 +57,6 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   uint64_t by_type() const { return type.value; }
   uint64_t by_status() const { return status.value; }
   uint64_t by_registr() const { return registrator.value; }
-  uint64_t by_verified() const {
-    return verification.is_verified == true ? 1 : 0;
-  }
   eosio::checksum256 byuidhash() const { return uid_hash; }
 };
 
@@ -79,9 +75,7 @@ typedef eosio::multi_index<
         eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>,
     eosio::indexed_by<"byuidhash"_n,
                       eosio::const_mem_fun<accounts, eosio::checksum256,
-                                           &accounts::byuidhash>>,
-    eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<accounts, uint64_t,
-                                                       &accounts::by_verified>>>
+                                           &accounts::byuidhash>>>
     accounts_index;
 
 /**
@@ -96,12 +90,19 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; /*!< имя аккаунта */
   std::string profile; 
 
+  verification verification;
   uint64_t primary_key() const {
     return username.value;
   } /*!< return username - primary_key */
+  uint64_t by_verified() const {
+    return verification.is_verified == true ? 1 : 0;
+  }
 };
 
-typedef eosio::multi_index<"users"_n, users> users_index;
+typedef eosio::multi_index<"users"_n, users,
+  eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<users, uint64_t,
+                                                       &users::by_verified>>
+> users_index;
 
 struct bank {
   std::string account; //Номер расчётного счёта
@@ -113,6 +114,7 @@ struct bank {
 struct new_org_struct {
   eosio::name username;
   uint64_t coop_id;
+
   std::string name; //Полное наименование
   std::string short_name; //Краткое наименование;
   std::string address; //юридический адрес;
@@ -150,6 +152,8 @@ struct new_org_struct {
 
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   eosio::name username;
+  eosio::name parent_username;
+  verification verification;
   std::string name; //Полное наименование
   std::string short_name; //Краткое наименование;
   std::string address; //юридический адрес;
@@ -195,19 +199,46 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   uint64_t primary_key() const {
     return username.value;
   }
-  uint64_t iscoop() const {
+  uint64_t by_parent() const {
+    return parent_username.value;
+  }
+  
+  uint128_t by_coop_childs() const {
+    return combine_ids(username.value, parent_username.value);
+  }
+
+  uint64_t is_coop_index() const {
     return is_cooperative == true ? 1:0;
   }
   uint64_t bycooptype() const {
     return coop_type.value_or(""_n).value;
   }
 
+  uint64_t is_verified_index() const {
+    return verification.is_verified == true ? 1 : 0;
+  }
+
+  bool is_coop() const {
+    return is_cooperative;
+  }
+  bool is_verified() const {
+    return verification.is_verified;
+  }
+
+
+
 };
 
 typedef eosio::multi_index<"orgs"_n, orgs,
 eosio::indexed_by<"iscoop"_n, eosio::const_mem_fun<orgs, uint64_t,
-                                                       &orgs::iscoop>>,
-eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<orgs, uint64_t, &orgs::bycooptype>>
+                                                       &orgs::is_coop_index>>,
+eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<orgs, uint64_t,
+                                                       &orgs::by_parent>>,
+eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<orgs, uint128_t, &orgs::by_coop_childs>>,
+eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<orgs, uint64_t, &orgs::bycooptype>>,
+eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<orgs, uint64_t,
+                                                       &orgs::is_verified_index>>
+
 > orgs_index;
 
 

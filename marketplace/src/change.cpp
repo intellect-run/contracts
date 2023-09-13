@@ -62,7 +62,10 @@ using namespace eosio;
  * Общая функция для создания как родительских, так и дочерних заявок.
  */
 void marketplace::create (eosio::name type, const exchange_params& params) {
-  
+  orgs_index orgs(_registrator, _registrator.value);
+  auto org = orgs.find(params.coop_username.value);
+  eosio::check(org != orgs.end() && org -> is_coop(), "Кооператив не найден");
+
   eosio::check(params.contract == _root_contract, "Неверный тип контракта");
   eosio::check(params.price_for_piece.symbol == _root_symbol, "Неверный символ токен");
   eosio::check(params.pieces > 0, "Количество единиц в заявке должно быть больше нуля");
@@ -192,7 +195,8 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
  */
 [[eosio::action]] void marketplace::accept(eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
-  
+ 
+  //TODO проверка на членство
   exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка не найдена");
@@ -218,7 +222,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "change"_n,
-    std::make_tuple(exchange_id)
+    std::make_tuple(change -> coop_username, exchange_id)
   ).send();
 
 }
