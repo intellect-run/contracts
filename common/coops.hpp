@@ -126,19 +126,18 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] members {
   eosio::time_point_sec last_min_pay;
   std::string position_title;
   eosio::name position;
+  // (7, _('chairman')),
+  // (6, _('vpchairman')),
+  // (5, _('director')),
+  // (4, _('vpdirector')),
+  // (3, _('boardmember')),
+  // (2, _('execmember')),
+  // (1, _('votingmember')),
+  // (0, _('assocmember')),
   bool is_accepted;
   bool is_initial;
   bool is_minimum;
   bool is_voting;
-
-      // (7, _('chairman')),
-		  // (6, _('vpchairman')),
-		  // (5, _('director')),
-		  // (4, _('vpdirector')),
-		  // (3, _('boardmember')),
-		  // (2, _('execmember')),
-		  // (1, _('votingmember')),
-		  // (0, _('assocmember')),
 
  uint64_t primary_key() const {
     return username.value;

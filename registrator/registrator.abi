@@ -164,7 +164,15 @@
                 },
                 {
                     "name": "position",
-                    "type": "uint64"
+                    "type": "name"
+                },
+                {
+                    "name": "ricardian_data",
+                    "type": "string"
+                },
+                {
+                    "name": "statement_hash",
+                    "type": "string"
                 }
             ]
         },
@@ -221,10 +229,6 @@
                 {
                     "name": "username",
                     "type": "name"
-                },
-                {
-                    "name": "coop_id",
-                    "type": "uint64"
                 },
                 {
                     "name": "name",
@@ -295,10 +299,6 @@
                     "type": "string?"
                 },
                 {
-                    "name": "members",
-                    "type": "uint64?"
-                },
-                {
                     "name": "initial",
                     "type": "asset?"
                 },
@@ -364,6 +364,10 @@
             "fields": [
                 {
                     "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "parent_username",
                     "type": "name"
                 },
                 {
@@ -483,19 +487,11 @@
             "base": "",
             "fields": [
                 {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
                     "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "profile",
-                    "type": "string"
-                },
-                {
-                    "name": "meta",
+                    "name": "profile_hash",
                     "type": "string"
                 }
             ]
@@ -527,7 +523,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "profile",
+                    "name": "profile_hash",
                     "type": "string"
                 },
                 {

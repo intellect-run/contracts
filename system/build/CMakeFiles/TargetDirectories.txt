@@ -1,3 +1,0 @@
-/project/system/build/CMakeFiles/contracts_project.dir
-/project/system/build/CMakeFiles/edit_cache.dir
-/project/system/build/CMakeFiles/rebuild_cache.dir
