@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structpowerup__tester" kind="struct" language="C++" prot="public">
+    <compoundname>powerup_tester</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio_system_tester</basecompoundref>
+    <innerclass refid="structpowerup__tester_1_1account__info" prot="public">powerup_tester::account_info</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpowerup__tester_1a33ccf16b67058add5ae3498a8daafe89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>powerup_tester::powerup_tester</definition>
+        <argsstring>()</argsstring>
+        <name>powerup_tester</name>
+        <qualifiedname>powerup_tester::powerup_tester</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="74" column="4" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1a34191f1e526e0ab51ca1bc9381588894" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void powerup_tester::start_rex</definition>
+        <argsstring>()</argsstring>
+        <name>start_rex</name>
+        <qualifiedname>powerup_tester::start_rex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="76" column="9" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="76" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1aa65da2bd4e108cad3bffe0447af2a849" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>powerup_config</type>
+        <definition>powerup_config powerup_tester::make_config</definition>
+        <argsstring>(F f)</argsstring>
+        <name>make_config</name>
+        <qualifiedname>powerup_tester::make_config</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="94" column="19" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="94" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1a116a2cb3c9800da6a1a4ca152ec23a38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>powerup_config</type>
+        <definition>powerup_config powerup_tester::make_config</definition>
+        <argsstring>()</argsstring>
+        <name>make_config</name>
+        <qualifiedname>powerup_tester::make_config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="122" column="19" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="122" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1a256c4944a0d87e3a5c15710911024ebc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>powerup_config</type>
+        <definition>powerup_config powerup_tester::make_default_config</definition>
+        <argsstring>(F f)</argsstring>
+        <name>make_default_config</name>
+        <qualifiedname>powerup_tester::make_default_config</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="127" column="19" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="127" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1ac8ebf6926b91d8dd32755741563dd2ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result powerup_tester::configbw</definition>
+        <argsstring>(const powerup_config &amp;config)</argsstring>
+        <name>configbw</name>
+        <qualifiedname>powerup_tester::configbw</qualifiedname>
+        <param>
+          <type>const powerup_config &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="133" column="18" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="133" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1adb1bb77a9818531036e201e025624fd4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result powerup_tester::powerupexec</definition>
+        <argsstring>(name user, uint16_t max)</argsstring>
+        <name>powerupexec</name>
+        <qualifiedname>powerup_tester::powerupexec</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="166" column="18" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="166" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1ab94c81014001e6f92967751217b731c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result powerup_tester::powerup</definition>
+        <argsstring>(const name &amp;payer, const name &amp;receiver, uint32_t days, int64_t net_frac, int64_t cpu_frac, const asset &amp;max_payment)</argsstring>
+        <name>powerup</name>
+        <qualifiedname>powerup_tester::powerup</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>days</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>net_frac</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>cpu_frac</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>max_payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="170" column="18" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="170" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1a953eee68bfc1ab4ac7784449cd15fba1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>powerup_state</type>
+        <definition>powerup_state powerup_tester::get_state</definition>
+        <argsstring>()</argsstring>
+        <name>get_state</name>
+        <qualifiedname>powerup_tester::get_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="177" column="18" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1aac4bc9c1d11daddcbe11c942a3c33415" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structpowerup__tester_1_1account__info" kindref="compound">account_info</ref></type>
+        <definition>account_info powerup_tester::get_account_info</definition>
+        <argsstring>(account_name acc)</argsstring>
+        <name>get_account_info</name>
+        <qualifiedname>powerup_tester::get_account_info</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="189" column="17" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="189" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="structpowerup__tester_1af816263ed2ef2c17188e500e99738e53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void powerup_tester::check_powerup</definition>
+        <argsstring>(const name &amp;payer, const name &amp;receiver, uint32_t days, int64_t net_frac, int64_t cpu_frac, const asset &amp;expected_fee, int64_t expected_net, int64_t expected_cpu)</argsstring>
+        <name>check_powerup</name>
+        <qualifiedname>powerup_tester::check_powerup</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>days</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>net_frac</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>cpu_frac</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>expected_fee</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>expected_net</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>expected_cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="196" column="9" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="196" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio_system_tester</label>
+      </node>
+      <node id="1">
+        <label>powerup_tester</label>
+        <link refid="structpowerup__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio_system_tester</label>
+      </node>
+      <node id="1">
+        <label>powerup_tester</label>
+        <link refid="structpowerup__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.powerup_tests.cpp" line="72" column="1" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="72" bodyend="244"/>
+    <listofallmembers>
+      <member refid="structpowerup__tester_1af816263ed2ef2c17188e500e99738e53" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>check_powerup</name></member>
+      <member refid="structpowerup__tester_1ac8ebf6926b91d8dd32755741563dd2ab" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>configbw</name></member>
+      <member refid="structpowerup__tester_1aac4bc9c1d11daddcbe11c942a3c33415" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>get_account_info</name></member>
+      <member refid="structpowerup__tester_1a953eee68bfc1ab4ac7784449cd15fba1" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>get_state</name></member>
+      <member refid="structpowerup__tester_1aa65da2bd4e108cad3bffe0447af2a849" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>make_config</name></member>
+      <member refid="structpowerup__tester_1a116a2cb3c9800da6a1a4ca152ec23a38" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>make_config</name></member>
+      <member refid="structpowerup__tester_1a256c4944a0d87e3a5c15710911024ebc" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>make_default_config</name></member>
+      <member refid="structpowerup__tester_1ab94c81014001e6f92967751217b731c0" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>powerup</name></member>
+      <member refid="structpowerup__tester_1a33ccf16b67058add5ae3498a8daafe89" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>powerup_tester</name></member>
+      <member refid="structpowerup__tester_1adb1bb77a9818531036e201e025624fd4" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>powerupexec</name></member>
+      <member refid="structpowerup__tester_1a34191f1e526e0ab51ca1bc9381588894" prot="public" virt="non-virtual"><scope>powerup_tester</scope><name>start_rex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

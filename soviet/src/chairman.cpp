@@ -1,6 +1,17 @@
 using namespace eosio;
 
-
+/**
+\ingroup public_actions
+\brief Авторизация принятого решения советом
+*
+* Этот метод позволяет председателю совета авторизовать принятое решение совета. 
+*
+* @param coop_username Имя кооператива
+* @param chairman Имя председателя совета кооператива
+* @param decision_id Идентификатор решения для авторизации
+* 
+* @note Авторизация требуется от аккаунта: @p chairman
+*/
 void soviet::authorize(eosio::name coop_username, eosio::name chairman, uint64_t decision_id) { 
   require_auth(chairman);
 
@@ -26,7 +37,25 @@ void soviet::authorize(eosio::name coop_username, eosio::name chairman, uint64_t
 
 }
 
-
+/**
+\ingroup public_actions
+\brief Создание нового совета кооператива
+*
+* Этот метод позволяет председателю кооператива создать новый совет с указанными членами и параметрами. Если совет создается как совет кооператива, председатель должен быть указан в списке членов совета.
+*
+* @param coop_username Имя кооператива
+* @param chairman Имя председателя кооператива
+* @param type Тип совета. Доступные типы:
+*   - **soviet** - Совет кооператива (Board of Members)
+*   - **executive** - Правление (Executive Board)
+*   - **audit** - Ревизионный комитет (Audit and Revision Board)
+*   - **other** - Другая комиссия (Other committee)
+* @param members Список членов совета
+* @param name Название совета
+* @param description Описание совета
+* 
+* @note Авторизация требуется от аккаунта: @p chairman
+*/
 void soviet::createboard(eosio::name coop_username, eosio::name chairman, eosio::name type, std::vector<board_member> members, std::string name, std::string description){
 
   require_auth(chairman);

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1autosigner" kind="struct" language="C++" prot="public">
+    <compoundname>eosio::autosigner</compoundname>
+    <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1autosigner_1ae723c9212461794be834a55e0169a6c9" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::autosigner::decision_id</definition>
+        <argsstring></argsstring>
+        <name>decision_id</name>
+        <qualifiedname>eosio::autosigner::decision_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="89" column="14" bodyfile="soviet/soviet.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1autosigner_1af66f2d083d71f9b93c9bebbb827612b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::autosigner::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::autosigner::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="90" column="14" bodyfile="soviet/soviet.hpp" bodystart="90" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soviet/soviet.hpp" line="88" column="3" bodyfile="soviet/soviet.hpp" bodystart="88" bodyend="91"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1autosigner_1ae723c9212461794be834a55e0169a6c9" prot="public" virt="non-virtual"><scope>eosio::autosigner</scope><name>decision_id</name></member>
+      <member refid="structeosio_1_1autosigner_1af66f2d083d71f9b93c9bebbb827612b7" prot="public" virt="non-virtual"><scope>eosio::autosigner</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

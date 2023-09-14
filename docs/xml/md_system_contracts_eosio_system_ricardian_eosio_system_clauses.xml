@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_system_contracts_eosio_system_ricardian_eosio_system_clauses" kind="page">
+    <compoundname>md_system_contracts_eosio_system_ricardian_eosio_system_clauses</compoundname>
+    <title>eosio.system.clauses</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">UserAgreement</heading>
+</para>
+<para>User agreement for the chain can go here.</para>
+<para><heading level="1">BlockProducerAgreement</heading>
+</para>
+<para>I, {{producer}}, hereby nominate myself for consideration as an elected block producer.</para>
+<para>Additional conditions for block producer agreement can go here. </para>
+    </detaileddescription>
+    <location file="system/contracts/eosio.system/ricardian/eosio.system.clauses.md"/>
+  </compounddef>
+</doxygen>

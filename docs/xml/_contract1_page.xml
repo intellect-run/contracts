@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_contract1_page" kind="page">
+    <compoundname>Contract1Page</compoundname>
+    <title>Контракт 1</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="_contract1_page_1Contract1ActionsSec">
+<title>Действия контракта 1</title>
+<para><ref refid="group___contract1_actions" kindref="compound">Действия контракта 1</ref></para>
+</sect1>
+<sect1 id="_contract1_page_1Contract1ConstsSec">
+<title>Константы контракта 1</title>
+<para><ref refid="group___contract1_consts" kindref="compound">Константы контракта 1</ref></para>
+</sect1>
+<sect1 id="_contract1_page_1Contract1TablesSec">
+<title>Таблицы контракта 1</title>
+<para><ref refid="group___contract1_tables" kindref="compound">Таблицы контракта 1</ref> </para>
+</sect1>
+    </detaileddescription>
+    <location file="marketplace/marketplace.hpp"/>
+  </compounddef>
+</doxygen>

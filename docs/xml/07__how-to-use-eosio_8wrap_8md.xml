@@ -1,0 +1,983 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="07__how-to-use-eosio_8wrap_8md" kind="file" language="Markdown">
+    <compoundname>07_how-to-use-eosio.wrap.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>How<sp/>to<sp/>use<sp/>eosio.wrap</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>1.<sp/>Installing<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>eosio.wrap<sp/>contract<sp/>needs<sp/>to<sp/>be<sp/>installed<sp/>on<sp/>a<sp/>privileged<sp/>account<sp/>to<sp/>function.<sp/>It<sp/>is<sp/>recommended<sp/>to<sp/>use<sp/>the<sp/>account<sp/>`eosio.wrap`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>the<sp/>account<sp/>`eosio.wrap`<sp/>needs<sp/>to<sp/>be<sp/>created.<sp/>Since<sp/>it<sp/>has<sp/>the<sp/>restricted<sp/>`eosio.`<sp/>prefix,<sp/>only<sp/>a<sp/>privileged<sp/>account<sp/>can<sp/>create<sp/>this<sp/>account.<sp/>So<sp/>this<sp/>guide<sp/>will<sp/>use<sp/>the<sp/>`eosio`<sp/>account<sp/>to<sp/>create<sp/>the<sp/>`eosio.wrap`<sp/>account.<sp/>On<sp/>typical<sp/>live<sp/>blockchain<sp/>configurations,<sp/>the<sp/>`eosio`<sp/>account<sp/>can<sp/>only<sp/>be<sp/>controlled<sp/>by<sp/>a<sp/>supermajority<sp/>of<sp/>the<sp/>current<sp/>active<sp/>block<sp/>producers.<sp/>So,<sp/>this<sp/>guide<sp/>will<sp/>use<sp/>the<sp/>`eosio.msig`<sp/>contract<sp/>to<sp/>help<sp/>coordinate<sp/>the<sp/>approvals<sp/>of<sp/>the<sp/>proposed<sp/>transaction<sp/>that<sp/>creates<sp/>the<sp/>`eosio.wrap`<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`eosio.wrap`<sp/>account<sp/>also<sp/>needs<sp/>to<sp/>have<sp/>sufficient<sp/>RAM<sp/>to<sp/>host<sp/>the<sp/>contract<sp/>and<sp/>sufficient<sp/>CPU<sp/>and<sp/>network<sp/>bandwidth<sp/>to<sp/>deploy<sp/>the<sp/>contract.<sp/>This<sp/>means<sp/>that<sp/>the<sp/>creator<sp/>of<sp/>the<sp/>account<sp/>(`eosio`)<sp/>needs<sp/>to<sp/>gift<sp/>sufficient<sp/>RAM<sp/>to<sp/>the<sp/>new<sp/>account<sp/>and<sp/>delegate<sp/>(preferably<sp/>with<sp/>transfer)<sp/>sufficient<sp/>bandwidth<sp/>to<sp/>the<sp/>new<sp/>account.<sp/>To<sp/>pull<sp/>this<sp/>off<sp/>the<sp/>`eosio`<sp/>account<sp/>needs<sp/>to<sp/>have<sp/>enough<sp/>of<sp/>the<sp/>core<sp/>system<sp/>token<sp/>(the<sp/>`SYS`<sp/>token<sp/>will<sp/>be<sp/>used<sp/>within<sp/>this<sp/>guide)<sp/>in<sp/>its<sp/>liquid<sp/>balance.<sp/>So<sp/>prior<sp/>to<sp/>continuing<sp/>with<sp/>the<sp/>next<sp/>steps<sp/>of<sp/>this<sp/>guide,<sp/>the<sp/>active<sp/>block<sp/>producers<sp/>of<sp/>the<sp/>chain<sp/>who<sp/>are<sp/>coordinating<sp/>this<sp/>process<sp/>need<sp/>to<sp/>ensure<sp/>that<sp/>a<sp/>sufficient<sp/>amount<sp/>of<sp/>core<sp/>system<sp/>tokens<sp/>that<sp/>they<sp/>are<sp/>authorized<sp/>to<sp/>spend<sp/>is<sp/>placed<sp/>in<sp/>the<sp/>liquid<sp/>balance<sp/>of<sp/>the<sp/>`eosio`<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>will<sp/>be<sp/>using<sp/>cleos<sp/>to<sp/>carry<sp/>out<sp/>the<sp/>process.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.1<sp/>Create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.1.1<sp/>Generate<sp/>the<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>`eosio.wrap`<sp/>account<sp/>will<sp/>need<sp/>to<sp/>be<sp/>proposed<sp/>to<sp/>get<sp/>the<sp/>necessary<sp/>approvals<sp/>from<sp/>active<sp/>block<sp/>producers<sp/>before<sp/>executing<sp/>it.<sp/>This<sp/>transaction<sp/>needs<sp/>to<sp/>first<sp/>be<sp/>generated<sp/>and<sp/>stored<sp/>as<sp/>JSON<sp/>into<sp/>a<sp/>file<sp/>so<sp/>that<sp/>it<sp/>can<sp/>be<sp/>used<sp/>in<sp/>the<sp/>cleos<sp/>command<sp/>to<sp/>propose<sp/>the<sp/>transaction<sp/>to<sp/>the<sp/>eosio.msig<sp/>contract.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>simple<sp/>way<sp/>to<sp/>generate<sp/>a<sp/>transaction<sp/>to<sp/>create<sp/>a<sp/>new<sp/>account<sp/>is<sp/>to<sp/>use<sp/>the<sp/>`cleos<sp/>system<sp/>newaccount`.<sp/>However,<sp/>that<sp/>sub-command<sp/>currently<sp/>only<sp/>accepts<sp/>a<sp/>single<sp/>public<sp/>key<sp/>as<sp/>the<sp/>owner<sp/>and<sp/>active<sp/>authority<sp/>of<sp/>the<sp/>new<sp/>account.<sp/>However,<sp/>the<sp/>owner<sp/>and<sp/>active<sp/>authorities<sp/>of<sp/>the<sp/>new<sp/>account<sp/>should<sp/>only<sp/>be<sp/>satisfied<sp/>by<sp/>the<sp/>`active`<sp/>permission<sp/>of<sp/>`eosio`.<sp/>One<sp/>option<sp/>is<sp/>to<sp/>create<sp/>the<sp/>new<sp/>account<sp/>with<sp/>the<sp/>some<sp/>newly<sp/>generated<sp/>key,<sp/>and<sp/>then<sp/>later<sp/>update<sp/>the<sp/>authorities<sp/>of<sp/>the<sp/>new<sp/>account<sp/>using<sp/>`cleos<sp/>set<sp/>account<sp/>permission`.<sp/>This<sp/>guide<sp/>will<sp/>take<sp/>an<sp/>alternative<sp/>approach<sp/>which<sp/>atomically<sp/>creates<sp/>the<sp/>new<sp/>account<sp/>in<sp/>its<sp/>proper<sp/>configuration.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Three<sp/>unsigned<sp/>transactions<sp/>will<sp/>be<sp/>generated<sp/>using<sp/>cleos<sp/>and<sp/>then<sp/>the<sp/>actions<sp/>within<sp/>those<sp/>transactions<sp/>will<sp/>be<sp/>appropriately<sp/>stitched<sp/>together<sp/>into<sp/>a<sp/>single<sp/>transaction<sp/>which<sp/>will<sp/>later<sp/>be<sp/>proposed<sp/>using<sp/>the<sp/>eosio.msig<sp/>contract.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>generate<sp/>a<sp/>transaction<sp/>to<sp/>capture<sp/>the<sp/>necessary<sp/>actions<sp/>involved<sp/>in<sp/>creating<sp/>a<sp/>new<sp/>account:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>system<sp/>newaccount<sp/>-s<sp/>-j<sp/>-d<sp/>--transfer<sp/>--stake-net<sp/>&quot;1.000<sp/>SYS&quot;<sp/>--stake-cpu<sp/>&quot;1.000<sp/>SYS&quot;<sp/>--buy-ram-kbytes<sp/>50<sp/>eosio<sp/>eosio.wrap<sp/>EOS8MMUW11TAdTDxqdSwSqJodefSoZbFhcprndomgLi9MeR2o8MT4<sp/>&gt;<sp/>generated_account_creation_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">726964ms<sp/>thread-0<sp/><sp/><sp/>main.cpp:429<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>create_action<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]<sp/>result:<sp/>{&quot;binargs&quot;:&quot;0000000000ea305500004d1a03ea305500c80000&quot;}<sp/>arg:<sp/>{&quot;code&quot;:&quot;eosio&quot;,&quot;action&quot;:&quot;buyrambytes&quot;,&quot;args&quot;:{&quot;payer&quot;:&quot;eosio&quot;,&quot;receiver&quot;:&quot;eosio.wrap&quot;,&quot;bytes&quot;:51200}}</highlight></codeline>
+<codeline><highlight class="normal">726967ms<sp/>thread-0<sp/><sp/><sp/>main.cpp:429<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>create_action<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]<sp/>result:<sp/>{&quot;binargs&quot;:&quot;0000000000ea305500004d1a03ea3055102700000000000004535953000000001027000000000000045359530000000001&quot;}<sp/>arg:<sp/>{&quot;code&quot;:&quot;eosio&quot;,&quot;action&quot;:&quot;delegatebw&quot;,&quot;args&quot;:{&quot;from&quot;:&quot;eosio&quot;,&quot;receiver&quot;:&quot;eosio.wrap&quot;,&quot;stake_net_quantity&quot;:&quot;1.0000<sp/>SYS&quot;,&quot;stake_cpu_quantity&quot;:&quot;1.0000<sp/>SYS&quot;,&quot;transfer&quot;:true}}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>generated_account_creation_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-06-29T17:11:36&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>16349,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>3248946195,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;newaccount&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea305501000000010003c8162ea04fed738bfd5470527fd1ae7454c2e9ad1acbadec9f9e35bab2f33c660100000001000000010003c8162ea04fed738bfd5470527fd1ae7454c2e9ad1acbadec9f9e35bab2f33c6601000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;buyrambytes&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea305500c80000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;delegatebw&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea3055102700000000000004535953000000001027000000000000045359530000000001&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Adjust<sp/>the<sp/>amount<sp/>of<sp/>delegated<sp/>tokens<sp/>and<sp/>the<sp/>amount<sp/>of<sp/>RAM<sp/>bytes<sp/>to<sp/>gift<sp/>as<sp/>necessary.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>actual<sp/>public<sp/>key<sp/>used<sp/>is<sp/>not<sp/>important<sp/>since<sp/>that<sp/>data<sp/>is<sp/>only<sp/>encoded<sp/>into<sp/>the<sp/>`eosio::newaccount`<sp/>action<sp/>which<sp/>will<sp/>be<sp/>replaced<sp/>soon<sp/>anyway.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Second,<sp/>create<sp/>a<sp/>file<sp/>(e.g.<sp/>newaccount_payload.json)<sp/>with<sp/>the<sp/>JSON<sp/>payload<sp/>for<sp/>the<sp/>real<sp/>`eosio::newaccount`<sp/>action.<sp/>It<sp/>should<sp/>look<sp/>like:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>newaccount_payload.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&quot;creator&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&quot;owner&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;threshold&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;keys&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;accounts&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>{&quot;actor&quot;:<sp/>&quot;eosio&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;weight&quot;:<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;waits&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&quot;active&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;threshold&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;keys&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;accounts&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>{&quot;actor&quot;:<sp/>&quot;eosio&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;weight&quot;:<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;waits&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Third,<sp/>generate<sp/>a<sp/>transaction<sp/>containing<sp/>the<sp/>actual<sp/>`eosio::newaccount`<sp/>action<sp/>that<sp/>will<sp/>be<sp/>used<sp/>in<sp/>the<sp/>final<sp/>transaction:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>-s<sp/>-j<sp/>-d<sp/>eosio<sp/>newaccount<sp/>newaccount_payload.json<sp/>-p<sp/>eosio<sp/>&gt;<sp/>generated_newaccount_trx.json</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>generated_newaccount_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-06-29T17:11:36&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>16349,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>3248946195,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;newaccount&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed3232010000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Fourth,<sp/>generate<sp/>a<sp/>transaction<sp/>containing<sp/>the<sp/>`eosio::setpriv`<sp/>action<sp/>which<sp/>will<sp/>make<sp/>the<sp/>`eosio.wrap`<sp/>account<sp/>privileged:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>-s<sp/>-j<sp/>-d<sp/>eosio<sp/>setpriv<sp/>&apos;{&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,<sp/>&quot;is_priv&quot;:<sp/>1}&apos;<sp/>-p<sp/>eosio<sp/>&gt;<sp/>generated_setpriv_trx.json</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>generated_setpriv_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-06-29T17:11:36&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>16349,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>3248946195,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setpriv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;00004d1a03ea305501&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Next,<sp/>the<sp/>action<sp/>JSONs<sp/>of<sp/>the<sp/>previously<sp/>generated<sp/>transactions<sp/>will<sp/>be<sp/>used<sp/>to<sp/>construct<sp/>a<sp/>unified<sp/>transaction<sp/>which<sp/>will<sp/>eventually<sp/>be<sp/>proposed<sp/>with<sp/>the<sp/>eosio.msig<sp/>contract.<sp/>A<sp/>good<sp/>way<sp/>to<sp/>get<sp/>started<sp/>is<sp/>to<sp/>make<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>generated_newaccount_trx.json<sp/>file<sp/>(call<sp/>the<sp/>copied<sp/>file<sp/>create_wrap_account_trx.json)<sp/>and<sp/>edit<sp/>the<sp/>first<sp/>three<sp/>fields<sp/>so<sp/>it<sp/>looks<sp/>something<sp/>like<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>create_wrap_account_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;newaccount&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed3232010000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`ref_block_num`<sp/>and<sp/>`ref_block_prefix`<sp/>values<sp/>were<sp/>set<sp/>to<sp/>0.<sp/>The<sp/>proposed<sp/>transaction<sp/>does<sp/>not<sp/>need<sp/>to<sp/>have<sp/>a<sp/>valid<sp/>TaPoS<sp/>reference<sp/>block<sp/>because<sp/>it<sp/>will<sp/>be<sp/>reset<sp/>anyway<sp/>when<sp/>scheduled<sp/>as<sp/>a<sp/>deferred<sp/>transaction<sp/>during<sp/>the<sp/>`eosio.msig::exec`<sp/>action.<sp/>The<sp/>`expiration`<sp/>field,<sp/>which<sp/>was<sp/>the<sp/>only<sp/>other<sp/>field<sp/>that<sp/>was<sp/>changed,<sp/>will<sp/>also<sp/>be<sp/>reset<sp/>when<sp/>the<sp/>proposed<sp/>transaction<sp/>is<sp/>scheduled<sp/>as<sp/>a<sp/>deferred<sp/>transaction<sp/>during<sp/>`eosio.msig::exec`.<sp/>However,<sp/>this<sp/>field<sp/>actually<sp/>does<sp/>matter<sp/>during<sp/>the<sp/>propose-approve-exec<sp/>lifecycle<sp/>of<sp/>the<sp/>proposed<sp/>transaction.<sp/>If<sp/>the<sp/>present<sp/>time<sp/>passes<sp/>the<sp/>time<sp/>in<sp/>the<sp/>`expiration`<sp/>field<sp/>of<sp/>the<sp/>proposed<sp/>transaction,<sp/>it<sp/>will<sp/>not<sp/>be<sp/>possible<sp/>to<sp/>execute<sp/>the<sp/>proposed<sp/>transaction<sp/>even<sp/>if<sp/>all<sp/>necessary<sp/>approvals<sp/>are<sp/>gathered.<sp/>Therefore,<sp/>it<sp/>is<sp/>important<sp/>to<sp/>set<sp/>the<sp/>expiration<sp/>time<sp/>to<sp/>some<sp/>point<sp/>well<sp/>enough<sp/>in<sp/>the<sp/>future<sp/>to<sp/>give<sp/>all<sp/>necessary<sp/>approvers<sp/>enough<sp/>time<sp/>to<sp/>review<sp/>and<sp/>approve<sp/>the<sp/>proposed<sp/>transaction,<sp/>but<sp/>it<sp/>is<sp/>otherwise<sp/>arbitrary.<sp/>Generally,<sp/>for<sp/>reviewing/validation<sp/>purposes<sp/>it<sp/>is<sp/>important<sp/>that<sp/>all<sp/>potential<sp/>approvers<sp/>of<sp/>the<sp/>transaction<sp/>(i.e.<sp/>the<sp/>block<sp/>producers)<sp/>choose<sp/>the<sp/>exact<sp/>same<sp/>`expiration`<sp/>time<sp/>so<sp/>that<sp/>there<sp/>is<sp/>not<sp/>any<sp/>discrepancy<sp/>in<sp/>bytes<sp/>of<sp/>the<sp/>serialized<sp/>transaction<sp/>if<sp/>it<sp/>was<sp/>to<sp/>later<sp/>be<sp/>included<sp/>in<sp/>payload<sp/>data<sp/>of<sp/>some<sp/>other<sp/>action.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then,<sp/>all<sp/>but<sp/>the<sp/>first<sp/>action<sp/>JSON<sp/>object<sp/>of<sp/>generated_account_creation_trx.json<sp/>should<sp/>be<sp/>appended<sp/>to<sp/>the<sp/>`actions`<sp/>array<sp/>of<sp/>create_wrap_account_trx.json,<sp/>and<sp/>then<sp/>the<sp/>single<sp/>action<sp/>JSON<sp/>object<sp/>of<sp/>generated_setpriv_trx.json<sp/>should<sp/>be<sp/>appended<sp/>to<sp/>the<sp/>`actions`<sp/>array<sp/>of<sp/>create_wrap_account_trx.json.<sp/>The<sp/>final<sp/>result<sp/>is<sp/>a<sp/>create_wrap_account_trx.json<sp/>file<sp/>that<sp/>looks<sp/>like<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>create_wrap_account_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;newaccount&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed3232010000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;buyrambytes&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea305500c80000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;delegatebw&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000ea305500004d1a03ea3055102700000000000004535953000000001027000000000000045359530000000001&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setpriv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;00004d1a03ea305501&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>transaction<sp/>in<sp/>create_wrap_account_trx.json<sp/>is<sp/>now<sp/>ready<sp/>to<sp/>be<sp/>proposed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>will<sp/>be<sp/>useful<sp/>to<sp/>have<sp/>a<sp/>JSON<sp/>of<sp/>the<sp/>active<sp/>permissions<sp/>of<sp/>each<sp/>of<sp/>the<sp/>active<sp/>block<sp/>producers<sp/>for<sp/>later<sp/>when<sp/>proposing<sp/>transactions<sp/>using<sp/>the<sp/>eosio.msig<sp/>contract.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>will<sp/>assume<sp/>that<sp/>there<sp/>are<sp/>21<sp/>active<sp/>block<sp/>producers<sp/>on<sp/>the<sp/>chain<sp/>with<sp/>account<sp/>names:<sp/>`blkproducera`,<sp/>`blkproducerb`,<sp/>...,<sp/>`blkproduceru`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>that<sp/>case,<sp/>create<sp/>a<sp/>file<sp/>producer_permissions.json<sp/>with<sp/>the<sp/>content<sp/>shown<sp/>in<sp/>the<sp/>command<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>producer_permissions.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducera&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerb&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerc&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerd&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducere&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerf&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerg&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerh&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproduceri&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerj&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerk&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerl&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerm&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducern&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducero&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerp&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerq&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerr&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducers&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducert&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproduceru&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}</highlight></codeline>
+<codeline><highlight class="normal">]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.1.2<sp/>Propose<sp/>the<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Only<sp/>one<sp/>of<sp/>the<sp/>potential<sp/>approvers<sp/>will<sp/>need<sp/>to<sp/>propose<sp/>the<sp/>transaction<sp/>that<sp/>was<sp/>created<sp/>in<sp/>the<sp/>previous<sp/>sub-section.<sp/>All<sp/>the<sp/>other<sp/>approvers<sp/>should<sp/>still<sp/>follow<sp/>the<sp/>steps<sp/>in<sp/>the<sp/>previous<sp/>sub-section<sp/>to<sp/>generate<sp/>the<sp/>same<sp/>create_wrap_account_trx.json<sp/>file<sp/>as<sp/>all<sp/>the<sp/>other<sp/>approvers.<sp/>They<sp/>will<sp/>need<sp/>this<sp/>to<sp/>compare<sp/>to<sp/>the<sp/>actual<sp/>proposed<sp/>transaction<sp/>prior<sp/>to<sp/>approving.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>approvers<sp/>are<sp/>typically<sp/>going<sp/>to<sp/>be<sp/>the<sp/>active<sp/>block<sp/>producers<sp/>of<sp/>the<sp/>chain,<sp/>so<sp/>it<sp/>makes<sp/>sense<sp/>that<sp/>one<sp/>of<sp/>the<sp/>block<sp/>producers<sp/>is<sp/>elected<sp/>as<sp/>the<sp/>leader<sp/>to<sp/>propose<sp/>the<sp/>actual<sp/>transaction.<sp/>Note<sp/>that<sp/>this<sp/>lead<sp/>block<sp/>producer<sp/>will<sp/>need<sp/>to<sp/>incur<sp/>the<sp/>temporary<sp/>RAM<sp/>cost<sp/>of<sp/>proposing<sp/>the<sp/>transaction,<sp/>but<sp/>they<sp/>will<sp/>get<sp/>the<sp/>RAM<sp/>back<sp/>when<sp/>the<sp/>proposal<sp/>has<sp/>executed<sp/>or<sp/>has<sp/>been<sp/>canceled<sp/>(which<sp/>only<sp/>the<sp/>proposer<sp/>can<sp/>do<sp/>prior<sp/>to<sp/>expiration).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>guide<sp/>will<sp/>assume<sp/>that<sp/>`blkproducera`<sp/>was<sp/>chosen<sp/>as<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>to<sp/>propose<sp/>the<sp/>transaction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>lead<sp/>block<sp/>producer<sp/>(`blkproducera`)<sp/>should<sp/>propose<sp/>the<sp/>transaction<sp/>stored<sp/>in<sp/>create_wrap_account_trx.json:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>createwrap<sp/>producer_permissions.json<sp/>create_wrap_account_trx.json<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>bf6aaa06b40e2a35491525cb11431efd2b5ac94e4a7a9c693c5bf0cfed942393<sp/><sp/>744<sp/>bytes<sp/><sp/>772<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::propose<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;createwrap&quot;,&quot;requested&quot;:[{&quot;actor&quot;:&quot;blkproducera&quot;,&quot;permis...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.1.3<sp/>Review<sp/>and<sp/>approve<sp/>the<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>the<sp/>potential<sp/>approvers<sp/>of<sp/>the<sp/>proposed<sp/>transaction<sp/>(i.e.<sp/>the<sp/>active<sp/>block<sp/>producers)<sp/>should<sp/>first<sp/>review<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>make<sp/>sure<sp/>they<sp/>are<sp/>not<sp/>approving<sp/>anything<sp/>that<sp/>they<sp/>do<sp/>not<sp/>agree<sp/>to.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>proposed<sp/>transaction<sp/>can<sp/>be<sp/>reviewed<sp/>using<sp/>the<sp/>`cleos<sp/>multisig<sp/>review`<sp/>command:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>review<sp/>blkproducera<sp/>createwrap<sp/>&gt;<sp/>create_wrap_account_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">head<sp/>-n<sp/>30<sp/>create_wrap_account_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;proposal_name&quot;:<sp/>&quot;createwrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;packed_transaction&quot;:<sp/>&quot;c0593f5b00000000000000000000040000000000ea305500409e9a2264b89a010000000000ea305500000000a8ed3232420000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed32320100000000000000ea305500b0cafe4873bd3e010000000000ea305500000000a8ed3232140000000000ea305500004d1a03ea3055002800000000000000ea305500003f2a1ba6a24a010000000000ea305500000000a8ed3232310000000000ea305500004d1a03ea30551027000000000000045359530000000010270000000000000453595300000000010000000000ea305500000060bb5bb3c2010000000000ea305500000000a8ed32320900004d1a03ea30550100&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;newaccount&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;creator&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;owner&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;threshold&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;keys&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;accounts&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>approvers<sp/>should<sp/>go<sp/>through<sp/>the<sp/>full<sp/>human-readable<sp/>transaction<sp/>output<sp/>and<sp/>make<sp/>sure<sp/>everything<sp/>looks<sp/>fine.<sp/>But<sp/>they<sp/>can<sp/>also<sp/>use<sp/>tools<sp/>to<sp/>automatically<sp/>compare<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>the<sp/>one<sp/>they<sp/>generated<sp/>to<sp/>make<sp/>sure<sp/>there<sp/>are<sp/>absolutely<sp/>no<sp/>differences:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>-j<sp/>-s<sp/>-d<sp/>createwrap<sp/>&apos;[]&apos;<sp/>create_wrap_account_trx.json<sp/>blkproducera<sp/>|<sp/>grep<sp/>&apos;&quot;data&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;data&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>|<sp/>cut<sp/>-c<sp/>35-<sp/>&gt;<sp/>expected_create_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>expected_create_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b00000000000000000000040000000000ea305500409e9a2264b89a010000000000ea305500000000a8ed3232420000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed32320100000000000000ea305500b0cafe4873bd3e010000000000ea305500000000a8ed3232140000000000ea305500004d1a03ea3055002800000000000000ea305500003f2a1ba6a24a010000000000ea305500000000a8ed3232310000000000ea305500004d1a03ea30551027000000000000045359530000000010270000000000000453595300000000010000000000ea305500000060bb5bb3c2010000000000ea305500000000a8ed32320900004d1a03ea30550100</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>create_wrap_account_trx_to_review.json<sp/>|<sp/>grep<sp/>&apos;&quot;packed_transaction&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;packed_transaction&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>&gt;<sp/>proposed_create_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>proposed_create_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b00000000000000000000040000000000ea305500409e9a2264b89a010000000000ea305500000000a8ed3232420000000000ea305500004d1a03ea30550100000000010000000000ea305500000000a8ed32320100000100000000010000000000ea305500000000a8ed32320100000000000000ea305500b0cafe4873bd3e010000000000ea305500000000a8ed3232140000000000ea305500004d1a03ea3055002800000000000000ea305500003f2a1ba6a24a010000000000ea305500000000a8ed3232310000000000ea305500004d1a03ea30551027000000000000045359530000000010270000000000000453595300000000010000000000ea305500000060bb5bb3c2010000000000ea305500000000a8ed32320900004d1a03ea30550100</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">diff<sp/>expected_create_wrap_trx_serialized.hex<sp/>proposed_create_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>an<sp/>approver<sp/>(e.g.<sp/>`blkproducerb`)<sp/>is<sp/>satisfied<sp/>with<sp/>the<sp/>proposed<sp/>transaction,<sp/>they<sp/>can<sp/>simply<sp/>approve<sp/>it:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>approve<sp/>blkproducera<sp/>createwrap<sp/>&apos;{&quot;actor&quot;:<sp/>&quot;blkproducerb&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}&apos;<sp/>-p<sp/>blkproducerb</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>03a907e2a3192aac0cd040c73db8273c9da7696dc7960de22b1a479ae5ee9f23<sp/><sp/>128<sp/>bytes<sp/><sp/>472<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::approve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;createwrap&quot;,&quot;level&quot;:{&quot;actor&quot;:&quot;blkproducerb&quot;,&quot;permission&quot;...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.1.4<sp/>Execute<sp/>the<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>the<sp/>necessary<sp/>approvals<sp/>are<sp/>collected<sp/>(in<sp/>this<sp/>example,<sp/>with<sp/>21<sp/>block<sp/>producers,<sp/>at<sp/>least<sp/>15<sp/>of<sp/>their<sp/>approvals<sp/>were<sp/>required),<sp/>anyone<sp/>can<sp/>push<sp/>the<sp/>`eosio.msig::exec`<sp/>action<sp/>which<sp/>executes<sp/>the<sp/>approved<sp/>transaction.<sp/>It<sp/>makes<sp/>a<sp/>lot<sp/>of<sp/>sense<sp/>for<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>who<sp/>proposed<sp/>the<sp/>transaction<sp/>to<sp/>also<sp/>execute<sp/>it<sp/>(this<sp/>will<sp/>incur<sp/>another<sp/>temporary<sp/>RAM<sp/>cost<sp/>for<sp/>the<sp/>deferred<sp/>transaction<sp/>that<sp/>is<sp/>generated<sp/>by<sp/>the<sp/>eosio.msig<sp/>contract).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>exec<sp/>blkproducera<sp/>createwrap<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>7ecc183b99915cc411f96dde7c35c3fe0df6e732507f272af3a039b706482e5a<sp/><sp/>160<sp/>bytes<sp/><sp/>850<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;createwrap&quot;,&quot;executer&quot;:&quot;blkproducera&quot;}</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Anyone<sp/>can<sp/>now<sp/>verify<sp/>that<sp/>the<sp/>`eosio.wrap`<sp/>was<sp/>created:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>account<sp/>eosio.wrap</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">privileged:<sp/>true</highlight></codeline>
+<codeline><highlight class="normal">permissions:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>eosio@active,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>eosio@active,</highlight></codeline>
+<codeline><highlight class="normal">memory:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/>49.74<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>3.33<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.8<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.8<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">producers:<sp/><sp/><sp/><sp/><sp/>&lt;not<sp/>voted&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.2<sp/>Deploy<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.2.1<sp/><sp/>Generate<sp/>the<sp/>transaction<sp/>to<sp/>deploy<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>transaction<sp/>to<sp/>deploy<sp/>the<sp/>contract<sp/>to<sp/>the<sp/>`eosio.wrap`<sp/>account<sp/>will<sp/>need<sp/>to<sp/>be<sp/>proposed<sp/>to<sp/>get<sp/>the<sp/>necessary<sp/>approvals<sp/>from<sp/>active<sp/>block<sp/>producers<sp/>before<sp/>executing<sp/>it.<sp/>This<sp/>transaction<sp/>needs<sp/>to<sp/>first<sp/>be<sp/>generated<sp/>and<sp/>stored<sp/>as<sp/>JSON<sp/>into<sp/>a<sp/>file<sp/>so<sp/>that<sp/>it<sp/>can<sp/>be<sp/>used<sp/>in<sp/>the<sp/>cleos<sp/>command<sp/>to<sp/>propose<sp/>the<sp/>transaction<sp/>to<sp/>the<sp/>eosio.msig<sp/>contract.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>easy<sp/>way<sp/>to<sp/>generate<sp/>this<sp/>transaction<sp/>is<sp/>using<sp/>cleos:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>-s<sp/>-j<sp/>-d<sp/>eosio.wrap<sp/>contracts/eosio.wrap/<sp/>&gt;<sp/>deploy_wrap_contract_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">Reading<sp/>WAST/WASM<sp/>from<sp/>contracts/eosio.wrap/eosio.wrap.wasm...</highlight></codeline>
+<codeline><highlight class="normal">Using<sp/>already<sp/>assembled<sp/>WASM...</highlight></codeline>
+<codeline><highlight class="normal">Publishing<sp/>contract...</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>deploy_wrap_contract_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-06-29T19:55:26&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>18544,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>562790588,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setcode&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;00004d1a03ea30550000c8180061736d01000000013e0c60017f006000017e60027e7e0060017e006000017f60027f7f017f60027f7f0060037f7f7f017f60057f7e7f7f7f0060000060037e7e7e0060017f017f029d010803656e7610616374696f6e5f646174615f73697a65000403656e760c63757272656e745f74696d65000103656e760c656f73696f5f617373657274000603656e76066d656d637079000703656e7610726561645f616374696f6e5f64617461000503656e760c726571756972655f61757468000303656e760d726571756972655f6175746832000203656e760d73656e645f64656665727265640008030f0e0505050400000a05070b050b000904050170010202050301000107c7010b066d656d6f72790200165f5a6571524b3131636865636b73756d32353653315f0008165f5a6571524b3131636865636b73756d31363053315f0009165f5a6e65524b3131636865636b73756d31363053315f000a036e6f77000b305f5a4e35656f73696f3132726571756972655f6175746845524b4e535f31367065726d697373696f6e5f6c6576656c45000c155f5a4e35656f73696f347375646f34657865634576000d056170706c79000e066d656d636d700010066d616c6c6f630011046672656500140908010041000b02150d0a9a130e0b002000200141201010450b0b002000200141201010450b0d0020002001412010104100470b0a00100142c0843d80a70b0e002000290300200029030810060b9e0102017e027f410028020441206b2202210341002002360204200029030010050240024010002200418104490d002000101121020c010b410020022000410f6a4170716b22023602040b2002200010041a200041074b41101002200341186a2002410810031a2003290318100520032903182101200310013703002003200137030820032003290318200241086a2000410010074100200341206a3602040bfd0403027f047e017f4100410028020441206b220936020442002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b024020072002520d0042002106423b2105413021044200210703400240024002400240024020064204560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b200720015141c00010020b0240024020012000510d0042002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b20072002520d010b20092000370318200242808080808080a0aad700520d00200941003602142009410136021020092009290310370208200941186a200941086a100f1a0b4100200941206a3602040b8c0101047f4100280204220521042001280204210220012802002101024010002203450d00024020034180044d0d00200310112205200310041a200510140c010b410020052003410f6a4170716b22053602042005200310041a0b200020024101756a210302402002410171450d00200328020020016a28020021010b200320011100004100200436020441010b4901037f4100210502402002450d000240034020002d0000220320012d00002204470d01200141016a2101200041016a21002002417f6a22020d000c020b0b200320046b21050b20050b0900418001200010120bcd04010c7f02402001450d00024020002802c041220d0d004110210d200041c0c1006a41103602000b200141086a200141046a41077122026b200120021b210202400240024020002802c441220a200d4f0d002000200a410c6c6a4180c0006a21010240200a0d0020004184c0006a220d2802000d0020014180c000360200200d20003602000b200241046a210a034002402001280208220d200a6a20012802004b0d002001280204200d6a220d200d28020041808080807871200272360200200141086a22012001280200200a6a360200200d200d28020041808080807872360200200d41046a22010d030b2000101322010d000b0b41fcffffff0720026b2104200041c8c1006a210b200041c0c1006a210c20002802c8412203210d03402000200d410c6c6a22014188c0006a28020020014180c0006a22052802004641d0c200100220014184c0006a280200220641046a210d0340200620052802006a2107200d417c6a2208280200220941ffffffff07712101024020094100480d000240200120024f0d000340200d20016a220a20074f0d01200a280200220a4100480d012001200a41ffffffff07716a41046a22012002490d000b0b20082001200220012002491b200941808080807871723602000240200120024d0d00200d20026a200420016a41ffffffff07713602000b200120024f0d040b200d20016a41046a220d2007490d000b41002101200b4100200b28020041016a220d200d200c280200461b220d360200200d2003470d000b0b20010f0b2008200828020041808080807872360200200d0f0b41000b870501087f20002802c44121010240024041002d00a643450d0041002802a84321070c010b3f002107410041013a00a6434100200741107422073602a8430b200721030240024002400240200741ffff036a41107622023f0022084d0d00200220086b40001a4100210820023f00470d0141002802a84321030b41002108410020033602a84320074100480d0020002001410c6c6a210220074180800441808008200741ffff037122084181f8034922061b6a2008200741ffff077120061b6b20076b2107024041002d00a6430d003f002103410041013a00a6434100200341107422033602a8430b20024180c0006a210220074100480d01200321060240200741076a417871220520036a41ffff036a41107622083f0022044d0d00200820046b40001a20083f00470d0241002802a84321060b4100200620056a3602a8432003417f460d0120002001410c6c6a22014184c0006a2802002206200228020022086a2003460d020240200820014188c0006a22052802002201460d00200620016a2206200628020041808080807871417c20016b20086a72360200200520022802003602002006200628020041ffffffff07713602000b200041c4c1006a2202200228020041016a220236020020002002410c6c6a22004184c0006a200336020020004180c0006a220820073602000b20080f0b02402002280200220820002001410c6c6a22034188c0006a22012802002207460d0020034184c0006a28020020076a2203200328020041808080807871417c20076b20086a72360200200120022802003602002003200328020041ffffffff07713602000b2000200041c4c1006a220728020041016a22033602c0412007200336020041000f0b2002200820076a36020020020b7b01037f024002402000450d0041002802c04222024101480d004180c10021032002410c6c4180c1006a21010340200341046a2802002202450d010240200241046a20004b0d00200220032802006a20004b0d030b2003410c6a22032001490d000b0b0f0b2000417c6a2203200328020041ffffffff07713602000b0300000b0bcf01060041040b04b04900000041100b0572656164000041200b086f6e6572726f72000041300b06656f73696f000041c0000b406f6e6572726f7220616374696f6e277320617265206f6e6c792076616c69642066726f6d207468652022656f73696f222073797374656d206163636f756e74000041d0c2000b566d616c6c6f635f66726f6d5f6672656564207761732064657369676e656420746f206f6e6c792062652063616c6c6564206166746572205f686561702077617320636f6d706c6574656c7920616c6c6f636174656400&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setabi&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;00004d1a03ea3055df040e656f73696f3a3a6162692f312e30030c6163636f756e745f6e616d65046e616d650f7065726d697373696f6e5f6e616d65046e616d650b616374696f6e5f6e616d65046e616d6506107065726d697373696f6e5f6c6576656c0002056163746f720c6163636f756e745f6e616d650a7065726d697373696f6e0f7065726d697373696f6e5f6e616d6506616374696f6e0004076163636f756e740c6163636f756e745f6e616d65046e616d650b616374696f6e5f6e616d650d617574686f72697a6174696f6e127065726d697373696f6e5f6c6576656c5b5d0464617461056279746573127472616e73616374696f6e5f68656164657200060a65787069726174696f6e0e74696d655f706f696e745f7365630d7265665f626c6f636b5f6e756d0675696e743136107265665f626c6f636b5f7072656669780675696e743332136d61785f6e65745f75736167655f776f7264730976617275696e743332106d61785f6370755f75736167655f6d730575696e74380964656c61795f7365630976617275696e74333209657874656e73696f6e000204747970650675696e74313604646174610562797465730b7472616e73616374696f6e127472616e73616374696f6e5f6865616465720314636f6e746578745f667265655f616374696f6e7308616374696f6e5b5d07616374696f6e7308616374696f6e5b5d167472616e73616374696f6e5f657874656e73696f6e730b657874656e73696f6e5b5d046578656300020865786563757465720c6163636f756e745f6e616d65037472780b7472616e73616374696f6e01000000000080545704657865630000000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Once<sp/>again,<sp/>as<sp/>described<sp/>in<sp/>sub-section<sp/>2.1.1,<sp/>edit<sp/>the<sp/>values<sp/>of<sp/>the<sp/>`ref_block_num`<sp/>and<sp/>`ref_block_prefix`<sp/>fields<sp/>to<sp/>be<sp/>0<sp/>and<sp/>edit<sp/>the<sp/>time<sp/>of<sp/>the<sp/>`expiration`<sp/>field<sp/>to<sp/>some<sp/>point<sp/>in<sp/>the<sp/>future<sp/>that<sp/>provides<sp/>enough<sp/>time<sp/>to<sp/>approve<sp/>and<sp/>execute<sp/>the<sp/>proposed<sp/>transaction.<sp/>After<sp/>editing<sp/>deploy_wrap_contract_trx.json<sp/>the<sp/>first<sp/>few<sp/>lines<sp/>of<sp/>it<sp/>may<sp/>look<sp/>something<sp/>like<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">head<sp/>-n<sp/>9<sp/>deploy_wrap_contract_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>will<sp/>assume<sp/>that<sp/>there<sp/>are<sp/>21<sp/>active<sp/>block<sp/>producers<sp/>on<sp/>the<sp/>chain<sp/>with<sp/>account<sp/>names:<sp/>`blkproducera`,<sp/>`blkproducerb`,<sp/>...,<sp/>`blkproduceru`.<sp/>The<sp/>end<sp/>of<sp/>sub-section<sp/>2.1.1<sp/>displayed<sp/>what<sp/>the<sp/>JSON<sp/>of<sp/>the<sp/>active<sp/>permissions<sp/>of<sp/>each<sp/>of<sp/>the<sp/>active<sp/>block<sp/>producers<sp/>would<sp/>look<sp/>like<sp/>given<sp/>the<sp/>assumptions<sp/>about<sp/>the<sp/>active<sp/>block<sp/>producer<sp/>set.<sp/>That<sp/>JSON<sp/>was<sp/>stored<sp/>in<sp/>the<sp/>file<sp/>producer_permissions.json;<sp/>if<sp/>the<sp/>approvers<sp/>(i.e.<sp/>block<sp/>producers)<sp/>have<sp/>not<sp/>created<sp/>that<sp/>file<sp/>already,<sp/>they<sp/>should<sp/>create<sp/>that<sp/>file<sp/>now<sp/>as<sp/>shown<sp/>at<sp/>the<sp/>end<sp/>of<sp/>sub-section<sp/>2.1.1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.2.2<sp/>Propose<sp/>the<sp/>transaction<sp/>to<sp/>deploy<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Only<sp/>one<sp/>of<sp/>the<sp/>potential<sp/>approvers<sp/>will<sp/>need<sp/>to<sp/>propose<sp/>the<sp/>transaction<sp/>that<sp/>was<sp/>created<sp/>in<sp/>the<sp/>previous<sp/>sub-section.<sp/>All<sp/>the<sp/>other<sp/>approvers<sp/>should<sp/>still<sp/>follow<sp/>the<sp/>steps<sp/>in<sp/>the<sp/>previous<sp/>sub-section<sp/>to<sp/>generate<sp/>the<sp/>same<sp/>deploy_wrap_contract_trx.json<sp/>file<sp/>as<sp/>all<sp/>the<sp/>other<sp/>approvers.<sp/>They<sp/>will<sp/>need<sp/>this<sp/>to<sp/>compare<sp/>to<sp/>the<sp/>actual<sp/>proposed<sp/>transaction<sp/>prior<sp/>to<sp/>approving.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>approvers<sp/>are<sp/>typically<sp/>going<sp/>to<sp/>be<sp/>the<sp/>active<sp/>block<sp/>producers<sp/>of<sp/>the<sp/>chain,<sp/>so<sp/>it<sp/>makes<sp/>sense<sp/>that<sp/>one<sp/>of<sp/>the<sp/>block<sp/>producers<sp/>is<sp/>elected<sp/>as<sp/>the<sp/>leader<sp/>to<sp/>propose<sp/>the<sp/>actual<sp/>transaction.<sp/>Note<sp/>that<sp/>this<sp/>lead<sp/>block<sp/>producer<sp/>will<sp/>need<sp/>to<sp/>incur<sp/>the<sp/>temporary<sp/>RAM<sp/>cost<sp/>of<sp/>proposing<sp/>the<sp/>transaction,<sp/>but<sp/>they<sp/>will<sp/>get<sp/>the<sp/>RAM<sp/>back<sp/>when<sp/>the<sp/>proposal<sp/>has<sp/>executed<sp/>or<sp/>has<sp/>been<sp/>canceled<sp/>(which<sp/>only<sp/>the<sp/>proposer<sp/>can<sp/>do<sp/>prior<sp/>to<sp/>expiration).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>will<sp/>assume<sp/>that<sp/>`blkproducera`<sp/>was<sp/>chosen<sp/>as<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>to<sp/>propose<sp/>the<sp/>transaction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>lead<sp/>block<sp/>producer<sp/>(`blkproducera`)<sp/>should<sp/>propose<sp/>the<sp/>transaction<sp/>stored<sp/>in<sp/>deploy_wrap_contract_trx.json:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>deploywrap<sp/>producer_permissions.json<sp/>deploy_wrap_contract_trx.json<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>9e50dd40eba25583a657ee8114986a921d413b917002c8fb2d02e2d670f720a8<sp/><sp/>4312<sp/>bytes<sp/><sp/>871<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::propose<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;deploywrap&quot;,&quot;requested&quot;:[{&quot;actor&quot;:&quot;blkproducera&quot;,&quot;permis...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.2.3<sp/>Review<sp/>and<sp/>approve<sp/>the<sp/>transaction<sp/>to<sp/>deploy<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>the<sp/>potential<sp/>approvers<sp/>of<sp/>the<sp/>proposed<sp/>transaction<sp/>(i.e.<sp/>the<sp/>active<sp/>block<sp/>producers)<sp/>should<sp/>first<sp/>review<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>make<sp/>sure<sp/>they<sp/>are<sp/>not<sp/>approving<sp/>anything<sp/>that<sp/>they<sp/>do<sp/>not<sp/>agree<sp/>to.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>proposed<sp/>transaction<sp/>can<sp/>be<sp/>reviewed<sp/>using<sp/>the<sp/>`cleos<sp/>multisig<sp/>review`<sp/>command:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>review<sp/>blkproducera<sp/>deploywrap<sp/>&gt;<sp/>deploy_wrap_contract_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>deploy_wrap_contract_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;proposal_name&quot;:<sp/>&quot;deploywrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;packed_transaction&quot;:<sp/>&quot;c0593f5b00000000000000000000020000000000ea305500000040258ab2c20100004d1a03ea305500000000a8ed3232d41800004d1a03ea30550000c8180061736d01000000013e0c60017f006000017e60027e7e0060017e006000017f60027f7f017f60027f7f0060037f7f7f017f60057f7e7f7f7f0060000060037e7e7e0060017f017f029d010803656e7610616374696f6e5f646174615f73697a65000403656e760c63757272656e745f74696d65000103656e760c656f73696f5f617373657274000603656e76066d656d637079000703656e7610726561645f616374696f6e5f64617461000503656e760c726571756972655f61757468000303656e760d726571756972655f6175746832000203656e760d73656e645f64656665727265640008030f0e0505050400000a05070b050b000904050170010202050301000107c7010b066d656d6f72790200165f5a6571524b3131636865636b73756d32353653315f0008165f5a6571524b3131636865636b73756d31363053315f0009165f5a6e65524b3131636865636b73756d31363053315f000a036e6f77000b305f5a4e35656f73696f3132726571756972655f6175746845524b4e535f31367065726d697373696f6e5f6c6576656c45000c155f5a4e35656f73696f347375646f34657865634576000d056170706c79000e066d656d636d700010066d616c6c6f630011046672656500140908010041000b02150d0a9a130e0b002000200141201010450b0b002000200141201010450b0d0020002001412010104100470b0a00100142c0843d80a70b0e002000290300200029030810060b9e0102017e027f410028020441206b2202210341002002360204200029030010050240024010002200418104490d002000101121020c010b410020022000410f6a4170716b22023602040b2002200010041a200041074b41101002200341186a2002410810031a2003290318100520032903182101200310013703002003200137030820032003290318200241086a2000410010074100200341206a3602040bfd0403027f047e017f4100410028020441206b220936020442002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b024020072002520d0042002106423b2105413021044200210703400240024002400240024020064204560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b200720015141c00010020b0240024020012000510d0042002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b20072002520d010b20092000370318200242808080808080a0aad700520d00200941003602142009410136021020092009290310370208200941186a200941086a100f1a0b4100200941206a3602040b8c0101047f4100280204220521042001280204210220012802002101024010002203450d00024020034180044d0d00200310112205200310041a200510140c010b410020052003410f6a4170716b22053602042005200310041a0b200020024101756a210302402002410171450d00200328020020016a28020021010b200320011100004100200436020441010b4901037f4100210502402002450d000240034020002d0000220320012d00002204470d01200141016a2101200041016a21002002417f6a22020d000c020b0b200320046b21050b20050b0900418001200010120bcd04010c7f02402001450d00024020002802c041220d0d004110210d200041c0c1006a41103602000b200141086a200141046a41077122026b200120021b210202400240024020002802c441220a200d4f0d002000200a410c6c6a4180c0006a21010240200a0d0020004184c0006a220d2802000d0020014180c000360200200d20003602000b200241046a210a034002402001280208220d200a6a20012802004b0d002001280204200d6a220d200d28020041808080807871200272360200200141086a22012001280200200a6a360200200d200d28020041808080807872360200200d41046a22010d030b2000101322010d000b0b41fcffffff0720026b2104200041c8c1006a210b200041c0c1006a210c20002802c8412203210d03402000200d410c6c6a22014188c0006a28020020014180c0006a22052802004641d0c200100220014184c0006a280200220641046a210d0340200620052802006a2107200d417c6a2208280200220941ffffffff07712101024020094100480d000240200120024f0d000340200d20016a220a20074f0d01200a280200220a4100480d012001200a41ffffffff07716a41046a22012002490d000b0b20082001200220012002491b200941808080807871723602000240200120024d0d00200d20026a200420016a41ffffffff07713602000b200120024f0d040b200d20016a41046a220d2007490d000b41002101200b4100200b28020041016a220d200d200c280200461b220d360200200d2003470d000b0b20010f0b2008200828020041808080807872360200200d0f0b41000b870501087f20002802c44121010240024041002d00a643450d0041002802a84321070c010b3f002107410041013a00a6434100200741107422073602a8430b200721030240024002400240200741ffff036a41107622023f0022084d0d00200220086b40001a4100210820023f00470d0141002802a84321030b41002108410020033602a84320074100480d0020002001410c6c6a210220074180800441808008200741ffff037122084181f8034922061b6a2008200741ffff077120061b6b20076b2107024041002d00a6430d003f002103410041013a00a6434100200341107422033602a8430b20024180c0006a210220074100480d01200321060240200741076a417871220520036a41ffff036a41107622083f0022044d0d00200820046b40001a20083f00470d0241002802a84321060b4100200620056a3602a8432003417f460d0120002001410c6c6a22014184c0006a2802002206200228020022086a2003460d020240200820014188c0006a22052802002201460d00200620016a2206200628020041808080807871417c20016b20086a72360200200520022802003602002006200628020041ffffffff07713602000b200041c4c1006a2202200228020041016a220236020020002002410c6c6a22004184c0006a200336020020004180c0006a220820073602000b20080f0b02402002280200220820002001410c6c6a22034188c0006a22012802002207460d0020034184c0006a28020020076a2203200328020041808080807871417c20076b20086a72360200200120022802003602002003200328020041ffffffff07713602000b2000200041c4c1006a220728020041016a22033602c0412007200336020041000f0b2002200820076a36020020020b7b01037f024002402000450d0041002802c04222024101480d004180c10021032002410c6c4180c1006a21010340200341046a2802002202450d010240200241046a20004b0d00200220032802006a20004b0d030b2003410c6a22032001490d000b0b0f0b2000417c6a2203200328020041ffffffff07713602000b0300000b0bcf01060041040b04b04900000041100b0572656164000041200b086f6e6572726f72000041300b06656f73696f000041c0000b406f6e6572726f7220616374696f6e277320617265206f6e6c792076616c69642066726f6d207468652022656f73696f222073797374656d206163636f756e74000041d0c2000b566d616c6c6f635f66726f6d5f6672656564207761732064657369676e656420746f206f6e6c792062652063616c6c6564206166746572205f686561702077617320636f6d706c6574656c7920616c6c6f6361746564000000000000ea305500000000b863b2c20100004d1a03ea305500000000a8ed3232e90400004d1a03ea3055df040e656f73696f3a3a6162692f312e30030c6163636f756e745f6e616d65046e616d650f7065726d697373696f6e5f6e616d65046e616d650b616374696f6e5f6e616d65046e616d6506107065726d697373696f6e5f6c6576656c0002056163746f720c6163636f756e745f6e616d650a7065726d697373696f6e0f7065726d697373696f6e5f6e616d6506616374696f6e0004076163636f756e740c6163636f756e745f6e616d65046e616d650b616374696f6e5f6e616d650d617574686f72697a6174696f6e127065726d697373696f6e5f6c6576656c5b5d0464617461056279746573127472616e73616374696f6e5f68656164657200060a65787069726174696f6e0e74696d655f706f696e745f7365630d7265665f626c6f636b5f6e756d0675696e743136107265665f626c6f636b5f7072656669780675696e743332136d61785f6e65745f75736167655f776f7264730976617275696e743332106d61785f6370755f75736167655f6d730575696e74380964656c61795f7365630976617275696e74333209657874656e73696f6e000204747970650675696e74313604646174610562797465730b7472616e73616374696f6e127472616e73616374696f6e5f6865616465720314636f6e746578745f667265655f616374696f6e7308616374696f6e5b5d07616374696f6e7308616374696f6e5b5d167472616e73616374696f6e5f657874656e73696f6e730b657874656e73696f6e5b5d046578656300020865786563757465720c6163636f756e745f6e616d65037472780b7472616e73616374696f6e0100000000008054570465786563000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setcode&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;vmtype&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;vmversion&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;code&quot;:<sp/>&quot;0061736d01000000013e0c60017f006000017e60027e7e0060017e006000017f60027f7f017f60027f7f0060037f7f7f017f60057f7e7f7f7f0060000060037e7e7e0060017f017f029d010803656e7610616374696f6e5f646174615f73697a65000403656e760c63757272656e745f74696d65000103656e760c656f73696f5f617373657274000603656e76066d656d637079000703656e7610726561645f616374696f6e5f64617461000503656e760c726571756972655f61757468000303656e760d726571756972655f6175746832000203656e760d73656e645f64656665727265640008030f0e0505050400000a05070b050b000904050170010202050301000107c7010b066d656d6f72790200165f5a6571524b3131636865636b73756d32353653315f0008165f5a6571524b3131636865636b73756d31363053315f0009165f5a6e65524b3131636865636b73756d31363053315f000a036e6f77000b305f5a4e35656f73696f3132726571756972655f6175746845524b4e535f31367065726d697373696f6e5f6c6576656c45000c155f5a4e35656f73696f347375646f34657865634576000d056170706c79000e066d656d636d700010066d616c6c6f630011046672656500140908010041000b02150d0a9a130e0b002000200141201010450b0b002000200141201010450b0d0020002001412010104100470b0a00100142c0843d80a70b0e002000290300200029030810060b9e0102017e027f410028020441206b2202210341002002360204200029030010050240024010002200418104490d002000101121020c010b410020022000410f6a4170716b22023602040b2002200010041a200041074b41101002200341186a2002410810031a2003290318100520032903182101200310013703002003200137030820032003290318200241086a2000410010074100200341206a3602040bfd0403027f047e017f4100410028020441206b220936020442002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b024020072002520d0042002106423b2105413021044200210703400240024002400240024020064204560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b200720015141c00010020b0240024020012000510d0042002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b20072002520d010b20092000370318200242808080808080a0aad700520d00200941003602142009410136021020092009290310370208200941186a200941086a100f1a0b4100200941206a3602040b8c0101047f4100280204220521042001280204210220012802002101024010002203450d00024020034180044d0d00200310112205200310041a200510140c010b410020052003410f6a4170716b22053602042005200310041a0b200020024101756a210302402002410171450d00200328020020016a28020021010b200320011100004100200436020441010b4901037f4100210502402002450d000240034020002d0000220320012d00002204470d01200141016a2101200041016a21002002417f6a22020d000c020b0b200320046b21050b20050b0900418001200010120bcd04010c7f02402001450d00024020002802c041220d0d004110210d200041c0c1006a41103602000b200141086a200141046a41077122026b200120021b210202400240024020002802c441220a200d4f0d002000200a410c6c6a4180c0006a21010240200a0d0020004184c0006a220d2802000d0020014180c000360200200d20003602000b200241046a210a034002402001280208220d200a6a20012802004b0d002001280204200d6a220d200d28020041808080807871200272360200200141086a22012001280200200a6a360200200d200d28020041808080807872360200200d41046a22010d030b2000101322010d000b0b41fcffffff0720026b2104200041c8c1006a210b200041c0c1006a210c20002802c8412203210d03402000200d410c6c6a22014188c0006a28020020014180c0006a22052802004641d0c200100220014184c0006a280200220641046a210d0340200620052802006a2107200d417c6a2208280200220941ffffffff07712101024020094100480d000240200120024f0d000340200d20016a220a20074f0d01200a280200220a4100480d012001200a41ffffffff07716a41046a22012002490d000b0b20082001200220012002491b200941808080807871723602000240200120024d0d00200d20026a200420016a41ffffffff07713602000b200120024f0d040b200d20016a41046a220d2007490d000b41002101200b4100200b28020041016a220d200d200c280200461b220d360200200d2003470d000b0b20010f0b2008200828020041808080807872360200200d0f0b41000b870501087f20002802c44121010240024041002d00a643450d0041002802a84321070c010b3f002107410041013a00a6434100200741107422073602a8430b200721030240024002400240200741ffff036a41107622023f0022084d0d00200220086b40001a4100210820023f00470d0141002802a84321030b41002108410020033602a84320074100480d0020002001410c6c6a210220074180800441808008200741ffff037122084181f8034922061b6a2008200741ffff077120061b6b20076b2107024041002d00a6430d003f002103410041013a00a6434100200341107422033602a8430b20024180c0006a210220074100480d01200321060240200741076a417871220520036a41ffff036a41107622083f0022044d0d00200820046b40001a20083f00470d0241002802a84321060b4100200620056a3602a8432003417f460d0120002001410c6c6a22014184c0006a2802002206200228020022086a2003460d020240200820014188c0006a22052802002201460d00200620016a2206200628020041808080807871417c20016b20086a72360200200520022802003602002006200628020041ffffffff07713602000b200041c4c1006a2202200228020041016a220236020020002002410c6c6a22004184c0006a200336020020004180c0006a220820073602000b20080f0b02402002280200220820002001410c6c6a22034188c0006a22012802002207460d0020034184c0006a28020020076a2203200328020041808080807871417c20076b20086a72360200200120022802003602002003200328020041ffffffff07713602000b2000200041c4c1006a220728020041016a22033602c0412007200336020041000f0b2002200820076a36020020020b7b01037f024002402000450d0041002802c04222024101480d004180c10021032002410c6c4180c1006a21010340200341046a2802002202450d010240200241046a20004b0d00200220032802006a20004b0d030b2003410c6a22032001490d000b0b0f0b2000417c6a2203200328020041ffffffff07713602000b0300000b0bcf01060041040b04b04900000041100b0572656164000041200b086f6e6572726f72000041300b06656f73696f000041c0000b406f6e6572726f7220616374696f6e277320617265206f6e6c792076616c69642066726f6d207468652022656f73696f222073797374656d206163636f756e74000041d0c2000b566d616c6c6f635f66726f6d5f6672656564207761732064657369676e656420746f206f6e6c792062652063616c6c6564206166746572205f686561702077617320636f6d706c6574656c7920616c6c6f636174656400&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;hex_data&quot;:<sp/>&quot;00004d1a03ea30550000c8180061736d01000000013e0c60017f006000017e60027e7e0060017e006000017f60027f7f017f60027f7f0060037f7f7f017f60057f7e7f7f7f0060000060037e7e7e0060017f017f029d010803656e7610616374696f6e5f646174615f73697a65000403656e760c63757272656e745f74696d65000103656e760c656f73696f5f617373657274000603656e76066d656d637079000703656e7610726561645f616374696f6e5f64617461000503656e760c726571756972655f61757468000303656e760d726571756972655f6175746832000203656e760d73656e645f64656665727265640008030f0e0505050400000a05070b050b000904050170010202050301000107c7010b066d656d6f72790200165f5a6571524b3131636865636b73756d32353653315f0008165f5a6571524b3131636865636b73756d31363053315f0009165f5a6e65524b3131636865636b73756d31363053315f000a036e6f77000b305f5a4e35656f73696f3132726571756972655f6175746845524b4e535f31367065726d697373696f6e5f6c6576656c45000c155f5a4e35656f73696f347375646f34657865634576000d056170706c79000e066d656d636d700010066d616c6c6f630011046672656500140908010041000b02150d0a9a130e0b002000200141201010450b0b002000200141201010450b0d0020002001412010104100470b0a00100142c0843d80a70b0e002000290300200029030810060b9e0102017e027f410028020441206b2202210341002002360204200029030010050240024010002200418104490d002000101121020c010b410020022000410f6a4170716b22023602040b2002200010041a200041074b41101002200341186a2002410810031a2003290318100520032903182101200310013703002003200137030820032003290318200241086a2000410010074100200341206a3602040bfd0403027f047e017f4100410028020441206b220936020442002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b024020072002520d0042002106423b2105413021044200210703400240024002400240024020064204560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b200720015141c00010020b0240024020012000510d0042002106423b2105412021044200210703400240024002400240024020064206560d0020042c00002203419f7f6a41ff017141194b0d01200341a5016a21030c020b420021082006420b580d020c030b200341d0016a41002003414f6a41ff01714105491b21030b2003ad42388642388721080b2008421f83200542ffffffff0f838621080b200441016a2104200642017c2106200820078421072005427b7c2205427a520d000b20072002520d010b20092000370318200242808080808080a0aad700520d00200941003602142009410136021020092009290310370208200941186a200941086a100f1a0b4100200941206a3602040b8c0101047f4100280204220521042001280204210220012802002101024010002203450d00024020034180044d0d00200310112205200310041a200510140c010b410020052003410f6a4170716b22053602042005200310041a0b200020024101756a210302402002410171450d00200328020020016a28020021010b200320011100004100200436020441010b4901037f4100210502402002450d000240034020002d0000220320012d00002204470d01200141016a2101200041016a21002002417f6a22020d000c020b0b200320046b21050b20050b0900418001200010120bcd04010c7f02402001450d00024020002802c041220d0d004110210d200041c0c1006a41103602000b200141086a200141046a41077122026b200120021b210202400240024020002802c441220a200d4f0d002000200a410c6c6a4180c0006a21010240200a0d0020004184c0006a220d2802000d0020014180c000360200200d20003602000b200241046a210a034002402001280208220d200a6a20012802004b0d002001280204200d6a220d200d28020041808080807871200272360200200141086a22012001280200200a6a360200200d200d28020041808080807872360200200d41046a22010d030b2000101322010d000b0b41fcffffff0720026b2104200041c8c1006a210b200041c0c1006a210c20002802c8412203210d03402000200d410c6c6a22014188c0006a28020020014180c0006a22052802004641d0c200100220014184c0006a280200220641046a210d0340200620052802006a2107200d417c6a2208280200220941ffffffff07712101024020094100480d000240200120024f0d000340200d20016a220a20074f0d01200a280200220a4100480d012001200a41ffffffff07716a41046a22012002490d000b0b20082001200220012002491b200941808080807871723602000240200120024d0d00200d20026a200420016a41ffffffff07713602000b200120024f0d040b200d20016a41046a220d2007490d000b41002101200b4100200b28020041016a220d200d200c280200461b220d360200200d2003470d000b0b20010f0b2008200828020041808080807872360200200d0f0b41000b870501087f20002802c44121010240024041002d00a643450d0041002802a84321070c010b3f002107410041013a00a6434100200741107422073602a8430b200721030240024002400240200741ffff036a41107622023f0022084d0d00200220086b40001a4100210820023f00470d0141002802a84321030b41002108410020033602a84320074100480d0020002001410c6c6a210220074180800441808008200741ffff037122084181f8034922061b6a2008200741ffff077120061b6b20076b2107024041002d00a6430d003f002103410041013a00a6434100200341107422033602a8430b20024180c0006a210220074100480d01200321060240200741076a417871220520036a41ffff036a41107622083f0022044d0d00200820046b40001a20083f00470d0241002802a84321060b4100200620056a3602a8432003417f460d0120002001410c6c6a22014184c0006a2802002206200228020022086a2003460d020240200820014188c0006a22052802002201460d00200620016a2206200628020041808080807871417c20016b20086a72360200200520022802003602002006200628020041ffffffff07713602000b200041c4c1006a2202200228020041016a220236020020002002410c6c6a22004184c0006a200336020020004180c0006a220820073602000b20080f0b02402002280200220820002001410c6c6a22034188c0006a22012802002207460d0020034184c0006a28020020076a2203200328020041808080807871417c20076b20086a72360200200120022802003602002003200328020041ffffffff07713602000b2000200041c4c1006a220728020041016a22033602c0412007200336020041000f0b2002200820076a36020020020b7b01037f024002402000450d0041002802c04222024101480d004180c10021032002410c6c4180c1006a21010340200341046a2802002202450d010240200241046a20004b0d00200220032802006a20004b0d030b2003410c6a22032001490d000b0b0f0b2000417c6a2203200328020041ffffffff07713602000b0300000b0bcf01060041040b04b04900000041100b0572656164000041200b086f6e6572726f72000041300b06656f73696f000041c0000b406f6e6572726f7220616374696f6e277320617265206f6e6c792076616c69642066726f6d207468652022656f73696f222073797374656d206163636f756e74000041d0c2000b566d616c6c6f635f66726f6d5f6672656564207761732064657369676e656420746f206f6e6c792062652063616c6c6564206166746572205f686561702077617320636f6d706c6574656c7920616c6c6f636174656400&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;setabi&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;abi&quot;:<sp/>&quot;0e656f73696f3a3a6162692f312e30030c6163636f756e745f6e616d65046e616d650f7065726d697373696f6e5f6e616d65046e616d650b616374696f6e5f6e616d65046e616d6506107065726d697373696f6e5f6c6576656c0002056163746f720c6163636f756e745f6e616d650a7065726d697373696f6e0f7065726d697373696f6e5f6e616d6506616374696f6e0004076163636f756e740c6163636f756e745f6e616d65046e616d650b616374696f6e5f6e616d650d617574686f72697a6174696f6e127065726d697373696f6e5f6c6576656c5b5d0464617461056279746573127472616e73616374696f6e5f68656164657200060a65787069726174696f6e0e74696d655f706f696e745f7365630d7265665f626c6f636b5f6e756d0675696e743136107265665f626c6f636b5f7072656669780675696e743332136d61785f6e65745f75736167655f776f7264730976617275696e743332106d61785f6370755f75736167655f6d730575696e74380964656c61795f7365630976617275696e74333209657874656e73696f6e000204747970650675696e74313604646174610562797465730b7472616e73616374696f6e127472616e73616374696f6e5f6865616465720314636f6e746578745f667265655f616374696f6e7308616374696f6e5b5d07616374696f6e7308616374696f6e5b5d167472616e73616374696f6e5f657874656e73696f6e730b657874656e73696f6e5b5d046578656300020865786563757465720c6163636f756e745f6e616d65037472780b7472616e73616374696f6e01000000000080545704657865630000000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;hex_data&quot;:<sp/>&quot;00004d1a03ea3055df040e656f73696f3a3a6162692f312e30030c6163636f756e745f6e616d65046e616d650f7065726d697373696f6e5f6e616d65046e616d650b616374696f6e5f6e616d65046e616d6506107065726d697373696f6e5f6c6576656c0002056163746f720c6163636f756e745f6e616d650a7065726d697373696f6e0f7065726d697373696f6e5f6e616d6506616374696f6e0004076163636f756e740c6163636f756e745f6e616d65046e616d650b616374696f6e5f6e616d650d617574686f72697a6174696f6e127065726d697373696f6e5f6c6576656c5b5d0464617461056279746573127472616e73616374696f6e5f68656164657200060a65787069726174696f6e0e74696d655f706f696e745f7365630d7265665f626c6f636b5f6e756d0675696e743136107265665f626c6f636b5f7072656669780675696e743332136d61785f6e65745f75736167655f776f7264730976617275696e743332106d61785f6370755f75736167655f6d730575696e74380964656c61795f7365630976617275696e74333209657874656e73696f6e000204747970650675696e74313604646174610562797465730b7472616e73616374696f6e127472616e73616374696f6e5f6865616465720314636f6e746578745f667265655f616374696f6e7308616374696f6e5b5d07616374696f6e7308616374696f6e5b5d167472616e73616374696f6e5f657874656e73696f6e730b657874656e73696f6e5b5d046578656300020865786563757465720c6163636f756e745f6e616d65037472780b7472616e73616374696f6e01000000000080545704657865630000000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>approver<sp/>should<sp/>be<sp/>able<sp/>to<sp/>see<sp/>that<sp/>the<sp/>proposed<sp/>transaction<sp/>is<sp/>setting<sp/>the<sp/>code<sp/>and<sp/>ABI<sp/>of<sp/>the<sp/>`eosio.wrap`<sp/>contract.<sp/>But<sp/>the<sp/>data<sp/>is<sp/>just<sp/>hex<sp/>data<sp/>and<sp/>therefore<sp/>not<sp/>very<sp/>meaningful<sp/>to<sp/>the<sp/>approver.<sp/>And<sp/>considering<sp/>that<sp/>`eosio.wrap`<sp/>at<sp/>this<sp/>point<sp/>should<sp/>be<sp/>a<sp/>privileged<sp/>contract,<sp/>it<sp/>would<sp/>be<sp/>very<sp/>dangerous<sp/>for<sp/>block<sp/>producers<sp/>to<sp/>just<sp/>allow<sp/>a<sp/>contract<sp/>to<sp/>be<sp/>deployed<sp/>to<sp/>a<sp/>privileged<sp/>account<sp/>without<sp/>knowing<sp/>exactly<sp/>which<sp/>WebAssembly<sp/>code<sp/>they<sp/>are<sp/>deploying<sp/>and<sp/>also<sp/>auditing<sp/>the<sp/>source<sp/>code<sp/>that<sp/>generated<sp/>that<sp/>WebAssembly<sp/>code<sp/>to<sp/>ensure<sp/>it<sp/>is<sp/>safe<sp/>to<sp/>deploy.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>assumes<sp/>that<sp/>each<sp/>approver<sp/>has<sp/>already<sp/>audited<sp/>the<sp/>source<sp/>code<sp/>of<sp/>the<sp/>contract<sp/>to<sp/>be<sp/>deployed<sp/>and<sp/>has<sp/>already<sp/>compiled<sp/>that<sp/>code<sp/>to<sp/>generate<sp/>the<sp/>WebAssembly<sp/>code<sp/>that<sp/>should<sp/>be<sp/>byte-for-byte<sp/>identical<sp/>to<sp/>the<sp/>code<sp/>that<sp/>every<sp/>other<sp/>approver<sp/>following<sp/>the<sp/>same<sp/>process<sp/>should<sp/>have<sp/>generated.<sp/>The<sp/>guide<sp/>also<sp/>assumes<sp/>that<sp/>this<sp/>generated<sp/>code<sp/>and<sp/>its<sp/>associated<sp/>ABI<sp/>were<sp/>provided<sp/>in<sp/>the<sp/>steps<sp/>in<sp/>sub-section<sp/>2.2.1<sp/>that<sp/>generated<sp/>the<sp/>transaction<sp/>in<sp/>the<sp/>deploy_wrap_contract_trx.json<sp/>file.<sp/>It<sp/>then<sp/>becomes<sp/>quite<sp/>simple<sp/>to<sp/>verify<sp/>that<sp/>the<sp/>proposed<sp/>transaction<sp/>is<sp/>identical<sp/>to<sp/>the<sp/>one<sp/>the<sp/>potential<sp/>approver<sp/>could<sp/>have<sp/>proposed<sp/>with<sp/>the<sp/>code<sp/>and<sp/>ABI<sp/>that<sp/>they<sp/>already<sp/>audited:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>-j<sp/>-s<sp/>-d<sp/>deploywrap<sp/>&apos;[]&apos;<sp/>deploy_wrap_contract_trx.json<sp/>blkproducera<sp/>|<sp/>grep<sp/>&apos;&quot;data&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;data&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>|<sp/>cut<sp/>-c<sp/>35-<sp/>&gt;<sp/>expected_deploy_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>expected_deploy_wrap_trx_serialized.hex<sp/>|<sp/>cut<sp/>-c<sp/>-50</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b00000000000000000000020000000000ea30550000</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>deploy_wrap_account_trx_to_review.json<sp/>|<sp/>grep<sp/>&apos;&quot;packed_transaction&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;packed_transaction&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>&gt;<sp/>proposed_deploy_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>proposed_deploy_wrap_trx_serialized.hex<sp/>|<sp/>cut<sp/>-c<sp/>-50</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b00000000000000000000020000000000ea30550000</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">diff<sp/>expected_deploy_wrap_trx_serialized.hex<sp/>proposed_deploy_wrap_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>an<sp/>approver<sp/>(e.g.<sp/>`blkproducerb`)<sp/>is<sp/>satisfied<sp/>with<sp/>the<sp/>proposed<sp/>transaction,<sp/>they<sp/>can<sp/>simply<sp/>approve<sp/>it:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>approve<sp/>blkproducera<sp/>deploywrap<sp/>&apos;{&quot;actor&quot;:<sp/>&quot;blkproducerb&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}&apos;<sp/>-p<sp/>blkproducerb</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>d1e424e05ee4d96eb079fcd5190dd0bf35eca8c27dd7231b59df8e464881abfd<sp/><sp/>128<sp/>bytes<sp/><sp/>483<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::approve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;deploywrap&quot;,&quot;level&quot;:{&quot;actor&quot;:&quot;blkproducerb&quot;,&quot;permission&quot;...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.2.4<sp/>Execute<sp/>the<sp/>transaction<sp/>to<sp/>create<sp/>the<sp/>eosio.wrap<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>the<sp/>necessary<sp/>approvals<sp/>are<sp/>collected<sp/>(in<sp/>this<sp/>example,<sp/>with<sp/>21<sp/>block<sp/>producers,<sp/>at<sp/>least<sp/>15<sp/>of<sp/>their<sp/>approvals<sp/>were<sp/>required),<sp/>anyone<sp/>can<sp/>push<sp/>the<sp/>`eosio.msig::exec`<sp/>action<sp/>which<sp/>executes<sp/>the<sp/>approved<sp/>transaction.<sp/>It<sp/>makes<sp/>a<sp/>lot<sp/>of<sp/>sense<sp/>for<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>who<sp/>proposed<sp/>the<sp/>transaction<sp/>to<sp/>also<sp/>execute<sp/>it<sp/>(this<sp/>will<sp/>incur<sp/>another<sp/>temporary<sp/>RAM<sp/>cost<sp/>for<sp/>the<sp/>deferred<sp/>transaction<sp/>that<sp/>is<sp/>generated<sp/>by<sp/>the<sp/>eosio.msig<sp/>contract).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>exec<sp/>blkproducera<sp/>deploywrap<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>e8da14c6f1fdc3255b5413adccfd0d89b18f832a4cc18c4324ea2beec6abd483<sp/><sp/>160<sp/>bytes<sp/><sp/>1877<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;deploywrap&quot;,&quot;executer&quot;:&quot;blkproducera&quot;}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Anyone<sp/>can<sp/>now<sp/>verify<sp/>that<sp/>the<sp/>`eosio.wrap`<sp/>contract<sp/>was<sp/>deployed<sp/>correctly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>code<sp/>-a<sp/>retrieved-eosio.wrap.abi<sp/>eosio.wrap</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">code<sp/>hash:<sp/>1b3456a5eca28bcaca7a2a3360fbb2a72b9772a416c8e11a303bcb26bfe3263c</highlight></codeline>
+<codeline><highlight class="normal">saving<sp/>abi<sp/>to<sp/>retrieved-eosio.wrap.abi</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">sha256sum<sp/>contracts/eosio.wrap/eosio.wrap.wasm</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">1b3456a5eca28bcaca7a2a3360fbb2a72b9772a416c8e11a303bcb26bfe3263c<sp/><sp/>contracts/eosio.wrap/eosio.wrap.wasm</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>the<sp/>two<sp/>hashes<sp/>match<sp/>then<sp/>the<sp/>local<sp/>WebAssembly<sp/>code<sp/>is<sp/>the<sp/>one<sp/>deployed<sp/>on<sp/>the<sp/>blockchain.<sp/>The<sp/>retrieved<sp/>ABI,<sp/>which<sp/>was<sp/>stored<sp/>in<sp/>the<sp/>file<sp/>retrieved-eosio.wrap.abi,<sp/>can<sp/>then<sp/>be<sp/>compared<sp/>to<sp/>the<sp/>original<sp/>ABI<sp/>of<sp/>the<sp/>contract<sp/>(contracts/eosio.wrap/eosio.wrap.abi)<sp/>to<sp/>ensure<sp/>they<sp/>are<sp/>semantically<sp/>the<sp/>same.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>2.<sp/>Using<sp/>the<sp/>eosio.wrap<sp/>contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.1<sp/>Example:<sp/>Updating<sp/>owner<sp/>authority<sp/>of<sp/>an<sp/>arbitrary<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>example<sp/>will<sp/>demonstrate<sp/>how<sp/>to<sp/>use<sp/>the<sp/>deployed<sp/>eosio.wrap<sp/>contract<sp/>together<sp/>with<sp/>the<sp/>eosio.msig<sp/>contract<sp/>to<sp/>allow<sp/>a<sp/>greater<sp/>than<sp/>two-thirds<sp/>supermajority<sp/>of<sp/>block<sp/>producers<sp/>of<sp/>an<sp/>Antelope<sp/>blockchain<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>authority<sp/>of<sp/>an<sp/>arbitrary<sp/>account.<sp/>The<sp/>example<sp/>will<sp/>use<sp/>cleos:<sp/>in<sp/>particular,<sp/>the<sp/>`cleos<sp/>multisig`<sp/>command,<sp/>the<sp/>`cleos<sp/>set<sp/>account<sp/>permission`<sp/>sub-command,<sp/>and<sp/>the<sp/>`cleos<sp/>wrap<sp/>exec`<sp/>sub-command.<sp/>However,<sp/>the<sp/>guide<sp/>also<sp/>demonstrates<sp/>what<sp/>to<sp/>do<sp/>if<sp/>the<sp/>`cleos<sp/>wrap<sp/>exec`<sp/>sub-command<sp/>is<sp/>not<sp/>available.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>assumes<sp/>that<sp/>there<sp/>are<sp/>21<sp/>active<sp/>block<sp/>producers<sp/>on<sp/>the<sp/>chain<sp/>with<sp/>account<sp/>names:<sp/>`blkproducera`,<sp/>`blkproducerb`,<sp/>...,<sp/>`blkproduceru`.<sp/>Block<sp/>producer<sp/>`blkproducera`<sp/>will<sp/>act<sp/>as<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>handling<sp/>the<sp/>proposal<sp/>of<sp/>the<sp/>transaction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>producer<sp/>permissions<sp/>will<sp/>later<sp/>come<sp/>in<sp/>handy<sp/>when<sp/>proposing<sp/>a<sp/>transaction<sp/>that<sp/>must<sp/>be<sp/>approved<sp/>by<sp/>a<sp/>supermajority<sp/>of<sp/>the<sp/>producers.<sp/>So<sp/>a<sp/>file<sp/>producer_permissions.json<sp/>containing<sp/>those<sp/>permission<sp/>(see<sp/>contents<sp/>below)<sp/>should<sp/>be<sp/>created<sp/>to<sp/>be<sp/>used<sp/>later<sp/>in<sp/>this<sp/>guide:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>producer_permissions.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducera&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerb&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerc&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerd&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducere&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerf&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerg&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerh&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproduceri&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerj&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerk&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerl&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerm&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducern&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducero&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerp&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerq&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducerr&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducers&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproducert&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{&quot;actor&quot;:<sp/>&quot;blkproduceru&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}</highlight></codeline>
+<codeline><highlight class="normal">]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1.1<sp/>Generate<sp/>the<sp/>transaction<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>an<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>goal<sp/>of<sp/>this<sp/>example<sp/>is<sp/>for<sp/>the<sp/>block<sp/>producers<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>the<sp/>account<sp/>`alice`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>initial<sp/>status<sp/>of<sp/>the<sp/>`alice`<sp/>account<sp/>might<sp/>be:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">permissions:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/>49.74<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>3.365<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.8<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.8<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">producers:<sp/><sp/><sp/><sp/><sp/>&lt;not<sp/>voted&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assume<sp/>that<sp/>none<sp/>of<sp/>the<sp/>block<sp/>producers<sp/>know<sp/>the<sp/>private<sp/>key<sp/>corresponding<sp/>to<sp/>the<sp/>public<sp/>key<sp/>`EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV`<sp/>which,<sp/>as<sp/>can<sp/>be<sp/>seen<sp/>above,<sp/>is<sp/>initially<sp/>securing<sp/>access<sp/>to<sp/>the<sp/>`alice`<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>step<sp/>is<sp/>to<sp/>generate<sp/>the<sp/>transaction<sp/>changing<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>the<sp/>`alice`<sp/>account<sp/>as<sp/>if<sp/>`alice`<sp/>is<sp/>authorizing<sp/>the<sp/>change:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>account<sp/>permission<sp/>-s<sp/>-j<sp/>-d<sp/>alice<sp/>owner<sp/>&apos;{&quot;threshold&quot;:<sp/>1,<sp/>&quot;accounts&quot;:<sp/>[{&quot;permission&quot;:<sp/>{&quot;actor&quot;:<sp/>&quot;eosio&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;},<sp/>&quot;weight&quot;:<sp/>1}]}&apos;<sp/>&gt;<sp/>update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then<sp/>modify<sp/>update_alice_owner_trx.json<sp/>so<sp/>that<sp/>the<sp/>values<sp/>for<sp/>the<sp/>`ref_block_num`<sp/>and<sp/>`ref_block_prefix`<sp/>fields<sp/>are<sp/>both<sp/>0<sp/>and<sp/>the<sp/>value<sp/>of<sp/>the<sp/>`expiration`<sp/>field<sp/>is<sp/>`&quot;1970-01-01T00:00:00&quot;`:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;1970-01-01T00:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;updateauth&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;alice&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed3232010000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>next<sp/>step<sp/>is<sp/>to<sp/>generate<sp/>the<sp/>transaction<sp/>containing<sp/>the<sp/>`eosio.wrap::exec`<sp/>action.<sp/>This<sp/>action<sp/>will<sp/>contain<sp/>the<sp/>transaction<sp/>in<sp/>update_alice_owner_trx.json<sp/>as<sp/>part<sp/>of<sp/>its<sp/>action<sp/>payload<sp/>data.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>wrap<sp/>exec<sp/>-s<sp/>-j<sp/>-d<sp/>blkproducera<sp/>update_alice_owner_trx.json<sp/>&gt;<sp/>wrap_update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Once<sp/>again<sp/>modify<sp/>wrap_update_alice_owner_trx.json<sp/>so<sp/>that<sp/>the<sp/>value<sp/>for<sp/>the<sp/>`ref_block_num`<sp/>and<sp/>`ref_block_prefix`<sp/>fields<sp/>are<sp/>both<sp/>0.<sp/>However,<sp/>instead<sp/>of<sp/>changing<sp/>the<sp/>value<sp/>of<sp/>the<sp/>expiration<sp/>field<sp/>to<sp/>`&quot;1970-01-01T00:00:00&quot;`,<sp/>it<sp/>should<sp/>be<sp/>changed<sp/>to<sp/>a<sp/>time<sp/>that<sp/>is<sp/>far<sp/>enough<sp/>in<sp/>the<sp/>future<sp/>to<sp/>allow<sp/>enough<sp/>time<sp/>for<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>be<sp/>approved<sp/>and<sp/>executed.</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>wrap_update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;exec&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;blkproducera&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;60ae423ad15b613c0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed323201000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>the<sp/>`cleos<sp/>wrap`<sp/>command<sp/>is<sp/>not<sp/>available,<sp/>there<sp/>is<sp/>an<sp/>alternative<sp/>way<sp/>to<sp/>generate<sp/>the<sp/>above<sp/>transaction.<sp/>There<sp/>is<sp/>no<sp/>need<sp/>to<sp/>continue<sp/>reading<sp/>the<sp/>remaining<sp/>of<sp/>sub-section<sp/>3.1.1<sp/>if<sp/>the<sp/>wrap_update_alice_owner_trx.json<sp/>file<sp/>was<sp/>already<sp/>generated<sp/>with<sp/>content<sp/>similar<sp/>to<sp/>the<sp/>above<sp/>using<sp/>the<sp/>`cleos<sp/>wrap<sp/>exec`<sp/>sub-command<sp/>method.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First<sp/>the<sp/>hex<sp/>encoding<sp/>of<sp/>the<sp/>binary<sp/>serialization<sp/>of<sp/>the<sp/>transaction<sp/>in<sp/>update_alice_owner_trx.json<sp/>must<sp/>be<sp/>obtained.<sp/>One<sp/>way<sp/>of<sp/>obtaining<sp/>this<sp/>data<sp/>is<sp/>through<sp/>the<sp/>following<sp/>command:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>-s<sp/>-j<sp/>-d<sp/>nothing<sp/>&apos;[]&apos;<sp/>update_alice_owner_trx.json<sp/>nothing<sp/>|<sp/>grep<sp/>&apos;&quot;data&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;data&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>|<sp/>cut<sp/>-c<sp/>35-<sp/>&gt;<sp/>update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed323201000000</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then<sp/>generate<sp/>the<sp/>template<sp/>for<sp/>the<sp/>transaction<sp/>containing<sp/>the<sp/>`eosio.wrap::exec`<sp/>action:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>-s<sp/>-j<sp/>-d<sp/>eosio.wrap<sp/>exec<sp/>&apos;{&quot;executer&quot;:<sp/>&quot;blkproducera&quot;,<sp/>&quot;trx&quot;:<sp/>&quot;&quot;}&apos;<sp/>&gt;<sp/>wrap_update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>wrap_update_alice_owner_trx.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-06-29T23:34:01&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_num&quot;:<sp/>23708,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>3605208482,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;exec&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;60ae423ad15b613c&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;signatures&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;context_free_data&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then<sp/>modify<sp/>the<sp/>transaction<sp/>in<sp/>wrap_update_alice_owner_trx.json<sp/>as<sp/>follows:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>replace<sp/>the<sp/>values<sp/>of<sp/>the<sp/>`ref_block_num`<sp/>and<sp/>`ref_block_prefix`<sp/>fields<sp/>to<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>replace<sp/>the<sp/>time<sp/>of<sp/>the<sp/>`expiration`<sp/>field<sp/>to<sp/>the<sp/>desired<sp/>expiration<sp/>time<sp/>as<sp/>described<sp/>above<sp/>(e.g.<sp/>`&quot;2018-07-06T12:00:00&quot;`);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>append<sp/>the<sp/>hex<sp/>data<sp/>from<sp/>update_alice_owner_trx_serialized.hex<sp/>to<sp/>the<sp/>end<sp/>of<sp/>the<sp/>existing<sp/>hex<sp/>data<sp/>in<sp/>the<sp/>`data`<sp/>field<sp/>in<sp/>wrap_update_alice_owner_trx.json.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1.2<sp/>Propose<sp/>the<sp/>transaction<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>an<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>lead<sp/>block<sp/>producer<sp/>(`blkproducera`)<sp/>should<sp/>propose<sp/>the<sp/>transaction<sp/>stored<sp/>in<sp/>wrap_update_alice_owner_trx.json:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>updatealice<sp/>producer_permissions.json<sp/>wrap_update_alice_owner_trx.json<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>10474f52c9e3fc8e729469a577cd2fc9e4330e25b3fd402fc738ddde26605c13<sp/><sp/>624<sp/>bytes<sp/><sp/>782<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::propose<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;updatealice&quot;,&quot;requested&quot;:[{&quot;actor&quot;:&quot;blkproducera&quot;,&quot;permi...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1.3<sp/>Review<sp/>and<sp/>approve<sp/>the<sp/>transaction<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>an<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>the<sp/>potential<sp/>approvers<sp/>of<sp/>the<sp/>proposed<sp/>transaction<sp/>(i.e.<sp/>the<sp/>active<sp/>block<sp/>producers)<sp/>should<sp/>first<sp/>review<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>make<sp/>sure<sp/>they<sp/>are<sp/>not<sp/>approving<sp/>anything<sp/>that<sp/>they<sp/>do<sp/>not<sp/>agree<sp/>to.</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>review<sp/>blkproducera<sp/>updatealice<sp/>&gt;<sp/>wrap_update_alice_owner_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>wrap_update_alice_owner_trx_to_review.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;proposal_name&quot;:<sp/>&quot;updatealice&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;packed_transaction&quot;:<sp/>&quot;c0593f5b000000000000000000000100004d1a03ea305500000000008054570260ae423ad15b613c00000000a8ed323200004d1a03ea305500000000a8ed32326b60ae423ad15b613c0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed32320100000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-07-06T12:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;exec&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;blkproducera&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;eosio.wrap&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;executer&quot;:<sp/>&quot;blkproducera&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;trx&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;1970-01-01T00:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;max_cpu_usage_ms&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;updateauth&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;alice&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>&quot;0000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed3232010000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;hex_data&quot;:<sp/>&quot;60ae423ad15b613c0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed323201000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;transaction_extensions&quot;:<sp/>[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>approvers<sp/>should<sp/>go<sp/>through<sp/>the<sp/>human-readable<sp/>transaction<sp/>output<sp/>and<sp/>make<sp/>sure<sp/>everything<sp/>looks<sp/>fine.<sp/>However,<sp/>due<sp/>to<sp/>a<sp/>current<sp/>limitation<sp/>of<sp/>nodeos/cleos,<sp/>the<sp/>JSONification<sp/>of<sp/>action<sp/>payload<sp/>data<sp/>does<sp/>not<sp/>occur<sp/>recursively.<sp/>So<sp/>while<sp/>both<sp/>the<sp/>`hex_data`<sp/>and<sp/>the<sp/>human-readable<sp/>JSON<sp/>`data`<sp/>of<sp/>the<sp/>payload<sp/>of<sp/>the<sp/>`eosio.wrap::exec`<sp/>action<sp/>is<sp/>available<sp/>in<sp/>the<sp/>output<sp/>of<sp/>the<sp/>`cleos<sp/>multisig<sp/>review`<sp/>command,<sp/>only<sp/>the<sp/>hex<sp/>data<sp/>is<sp/>available<sp/>of<sp/>the<sp/>payload<sp/>of<sp/>the<sp/>inner<sp/>`eosio::updateauth`<sp/>action.<sp/>So<sp/>it<sp/>is<sp/>not<sp/>clear<sp/>what<sp/>the<sp/>`updateauth`<sp/>will<sp/>actually<sp/>do.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Furthermore,<sp/>even<sp/>if<sp/>this<sp/>usability<sp/>issue<sp/>was<sp/>fixed<sp/>in<sp/>nodeos/cleos,<sp/>there<sp/>will<sp/>still<sp/>be<sp/>cases<sp/>where<sp/>there<sp/>is<sp/>no<sp/>sensible<sp/>human-readable<sp/>version<sp/>of<sp/>an<sp/>action<sp/>data<sp/>payload<sp/>within<sp/>a<sp/>transaction.<sp/>An<sp/>example<sp/>of<sp/>this<sp/>is<sp/>the<sp/>proposed<sp/>transaction<sp/>in<sp/>sub-section<sp/>2.2.3<sp/>which<sp/>used<sp/>the<sp/>`eosio::setcode`<sp/>action<sp/>to<sp/>set<sp/>the<sp/>contract<sp/>code<sp/>of<sp/>the<sp/>`eosio.wrap`<sp/>account.<sp/>The<sp/>best<sp/>thing<sp/>to<sp/>do<sp/>in<sp/>such<sp/>situations<sp/>is<sp/>for<sp/>the<sp/>reviewer<sp/>to<sp/>compare<sp/>the<sp/>proposed<sp/>transaction<sp/>to<sp/>one<sp/>generated<sp/>by<sp/>them<sp/>through<sp/>a<sp/>process<sp/>they<sp/>trust.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Since<sp/>each<sp/>block<sp/>producer<sp/>generated<sp/>a<sp/>transaction<sp/>in<sp/>sub-section<sp/>3.1.1<sp/>(stored<sp/>in<sp/>the<sp/>file<sp/>wrap_update_alice_owner_trx.json)<sp/>which<sp/>should<sp/>be<sp/>identical<sp/>to<sp/>the<sp/>transaction<sp/>proposed<sp/>by<sp/>the<sp/>lead<sp/>block<sp/>producer,<sp/>they<sp/>can<sp/>each<sp/>simply<sp/>check<sp/>to<sp/>see<sp/>if<sp/>the<sp/>two<sp/>transactions<sp/>are<sp/>identical:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose_trx<sp/>-j<sp/>-s<sp/>-d<sp/>updatealice<sp/>&apos;[]&apos;<sp/>wrap_update_alice_owner_trx.json<sp/>blkproducera<sp/>|<sp/>grep<sp/>&apos;&quot;data&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;data&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>|<sp/>cut<sp/>-c<sp/>35-<sp/>&gt;<sp/>expected_wrap_update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>expected_wrap_update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b000000000000000000000100004d1a03ea305500000000008054570260ae423ad15b613c00000000a8ed323200004d1a03ea305500000000a8ed32326b60ae423ad15b613c0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed32320100000000</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>wrap_update_alice_owner_trx_to_review.json<sp/>|<sp/>grep<sp/>&apos;&quot;packed_transaction&quot;:&apos;<sp/>|<sp/>sed<sp/>&apos;s/^[<sp/>\t]*&quot;packed_transaction&quot;:[<sp/>\t]*//;s/[&quot;,]//g&apos;<sp/>&gt;<sp/>proposed_wrap_update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">cat<sp/>proposed_wrap_update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">c0593f5b000000000000000000000100004d1a03ea305500000000008054570260ae423ad15b613c00000000a8ed323200004d1a03ea305500000000a8ed32326b60ae423ad15b613c0000000000000000000000000000010000000000ea30550040cbdaa86c52d5010000000000855c3400000000a8ed3232310000000000855c340000000080ab26a700000000000000000100000000010000000000ea305500000000a8ed32320100000000</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">diff<sp/>expected_wrap_update_alice_owner_trx_serialized.hex<sp/><sp/>proposed_wrap_update_alice_owner_trx_serialized.hex</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>an<sp/>approver<sp/>(e.g.<sp/>`blkproducerb`)<sp/>is<sp/>satisfied<sp/>with<sp/>the<sp/>proposed<sp/>transaction,<sp/>they<sp/>can<sp/>simply<sp/>approve<sp/>it:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>approve<sp/>blkproducera<sp/>updatealice<sp/>&apos;{&quot;actor&quot;:<sp/>&quot;blkproducerb&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}&apos;<sp/>-p<sp/>blkproducerb</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>2bddc7747e0660ba26babf95035225895b134bfb2ede32ba0a2bb6091c7dab56<sp/><sp/>128<sp/>bytes<sp/><sp/>543<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::approve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;updatealice&quot;,&quot;level&quot;:{&quot;actor&quot;:&quot;blkproducerb&quot;,&quot;permission...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1.4<sp/>Execute<sp/>the<sp/>transaction<sp/>to<sp/>change<sp/>the<sp/>owner<sp/>permission<sp/>of<sp/>an<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>the<sp/>necessary<sp/>approvals<sp/>are<sp/>collected<sp/>(in<sp/>this<sp/>example,<sp/>with<sp/>21<sp/>block<sp/>producers,<sp/>at<sp/>least<sp/>15<sp/>of<sp/>their<sp/>approvals<sp/>were<sp/>required),<sp/>anyone<sp/>can<sp/>push<sp/>the<sp/>`eosio.msig::exec`<sp/>action<sp/>which<sp/>executes<sp/>the<sp/>approved<sp/>transaction.<sp/>It<sp/>makes<sp/>a<sp/>lot<sp/>of<sp/>sense<sp/>for<sp/>the<sp/>lead<sp/>block<sp/>producer<sp/>who<sp/>proposed<sp/>the<sp/>transaction<sp/>to<sp/>also<sp/>execute<sp/>it<sp/>(this<sp/>will<sp/>incur<sp/>another<sp/>temporary<sp/>RAM<sp/>cost<sp/>for<sp/>the<sp/>deferred<sp/>transaction<sp/>that<sp/>is<sp/>generated<sp/>by<sp/>the<sp/>eosio.msig<sp/>contract).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>exec<sp/>blkproducera<sp/>updatealice<sp/>blkproducera</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>7127a66ae307fbef6415bf60c3e91a88b79bcb46030da983c683deb2a1a8e0d0<sp/><sp/>160<sp/>bytes<sp/><sp/>820<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;blkproducera&quot;,&quot;proposal_name&quot;:&quot;updatealice&quot;,&quot;executer&quot;:&quot;blkproducera&quot;}</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Anyone<sp/>can<sp/>now<sp/>verify<sp/>that<sp/>the<sp/>owner<sp/>authority<sp/>of<sp/>`alice`<sp/>was<sp/>successfully<sp/>changed:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>account<sp/>alice</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">permissions:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>eosio@active,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/>49.74<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>3.348<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.304<sp/>MiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>413<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.4<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>460.8<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">producers:<sp/><sp/><sp/><sp/><sp/>&lt;not<sp/>voted&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/04_guides/07_how-to-use-eosio.wrap.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structmembers" kind="struct" language="C++" prot="public">
+    <compoundname>members</compoundname>
+    <includes refid="coops_8hpp" local="no">coops.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmembers_1acd8704216796cd0c8bcf568f6c061a36" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name members::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>members::username</qualifiedname>
+        <briefdescription>
+<para>Уникальное имя члена кооператива. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="144" column="15" bodyfile="common/coops.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1a0a998eeaf1a01f48301c8ab90355891f" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec members::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>members::created_at</qualifiedname>
+        <briefdescription>
+<para>Время создания записи о члене. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="145" column="25" bodyfile="common/coops.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1a5b35eec3e9a4c95b0fa41528817913ca" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec members::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <qualifiedname>members::last_update</qualifiedname>
+        <briefdescription>
+<para>Время последнего обновления информации о члене. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="146" column="25" bodyfile="common/coops.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1acae55fdc8bdd745b39e2ec2633f4f2a6" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec members::last_min_pay</definition>
+        <argsstring></argsstring>
+        <name>last_min_pay</name>
+        <qualifiedname>members::last_min_pay</qualifiedname>
+        <briefdescription>
+<para>Время последнего минимального платежа. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="147" column="25" bodyfile="common/coops.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1ad6efc0ce9b6e84d34196df651a0e591a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string members::position_title</definition>
+        <argsstring></argsstring>
+        <name>position_title</name>
+        <qualifiedname>members::position_title</qualifiedname>
+        <briefdescription>
+<para>Название должности члена. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="148" column="15" bodyfile="common/coops.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1ab238fb2ca6164b2e355f341ea39b6178" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name members::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>members::position</qualifiedname>
+        <briefdescription>
+<para>Позиция члена в кооперативе: </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="149" column="15" bodyfile="common/coops.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1af5d60936223bc846d2ec5814e6ffeff1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool members::is_accepted</definition>
+        <argsstring></argsstring>
+        <name>is_accepted</name>
+        <qualifiedname>members::is_accepted</qualifiedname>
+        <briefdescription>
+<para>Флаг, указывающий, принят ли член в кооператив. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="158" column="8" bodyfile="common/coops.hpp" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1a2f5e873854edba0bf3571dbaab59507b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool members::is_initial</definition>
+        <argsstring></argsstring>
+        <name>is_initial</name>
+        <qualifiedname>members::is_initial</qualifiedname>
+        <briefdescription>
+<para>Флаг, указывающий, является ли член начальным. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="159" column="8" bodyfile="common/coops.hpp" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1aa96a971d1a0387c007951780417248be" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool members::is_minimum</definition>
+        <argsstring></argsstring>
+        <name>is_minimum</name>
+        <qualifiedname>members::is_minimum</qualifiedname>
+        <briefdescription>
+<para>Флаг, указывающий, является ли член членом с минимальными взносами. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="160" column="8" bodyfile="common/coops.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmembers_1ae8725768e25ad2331e36549792566f73" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool members::is_voting</definition>
+        <argsstring></argsstring>
+        <name>is_voting</name>
+        <qualifiedname>members::is_voting</qualifiedname>
+        <briefdescription>
+<para>Флаг, указывающий, имеет ли член право голоса. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="161" column="8" bodyfile="common/coops.hpp" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmembers_1a3c3b2e39c103c29aa2627e865dc1a6a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t members::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>members::primary_key</qualifiedname>
+        <briefdescription>
+<para>Возвращает первичный ключ учетной записи члена кооператива. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - первичный ключ, равный значению имени члена кооператива. return username - primary_key </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="167" column="12" bodyfile="common/coops.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structmembers_1a5bba6bdb3df9e9c0546e9e81c1e2115d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t members::bylastpay</definition>
+        <argsstring>() const</argsstring>
+        <name>bylastpay</name>
+        <qualifiedname>members::bylastpay</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ для индексации по времени последнего минимального платежа. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный количеству секунд с начала эпохи Unix. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="175" column="12" bodyfile="common/coops.hpp" bodystart="175" bodyend="177"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая членов кооператива. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура содержит информацию о членах кооператива, включая их уникальные имена, дату создания, дату последнего обновления, дату последнего минимального платежа, должность, позицию, флаги их статуса и участия. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="3">
+        <label>time_point_sec</label>
+      </node>
+      <node id="1">
+        <label>members</label>
+        <link refid="structmembers"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>last_min_pay</edgelabel>
+          <edgelabel>last_update</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>position_title</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/coops.hpp" line="143" column="1" bodyfile="common/coops.hpp" bodystart="143" bodyend="178"/>
+    <listofallmembers>
+      <member refid="structmembers_1a5bba6bdb3df9e9c0546e9e81c1e2115d" prot="public" virt="non-virtual"><scope>members</scope><name>bylastpay</name></member>
+      <member refid="structmembers_1a0a998eeaf1a01f48301c8ab90355891f" prot="public" virt="non-virtual"><scope>members</scope><name>created_at</name></member>
+      <member refid="structmembers_1af5d60936223bc846d2ec5814e6ffeff1" prot="public" virt="non-virtual"><scope>members</scope><name>is_accepted</name></member>
+      <member refid="structmembers_1a2f5e873854edba0bf3571dbaab59507b" prot="public" virt="non-virtual"><scope>members</scope><name>is_initial</name></member>
+      <member refid="structmembers_1aa96a971d1a0387c007951780417248be" prot="public" virt="non-virtual"><scope>members</scope><name>is_minimum</name></member>
+      <member refid="structmembers_1ae8725768e25ad2331e36549792566f73" prot="public" virt="non-virtual"><scope>members</scope><name>is_voting</name></member>
+      <member refid="structmembers_1acae55fdc8bdd745b39e2ec2633f4f2a6" prot="public" virt="non-virtual"><scope>members</scope><name>last_min_pay</name></member>
+      <member refid="structmembers_1a5b35eec3e9a4c95b0fa41528817913ca" prot="public" virt="non-virtual"><scope>members</scope><name>last_update</name></member>
+      <member refid="structmembers_1ab238fb2ca6164b2e355f341ea39b6178" prot="public" virt="non-virtual"><scope>members</scope><name>position</name></member>
+      <member refid="structmembers_1ad6efc0ce9b6e84d34196df651a0e591a" prot="public" virt="non-virtual"><scope>members</scope><name>position_title</name></member>
+      <member refid="structmembers_1a3c3b2e39c103c29aa2627e865dc1a6a1" prot="public" virt="non-virtual"><scope>members</scope><name>primary_key</name></member>
+      <member refid="structmembers_1acd8704216796cd0c8bcf568f6c061a36" prot="public" virt="non-virtual"><scope>members</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

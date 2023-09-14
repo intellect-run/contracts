@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1joincoops" kind="struct" language="C++" prot="public">
+    <compoundname>eosio::joincoops</compoundname>
+    <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1joincoops_1a2400b81922f344fbfa41dda06c2caa4d" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::joincoops::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>eosio::joincoops::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="97" column="14" bodyfile="soviet/soviet.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1joincoops_1ad0a709dbb47d3d94d1b4bafe335bd05c" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name eosio::joincoops::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>eosio::joincoops::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="98" column="17" bodyfile="soviet/soviet.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1joincoops_1ab3b0842b664a04a69858d83714845dca" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eosio::joincoops::is_paid</definition>
+        <argsstring></argsstring>
+        <name>is_paid</name>
+        <qualifiedname>eosio::joincoops::is_paid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="99" column="10" bodyfile="soviet/soviet.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1joincoops_1a198fbc9e86daba2b45e29ff0f5fd7704" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eosio::joincoops::notice</definition>
+        <argsstring></argsstring>
+        <name>notice</name>
+        <qualifiedname>eosio::joincoops::notice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="100" column="17" bodyfile="soviet/soviet.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1joincoops_1ad9376fa463217ba4416efb37b9ac3919" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::joincoops::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::joincoops::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="102" column="14" bodyfile="soviet/soviet.hpp" bodystart="102" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eosio::joincoops</label>
+        <link refid="structeosio_1_1joincoops"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>notice</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="soviet/soviet.hpp" line="96" column="3" bodyfile="soviet/soviet.hpp" bodystart="96" bodyend="105"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1joincoops_1a2400b81922f344fbfa41dda06c2caa4d" prot="public" virt="non-virtual"><scope>eosio::joincoops</scope><name>id</name></member>
+      <member refid="structeosio_1_1joincoops_1ab3b0842b664a04a69858d83714845dca" prot="public" virt="non-virtual"><scope>eosio::joincoops</scope><name>is_paid</name></member>
+      <member refid="structeosio_1_1joincoops_1a198fbc9e86daba2b45e29ff0f5fd7704" prot="public" virt="non-virtual"><scope>eosio::joincoops</scope><name>notice</name></member>
+      <member refid="structeosio_1_1joincoops_1ad9376fa463217ba4416efb37b9ac3919" prot="public" virt="non-virtual"><scope>eosio::joincoops</scope><name>primary_key</name></member>
+      <member refid="structeosio_1_1joincoops_1ad0a709dbb47d3d94d1b4bafe335bd05c" prot="public" virt="non-virtual"><scope>eosio::joincoops</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="registrator_8contracts_8md" kind="file" language="Markdown">
+    <compoundname>registrator.contracts.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;joincoop&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;!DOCTYPE<sp/>html&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;html<sp/>lang=&quot;en&quot;&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;head&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;meta<sp/>charset=&quot;utf-8&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;title&gt;Заявление<sp/>//заголовок&lt;/title&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;meta<sp/>name=&quot;description&quot;<sp/>content=&quot;Контракт<sp/>предоставляет<sp/>форму<sp/>заявления<sp/>на<sp/>вступление<sp/>в<sp/>цифровой<sp/>кооператив<sp/>//краткое<sp/>описание&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;meta<sp/>name=&quot;version&quot;<sp/>content=&quot;0.0.1&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;/head&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;body&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1&gt;Заявление&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;p&gt;о<sp/>приёме<sp/>{%<sp/>if<sp/>member.is_organization<sp/>%}юридического{%<sp/>else<sp/>%}физического{%<sp/>endif<sp/>%}<sp/>лица<sp/>в<sp/>пайщики<sp/>{{coop.shortname}}.&lt;/p&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;h2&gt;Заявитель:&lt;/h2&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;ul&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{%<sp/>if<sp/>member<sp/>%}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;{{<sp/>member.shortname<sp/>}}<sp/>{%<sp/>trans<sp/>‘represented<sp/>by’<sp/>%}<sp/>{{<sp/>user.first_name<sp/>}}<sp/>{{<sp/>user.last_name<sp/>}},<sp/>{{<sp/>user.position<sp/>}}&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{%<sp/>else<sp/>%}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;{{<sp/>user.first_name<sp/>}}<sp/>{{<sp/>user.last_name<sp/>}}&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{%<sp/>endif<sp/>%}</highlight></codeline>
+<codeline><highlight class="normal">&lt;/ul&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p&gt;Прошу<sp/>принять<sp/>меня<sp/>в<sp/>пайщики<sp/>потребительского<sp/>кооператива<sp/>{{<sp/>coop.shortname<sp/>}},<sp/>далее<sp/>по<sp/>тексту<sp/>заявления<sp/>&quot;Общество&quot;.<sp/>Подтверждаю,<sp/>что<sp/>с<sp/>Уставом<sp/>и<sp/>иными<sp/>публичными<sp/>нормативными<sp/>документами<sp/>Общества<sp/>ознакомлен(а).&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p&gt;Став<sp/>пайщиком<sp/>Общества,<sp/>обязуюсь<sp/>соблюдать<sp/>требования<sp/>Устава<sp/>и<sp/>иных<sp/>публичных<sp/>нормативных<sp/>документов<sp/>Общества<sp/>и<sp/>выполнять<sp/>обязанности<sp/>члена<sp/>Общества,<sp/>а<sp/>также<sp/>уполномачиваю<sp/>Председателя<sp/>кооперативного<sp/>участка<sp/>&quot;Центр&quot;<sp/>принимать<sp/>участие<sp/>с<sp/>правом<sp/>голоса<sp/>в<sp/>Общих<sp/>собраниях<sp/>уполномоченных<sp/>Общества,<sp/>на<sp/>период<sp/>моего<sp/>членства<sp/>в<sp/>Обществе<sp/>при<sp/>собственноручно<sp/>мною<sp/>указанном<sp/>кооперативном<sp/>участке.<sp/>&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p&gt;Обязуюсь<sp/>своевременно<sp/>внести<sp/>в<sp/>Общество<sp/>{%<sp/>if<sp/>coop.initial<sp/>%}<sp/>вступительный<sp/>{{<sp/>coop.initial<sp/>}}<sp/>{{<sp/>coop.currency<sp/>}}{%<sp/>endif<sp/>%}<sp/>{%<sp/>if<sp/>coop.minimum<sp/>%}<sp/>и<sp/>минимальный<sp/>паевой<sp/>{{<sp/>coop.minimum<sp/>}}<sp/>{{<sp/>coop.currency<sp/>}}{%<sp/>endif<sp/>%}<sp/>взносы<sp/>в<sp/>порядке,<sp/>предусмотренном<sp/>Уставом<sp/>Общества.&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p&gt;Выражаю<sp/>своё<sp/>согласие<sp/>на<sp/>генерацию<sp/>моей<sp/>внутренней<sp/>ЭЦП<sp/>(Электронно-Цифровой<sp/>Подписи)<sp/>для<sp/>подписания<sp/>документооборота<sp/>в<sp/>моём<sp/>Личном<sp/>Кабинете,<sp/>в<sp/>рамках<sp/>внутренней<sp/>деятельности<sp/>Общества,<sp/>в<sp/>соответствии<sp/>с<sp/>Положением<sp/>о<sp/>внутренней<sp/>ЭЦП<sp/>Общества.&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p&gt;Выражаю<sp/>своё<sp/>согласие<sp/>с<sp/>тем,<sp/>что<sp/>информация,<sp/>отправляемая<sp/>Обществом<sp/>в<sp/>sms-сообщениях<sp/>на<sp/>указанный<sp/>мной<sp/>номер<sp/>телефона<sp/>или<sp/>в<sp/>сообщениях<sp/>на<sp/>указанный<sp/>мной<sp/>адрес<sp/>электронной<sp/>почты<sp/>или<sp/>в<sp/>сообщениях<sp/>телеграм-бота,<sp/>привязанного<sp/>к<sp/>моему<sp/>телефону,<sp/>приравняется<sp/>к<sp/>уведомлению<sp/>меня<sp/>Обществом<sp/>в<sp/>письменной<sp/>форме.&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;/body&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/html&gt;</highlight></codeline>
+    </programlisting>
+    <location file="registrator/registrator.contracts.md"/>
+  </compounddef>
+</doxygen>

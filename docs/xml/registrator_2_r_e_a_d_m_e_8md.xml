@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="registrator_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>REG</highlight></codeline>
+<codeline><highlight class="normal">Стек:<sp/>C/C++,<sp/>eosio.cdt<sp/>1.5.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Введение</highlight></codeline>
+<codeline><highlight class="normal">Поскольку<sp/>каждый<sp/>новый<sp/>аккаунт<sp/>системы<sp/>должен<sp/>получить<sp/>ресурсы<sp/>RAM,<sp/>CPU<sp/>и<sp/>NET,<sp/>а<sp/>количество<sp/>ресурсов<sp/>в<sp/>системе<sp/>ограничено,<sp/>то<sp/>все<sp/>регистрации<sp/>являются<sp/>платными<sp/>и<sp/>за<sp/>них<sp/>кто-то<sp/>должен<sp/>заплатить<sp/>в<sp/>системном<sp/>токене.<sp/>Регистратор<sp/>обеспечивает<sp/>работу<sp/>FREEMIUM<sp/>бизнес-модели,<sp/>при<sp/>которой,<sp/>пользователь<sp/>получает<sp/>возможность<sp/>ограниченного<sp/>использования<sp/>любого<sp/>продукта<sp/>системы<sp/>до<sp/>истечения<sp/>срока<sp/>давности<sp/>пользования<sp/>своим<sp/>гостевым<sp/>аккаунтом.<sp/>Регистратором<sp/>нового<sp/>аккаунта<sp/>может<sp/>выступить<sp/>любой<sp/>аккаунт<sp/>системы<sp/>и<sp/>получить<sp/>комиссию<sp/>за<sp/>это.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Компиляция</highlight></codeline>
+<codeline><highlight class="normal">Заменить<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>на<sp/>абсолютный<sp/>путь<sp/>к<sp/>директории<sp/>контракта<sp/>reg.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.5.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.5.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>reg<sp/>-o<sp/>reg.wasm<sp/>registrator.cpp&quot;<sp/>&amp;<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Установка</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>registrator<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>registrator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Генерация<sp/>документации</highlight></codeline>
+<codeline><highlight class="normal">Требуется<sp/>Doxygen<sp/>версии<sp/>от<sp/>1.9.3</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Действующие<sp/>аккаунты</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>me<sp/>-<sp/>собственное<sp/>имя<sp/>аккаунта<sp/>контракта</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>partners<sp/>-<sp/>имя<sp/>аккаунта<sp/>контракта<sp/>хранилища<sp/>партнёров</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>core<sp/>-<sp/>имя<sp/>аккаунта<sp/>цифровой<sp/>экономики<sp/>ядра</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>system_account<sp/>-<sp/>имя<sp/>аккаунта<sp/>системного<sp/>контракта<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Основные<sp/>управляющие<sp/>параметры</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>GUEST_EXPIRATION<sp/>-<sp/>продолжительность<sp/>гостевого<sp/>периода,<sp/>после<sp/>которого,<sp/>аккаунт<sp/>может<sp/>быть<sp/>отозван</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>SYMBOL<sp/>-<sp/>системный<sp/>токен</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ramcore_symbol<sp/>-<sp/>идентификационный<sp/>токен<sp/>рынка<sp/>оперативной<sp/>памяти</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>RAM_symbol<sp/>-<sp/>токен<sp/>рынка<sp/>оперативной<sp/>памяти</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>MIN_AMOUNT<sp/>-<sp/>комиссия,<sp/>взымаемая<sp/>регистратором<sp/>за<sp/>пользование<sp/>гостевым<sp/>аккаунтом</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>BASKET<sp/>-<sp/>количество<sp/>гостевых<sp/>аккаунтов,<sp/>которые<sp/>могут<sp/>быть<sp/>отозваны<sp/>за<sp/>один<sp/>вызов<sp/>действия</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Роли</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Пользователь.<sp/>Гость<sp/>или<sp/>партнёр,<sp/>чей<sp/>аккаунт<sp/>регистрируется.<sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Регистратор.<sp/>Тот,<sp/>кто<sp/>регистрирует<sp/>аккаунт<sp/>и<sp/>оплачивает<sp/>ресурсы<sp/>аккаунта.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Пополнение<sp/>баланса</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>совершения<sp/>действий<sp/>регистрации<sp/>аккаунта,<sp/>необходимо<sp/>обладать<sp/>системным<sp/>токеном<sp/>на<sp/>своём<sp/>балансе<sp/>в<sp/>регистраторе.<sp/>Для<sp/>пополнения<sp/>баланса,<sp/>необходимо<sp/>отправить<sp/>перевод<sp/>на<sp/>аккаунт<sp/>контракта<sp/>в<sp/>системном<sp/>токене<sp/>с<sp/>указанием<sp/>регистратора<sp/>в<sp/>поле<sp/>memo:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>transfer<sp/>your_account<sp/>registrator<sp/>&quot;100.0000<sp/>FLOWER&quot;<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">После<sp/>чего<sp/>можем<sp/>получить<sp/>баланс<sp/>регистратора<sp/>из<sp/>таблицы:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>registrator<sp/>registrator<sp/>balance</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">В<sp/>ответе<sp/>будет<sp/>баланс:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;registrator&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;quantity&quot;:<sp/>&quot;100.0000<sp/>FLOWER&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Регистрация<sp/>гостя</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>регистрации<sp/>аккаунта<sp/>в<sp/>качестве<sp/>гостя,<sp/>необходимо<sp/>вызвать<sp/>метод<sp/>regaccount,<sp/>передав<sp/>параметр<sp/>is_guest<sp/>=<sp/>true:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>regaccount<sp/>&apos;[registrator,<sp/>&quot;&quot;,<sp/>tester,<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>16384,<sp/>true,<sp/>false]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Тогда,<sp/>получив<sp/>аккаунт<sp/>tester,<sp/>мы<sp/>увидим,<sp/>что<sp/>права<sp/>владельца<sp/>находятся<sp/>у<sp/>регистратора:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.908<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.169<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.169<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>92.31<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>92.31<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>оплаты<sp/>регистрации,<sp/>гость<sp/>должен<sp/>пополнить<sp/>свой<sp/>баланс<sp/>и<sp/>вызвать<sp/>метод<sp/>payforguest:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>payguest<sp/>&apos;[registrator,<sp/>tester,<sp/>&quot;3.2786<sp/>FLOWER&quot;]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Сумма<sp/>к<sp/>оплате<sp/>может<sp/>быть<sp/>получена<sp/>в<sp/>таблице<sp/>guests.<sp/>Она<sp/>расчитывается<sp/>исходя<sp/>из<sp/>стоимости<sp/>оперативной<sp/>памяти<sp/>в<sp/>момент<sp/>регистрации<sp/>и<sp/>количества<sp/>системного<sp/>токена,<sp/>закладываемого<sp/>в<sp/>CPU<sp/>и<sp/>NET.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">После<sp/>оплаты,<sp/>мы<sp/>можем<sp/>убедиться,<sp/>что<sp/>права<sp/>владельца<sp/>аккаунта<sp/>находятся<sp/>у<sp/>владельца<sp/>ключа:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.926<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>97<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>23.16<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Регистрация<sp/>партнёра</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>регистрации<sp/>аккаунта<sp/>в<sp/>качестве<sp/>гостя,<sp/>необходимо<sp/>вызвать<sp/>метод<sp/>regaccount,<sp/>передав<sp/>параметр<sp/>is_guest<sp/>=<sp/>false:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>regaccount<sp/>&apos;[registrator,<sp/>&quot;&quot;,<sp/>tester2,<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>16384,<sp/>true,<sp/>false]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Тогда,<sp/>получив<sp/>аккаунт<sp/>tester2,<sp/>мы<sp/>увидим,<sp/>что<sp/>права<sp/>владельца<sp/>находятся<sp/>у<sp/>владельца<sp/>ключа:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>3.365<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>0.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>0.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Отзыв<sp/>аккаунта<sp/>гостя</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>того,<sp/>чтобы<sp/>отозвать<sp/>аккаунт<sp/>у<sp/>гостя,<sp/>необходимо<sp/>вызвать<sp/>метод<sp/>update.<sp/>Метод<sp/>получает<sp/>таблицу<sp/>guests<sp/>с<sp/>сортировкой<sp/>по<sp/>ключу<sp/>expiration_at,<sp/>и<sp/>заменяет<sp/>активные<sp/>ключи<sp/>аккаунтов<sp/>на<sp/>себя.<sp/>Количество<sp/>аккаунтов<sp/>к<sp/>отзыву<sp/>за<sp/>один<sp/>вызов<sp/>метода<sp/>update<sp/>регулируется<sp/>константой<sp/>BASKET.<sp/>Вызов<sp/>метода<sp/>может<sp/>осуществить<sp/>любой<sp/>аккаунт<sp/>сети.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>update<sp/>&apos;[]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Получив<sp/>объект<sp/>аккаунта<sp/>истекшего<sp/>гостя,<sp/>увидим,<sp/>что<sp/>активные<sp/>права<sp/>доступа<sp/>теперь<sp/>принадлежат<sp/>регистратору:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.891<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Все<sp/>отозванные<sp/>аккаунты<sp/>хрянятся<sp/>в<sp/>таблице<sp/>reserved:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>registrator<sp/>registrator<sp/>reserved</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">В<sp/>ответе<sp/>список<sp/>отозванных<sp/>аккаунтов<sp/>с<sp/>указанием<sp/>регистраторов:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;eyfyjkpbctwv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;hgrmogbyerml&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;yotlnhctihdg&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта</highlight></codeline>
+<codeline><highlight class="normal">Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта<sp/>доступна<sp/>в<sp/>папке<sp/>docs/html/index.html</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>TODO</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Рассмотреть<sp/>возможность<sp/>внедрения<sp/>бизнес-модель<sp/>доходного<sp/>пула<sp/>ликвидности<sp/>для<sp/>аккаунтов,<sp/>обеспечивающих<sp/>регистрацию<sp/>гостей.<sp/>Сейчас<sp/>каждый<sp/>регистратор<sp/>обеспечивает<sp/>оплату<sp/>стоимости<sp/>аккаунта<sp/>собственными<sp/>средствами.<sp/>Предоставить<sp/>возможность<sp/>собирать<sp/>средства<sp/>на<sp/>оплату<sp/>новых<sp/>регистраций<sp/>из<sp/>числа<sp/>средств<sp/>партнёров.<sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Внедрить<sp/>систему<sp/>оценки<sp/>и<sp/>выдачу<sp/>коротких<sp/>имён.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Убрать<sp/>LEGACY<sp/>связь<sp/>с<sp/>контрактом<sp/>core<sp/>в<sp/>методе<sp/>payforguest.</highlight></codeline>
+    </programlisting>
+    <location file="registrator/README.md"/>
+  </compounddef>
+</doxygen>

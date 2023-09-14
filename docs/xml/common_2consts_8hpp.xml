@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="common_2consts_8hpp" kind="file" language="C++">
+    <compoundname>consts.hpp</compoundname>
+    <includedby refid="marketplace_2marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <includedby refid="eosio_8system_8hpp" local="yes">system/contracts/eosio.system/include/eosio.system/eosio.system.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/consts.hpp</label>
+        <link refid="common_2consts_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="2">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_2marketplace_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+      </node>
+      <node id="4">
+        <label>registrator/registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="6">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>system/contracts/eosio.system/include/eosio.system/eosio.system.hpp</label>
+        <link refid="eosio_8system_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>system/contracts/eosio.system/src/block_info.cpp</label>
+        <link refid="block__info_8cpp"/>
+      </node>
+      <node id="10">
+        <label>system/contracts/eosio.system/src/delegate_bandwidth.cpp</label>
+        <link refid="delegate__bandwidth_8cpp"/>
+      </node>
+      <node id="11">
+        <label>system/contracts/eosio.system/src/eosio.system.cpp</label>
+        <link refid="eosio_8system_8cpp"/>
+      </node>
+      <node id="12">
+        <label>system/contracts/eosio.system/src/limit_auth_changes.cpp</label>
+        <link refid="limit__auth__changes_8cpp"/>
+      </node>
+      <node id="13">
+        <label>system/contracts/eosio.system/src/name_bidding.cpp</label>
+        <link refid="name__bidding_8cpp"/>
+      </node>
+      <node id="14">
+        <label>system/contracts/eosio.system/src/powerup.cpp</label>
+        <link refid="powerup_8cpp"/>
+      </node>
+      <node id="15">
+        <label>system/contracts/eosio.system/src/producer_pay.cpp</label>
+        <link refid="producer__pay_8cpp"/>
+      </node>
+      <node id="16">
+        <label>system/contracts/eosio.system/src/rex.cpp</label>
+        <link refid="rex_8cpp"/>
+      </node>
+      <node id="17">
+        <label>system/contracts/eosio.system/src/voting.cpp</label>
+        <link refid="system_2contracts_2eosio_8system_2src_2voting_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="common_2consts_8hpp_1a53678aa3958110e34fce3501d7da1bdf" prot="public" static="no">
+        <name>ANO</name>
+        <initializer>&quot;ano&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="2" column="9" bodyfile="common/consts.hpp" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" prot="public" static="no">
+        <name>DRAFT</name>
+        <initializer>&quot;draft&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="3" column="9" bodyfile="common/consts.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" prot="public" static="no">
+        <name>MARKETPLACE</name>
+        <initializer>&quot;marketplace&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="4" column="9" bodyfile="common/consts.hpp" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" prot="public" static="no">
+        <name>SOVIET</name>
+        <initializer>&quot;soviet&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="5" column="9" bodyfile="common/consts.hpp" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" prot="public" static="no">
+        <name>REGISTRATOR</name>
+        <initializer>&quot;registrator&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="6" column="9" bodyfile="common/consts.hpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1a21b97df85e65556468b28a576311271c" prot="public" static="no">
+        <name>SYSTEM</name>
+        <initializer>&quot;eosio&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="7" column="9" bodyfile="common/consts.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_2consts_8hpp_1a00b6615022c601acf923252159f8ca5a" prot="public" static="no">
+        <name>PARTNERS</name>
+        <initializer>&quot;part&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="8" column="9" bodyfile="common/consts.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="common_2consts_8hpp_1a7907328ea2e6a0c7528a5116b1b837c1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _auction_name_length_limit</definition>
+        <argsstring></argsstring>
+        <name>_auction_name_length_limit</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="11" column="27" bodyfile="common/consts.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a341b71e63284ca16c8b1561cb0cb0da4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _ano</definition>
+        <argsstring></argsstring>
+        <name>_ano</name>
+        <initializer>= &quot;ano&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="13" column="30" bodyfile="common/consts.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a774dd561cf17ec65e59129b5ad8690d6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _draft</definition>
+        <argsstring></argsstring>
+        <name>_draft</name>
+        <initializer>= &quot;draft&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="14" column="30" bodyfile="common/consts.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1afeb0e2ab01520072c8305917005018a1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _marketplace</definition>
+        <argsstring></argsstring>
+        <name>_marketplace</name>
+        <initializer>=
+    &quot;marketplace&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>имя контракта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="15" column="30" bodyfile="common/consts.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1af3f1171b99c198fbeb3ab6a3d8c091d9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _soviet</definition>
+        <argsstring></argsstring>
+        <name>_soviet</name>
+        <initializer>=
+    &quot;soviet&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>дополнительная константа </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="17" column="30" bodyfile="common/consts.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1ae4d59ec28af0642e3072dd36dd0a537b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _registrator</definition>
+        <argsstring></argsstring>
+        <name>_registrator</name>
+        <initializer>= &quot;registrator&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="19" column="30" bodyfile="common/consts.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a2cee8e2a9c7b46a967d9f76aafc19913" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _registrator_test</definition>
+        <argsstring></argsstring>
+        <name>_registrator_test</name>
+        <initializer>= &quot;reg.test&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="20" column="30" bodyfile="common/consts.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a52724c95f23545d7efc4db16f3fe42ce" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _system</definition>
+        <argsstring></argsstring>
+        <name>_system</name>
+        <initializer>= &quot;eosio&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="21" column="30" bodyfile="common/consts.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1aa9b7db1458d5b98cdb67071a78f9b427" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _partners</definition>
+        <argsstring></argsstring>
+        <name>_partners</name>
+        <initializer>=
+      &quot;part&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>имя аккаунта контракта хранилища партнёров </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="22" column="30" bodyfile="common/consts.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1ace206e4d1676c54066a8ed734347d072" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _regaccount_action</definition>
+        <argsstring></argsstring>
+        <name>_regaccount_action</name>
+        <initializer>= &quot;joincoop&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="25" column="30" bodyfile="common/consts.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a4815e0ccce32e816ccd173a076751310" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _change_action</definition>
+        <argsstring></argsstring>
+        <name>_change_action</name>
+        <initializer>= &quot;change&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="26" column="30" bodyfile="common/consts.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a6b01540b618a86e6bd5303db76e3b45f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol _root_symbol</definition>
+        <argsstring></argsstring>
+        <name>_root_symbol</name>
+        <initializer>=
+    eosio::symbol(eosio::symbol_code(&quot;AXON&quot;), 4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>системный токен </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="28" column="32" bodyfile="common/consts.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a905130dd4c8fc18bfffe9eec68f9061c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _root_contract</definition>
+        <argsstring></argsstring>
+        <name>_root_contract</name>
+        <initializer>=
+    &quot;eosio.token&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>системный контракт </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="30" column="30" bodyfile="common/consts.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a53c8b80330465342487f78d14fad4ce7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol RAM_symbol</definition>
+        <argsstring></argsstring>
+        <name>RAM_symbol</name>
+        <initializer>{
+    &quot;RAM&quot;, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>токен рынка оперативной памяти </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="32" column="32" bodyfile="common/consts.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_2consts_8hpp_1a4977cb29c847a5a4fce4cce4b753c914" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol _ramcore_symbol</definition>
+        <argsstring></argsstring>
+        <name>_ramcore_symbol</name>
+        <initializer>=
+    eosio::symbol(eosio::symbol_code(&quot;RAMCORE&quot;),
+                  4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификационный токен рынка оперативной памяти </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="34" column="32" bodyfile="common/consts.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="2" refid="common_2consts_8hpp_1a53678aa3958110e34fce3501d7da1bdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ANO<sp/>&quot;ano&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="common_2consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DRAFT<sp/>&quot;draft&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="common_2consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MARKETPLACE<sp/>&quot;marketplace&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="common_2consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOVIET<sp/>&quot;soviet&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="common_2consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>REGISTRATOR<sp/>&quot;registrator&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="common_2consts_8hpp_1a21b97df85e65556468b28a576311271c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYSTEM<sp/>&quot;eosio&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="common_2consts_8hpp_1a00b6615022c601acf923252159f8ca5a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARTNERS<sp/>&quot;part&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="common_2consts_8hpp_1a7907328ea2e6a0c7528a5116b1b837c1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="common_2consts_8hpp_1a7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref><sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="common_2consts_8hpp_1a341b71e63284ca16c8b1561cb0cb0da4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ano&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="14" refid="common_2consts_8hpp_1a774dd561cf17ec65e59129b5ad8690d6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a774dd561cf17ec65e59129b5ad8690d6" kindref="member">_draft</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;draft&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="15" refid="common_2consts_8hpp_1afeb0e2ab01520072c8305917005018a1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1afeb0e2ab01520072c8305917005018a1" kindref="member">_marketplace</ref><sp/>=</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;marketplace&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
+<codeline lineno="17" refid="common_2consts_8hpp_1af3f1171b99c198fbeb3ab6a3d8c091d9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1af3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref><sp/>=</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
+<codeline lineno="19" refid="common_2consts_8hpp_1ae4d59ec28af0642e3072dd36dd0a537b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1ae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="20" refid="common_2consts_8hpp_1a2cee8e2a9c7b46a967d9f76aafc19913" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a2cee8e2a9c7b46a967d9f76aafc19913" kindref="member">_registrator_test</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;reg.test&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="21" refid="common_2consts_8hpp_1a52724c95f23545d7efc4db16f3fe42ce" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="22" refid="common_2consts_8hpp_1aa9b7db1458d5b98cdb67071a78f9b427" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1aa9b7db1458d5b98cdb67071a78f9b427" kindref="member">_partners</ref><sp/>=</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;part&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
+<codeline lineno="25" refid="common_2consts_8hpp_1ace206e4d1676c54066a8ed734347d072" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;joincoop&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="26" refid="common_2consts_8hpp_1a4815e0ccce32e816ccd173a076751310" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a4815e0ccce32e816ccd173a076751310" kindref="member">_change_action</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;change&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="common_2consts_8hpp_1a6b01540b618a86e6bd5303db76e3b45f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="common_2consts_8hpp_1a6b01540b618a86e6bd5303db76e3b45f" kindref="member">_root_symbol</ref><sp/>=</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;AXON&quot;</highlight><highlight class="normal">),<sp/>4);<sp/></highlight></codeline>
+<codeline lineno="30" refid="common_2consts_8hpp_1a905130dd4c8fc18bfffe9eec68f9061c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="common_2consts_8hpp_1a905130dd4c8fc18bfffe9eec68f9061c" kindref="member">_root_contract</ref><sp/>=</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
+<codeline lineno="32" refid="common_2consts_8hpp_1a53c8b80330465342487f78d14fad4ce7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="common_2consts_8hpp_1a53c8b80330465342487f78d14fad4ce7" kindref="member">RAM_symbol</ref>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;RAM&quot;</highlight><highlight class="normal">,<sp/>0};<sp/></highlight></codeline>
+<codeline lineno="34" refid="common_2consts_8hpp_1a4977cb29c847a5a4fce4cce4b753c914" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="common_2consts_8hpp_1a4977cb29c847a5a4fce4cce4b753c914" kindref="member">_ramcore_symbol</ref><sp/>=</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RAMCORE&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4);<sp/></highlight></codeline>
+    </programlisting>
+    <location file="common/consts.hpp"/>
+  </compounddef>
+</doxygen>

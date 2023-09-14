@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="admins_8hpp" kind="file" language="C++">
+    <compoundname>admins.hpp</compoundname>
+    <includedby refid="marketplace_2marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/admins.hpp</label>
+        <link refid="admins_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="2">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_2marketplace_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="4">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="common/admins.hpp"/>
+  </compounddef>
+</doxygen>

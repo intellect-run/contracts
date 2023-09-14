@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structusers" kind="struct" language="C++" prot="public">
+    <compoundname>users</compoundname>
+    <includes refid="users_8hpp" local="no">users.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structusers_1a737eae3ed6e76f98919b26b20288164b" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name users::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>users::username</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта пользователя. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="114" column="15" bodyfile="common/users.hpp" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusers_1ae07b933da6c46eb7dfe70f5c95ade143" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string users::profile_hash</definition>
+        <argsstring></argsstring>
+        <name>profile_hash</name>
+        <qualifiedname>users::profile_hash</qualifiedname>
+        <briefdescription>
+<para>Хэш профиля пользователя. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="115" column="15" bodyfile="common/users.hpp" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusers_1ac39df2d81bcbcf04648eab679a910044" prot="public" static="no" mutable="no">
+        <type><ref refid="structverification" kindref="compound">verification</ref></type>
+        <definition>verification users::verification</definition>
+        <argsstring></argsstring>
+        <name>verification</name>
+        <qualifiedname>users::verification</qualifiedname>
+        <briefdescription>
+<para>Информация о верификации пользователя. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="117" column="16" bodyfile="common/users.hpp" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structusers_1a6894c358dbcce05a63de742f2b5fbd8e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t users::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>users::primary_key</qualifiedname>
+        <briefdescription>
+<para>Возвращает первичный ключ учетной записи пользователя. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - первичный ключ, равный значению имени аккаунта пользователя. return username - primary_key </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="123" column="12" bodyfile="common/users.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structusers_1a0aef32204b2b1f86902c63150d4f230c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t users::by_verified</definition>
+        <argsstring>() const</argsstring>
+        <name>by_verified</name>
+        <qualifiedname>users::by_verified</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по статусу верификации пользователя. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный 1, если пользователь верифицирован, иначе 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="131" column="12" bodyfile="common/users.hpp" bodystart="131" bodyend="133"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая учетные записи пользователей. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура хранит информацию о пользователях, их профилях и верификации. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="5">
+        <label>time_point_sec</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>users</label>
+        <link refid="structusers"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>profile_hash</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>verification</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>verification</label>
+        <link refid="structverification"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>verificator</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>last_update</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>notice</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/users.hpp" line="113" column="1" bodyfile="common/users.hpp" bodystart="113" bodyend="134"/>
+    <listofallmembers>
+      <member refid="structusers_1a0aef32204b2b1f86902c63150d4f230c" prot="public" virt="non-virtual"><scope>users</scope><name>by_verified</name></member>
+      <member refid="structusers_1a6894c358dbcce05a63de742f2b5fbd8e" prot="public" virt="non-virtual"><scope>users</scope><name>primary_key</name></member>
+      <member refid="structusers_1ae07b933da6c46eb7dfe70f5c95ade143" prot="public" virt="non-virtual"><scope>users</scope><name>profile_hash</name></member>
+      <member refid="structusers_1a737eae3ed6e76f98919b26b20288164b" prot="public" virt="non-virtual"><scope>users</scope><name>username</name></member>
+      <member refid="structusers_1ac39df2d81bcbcf04648eab679a910044" prot="public" virt="non-virtual"><scope>users</scope><name>verification</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

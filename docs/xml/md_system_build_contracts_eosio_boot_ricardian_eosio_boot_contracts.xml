@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts" kind="page">
+    <compoundname>md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts</compoundname>
+    <title>eosio.boot.contracts</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">activate</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Activate Protocol Feature summary: &apos;Activate protocol feature {{nowrap feature_digest}}&apos; </para>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md76">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} activates the protocol feature with a digest of {{feature_digest}}.</para>
+<para><heading level="1">canceldelay</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Cancel Delayed Transaction summary: &apos;{{nowrap canceling_auth.actor}} cancels a delayed transaction&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md78">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{canceling_auth.actor}} cancels the delayed transaction with id {{trx_id}}.</para>
+<para><heading level="1">deleteauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Delete Account Permission summary: &apos;Delete the {{nowrap permission}} permission of {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md80">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Delete the {{permission}} permission of {{account}}.</para>
+<para><heading level="1">linkauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Link Action to Permission summary: &apos;{{nowrap account}} sets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract to {{nowrap requirement}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md82">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{account}} sets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{type}} action of the{{/if}} {{code}} contract to {{requirement}}.</para>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{else}}Any links explicitly associated to specific actions of {{code}} will take precedence.{{/if}}</para>
+<para><heading level="1">newaccount</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Create New Account summary: &apos;{{nowrap creator}} creates a new account with the name {{nowrap name}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md84">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{creator}} creates a new account with the name {{name}} and the following permissions:</para>
+<para>owner permission with authority: {{to_json owner}}</para>
+<para>active permission with authority: {{to_json active}}</para>
+<para><heading level="1">reqactivated</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Assert Protocol Feature Activation summary: &apos;Assert that protocol feature {{nowrap feature_digest}} has been activated&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md86">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>Assert that the protocol feature with a digest of {{feature_digest}} has been activated.</para>
+<para><heading level="1">setabi</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deploy Contract ABI summary: &apos;Deploy contract ABI on account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md88">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Deploy the ABI file associated with the contract on account {{account}}.</para>
+<para><heading level="1">setcode</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deploy Contract Code summary: &apos;Deploy contract code on account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md90">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Deploy compiled contract code to the account {{account}}.</para>
+<para><heading level="1">unlinkauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unlink Action from Permission summary: &apos;{{nowrap account}} unsets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md92">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{account}} removes the association between the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{type}} action of the{{/if}} {{code}} contract and its minimum required permission.</para>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{else}}This will not remove any links explicitly associated to specific actions of {{code}}.{{/if}}</para>
+<para><heading level="1">updateauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Modify Account Permission summary: &apos;Add or update the {{nowrap permission}} permission of {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_boot_ricardian_eosio_boot_contracts_1autotoc_md94">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Modify, and create if necessary, the {{permission}} permission of {{account}} to have a parent permission of {{parent}} and the following authority: {{to_json auth}} </para>
+</sect2>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.boot/ricardian/eosio.boot.contracts.md"/>
+  </compounddef>
+</doxygen>

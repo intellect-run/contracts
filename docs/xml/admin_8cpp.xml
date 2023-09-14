@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="admin_8cpp" kind="file" language="C++">
+    <compoundname>admin.cpp</compoundname>
+    <includedby refid="soviet_2soviet_8cpp" local="yes">soviet/soviet.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>soviet/src/admin.cpp</label>
+        <link refid="admin_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>soviet::addstaff(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username,<sp/>std::vector&lt;right&gt;<sp/>rights,<sp/>std::string<sp/>position_title)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>-&gt;<sp/>is_valid_chairman(chairman),<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>кооператива<sp/>может<sp/>добавлять<sp/>персонал&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>persona<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(persona<sp/>==<sp/><ref refid="structstaff" kindref="compound">staff</ref>.end())</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structstaff" kindref="compound">staff</ref>.emplace(chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.position_title<sp/>=<sp/>position_title;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.rights<sp/>=<sp/>rights;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gaff2ccc480f8674e7b2f1592ccff4f17b" kindref="member">soviet::rmstaff</ref>(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>-&gt;<sp/>is_valid_chairman(chairman),<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>кооператива<sp/>может<sp/>удалять<sp/>персонал&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>persona<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>eosio::check(persona<sp/>!=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Персона<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="structstaff" kindref="compound">staff</ref>.erase(persona);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gab568d02a607f4a7c8310a4387ef2a37e" kindref="member">soviet::setrights</ref>(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username,<sp/>std::vector&lt;right&gt;<sp/>rights)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>-&gt;<sp/>is_valid_chairman(chairman),<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>кооператива<sp/>может<sp/>удалять<sp/>персонал&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>persona<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>eosio::check(persona<sp/>!=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Персона<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="structstaff" kindref="compound">staff</ref>.modify(persona,<sp/>chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>a.rights<sp/>=<sp/>rights;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>});<sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga3c28fb6fe494d72ba1a0de8d8eb7e930" kindref="member">soviet::validate</ref>(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>decision_id)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>persona<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>eosio::check(persona<sp/>-&gt;<sp/>has_right(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;validate&quot;</highlight><highlight class="normal">_n),<sp/></highlight><highlight class="stringliteral">&quot;Недостаточно<sp/>прав<sp/>доступа&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a72a45f6b0b38d457b6995be901b3a86a" kindref="member">decisions_index</ref><sp/><ref refid="structdecisions" kindref="compound">decisions</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>decision<sp/>=<sp/><ref refid="structdecisions" kindref="compound">decisions</ref>.find(decision_id);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>eosio::check(decision<sp/>!=<sp/><ref refid="structdecisions" kindref="compound">decisions</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Документ<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="structdecisions" kindref="compound">decisions</ref>.modify(decision,<sp/>username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>d.validated<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="namespaceeosio_1acf5ac0eb7a5a29eebbe8289c11fc3768" kindref="member">autosigner_index</ref><sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coop_username.value);<sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>signer<sp/>=<sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref>.find(decision<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(signer<sp/>==<sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref>.end())</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref>.emplace(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;o)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>o.decision_id<sp/>=<sp/>decision<sp/>-&gt;<sp/>id;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="soviet/src/admin.cpp"/>
+  </compounddef>
+</doxygen>

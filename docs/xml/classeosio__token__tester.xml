@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classeosio__token__tester" kind="class" language="C++" prot="public">
+    <compoundname>eosio_token_tester</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">tester</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classeosio__token__tester_1ac4ebd75f3bdd60e208b92dad3103c964" prot="public" static="no" mutable="no">
+        <type>abi_serializer</type>
+        <definition>abi_serializer eosio_token_tester::abi_ser</definition>
+        <argsstring></argsstring>
+        <name>abi_ser</name>
+        <qualifiedname>eosio_token_tester::abi_ser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="119" column="19" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosio__token__tester_1aa5097dd3c31132c8011d419553a96c5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eosio_token_tester::eosio_token_tester</definition>
+        <argsstring>()</argsstring>
+        <name>eosio_token_tester</name>
+        <qualifiedname>eosio_token_tester::eosio_token_tester</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="20" column="4" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="20" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1ad56ce6aae361094e9aa64abcfe1f254d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::push_action</definition>
+        <argsstring>(const account_name &amp;signer, const action_name &amp;name, const variant_object &amp;data)</argsstring>
+        <name>push_action</name>
+        <qualifiedname>eosio_token_tester::push_action</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>signer</declname>
+        </param>
+        <param>
+          <type>const action_name &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const variant_object &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="37" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1a62cd9713d91f9439f7c44c7d1389dd9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_token_tester::get_stats</definition>
+        <argsstring>(const string &amp;symbolname)</argsstring>
+        <name>get_stats</name>
+        <qualifiedname>eosio_token_tester::get_stats</qualifiedname>
+        <param>
+          <type>const string &amp;</type>
+          <declname>symbolname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="48" column="16" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="48" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1a06dbdfcb390193a94f9c9913bb27b320" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_token_tester::get_account</definition>
+        <argsstring>(account_name acc, const string &amp;symbolname)</argsstring>
+        <name>get_account</name>
+        <qualifiedname>eosio_token_tester::get_account</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acc</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>symbolname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="56" column="16" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="56" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1a54c6aa3f1eba3bd1050d395eea68cfc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::create</definition>
+        <argsstring>(account_name issuer, asset maximum_supply)</argsstring>
+        <name>create</name>
+        <qualifiedname>eosio_token_tester::create</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>issuer</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>maximum_supply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="64" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="64" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1a5d64656235d5704c14b002a69e8a19ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::issue</definition>
+        <argsstring>(account_name issuer, asset quantity, string memo)</argsstring>
+        <name>issue</name>
+        <qualifiedname>eosio_token_tester::issue</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>issuer</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="73" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="73" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1ad32d6698c6e65beba5973abd80345136" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::retire</definition>
+        <argsstring>(account_name issuer, asset quantity, string memo)</argsstring>
+        <name>retire</name>
+        <qualifiedname>eosio_token_tester::retire</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>issuer</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="81" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="81" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1aeaf06091429936efca40ec64a1c2add6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::transfer</definition>
+        <argsstring>(account_name from, account_name to, asset quantity, string memo)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_token_tester::transfer</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="89" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="89" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1a9af35c072de8203b1b6edc3cec95b922" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::open</definition>
+        <argsstring>(account_name owner, const string &amp;symbolname, account_name ram_payer)</argsstring>
+        <name>open</name>
+        <qualifiedname>eosio_token_tester::open</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>symbolname</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>ram_payer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="101" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="101" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__token__tester_1aae88a895aa2c9d3d4b479740db234ee7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_token_tester::close</definition>
+        <argsstring>(account_name owner, const string &amp;symbolname)</argsstring>
+        <name>close</name>
+        <qualifiedname>eosio_token_tester::close</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>symbolname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.token_tests.cpp" line="111" column="18" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="111" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eosio_token_tester</label>
+        <link refid="classeosio__token__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tester</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eosio_token_tester</label>
+        <link refid="classeosio__token__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tester</label>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.token_tests.cpp" line="17" column="1" bodyfile="system/tests/eosio.token_tests.cpp" bodystart="17" bodyend="120"/>
+    <listofallmembers>
+      <member refid="classeosio__token__tester_1ac4ebd75f3bdd60e208b92dad3103c964" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>abi_ser</name></member>
+      <member refid="classeosio__token__tester_1aae88a895aa2c9d3d4b479740db234ee7" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>close</name></member>
+      <member refid="classeosio__token__tester_1a54c6aa3f1eba3bd1050d395eea68cfc4" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>create</name></member>
+      <member refid="classeosio__token__tester_1aa5097dd3c31132c8011d419553a96c5e" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>eosio_token_tester</name></member>
+      <member refid="classeosio__token__tester_1a06dbdfcb390193a94f9c9913bb27b320" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>get_account</name></member>
+      <member refid="classeosio__token__tester_1a62cd9713d91f9439f7c44c7d1389dd9c" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>get_stats</name></member>
+      <member refid="classeosio__token__tester_1a5d64656235d5704c14b002a69e8a19ec" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>issue</name></member>
+      <member refid="classeosio__token__tester_1a9af35c072de8203b1b6edc3cec95b922" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>open</name></member>
+      <member refid="classeosio__token__tester_1ad56ce6aae361094e9aa64abcfe1f254d" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>push_action</name></member>
+      <member refid="classeosio__token__tester_1ad32d6698c6e65beba5973abd80345136" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>retire</name></member>
+      <member refid="classeosio__token__tester_1aeaf06091429936efca40ec64a1c2add6" prot="public" virt="non-virtual"><scope>eosio_token_tester</scope><name>transfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

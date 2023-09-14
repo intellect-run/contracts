@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_e437b3d307210950a5ce594e93673a7f" kind="dir">
+    <compoundname>system/build/contracts/eosio.token/CMakeFiles/eosio.token.dir</compoundname>
+    <innerdir refid="dir_0852e89e21c11f1dc5359cda15249c3c">system/build/contracts/eosio.token/CMakeFiles/eosio.token.dir/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.token/CMakeFiles/eosio.token.dir/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_046af6842dc19e36789a35db74b01f49" kind="dir">
+    <compoundname>system/build/contracts/eosio.system/CMakeFiles/eosio.system.dir/src</compoundname>
+    <innerfile refid="block__info_8cpp_8obj_8d">block_info.cpp.obj.d</innerfile>
+    <innerfile refid="delegate__bandwidth_8cpp_8obj_8d">delegate_bandwidth.cpp.obj.d</innerfile>
+    <innerfile refid="eosio_8system_8cpp_8obj_8d">eosio.system.cpp.obj.d</innerfile>
+    <innerfile refid="exchange__state_8cpp_8obj_8d">exchange_state.cpp.obj.d</innerfile>
+    <innerfile refid="limit__auth__changes_8cpp_8obj_8d">limit_auth_changes.cpp.obj.d</innerfile>
+    <innerfile refid="name__bidding_8cpp_8obj_8d">name_bidding.cpp.obj.d</innerfile>
+    <innerfile refid="native_8cpp_8obj_8d">native.cpp.obj.d</innerfile>
+    <innerfile refid="powerup_8cpp_8obj_8d">powerup.cpp.obj.d</innerfile>
+    <innerfile refid="producer__pay_8cpp_8obj_8d">producer_pay.cpp.obj.d</innerfile>
+    <innerfile refid="rex_8cpp_8obj_8d">rex.cpp.obj.d</innerfile>
+    <innerfile refid="voting_8cpp_8obj_8d">voting.cpp.obj.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.system/CMakeFiles/eosio.system.dir/src/"/>
+  </compounddef>
+</doxygen>

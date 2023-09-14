@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1powerup__state__resource" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::powerup_state_resource</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a7757876b32f5da7946f13c72d0271cb8" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double eosiosystem::powerup_state_resource::default_exponent</definition>
+        <argsstring></argsstring>
+        <name>default_exponent</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::default_exponent</qualifiedname>
+        <initializer>= 2.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="598" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="598" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a7f3faa714dfa8be991d7cd3120959b96" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::powerup_state_resource::default_decay_secs</definition>
+        <argsstring></argsstring>
+        <name>default_decay_secs</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::default_decay_secs</qualifiedname>
+        <initializer>= 1 * <ref refid="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" kindref="member">seconds_per_day</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="601" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1ab33e538575a6bd6b1e73443701c9d6e6" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t eosiosystem::powerup_state_resource::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="607" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="607" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1ae11adb8af7452cc4b56b3c4efd27c4b5" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::weight</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="608" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="608" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1aff92555e09aaa263ed2adaa3611ef7af" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::weight_ratio</definition>
+        <argsstring></argsstring>
+        <name>weight_ratio</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::weight_ratio</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="611" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="611" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a0b3fa07302f6fb0dcb44a2b581bf868e" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::assumed_stake_weight</definition>
+        <argsstring></argsstring>
+        <name>assumed_stake_weight</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::assumed_stake_weight</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="614" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="614" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a61179807bb5fd8b89f504a58a8bd1a92" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::initial_weight_ratio</definition>
+        <argsstring></argsstring>
+        <name>initial_weight_ratio</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::initial_weight_ratio</qualifiedname>
+        <initializer>= <ref refid="namespaceeosiosystem_1ad71bd6c8c9f27a07f389e6a3ff365692" kindref="member">powerup_frac</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="615" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="615" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a11b0208fbcb1a05c5796020f924d29f6" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::target_weight_ratio</definition>
+        <argsstring></argsstring>
+        <name>target_weight_ratio</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::target_weight_ratio</qualifiedname>
+        <initializer>= <ref refid="namespaceeosiosystem_1ad71bd6c8c9f27a07f389e6a3ff365692" kindref="member">powerup_frac</ref> / 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="616" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a153836a8d10a7c6b92f1d5ee936afc14" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::powerup_state_resource::initial_timestamp</definition>
+        <argsstring></argsstring>
+        <name>initial_timestamp</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::initial_timestamp</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="617" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="617" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a6a95640c112f10d333c5605c0616250e" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::powerup_state_resource::target_timestamp</definition>
+        <argsstring></argsstring>
+        <name>target_timestamp</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::target_timestamp</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="618" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="618" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a0584f8973ecce81b54c6463575d8dadd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double eosiosystem::powerup_state_resource::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::exponent</qualifiedname>
+        <initializer>= <ref refid="structeosiosystem_1_1powerup__state__resource_1a7757876b32f5da7946f13c72d0271cb8" kindref="member">default_exponent</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="620" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="620" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a4402b1bf923b042aded39e7296f0a658" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosiosystem::powerup_state_resource::decay_secs</definition>
+        <argsstring></argsstring>
+        <name>decay_secs</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::decay_secs</qualifiedname>
+        <initializer>= <ref refid="structeosiosystem_1_1powerup__state__resource_1a7f3faa714dfa8be991d7cd3120959b96" kindref="member">default_decay_secs</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="621" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="621" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a5e30c55b2f38371c654d8a806fa26d3c" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::powerup_state_resource::min_price</definition>
+        <argsstring></argsstring>
+        <name>min_price</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::min_price</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="623" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="623" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a9792d8b112772e112a51193873e020f2" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::powerup_state_resource::max_price</definition>
+        <argsstring></argsstring>
+        <name>max_price</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::max_price</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="625" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="625" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a57a7d6c1f329f96a1964815e67bf5948" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::utilization</definition>
+        <argsstring></argsstring>
+        <name>utilization</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::utilization</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="627" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="627" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1aebc618f4a8c543197c89496058ac444a" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::powerup_state_resource::adjusted_utilization</definition>
+        <argsstring></argsstring>
+        <name>adjusted_utilization</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::adjusted_utilization</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="629" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="629" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1ad0454e9d4e79e5814f5acaf8324ea2e2" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::powerup_state_resource::utilization_timestamp</definition>
+        <argsstring></argsstring>
+        <name>utilization_timestamp</name>
+        <qualifiedname>eosiosystem::powerup_state_resource::utilization_timestamp</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="631" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="631" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>time_point_sec</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::powerup_state_resource</label>
+        <link refid="structeosiosystem_1_1powerup__state__resource"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>initial_timestamp</edgelabel>
+          <edgelabel>target_timestamp</edgelabel>
+          <edgelabel>utilization_timestamp</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>max_price</edgelabel>
+          <edgelabel>min_price</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="597" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="597" bodyend="632"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1aebc618f4a8c543197c89496058ac444a" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>adjusted_utilization</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a0b3fa07302f6fb0dcb44a2b581bf868e" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>assumed_stake_weight</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a4402b1bf923b042aded39e7296f0a658" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>decay_secs</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a7f3faa714dfa8be991d7cd3120959b96" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>default_decay_secs</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a7757876b32f5da7946f13c72d0271cb8" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>default_exponent</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a0584f8973ecce81b54c6463575d8dadd" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>exponent</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a153836a8d10a7c6b92f1d5ee936afc14" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>initial_timestamp</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a61179807bb5fd8b89f504a58a8bd1a92" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>initial_weight_ratio</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a9792d8b112772e112a51193873e020f2" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>max_price</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a5e30c55b2f38371c654d8a806fa26d3c" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>min_price</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a6a95640c112f10d333c5605c0616250e" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>target_timestamp</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a11b0208fbcb1a05c5796020f924d29f6" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>target_weight_ratio</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1a57a7d6c1f329f96a1964815e67bf5948" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>utilization</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1ad0454e9d4e79e5814f5acaf8324ea2e2" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>utilization_timestamp</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1ab33e538575a6bd6b1e73443701c9d6e6" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>version</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1ae11adb8af7452cc4b56b3c4efd27c4b5" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>weight</name></member>
+      <member refid="structeosiosystem_1_1powerup__state__resource_1aff92555e09aaa263ed2adaa3611ef7af" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>weight_ratio</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

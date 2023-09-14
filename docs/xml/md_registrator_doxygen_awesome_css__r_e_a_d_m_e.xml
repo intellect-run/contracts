@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e" kind="page">
+    <compoundname>md_registrator_doxygen_awesome_css_README</compoundname>
+    <title>Doxygen Awesome</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ulink url="https://github.com/jothepro/doxygen-awesome-css/releases/latest"><image type="html" name="https://img.shields.io/github/v/release/jothepro/doxygen-awesome-css" alt="GitHub release (latest by date)" inline="yes"></image>
+</ulink> <ulink url="https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE"><image type="html" name="https://img.shields.io/github/license/jothepro/doxygen-awesome-css" alt="GitHub" inline="yes"></image>
+</ulink></para>
+<para></para>
+<para><ulink url="https://jothepro.github.io/doxygen-awesome-css/"><image type="html" name="img/screenshot.png" alt="Screenshot of Doxygen Awesome CSS" inline="yes"></image>
+</ulink></para>
+<para> <linebreak/>
+</para>
+<para><bold>Doxygen Awesome</bold> is a custom <bold>CSS theme for doxygen</bold> html-documentation with lots of customization parameters.</para>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md6">
+<title>Motivation</title>
+<para>I really like how the doxygen html-documentation is structured! But IMHO it looks a bit outdated.</para>
+<para>This theme is an attemt to update the visuals of doxygen without changing it&apos;s overall layout too much.</para>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md7">
+<title>Features</title>
+<para><itemizedlist>
+<listitem><para>🌈 Clean, modern design</para>
+</listitem><listitem><para>🚀 Heavily customizable by adjusting CSS-variables</para>
+</listitem><listitem><para>🧩 No changes to the HTML structure of Doxygen required</para>
+</listitem><listitem><para>📱 Improved mobile usability</para>
+</listitem><listitem><para>🌘 Dark mode support!</para>
+</listitem><listitem><para>🥇 Works best with <bold>doxygen 1.9.1</bold> or <bold>1.9.2</bold></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md8">
+<title>Installation</title>
+<para>Copy the <computeroutput>css</computeroutput> files from this repository into your project or add this repository as submodule and check out the latest release:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">git<sp/>submodule<sp/>add<sp/>https://github.com/jothepro/doxygen-awesome-css.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>doxygen-awesome-css</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>checkout<sp/>v1.6.1</highlight></codeline>
+</programlisting></para>
+<para>Then make the option <computeroutput>HTML_EXTRA_STYLESHEET</computeroutput> in your Doxyfile point to the <computeroutput>css</computeroutput> files:</para>
+<para><programlisting><codeline><highlight class="normal">#<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>...</highlight></codeline>
+<codeline><highlight class="normal">HTML_EXTRA_STYLESHEET<sp/><sp/>=<sp/>doxygen-awesome-css/doxygen-awesome.css</highlight></codeline>
+</programlisting></para>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md9">
+<title>Variants</title>
+<para>There is two variants of the theme.</para>
+<para><image type="html" name="img/theme-variations.drawio.svg" alt="theme variations" inline="yes"></image>
+</para>
+<para><orderedlist>
+<listitem><para><bold>Base theme</bold>: <programlisting><codeline><highlight class="normal">#<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">GENERATE_TREEVIEW<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>YES<sp/>#<sp/>optional.<sp/>Also<sp/>works<sp/>without<sp/>treeview</highlight></codeline>
+<codeline><highlight class="normal">HTML_EXTRA_STYLESHEET<sp/><sp/>=<sp/>doxygen-awesome-css/doxygen-awesome.css</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Sidebar-only theme</bold> (experimental): <programlisting><codeline><highlight class="normal">#<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">GENERATE_TREEVIEW<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>YES<sp/>#<sp/>required!</highlight></codeline>
+<codeline><highlight class="normal">HTML_EXTRA_STYLESHEET<sp/><sp/>=<sp/>doxygen-awesome-css/doxygen-awesome.css<sp/>doxygen-awesome-css/doxygen-awesome-sidebar-only.css</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md10">
+<title>Dark Mode Toggle (Experimental)</title>
+<para>The theme comes with an experimental feature that adds a button to enable and disable the dark theme variant manually.</para>
+<para>It requires customizations in both the header &amp; footer html template.</para>
+<para><orderedlist>
+<listitem><para>Create default header &amp; footer templates: <programlisting filename=".bash"><codeline><highlight class="normal">doxygen<sp/>-w<sp/>html<sp/>header.html<sp/>footer.html<sp/>delete_me.css</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>Reference the required resources in your <computeroutput>Doxyfile</computeroutput>: <programlisting><codeline><highlight class="normal">#<sp/>Include<sp/>the<sp/>required<sp/>Javascript</highlight></codeline>
+<codeline><highlight class="normal">HTML_EXTRA_FILES<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Add<sp/>the<sp/>additional<sp/>CSS.<sp/>This<sp/>is<sp/>ONLY<sp/>required<sp/>for<sp/>the<sp/>sidebar-only<sp/>theme<sp/>variant!</highlight></codeline>
+<codeline><highlight class="normal">HTML_EXTRA_STYLESHEET<sp/><sp/>=<sp/>doxygen-awesome-css/doxygen-awesome.css<sp/>\<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doxygen-awesome-css/doxygen-awesome-sidebar-only.css<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>set<sp/>custom<sp/>header<sp/>&amp;<sp/>footer<sp/>files<sp/>generated<sp/>in<sp/>previous<sp/>step</highlight></codeline>
+<codeline><highlight class="normal">HTML_HEADER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>header.html</highlight></codeline>
+<codeline><highlight class="normal">HTML_FOOTER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>footer.html</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>In <computeroutput>header.html</computeroutput>, include <computeroutput>doxygen-awesome-darkmode-toggle.js</computeroutput> at the end of the <computeroutput>&lt;head&gt;</computeroutput>: <programlisting filename=".html"><codeline><highlight class="normal">&lt;html&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;head&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;!--<sp/>...<sp/>other<sp/>metadata<sp/>&amp;<sp/>script<sp/>includes<sp/>...<sp/>--&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;script<sp/>type=&quot;text/javascript&quot;<sp/>src=&quot;$relpath^doxygen-awesome-darkmode-toggle.js&quot;&gt;&lt;/script&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;/head&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;body&gt;</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>In <computeroutput>footer.html</computeroutput>, initialize the <computeroutput>doxygen-awesome-dark-mode-toggle</computeroutput> element at the end of the <computeroutput>&lt;body&gt;</computeroutput>: <programlisting filename=".html"><codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;!--<sp/>...<sp/>--&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;script<sp/>type=&quot;text/javascript&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>script<sp/>for<sp/>doxygen<sp/>1.9.1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$(function()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$(document).ready(function(){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>toggleButton<sp/>=<sp/>document.createElement(&apos;doxygen-awesome-dark-mode-toggle&apos;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>toggleButton.title<sp/>=<sp/>&quot;Toggle<sp/>Light/Dark<sp/>Mode&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.getElementById(&quot;MSearchBox&quot;).parentNode.appendChild(toggleButton)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;/script&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;/body&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/html&gt;</highlight></codeline>
+</programlisting> <bold>Attention</bold>: In Doxygen 1.9.2 the searchbox and it&apos;s siblings are deleted on every resize, which is why the toggle button has to be re-added every time: <programlisting filename=".js"><codeline><highlight class="normal">$(function()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>toggleButton<sp/>=<sp/>document.createElement(&apos;doxygen-awesome-dark-mode-toggle&apos;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>toggleButton.title<sp/>=<sp/>&quot;Toggle<sp/>Light/Dark<sp/>Mode&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>$(document).ready(function(){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>document.getElementById(&quot;MSearchBox&quot;).parentNode.appendChild(toggleButton)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>})</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>$(window).resize(function(){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>document.getElementById(&quot;MSearchBox&quot;).parentNode.appendChild(toggleButton)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>})</highlight></codeline>
+<codeline><highlight class="normal">})</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md11">
+<title>Examples</title>
+<para><itemizedlist>
+<listitem><para>Sidebar-Only theme: <ulink url="https://jothepro.github.io/doxygen-awesome-css/">Documentation of this repository</ulink></para>
+</listitem><listitem><para>Base theme: <ulink url="https://a4z.github.io/libsl3/">libsl3</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md12">
+<title>Configuration</title>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md13">
+<title>CSS Variables</title>
+<para>This theme is highly customizable because a lot of things are parameterized with CSS variables. The following list of parameters is not complete! You can easily modify any variable with the developer tools of your browser to find out what it does.</para>
+<para>To customize the existing theme, add your own <computeroutput>custom.css</computeroutput> and overwrite the variables there: <programlisting><codeline><highlight class="normal">HTML_EXTRA_STYLESHEET<sp/><sp/>=<sp/>doxygen-awesome-theme/doxygen-awesome.css<sp/>custom.css</highlight></codeline>
+</programlisting></para>
+<para><programlisting filename=".css"><codeline><highlight class="normal">/*<sp/>custom.css<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">html<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>/*<sp/>define<sp/>light-mode<sp/>variable<sp/>overrides<sp/>here<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">@media<sp/>(prefers-color-scheme:<sp/>dark)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>html:not(.light-mode)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/*<sp/>define<sp/>dark-mode<sp/>variable<sp/>overrides<sp/>here<sp/>if<sp/>you<sp/>DON&apos;T<sp/>use<sp/>doxygen-awesome-darkmode-toggle.js<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">html.dark-mode<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>/*<sp/>define<sp/>dark-mode<sp/>variable<sp/>overrides<sp/>here<sp/>if<sp/>you<sp/>DO<sp/>use<sp/>doxygen-awesome-darkmode-toggle.js<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><table rows="26" cols="3"><row>
+<entry thead="yes" align='left'><para>Parameter   </para>
+</entry><entry thead="yes" align='left'><para>Default (Light)   </para>
+</entry><entry thead="yes"><para>Default (Dark)    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Color Scheme</bold>:<linebreak/>
+primary theme color. This will affect the entire websites color scheme: links, arrows, labels, ...    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--primary-color</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#1779c4   </para>
+</entry><entry thead="no"><para>#1982d2    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--primary-dark-color</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#00559f   </para>
+</entry><entry thead="no"><para>#5ca8e2    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--primary-light-color</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#7aabd6   </para>
+</entry><entry thead="no"><para>#4779ac    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--primary-lighter-color</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#cae1f1   </para>
+</entry><entry thead="no"><para>#191e21    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--primary-lightest-color</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#e9f1f8   </para>
+</entry><entry thead="no"><para>#191a1c    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Spacing:</bold><linebreak/>
+default spacings. Most ui components reference these values for spacing, to provide uniform spacing on the page.    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--spacing-small</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>5px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--spacing-medium</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>10px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--spacing-large</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>16px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Border Radius</bold>:<linebreak/>
+border radius for all rounded ui components. Will affect many components, like dropdowns, memitems, codeblocks, ...    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--border-radius-small</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>4px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--border-radius-medium</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>6px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--border-radius-large</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>8px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Content Width</bold>:<linebreak/>
+The content is centered and constrained in its width. To make the content fill the whole page, set the following variable to <computeroutput>auto</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--content-maxwidth</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>1000px</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Code Fragment Colors</bold>:<linebreak/>
+Color-Scheme of multiline codeblocks    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--fragment-background</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#282c34   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--fragment-foreground</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>#fff   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Arrow Opacity</bold>:<linebreak/>
+By default the arrows in the sidebar are only visible on hover. You can override this behaviour so they are visible all the time.    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--side-nav-arrow-opacity</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>0</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--side-nav-arrow-hover-opacity</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para><computeroutput>0.9</computeroutput>   </para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para><bold>Darkmode Toggle Icon</bold>:<linebreak/>
+If you have enabled the darkmode toggle button, you can define the icon that is shown for the current mode.    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left'><para><computeroutput>--darkmode-toggle-button-icon</computeroutput>   </para>
+</entry><entry thead="no" align='left'><para>☀️   </para>
+</entry><entry thead="no"><para>🌛    </para>
+</entry></row>
+<row>
+<entry thead="no" align='left' colspan="3"><para>...and many more   </para>
+</entry></row>
+</table>
+</para>
+<para>If you miss a configuration option or find a bug, please consider <ulink url="https://github.com/jothepro/doxygen-awesome-css/issues">opening an issue</ulink>!</para>
+</sect2>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md14">
+<title>Doxygen generator</title>
+<para>The theme overrides most colors with the <computeroutput>--primary-color-*</computeroutput> variables.</para>
+<para>But there is a few small images and graphics that the theme cannot adjust or replace. To make these blend in better with the rest, it is recommended to adjust the <ulink url="https://www.doxygen.nl/manual/customize.html#minor_tweaks_colors">doxygen color settings</ulink> to something that matches the chosen color-scheme.</para>
+<para>For the default color-scheme, these values work out quite well:</para>
+<para><programlisting><codeline><highlight class="normal">#<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">HTML_COLORSTYLE_HUE<sp/><sp/><sp/><sp/>=<sp/>209</highlight></codeline>
+<codeline><highlight class="normal">HTML_COLORSTYLE_SAT<sp/><sp/><sp/><sp/>=<sp/>255</highlight></codeline>
+<codeline><highlight class="normal">HTML_COLORSTYLE_GAMMA<sp/><sp/>=<sp/>113</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md15">
+<title>Browser support</title>
+<para>Tested with</para>
+<para><itemizedlist>
+<listitem><para>Chrome 91, Chrome 91 for Android, Chrome 87 for iOS</para>
+</listitem><listitem><para>Safari 14, Safari for iOS 14</para>
+</listitem><listitem><para>Firefox 89, Firefox Daylight 89 for Android, Firefox Daylight 33 for iOS</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md16">
+<title>Tips &amp; Tricks</title>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md17">
+<title>Class Diagrams with Graphviz</title>
+<para>To get the best looking class diagrams for your documentation, generate them with Graphviz as vector graphics with transparent background:</para>
+<para><programlisting><codeline><highlight class="normal">#<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">HAVE_DOT<sp/>=<sp/>YES</highlight></codeline>
+<codeline><highlight class="normal">DOT_IMAGE_FORMAT<sp/>=<sp/>svg</highlight></codeline>
+<codeline><highlight class="normal">DOT_TRANSPARENT<sp/>=<sp/>YES</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md18">
+<title>Share your own theme customizations</title>
+<para>If you customized the theme with custom colors, spacings, font-sizes, etc. and you want to share your creation with others, you can to this <ulink url="https://github.com/jothepro/doxygen-awesome-css/discussions/13">here</ulink>.</para>
+<para>I am always curious to learn about how you made the theme look even better!</para>
+</sect2>
+</sect1>
+<sect1 id="md_registrator_doxygen_awesome_css__r_e_a_d_m_e_1autotoc_md19">
+<title>Credits</title>
+<para>This theme is heavily inspired by the beautiful <ulink url="https://vuepress.vuejs.org/">vuepress</ulink> static site generator default theme! </para>
+</sect1>
+    </detaileddescription>
+    <location file="registrator/doxygen-awesome-css/README.md"/>
+  </compounddef>
+</doxygen>

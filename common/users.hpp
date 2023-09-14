@@ -1,64 +1,92 @@
-
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая верификацию.
+ * @details Тип процедуры верификации (procedure) может принимать следующие значения:
+ * - 0: Online
+ * - 1: Video Call
+ * - 2: Qualified Signature
+ * - 3: Gosuslugi
+ * - 4: С помощью мобильного приложения (App)
+ * - 5: Некоторые платежные системы проводят верификацию в Связном (Agent Store)
+ * - 6: Верификация в банке (Bank)
+ * - 7: Верификация в кооперативе (In Person)
+ */
 struct verification {
-  eosio::name verificator; //организация, которая произвела верификацию 
-  bool is_verified;
-  uint64_t procedure;
+  eosio::name verificator; ///< Организация, которая произвела верификацию
+  bool is_verified; ///< Флаг, указывающий, прошла ли верификация
+  uint64_t procedure; ///< Тип процедуры верификации
     // (0, _('online')),
     // (1, _('video call')),
     // (2, _('qualified signature')),
     // (3, _('gosuslugi')),
-    // (4, _('app')),		-  с помощью мобильного приложения
-    // (5, _('agent store')),   	- некоторые платежные системы 
+    // (4, _('app')),   -  с помощью мобильного приложения
+    // (5, _('agent store')),     - некоторые платежные системы 
     // проводят верификацию в Связном
-    // (6, _('bank')),		- верификация в банке
-    // (7, _('in person')),	- верификация в кооперативе
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec last_update;
-  std::string notice;
+    // (6, _('bank')),    - верификация в банке
+    // (7, _('in person')), - верификация в кооперативе
+
+  eosio::time_point_sec created_at; ///< Время создания записи
+  eosio::time_point_sec last_update; ///< Время последнего обновления записи
+  std::string notice; ///< Дополнительная информация
 };
 
 
 /**
- * @brief      Таблица хранения отозванных аккаунтов гостей
  * @ingroup public_tables
- * @table newaccounts
- * @contract _me
- * @scope _me
- * @details Хранит аккаунты, отозванные у гостей путём замены их активного
- * ключа на ключ регистратора за истечением срока давности без поступления
- * оплаты.
+ * @brief Структура, представляющая учетные записи аккаунтов.
+ * @details Эта структура хранит информацию о пользователях аккаунта и их статусе, репутации и других параметрах.
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
-  eosio::name username; /*!< имя аккаунта гостя */
-  eosio::name status; /*!< статус аккаунта:
-  "pending" - ожидание утверждения советом, 
-  "active" - активный аккаунт;
-  "blocked" - заблокированный аккаунт;
-  "deleted" - удален пользователем;
-  */
+  eosio::name username; ///< Имя аккаунта гостя. Имя пользователя в системе.
+  eosio::name status; ///< Статус аккаунта:
+  // "pending" - ожидание утверждения советом,
+  // "active" - активный аккаунт;
+  // "blocked" - заблокированный аккаунт;
+  // "deleted" - удален пользователем;
   
-  uint64_t reputation;
-  std::string uid;
-  eosio::checksum256 uid_hash;
-  eosio::name type;        // user | org
-  eosio::name registrator; /*!< имя аккаунта регистратора */
-  eosio::name referer;
+  uint64_t reputation; ///< Репутация аккаунта, возможно, связанная с его деятельностью.
+  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
+  eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
+  eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
   
-  eosio::asset registration_amount; /*!< количество токенов к оплате */
-  std::string meta;
-  eosio::time_point_sec registered_at;
-  eosio::time_point_sec last_update;
-  eosio::time_point_sec signature_expires_at;
-  eosio::time_point_sec signature_last_update; 
- 
+  eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
+  std::string meta; ///< Дополнительная мета-информация о аккаунте.
+  eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
+  eosio::time_point_sec last_update; ///< Время последнего обновления информации об аккаунте.
+  eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
+  eosio::time_point_sec signature_last_update; ///< Время последнего обновления подписи аккаунта.
+
+  /**
+   * @brief Возвращает первичный ключ учетной записи аккаунта.
+   * @return uint64_t - первичный ключ, равный значению имени аккаунта.
+   */
   uint64_t primary_key() const {
     return username.value;
   } /*!< return username - primary_key */
+  
+  /**
+   * @brief Возвращает ключ по рефереру.
+   * @return uint64_t - ключ, равный значению имени реферера.
+   */
   uint64_t by_referer() const { return referer.value; }
+
+  /**
+   * @brief Возвращает ключ по типу аккаунта.
+   * @return uint64_t - ключ, равный значению типа аккаунта.
+   */
   uint64_t by_type() const { return type.value; }
+
+  /**
+   * @brief Возвращает ключ по статусу аккаунта.
+   * @return uint64_t - ключ, равный значению статуса аккаунта.
+   */
   uint64_t by_status() const { return status.value; }
+
+  /**
+   * @brief Возвращает ключ по регистратору.
+   * @return uint64_t - ключ, равный значению имени регистратора.
+   */
   uint64_t by_registr() const { return registrator.value; }
-  eosio::checksum256 byuidhash() const { return uid_hash; }
 };
 
 typedef eosio::multi_index<
@@ -73,28 +101,33 @@ typedef eosio::multi_index<
         eosio::const_mem_fun<accounts, uint64_t, &accounts::by_status>>,
     eosio::indexed_by<
         "byregistr"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>,
-    eosio::indexed_by<"byuidhash"_n,
-                      eosio::const_mem_fun<accounts, eosio::checksum256,
-                                           &accounts::byuidhash>>>
+        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>>
     accounts_index;
 
+
 /**
- * @brief      Таблица хранения объектов гостей
  * @ingroup public_tables
- * @table individuals
- * @contract _me
- * @scope _me
- * @details
+ * @brief Структура, представляющая учетные записи пользователей.
+ * @details Эта структура хранит информацию о пользователях, их профилях и верификации.
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
-  eosio::name username; /*!< имя аккаунта */
-  std::string profile_hash; 
+  eosio::name username; ///< Имя аккаунта пользователя.
+  std::string profile_hash; ///< Хэш профиля пользователя.
 
-  verification verification;
+  verification verification; ///< Информация о верификации пользователя.
+
+  /**
+   * @brief Возвращает первичный ключ учетной записи пользователя.
+   * @return uint64_t - первичный ключ, равный значению имени аккаунта пользователя.
+   */
   uint64_t primary_key() const {
     return username.value;
   } /*!< return username - primary_key */
+  
+  /**
+   * @brief Возвращает ключ по статусу верификации пользователя.
+   * @return uint64_t - ключ, равный 1, если пользователь верифицирован, иначе 0.
+   */
   uint64_t by_verified() const {
     return verification.is_verified == true ? 1 : 0;
   }
@@ -106,130 +139,156 @@ typedef eosio::multi_index<"users"_n, users,
 > users_index;
 
 
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая информацию о банке.
+ * @details Эта структура содержит информацию о номере расчётного счёта банка, времени создания, времени последнего обновления и статусе активности.
+ */
 struct bank {
-  std::string account; //Номер расчётного счёта
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec last_update;
-  bool is_active;
+  std::string account; ///< Номер расчётного счёта банка.
+  eosio::time_point_sec created_at; ///< Время создания записи.
+  eosio::time_point_sec last_update; ///< Время последнего обновления записи.
+  bool is_active; ///< Флаг, указывающий, активен ли банк.
 };
 
+
+
+/**
+\ingroup public_tables
+\brief Структура данных нового юридического лица
+*
+* Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
+*/
 struct new_org_struct {
-    eosio::name username;
-    std::string name; //Полное наименование
-    std::string short_name; //Краткое наименование;
-    std::string address; //юридический адрес;
-    std::string ogrn;
-    std::string inn;
-    std::string logo;
-    std::string phone;
-    std::string email;
-    std::string registration; //дата регистрации юрлица
-    std::string website;
-    std::vector <bank> accounts;
-    bool is_cooperative = false;
-    std::optional<eosio::name> coop_type;
-    // (0, _('union')),
-    // (1, _('conscoop')),
-    // (2, _('prodcoop')),
-    // (3, _('agricoop')),
-    // (4, _('builderscoop')),
-    // (5, _('nonprofitorg'))
-    std::optional<eosio::name> token_contract;
-    std::optional<std::string> slug; 
-    std::optional<std::string> announce;
-    std::optional<std::string> description;
-    std::optional<eosio::asset> initial;//Вступительный взнос
-    std::optional<eosio::asset> minimum;//Минимальный взнос
-    std::optional<eosio::asset> membership;//Членский взнос
-    std::optional<eosio::name> period;//Периодичность
-    // (0, _('per case')),    - зависит от программы
-    // (1, _('daily')),
-    // (2, _('weekly')),
-    // (3, _('monthly')),
-    // (4, _('quarterly')),
-    // (5, _('half a year')),
-    // (6, _('annually')),
-    // (7, _('onetime')),
-}; 
+    eosio::name username; ///< Имя аккаунта
+    std::string name; ///< Полное наименование
+    std::string short_name; ///< Краткое наименование
+    std::string address; ///< Юридический адрес
+    std::string ogrn; ///< ОГРН
+    std::string inn; ///< ИНН
+    std::string logo; ///< Логотип
+    std::string phone; ///< Номер телефона
+    std::string email; ///< Электронная почта
+    std::string registration; ///< Дата регистрации юрлица
+    std::string website; ///< Веб-сайт
+    std::vector<bank> accounts; ///< Банковские счета
+    bool is_cooperative = false; ///< Является ли кооперативом
+    std::optional<eosio::name> coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
+    std::optional<eosio::name> token_contract; ///< Договор токена
+    std::optional<std::string> slug; ///< ЧПУ (Человеко-понятный URL)
+    std::optional<std::string> announce; ///< Анонс
+    std::optional<std::string> description; ///< Описание
+    std::optional<eosio::asset> initial; ///< Вступительный взнос
+    std::optional<eosio::asset> minimum; ///< Минимальный взнос
+    std::optional<eosio::asset> membership; ///< Членский взнос
+    std::optional<eosio::name> period; ///< Периодичность (per case, daily, weekly, monthly, quarterly, half a year, annually, onetime)
+};
 
 
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая организации.
+ * @details Эта структура содержит информацию о юридических лицах (организациях), их верификации и других параметрах.
+ */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
-  eosio::name username;
-  eosio::name parent_username;
-  verification verification;
-  std::string name; //Полное наименование
-  std::string short_name; //Краткое наименование;
-  std::string address; //юридический адрес;
-  std::string ogrn;
-  std::string inn;
-  std::string logo;
-  std::string phone;
-  std::string email;
-  std::string registration; //дата регистрации юрлица
-  std::string website;
-  std::vector <bank> accounts;
-  bool is_cooperative = false;
-  std::optional<eosio::name> coop_type;
+  eosio::name username; ///< Имя аккаунта организации.
+  eosio::name parent_username; ///< Имя родительской организации, если есть.
+  verification verification; ///< Информация о верификации организации.
+  std::string name; ///< Полное наименование организации.
+  std::string short_name; ///< Краткое наименование организации.
+  std::string address; ///< Юридический адрес организации.
+  std::string ogrn; ///< ОГРН организации.
+  std::string inn; ///< ИНН организации.
+  std::string logo; ///< Логотип организации.
+  std::string phone; ///< Контактный телефон организации.
+  std::string email; ///< Электронная почта организации.
+  std::string registration; ///< Дата регистрации юридического лица.
+  std::string website; ///< Веб-сайт организации.
+  std::vector<bank> accounts; ///< Информация о банковских счетах организации.
+  bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
+  std::optional<eosio::name> coop_type; ///< Тип некоммерческой организации (если это кооператив).
+  std::optional<eosio::name> token_contract; ///< Контракт токена, связанного с организацией.
+  std::optional<std::string> slug; ///< Уникальный идентификатор организации.
+  std::optional<std::string> announce; ///< Анонс организации.
+  std::optional<std::string> description; ///< Описание организации.
+  std::optional<uint64_t> members_count; ///< Количество членов организации.
+  std::optional<uint64_t> users_count; ///< Количество пользователей организации.
+  std::optional<uint64_t> orgs_counts; ///< Количество подорганизаций.
+  std::optional<eosio::asset> initial; ///< Вступительный взнос (если применимо).
+  std::optional<eosio::asset> minimum; ///< Минимальный взнос (если применимо).
+  std::optional<eosio::asset> membership; ///< Членский взнос (если применимо).
+  std::optional<eosio::name> period; ///< Периодичность взносов.
   // Тип некоммерческой организации
-  //  (0, _('Union of Societies')),
-  // 	(1, _('Consumer Cooperative')),
-  // 	(2, _('Production Cooperative')),
-  // 	(3, _('Agriculture Cooperative')),
-  // 	(4, _('Builder\'s Societes')),
-  // 	(5, _('Non-profit organization'))
-  std::optional<eosio::name> token_contract;
-  std::optional<std::string> slug; 
-  std::optional<std::string> announce;
-  std::optional<std::string> description;
-  std::optional<uint64_t> members_count;
-  std::optional<uint64_t> users_count;
-  std::optional<uint64_t> orgs_counts;
-  std::optional<eosio::asset> initial;//Вступительный взнос
-  std::optional<eosio::asset> minimum;//Минимальный взнос
-  std::optional<eosio::asset> membership;//Членский взнос
-  std::optional<eosio::name> period;//Периодичность
-  //  (0, _('per case')), 	 - зависит от программы
-	// (1, _('daily')),
-	// (2, _('weekly')),
-	// (3, _('monthly')),
-	// (4, _('quarterly')),
-	// (5, _('half a year')),
-	// (6, _('annually')),
-	// (7, _('onetime')),
+  // (0, _('Union of Societies')),
+  // (1, _('Consumer Cooperative')),
+  // (2, _('Production Cooperative')),
+  // (3, _('Agriculture Cooperative')),
+  // (4, _('Builder\'s Societes')),
+  // (5, _('Non-profit organization'))
 
-
-
+  /**
+   * @brief Возвращает первичный ключ учетной записи организации.
+   * @return uint64_t - первичный ключ, равный значению имени аккаунта организации.
+   */
   uint64_t primary_key() const {
     return username.value;
   }
+
+  /**
+   * @brief Возвращает ключ по родительской организации.
+   * @return uint64_t - ключ, равный значению имени родительской организации.
+   */
   uint64_t by_parent() const {
     return parent_username.value;
   }
-  
+
+  /**
+   * @brief Возвращает ключ для индекса кооперативных подразделений организации.
+   * @return uint128_t - составной ключ, включающий значения имени организации и родительской организации.
+   */
   uint128_t by_coop_childs() const {
     return combine_ids(username.value, parent_username.value);
   }
 
+  /**
+   * @brief Возвращает индекс для определения, является ли организация кооперативом.
+   * @return uint64_t - ключ, равный 1, если организация является кооперативом, иначе 0.
+   */
   uint64_t is_coop_index() const {
-    return is_cooperative == true ? 1:0;
-  }
-  uint64_t bycooptype() const {
-    return coop_type.value_or(""_n).value;
+    return is_cooperative == true ? 1 : 0;
   }
 
+  /**
+   * @brief Возвращает ключ для индекса по типу некоммерческой организации (если это кооператив).
+   * @return uint64_t - ключ, равный значению типа некоммерческой организации.
+   */
+  uint64_t bycooptype() const {
+    return coop_type.value_or(eosio::name("")).value;
+  }
+
+  /**
+   * @brief Возвращает индекс для определения, является ли организация верифицированной.
+   * @return uint64_t - ключ, равный 1, если организация верифицирована, иначе 0.
+   */
   uint64_t is_verified_index() const {
     return verification.is_verified == true ? 1 : 0;
   }
 
+  /**
+   * @brief Проверяет, является ли организация кооперативом.
+   * @return bool - true, если организация является кооперативом, иначе false.
+   */
   bool is_coop() const {
     return is_cooperative;
   }
+
+  /**
+   * @brief Проверяет, верифицирована ли организация.
+   * @return bool - true, если организация верифицирована, иначе false.
+   */
   bool is_verified() const {
     return verification.is_verified;
   }
-
-
-
 };
 
 typedef eosio::multi_index<"orgs"_n, orgs,

@@ -1,0 +1,17 @@
+var searchData=
+[
+  ['card_5fid_0',['card_id',['../structdecisions.html#a6dc4138b1457997c4b4b5f493b36a57d',1,'decisions']]],
+  ['certified_1',['certified',['../structdecisions.html#a7132f2b0fb3d19396b176b64fc3e61a5',1,'decisions']]],
+  ['confirmed_2',['confirmed',['../structeosiobios_1_1block__header.html#ad0e00f2357c447a2001b9192849aa839',1,'eosiobios::block_header::confirmed()'],['../structeosiosystem_1_1block__header.html#a4982fd9b60cbc7a50b5b533af097c373',1,'eosiosystem::block_header::confirmed()']]],
+  ['context_3',['context',['../structdrafts.html#aa55f776ebd674d1c19cb20e4b8643aef',1,'drafts']]],
+  ['continuous_5frate_4',['continuous_rate',['../structeosiosystem_1_1eosio__global__state4.html#aea57a6e1843364aeed35c5fc72c51376',1,'eosiosystem::eosio_global_state4']]],
+  ['contract_5',['contract',['../structbalances__base.html#acebf235da280f8d16533b6913912da41',1,'balances_base::contract()'],['../structright.html#a72bb88ed7a935b2652edd7c01ed9cbfb',1,'right::contract()'],['../structexchange.html#ac91a681db1b7c3fefde2ffea19f2c36f',1,'exchange::contract()']]],
+  ['coop_5ftype_6',['coop_type',['../structnew__org__struct.html#a1b14a3b368d0465f82424936395c1d96',1,'new_org_struct::coop_type()'],['../structorgs.html#a5d2790457eea86c9e0e0df2afacdb52e',1,'orgs::coop_type()']]],
+  ['coop_5fusername_7',['coop_username',['../structdecisions.html#a099935f67b922b218fb1087cced67665',1,'decisions::coop_username()'],['../structexchange.html#abff4e8a374497e677c49ecbddd10f2da',1,'exchange::coop_username()'],['../structmarketplace_1_1exchange__params.html#ae61305f9bc70d0cbb1936068c7a6b979',1,'marketplace::exchange_params::coop_username()'],['../structeosio_1_1automator.html#ab35f7c3b638441dac34949ec340499a2',1,'eosio::automator::coop_username()']]],
+  ['cpu_8',['cpu',['../structeosiosystem_1_1powerup__config.html#a72a3d237b4877c573f429353dd3b8807',1,'eosiosystem::powerup_config::cpu()'],['../structeosiosystem_1_1powerup__state.html#ac00370168898d00ee8c2793728e45636',1,'eosiosystem::powerup_state::cpu()']]],
+  ['cpu_5famount_9',['cpu_amount',['../structeosiosystem_1_1refund__request.html#a8d8e9e6b4bcdbdc1b30b045feb58c6fa',1,'eosiosystem::refund_request']]],
+  ['cpu_5fweight_10',['cpu_weight',['../structeosiosystem_1_1user__resources.html#ace76500804d6a6bb4c0a2f0cc07f08b2',1,'eosiosystem::user_resources::cpu_weight()'],['../structeosiosystem_1_1delegated__bandwidth.html#a62526659e054a4e788ecfd334056dfdf',1,'eosiosystem::delegated_bandwidth::cpu_weight()'],['../structeosiosystem_1_1powerup__order.html#afedd41b2e48a95941cf15b1a44dc401c',1,'eosiosystem::powerup_order::cpu_weight()']]],
+  ['created_5fat_11',['created_at',['../structboards.html#add47e6975c343415f278a0414c714066',1,'boards::created_at()'],['../structstaff.html#ab46bbfc312f86ec081fead61e3d01a10',1,'staff::created_at()'],['../structmembers.html#a0a998eeaf1a01f48301c8ab90355891f',1,'members::created_at()'],['../structdrafts.html#ac59692d8dc164d2c514c6f2470752a38',1,'drafts::created_at()'],['../structverification.html#aa7d19ca745ac2729d841ff65548622e6',1,'verification::created_at()'],['../structbank.html#a20b362142d5c764f45432e0efd1f36e0',1,'bank::created_at()']]],
+  ['current_5frate_5fof_5fincrease_12',['current_rate_of_increase',['../structeosiosystem_1_1rex__return__pool.html#a9c40149b316eefb370e1733584ff1d6f',1,'eosiosystem::rex_return_pool']]],
+  ['current_5fweight_5fratio_13',['current_weight_ratio',['../structeosiosystem_1_1powerup__config__resource.html#a898798179695199cb53c5e71898956a9',1,'eosiosystem::powerup_config_resource']]]
+];

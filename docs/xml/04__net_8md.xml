@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="04__net_8md" kind="file" language="Markdown">
+    <compoundname>04_net.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>NET<sp/>as<sp/>system<sp/>resource</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">NET,<sp/>as<sp/>CPU<sp/>and<sp/>RAM,<sp/>is<sp/>a<sp/>very<sp/>important<sp/>system<sp/>resource<sp/>in<sp/>Antelope-based<sp/>blockchains.<sp/>NET<sp/>is<sp/>measured<sp/>by<sp/>the<sp/>byte<sp/>size<sp/>of<sp/>the<sp/>transactions<sp/>saved<sp/>in<sp/>the<sp/>blockchain<sp/>database<sp/>and<sp/>it<sp/>is<sp/>referred<sp/>to<sp/>as<sp/>`net<sp/>bandwidth`<sp/>on<sp/>the<sp/>cleos<sp/>get<sp/>account<sp/>command<sp/>result.<sp/>When<sp/>a<sp/>transaction<sp/>is<sp/>executed<sp/>by<sp/>the<sp/>blockchain<sp/>it<sp/>consumes<sp/>CPU<sp/>and<sp/>NET,<sp/>therefore<sp/>sufficient<sp/>NET<sp/>must<sp/>be<sp/>staked<sp/>in<sp/>order<sp/>for<sp/>transactions<sp/>to<sp/>complete.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>more<sp/>details<sp/>about<sp/>staking<sp/>on<sp/>Antelope-based<sp/>blockchains<sp/>refer<sp/>to<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[Staking<sp/>Mechanism](https://docs.eosnetwork.com/docs/latest/overview/technical_features#staking-mechanism).</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[Staking<sp/>on<sp/>Antelope-based<sp/>blockchains](05_stake.md)</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/01_key-concepts/04_net.md"/>
+  </compounddef>
+</doxygen>

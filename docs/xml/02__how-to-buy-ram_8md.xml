@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="02__how-to-buy-ram_8md" kind="file" language="Markdown">
+    <compoundname>02_how-to-buy-ram.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>How<sp/>to<sp/>buy<sp/>RAM</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Goal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Setup<sp/>an<sp/>account<sp/>that<sp/>require<sp/>multiple<sp/>signatures<sp/>for<sp/>signing<sp/>a<sp/>transaction</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Before<sp/>you<sp/>begin</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>You<sp/>have<sp/>an<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Ensure<sp/>the<sp/>reference<sp/>system<sp/>contracts<sp/>from<sp/>`reference-contracts`<sp/>repository<sp/>is<sp/>deployed<sp/>and<sp/>used<sp/>to<sp/>manage<sp/>system<sp/>resources</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>You<sp/>have<sp/>sufficient<sp/>token<sp/>allocated<sp/>to<sp/>your<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Install<sp/>the<sp/>currently<sp/>supported<sp/>version<sp/>of<sp/>cleos</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Unlock<sp/>your<sp/>wallet</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Steps</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Buys<sp/>RAM<sp/>in<sp/>value<sp/>of<sp/>0.1<sp/>SYS<sp/>tokens<sp/>for<sp/>account<sp/>`alice`:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>system<sp/>buyram<sp/>alice<sp/>alice<sp/>&quot;0.1<sp/>SYS&quot;<sp/>-p<sp/>alice@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/04_guides/02_how-to-buy-ram.md"/>
+  </compounddef>
+</doxygen>

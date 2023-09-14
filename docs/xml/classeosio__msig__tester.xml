@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classeosio__msig__tester" kind="class" language="C++" prot="public">
+    <compoundname>eosio_msig_tester</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">tester</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classeosio__msig__tester_1a9efbc12e7c9c1af0cbdf720d001ece21" prot="public" static="no" mutable="no">
+        <type>abi_serializer</type>
+        <definition>abi_serializer eosio_msig_tester::abi_ser</definition>
+        <argsstring></argsstring>
+        <name>abi_ser</name>
+        <qualifiedname>eosio_msig_tester::abi_ser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="151" column="19" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosio__msig__tester_1aa85fb06f88b529a259bcee1e44b39c6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eosio_msig_tester::eosio_msig_tester</definition>
+        <argsstring>()</argsstring>
+        <name>eosio_msig_tester</name>
+        <qualifiedname>eosio_msig_tester::eosio_msig_tester</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="21" column="4" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="21" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1a35d3eb428ee15ec4872b9c5de7c69b7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>transaction_trace_ptr</type>
+        <definition>transaction_trace_ptr eosio_msig_tester::create_account_with_resources</definition>
+        <argsstring>(account_name a, account_name creator, asset ramfunds, bool multisig, asset net=core_sym::from_string(&quot;10.0000&quot;), asset cpu=core_sym::from_string(&quot;10.0000&quot;))</argsstring>
+        <name>create_account_with_resources</name>
+        <qualifiedname>eosio_msig_tester::create_account_with_resources</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>ramfunds</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>multisig</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>net</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;10.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>cpu</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;10.0000&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="41" column="26" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="41" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1aec0f68b4b38258dcaa16a56cbd5df981" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_msig_tester::create_currency</definition>
+        <argsstring>(name contract, name manager, asset maxsupply)</argsstring>
+        <name>create_currency</name>
+        <qualifiedname>eosio_msig_tester::create_currency</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>contract</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>maxsupply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="83" column="9" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="83" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1afbc2c6b54ca89e23f38c69c17a7614e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_msig_tester::issue</definition>
+        <argsstring>(name to, const asset &amp;amount, name manager=config::system_account_name)</argsstring>
+        <name>issue</name>
+        <qualifiedname>eosio_msig_tester::issue</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="90" column="9" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="90" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1a36777e1be270e12da6820c5ced36a7cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_msig_tester::transfer</definition>
+        <argsstring>(name from, name to, const string &amp;amount, name manager=config::system_account_name)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_msig_tester::transfer</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="97" column="9" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="97" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1a5e829b6d3bbc790950a6b6975569ecba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_msig_tester::get_balance</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_balance</name>
+        <qualifiedname>eosio_msig_tester::get_balance</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="105" column="10" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="105" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1a347f829125d7ae438a4cb83ef97d4127" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>transaction_trace_ptr</type>
+        <definition>transaction_trace_ptr eosio_msig_tester::push_action</definition>
+        <argsstring>(const account_name &amp;signer, const action_name &amp;name, const variant_object &amp;data, bool auth=true)</argsstring>
+        <name>push_action</name>
+        <qualifiedname>eosio_msig_tester::push_action</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>signer</declname>
+        </param>
+        <param>
+          <type>const action_name &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const variant_object &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>auth</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="125" column="26" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="125" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1ad4ab30dbfdd5474e435f18b529c3adbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>transaction</type>
+        <definition>transaction eosio_msig_tester::reqauth</definition>
+        <argsstring>(account_name from, const vector&lt; permission_level &gt; &amp;auths, const fc::microseconds &amp;max_serialization_time)</argsstring>
+        <name>reqauth</name>
+        <qualifiedname>eosio_msig_tester::reqauth</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const vector&lt; <ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref> &gt; &amp;</type>
+          <declname>auths</declname>
+        </param>
+        <param>
+          <type>const fc::microseconds &amp;</type>
+          <declname>max_serialization_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="147" column="16" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="154" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__msig__tester_1ac643f42b775707bd1f9817b367ba976d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_msig_tester::check_traces</definition>
+        <argsstring>(transaction_trace_ptr trace, std::vector&lt; std::map&lt; std::string, name &gt; &gt; res)</argsstring>
+        <name>check_traces</name>
+        <qualifiedname>eosio_msig_tester::check_traces</qualifiedname>
+        <param>
+          <type>transaction_trace_ptr</type>
+          <declname>trace</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::map&lt; std::string, name &gt; &gt;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.msig_tests.cpp" line="149" column="9" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="182" bodyend="193"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eosio_msig_tester</label>
+        <link refid="classeosio__msig__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tester</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eosio_msig_tester</label>
+        <link refid="classeosio__msig__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tester</label>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.msig_tests.cpp" line="19" column="1" bodyfile="system/tests/eosio.msig_tests.cpp" bodystart="19" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classeosio__msig__tester_1a9efbc12e7c9c1af0cbdf720d001ece21" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>abi_ser</name></member>
+      <member refid="classeosio__msig__tester_1ac643f42b775707bd1f9817b367ba976d" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>check_traces</name></member>
+      <member refid="classeosio__msig__tester_1a35d3eb428ee15ec4872b9c5de7c69b7c" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>create_account_with_resources</name></member>
+      <member refid="classeosio__msig__tester_1aec0f68b4b38258dcaa16a56cbd5df981" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>create_currency</name></member>
+      <member refid="classeosio__msig__tester_1aa85fb06f88b529a259bcee1e44b39c6e" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>eosio_msig_tester</name></member>
+      <member refid="classeosio__msig__tester_1a5e829b6d3bbc790950a6b6975569ecba" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>get_balance</name></member>
+      <member refid="classeosio__msig__tester_1afbc2c6b54ca89e23f38c69c17a7614e1" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>issue</name></member>
+      <member refid="classeosio__msig__tester_1a347f829125d7ae438a4cb83ef97d4127" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>push_action</name></member>
+      <member refid="classeosio__msig__tester_1ad4ab30dbfdd5474e435f18b529c3adbb" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>reqauth</name></member>
+      <member refid="classeosio__msig__tester_1a36777e1be270e12da6820c5ced36a7cf" prot="public" virt="non-virtual"><scope>eosio_msig_tester</scope><name>transfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

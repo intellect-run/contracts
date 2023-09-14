@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts" kind="page">
+    <compoundname>md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts</compoundname>
+    <title>eosio.system.contracts</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">activate</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Activate Protocol Feature summary: &apos;Activate protocol feature {{nowrap feature_digest}}&apos; </para>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md108">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} activates the protocol feature with a digest of {{feature_digest}}.</para>
+<para><heading level="1">bidname</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Bid On a Premium Account Name summary: &apos;{{nowrap bidder}} bids on the premium account name {{nowrap newname}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md110">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{bidder}} bids {{bid}} on an auction to own the premium account name {{newname}}.</para>
+<para>{{bidder}} transfers {{bid}} to the system to cover the cost of the bid, which will be returned to {{bidder}} only if {{bidder}} is later outbid in the auction for {{newname}} by another account.</para>
+<para>If the auction for {{newname}} closes with {{bidder}} remaining as the highest bidder, {{bidder}} will be authorized to create the account with name {{newname}}.</para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md111">
+<title>Bid refund behavior</title>
+<para>If {{bidder}}’s bid on {{newname}} is later outbid by another account, {{bidder}} will be able to claim back the transferred amount of {{bid}}. The system will attempt to automatically do this on behalf of {{bidder}}, but the automatic refund may occasionally fail which will then require {{bidder}} to manually claim the refund with the bidrefund action.</para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md112">
+<title>Auction close criteria</title>
+<para>The system should automatically close the auction for {{newname}} if it satisfies the condition that over a period of two minutes the following two properties continuously hold:</para>
+<para><itemizedlist>
+<listitem><para>no one has bid on {{newname}} within the last 24 hours;</para>
+</listitem><listitem><para>and, the value of the latest bid on {{newname}} is greater than the value of the bids on each of the other open auctions.</para>
+</listitem></itemizedlist>
+</para>
+<para>Be aware that the condition to close the auction described above are sufficient but not necessary. The auction for {{newname}} cannot close unless both of the properties are simultaneously satisfied, but it may be closed without requiring the properties to hold for a period of 2 minutes.</para>
+<para><heading level="1">bidrefund</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Claim Refund on Name Bid summary: &apos;Claim refund on {{nowrap newname}} bid&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md114">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{bidder}} claims refund on {{newname}} bid after being outbid by someone else.</para>
+<para><heading level="1">buyram</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Buy RAM summary: &apos;{{nowrap payer}} buys RAM on behalf of {{nowrap receiver}} by paying {{nowrap quant}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md116">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>{{payer}} buys RAM on behalf of {{receiver}} by paying {{quant}}. This transaction will incur a 0.5% fee out of {{quant}} and the amount of RAM delivered will depend on market rates.</para>
+<para><heading level="1">buyrambytes</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Buy RAM summary: &apos;{{nowrap payer}} buys {{nowrap bytes}} bytes of RAM on behalf of {{nowrap receiver}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md118">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>{{payer}} buys approximately {{bytes}} bytes of RAM on behalf of {{receiver}} by paying market rates for RAM. This transaction will incur a 0.5% fee and the cost will depend on market rates.</para>
+<para><heading level="1">buyrex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Buy REX Tokens summary: &apos;{{nowrap from}} buys REX tokens in exchange for {{nowrap amount}} and their vote stake increases by {{nowrap amount}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md120">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{amount}} is taken out of {{from}}’s REX fund and used to purchase REX tokens at the current market exchange rate. In order for the action to succeed, {{from}} must have voted for a proxy or at least 21 block producers. {{amount}} is added to {{from}}’s vote stake.</para>
+<para>A sell order of the purchased amount can only be initiated after waiting for the maturity period of 4 to 5 days to pass. Even then, depending on the market conditions, the initiated sell order may not be executed immediately.</para>
+<para><heading level="1">canceldelay</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Cancel Delayed Transaction summary: &apos;{{nowrap canceling_auth.actor}} cancels a delayed transaction&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md122">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{canceling_auth.actor}} cancels the delayed transaction with id {{trx_id}}.</para>
+<para><heading level="1">claimrewards</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Claim Block Producer Rewards summary: &apos;{{nowrap owner}} claims block and vote rewards&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md124">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{owner}} claims block and vote rewards from the system.</para>
+<para><heading level="1">closerex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Cleanup Unused REX Data summary: &apos;Delete REX related DB entries and free associated RAM&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md126">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Delete REX related DB entries and free associated RAM for {{owner}}.</para>
+<para>To fully delete all REX related DB entries, {{owner}} must ensure that their REX balance and REX fund amounts are both zero and they have no outstanding loans.</para>
+<para><heading level="1">cnclrexorder</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Cancel Scheduled REX Sell Order summary: &apos;{{nowrap owner}} cancels a scheduled sell order if not yet filled&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md128">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{owner}} cancels their open sell order.</para>
+<para><heading level="1">consolidate</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Consolidate REX Maturity Buckets Into One summary: &apos;Consolidate REX maturity buckets into one&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md130">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Consolidate REX maturity buckets into one bucket that {{owner}} will not be able to sell until 4 to 5 days later.</para>
+<para><heading level="1">defcpuloan</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Withdraw from the Fund of a Specific CPU Loan summary: &apos;{{nowrap from}} transfers {{nowrap amount}} from the fund of CPU loan number {{nowrap loan_num}} back to REX fund&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md132">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} transfers {{amount}} from the fund of CPU loan number {{loan_num}} back to REX fund.</para>
+<para><heading level="1">defnetloan</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Withdraw from the Fund of a Specific NET Loan summary: &apos;{{nowrap from}} transfers {{nowrap amount}} from the fund of NET loan number {{nowrap loan_num}} back to REX fund&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md134">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} transfers {{amount}} from the fund of NET loan number {{loan_num}} back to REX fund.</para>
+<para><heading level="1">delegatebw</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Stake Tokens for NET and/or CPU summary: &apos;Stake tokens for NET and/or CPU and optionally transfer ownership&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md136">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> transfer}} {{from}} stakes on behalf of {{receiver}} {{stake_net_quantity}} for NET bandwidth and {{stake_cpu_quantity}} for CPU bandwidth.</para>
+<para>Staked tokens will also be transferred to {{receiver}}. The sum of these two quantities will be deducted from {{from}}’s liquid balance and add to the vote weight of {{receiver}}. {{else}} {{from}} stakes to self and delegates to {{receiver}} {{stake_net_quantity}} for NET bandwidth and {{stake_cpu_quantity}} for CPU bandwidth.</para>
+<para>The sum of these two quantities add to the vote weight of {{from}}. {{/if}}</para>
+<para><heading level="1">deleteauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Delete Account Permission summary: &apos;Delete the {{nowrap permission}} permission of {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md138">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Delete the {{permission}} permission of {{account}}.</para>
+<para><heading level="1">deposit</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deposit Into REX Fund summary: &apos;Add to {{nowrap owner}}’s REX fund by transferring {{nowrap amount}} from {{nowrap owner}}’s liquid balance&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md140">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Transfer {{amount}} from {{owner}}’s liquid balance to {{owner}}’s REX fund. All proceeds and expenses related to REX are added to or taken out of this fund.</para>
+<para><heading level="1">fundcpuloan</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deposit into the Fund of a Specific CPU Loan summary: &apos;{{nowrap from}} funds a CPU loan&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md142">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} transfers {{payment}} from REX fund to the fund of CPU loan number {{loan_num}} in order to be used in loan renewal at expiry. {{from}} can withdraw the total balance of the loan fund at any time.</para>
+<para><heading level="1">fundnetloan</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deposit into the Fund of a Specific NET Loan summary: &apos;{{nowrap from}} funds a NET loan&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md144">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} transfers {{payment}} from REX fund to the fund of NET loan number {{loan_num}} in order to be used in loan renewal at expiry. {{from}} can withdraw the total balance of the loan fund at any time.</para>
+<para><heading level="1">init</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Initialize System Contract summary: &apos;Initialize system contract&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md146">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>Initialize system contract. The core token symbol will be set to {{core}}.</para>
+<para><heading level="1">linkauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Link Action to Permission summary: &apos;{{nowrap account}} sets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract to {{nowrap requirement}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md148">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{account}} sets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{type}} action of the{{/if}} {{code}} contract to {{requirement}}.</para>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{else}}Any links explicitly associated to specific actions of {{code}} will take precedence.{{/if}}</para>
+<para><heading level="1">newaccount</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Create New Account summary: &apos;{{nowrap creator}} creates a new account with the name {{nowrap name}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md150">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{creator}} creates a new account with the name {{name}} and the following permissions:</para>
+<para>owner permission with authority: {{to_json owner}}</para>
+<para>active permission with authority: {{to_json active}}</para>
+<para><heading level="1">mvfrsavings</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unlock REX Tokens summary: &apos;{{nowrap owner}} unlocks REX Tokens&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md152">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{owner}} unlocks {{rex}} by moving it out of the REX savings bucket. The unlocked REX tokens cannot be sold until 4 to 5 days later.</para>
+<para><heading level="1">mvtosavings</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Lock REX Tokens summary: &apos;{{nowrap owner}} locks REX Tokens&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md154">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{owner}} locks {{rex}} by moving it into the REX savings bucket. The locked REX tokens cannot be sold directly and will have to be unlocked explicitly before selling.</para>
+<para><heading level="1">refund</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Claim Unstaked Tokens summary: &apos;Return previously unstaked tokens to {{nowrap owner}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md156">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Return previously unstaked tokens to {{owner}} after the unstaking period has elapsed.</para>
+<para><heading level="1">regproducer</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Register as a Block Producer Candidate summary: &apos;Register {{nowrap producer}} account as a block producer candidate&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md158">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/voting.png#db28cd3db6e62d4509af3644ce7d377329482a14bb4bfaca2aa5f1400d8e8a84</title>
+<para>Register {{producer}} account as a block producer candidate.</para>
+<para>URL: {{url}} Location code: {{location}} Block signing key: {{producer_key}}</para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md159">
+<title>Block Producer Agreement</title>
+<para>{{$clauses.BlockProducerAgreement}}</para>
+<para><heading level="1">regproducer2</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Register as a Block Producer Candidate summary: &apos;Register {{nowrap producer}} account as a block producer candidate&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md161">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/voting.png#db28cd3db6e62d4509af3644ce7d377329482a14bb4bfaca2aa5f1400d8e8a84</title>
+<para>Register {{producer}} account as a block producer candidate.</para>
+<para>URL: {{url}} Location code: {{location}} Block signing authority: {{to_json producer_authority}}</para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md162">
+<title>Block Producer Agreement</title>
+<para>{{$clauses.BlockProducerAgreement}}</para>
+<para><heading level="1">regproxy</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Register/unregister as a Proxy summary: &apos;Register/unregister {{nowrap proxy}} as a proxy account&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md164">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/voting.png#db28cd3db6e62d4509af3644ce7d377329482a14bb4bfaca2aa5f1400d8e8a84</title>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> isproxy}} {{proxy}} registers as a proxy that can vote on behalf of accounts that appoint it as their proxy. {{else}} {{proxy}} unregisters as a proxy that can vote on behalf of accounts that appoint it as their proxy. {{/if}}</para>
+<para><heading level="1">rentcpu</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Rent CPU Bandwidth for 30 Days summary: &apos;{{nowrap from}} pays {{nowrap loan_payment}} to rent CPU bandwidth for {{nowrap receiver}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md166">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} pays {{loan_payment}} to rent CPU bandwidth on behalf of {{receiver}} for a period of 30 days.</para>
+<para>{{loan_payment}} is taken out of {{from}}’s REX fund. The market price determines the number of tokens to be staked to {{receiver}}’s CPU resources. In addition, {{from}} provides {{loan_fund}}, which is also taken out of {{from}}’s REX fund, to be used for automatic renewal of the loan.</para>
+<para>At expiration, if the loan has less funds than {{loan_payment}}, it is closed and lent tokens that have been staked are taken out of {{receiver}}’s CPU bandwidth. Otherwise, it is renewed at the market price at the time of renewal, that is, the number of staked tokens is recalculated and {{receiver}}’s CPU bandwidth is updated accordingly. {{from}} can fund or defund a loan at any time before expiration. When the loan is closed, {{from}} is refunded any tokens remaining in the loan fund.</para>
+<para><heading level="1">rentnet</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Rent NET Bandwidth for 30 Days summary: &apos;{{nowrap from}} pays {{nowrap loan_payment}} to rent NET bandwidth for {{nowrap receiver}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md168">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} pays {{loan_payment}} to rent NET bandwidth on behalf of {{receiver}} for a period of 30 days.</para>
+<para>{{loan_payment}} is taken out of {{from}}’s REX fund. The market price determines the number of tokens to be staked to {{receiver}}’s NET resources for 30 days. In addition, {{from}} provides {{loan_fund}}, which is also taken out of {{from}}’s REX fund, to be used for automatic renewal of the loan.</para>
+<para>At expiration, if the loan has less funds than {{loan_payment}}, it is closed and lent tokens that have been staked are taken out of {{receiver}}’s NET bandwidth. Otherwise, it is renewed at the market price at the time of renewal, that is, the number of staked tokens is recalculated and {{receiver}}’s NET bandwidth is updated accordingly. {{from}} can fund or defund a loan at any time before expiration. When the loan is closed, {{from}} is refunded any tokens remaining in the loan fund.</para>
+<para><heading level="1">rexexec</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Perform REX Maintenance summary: &apos;Process sell orders and expired loans&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md170">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Performs REX maintenance by processing a maximum of {{max}} REX sell orders and expired loans. Any account can execute this action.</para>
+<para><heading level="1">rmvproducer</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Forcibly Unregister a Block Producer Candidate summary: &apos;{{nowrap producer}} is unregistered as a block producer candidate&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md172">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} unregisters {{producer}} as a block producer candidate. {{producer}} account will retain its votes and those votes can change based on voter stake changes or votes removed from {{producer}}. However new voters will not be able to vote for {{producer}} while it remains unregistered.</para>
+<para><heading level="1">sellram</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Sell RAM From Account summary: &apos;Sell unused RAM from {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md174">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>Sell {{bytes}} bytes of unused RAM from account {{account}} at market price. This transaction will incur a 0.5% fee on the proceeds which depend on market rates.</para>
+<para><heading level="1">sellrex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Sell REX Tokens in Exchange for EOS summary: &apos;{{nowrap from}} sells {{nowrap rex}} tokens&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md176">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from}} initiates a sell order to sell {{rex}} tokens at the market exchange rate during the time at which the order is ultimately executed. If {{from}} already has an open sell order in the sell queue, {{rex}} will be added to the amount of the sell order without change the position of the sell order within the queue. Once the sell order is executed, proceeds are added to {{from}}’s REX fund, the value of sold REX tokens is deducted from {{from}}’s vote stake, and votes are updated accordingly.</para>
+<para>Depending on the market conditions, it may not be possible to fill the entire sell order immediately. In such a case, the sell order is added to the back of a sell queue. A sell order at the front of the sell queue will automatically be executed when the market conditions allow for the entire order to be filled. Regardless of the market conditions, the system is designed to execute this sell order within 30 days. {{from}} can cancel the order at any time before it is filled using the cnclrexorder action.</para>
+<para><heading level="1">setabi</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deploy Contract ABI summary: &apos;Deploy contract ABI on account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md178">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Deploy the ABI file associated with the contract on account {{account}}.</para>
+<para><heading level="1">setacctcpu</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Explicitly Manage the CPU Quota of Account summary: &apos;Explicitly manage the CPU bandwidth quota of account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md180">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{#if_has_value cpu_weight}} Explicitly manage the CPU bandwidth quota of account {{account}} by pinning it to a weight of {{cpu_weight}}.</para>
+<para>{{account}} can stake and unstake, however, it will not change their CPU bandwidth quota as long as it remains pinned. {{else}} Unpin the CPU bandwidth quota of account {{account}}. The CPU bandwidth quota of {{account}} will be driven by the current tokens staked for CPU bandwidth by {{account}}. {{/if_has_value}}</para>
+<para><heading level="1">setacctnet</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Explicitly Manage the NET Quota of Account summary: &apos;Explicitly manage the NET bandwidth quota of account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md182">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{#if_has_value net_weight}} Explicitly manage the network bandwidth quota of account {{account}} by pinning it to a weight of {{net_weight}}.</para>
+<para>{{account}} can stake and unstake, however, it will not change their NET bandwidth quota as long as it remains pinned. {{else}} Unpin the NET bandwidth quota of account {{account}}. The NET bandwidth quota of {{account}} will be driven by the current tokens staked for NET bandwidth by {{account}}. {{/if_has_value}}</para>
+<para><heading level="1">setacctram</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Explicitly Manage the RAM Quota of Account summary: &apos;Explicitly manage the RAM quota of account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md184">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{#if_has_value ram_bytes}} Explicitly manage the RAM quota of account {{account}} by pinning it to {{ram_bytes}} bytes.</para>
+<para>{{account}} can buy and sell RAM, however, it will not change their RAM quota as long as it remains pinned. {{else}} Unpin the RAM quota of account {{account}}. The RAM quota of {{account}} will be driven by the current RAM holdings of {{account}}. {{/if_has_value}}</para>
+<para><heading level="1">setalimits</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Adjust Resource Limits of Account summary: &apos;Adjust resource limits of account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md186">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} updates {{account}}’s resource limits to have a RAM quota of {{ram_bytes}} bytes, a NET bandwidth quota of {{net_weight}} and a CPU bandwidth quota of {{cpu_weight}}.</para>
+<para><heading level="1">setcode</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Deploy Contract Code summary: &apos;Deploy contract code on account {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md188">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Deploy compiled contract code to the account {{account}}.</para>
+<para><heading level="1">setparams</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Set System Parameters summary: &apos;Set System Parameters&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md190">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} sets system parameters to: {{to_json params}}</para>
+<para><heading level="1">setpriv</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Make an Account Privileged or Unprivileged summary: &apos;{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> is_priv}}Make {{nowrap account}} privileged{{else}}Remove privileged status of {{nowrap account}}{{/if}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md192">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> is_priv}} {{$action.account}} makes {{account}} privileged. {{else}} {{$action.account}} removes privileged status of {{account}}. {{/if}}</para>
+<para><heading level="1">setram</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Configure the Available RAM summary: &apos;Configure the available RAM&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md194">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} configures the available RAM to {{max_ram_size}} bytes.</para>
+<para><heading level="1">setramrate</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Set the Rate of Increase of RAM summary: &apos;Set the rate of increase of RAM per block&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md196">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} sets the rate of increase of RAM to {{bytes_per_block}} bytes/block.</para>
+<para><heading level="1">setrex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Adjust REX Pool Virtual Balance summary: &apos;Adjust REX Pool Virtual Balance&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md198">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} adjusts REX loan rate by setting REX pool virtual balance to {{balance}}. No token transfer or issue is executed in this action.</para>
+<para><heading level="1">setinflation</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Set Inflation Parameters summary: &apos;Set inflation parameters&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md200">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} sets the inflation parameters as follows:</para>
+<para><itemizedlist>
+<listitem><para>Annual inflation rate (in units of a hundredth of a percent): {{annual_rate}}</para>
+</listitem><listitem><para>Fraction of inflation used to reward block producers: 10000/{{inflation_pay_factor}}</para>
+</listitem><listitem><para>Fraction of block producer rewards to be distributed proportional to blocks produced: 10000/{{votepay_factor}}</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">undelegatebw</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unstake Tokens for NET and/or CPU summary: &apos;Unstake tokens for NET and/or CPU from {{nowrap receiver}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md202">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>{{from}} unstakes from {{receiver}} {{unstake_net_quantity}} for NET bandwidth and {{unstake_cpu_quantity}} for CPU bandwidth.</para>
+<para>The sum of these two quantities will be removed from the vote weight of {{receiver}} and will be made available to {{from}} after an uninterrupted 3 day period without further unstaking by {{from}}. After the uninterrupted 3 day period passes, the system will attempt to automatically return the funds to {{from}}’s regular token balance. However, this automatic refund may occasionally fail which will then require {{from}} to manually claim the funds with the refund action.</para>
+<para><heading level="1">unlinkauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unlink Action from Permission summary: &apos;{{nowrap account}} unsets the minimum required permission for the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md204">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>{{account}} removes the association between the {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{type}} action of the{{/if}} {{code}} contract and its minimum required permission.</para>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> type}}{{else}}This will not remove any links explicitly associated to specific actions of {{code}}.{{/if}}</para>
+<para><heading level="1">unregprod</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unregister as a Block Producer Candidate summary: &apos;{{nowrap producer}} unregisters as a block producer candidate&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md206">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/voting.png#db28cd3db6e62d4509af3644ce7d377329482a14bb4bfaca2aa5f1400d8e8a84</title>
+<para>{{producer}} unregisters as a block producer candidate. {{producer}} account will retain its votes and those votes can change based on voter stake changes or votes removed from {{producer}}. However new voters will not be able to vote for {{producer}} while it remains unregistered.</para>
+<para><heading level="1">unstaketorex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Buy REX Tokens Using Staked Tokens summary: &apos;{{nowrap owner}} buys REX tokens in exchange for tokens currently staked to NET and/or CPU&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md208">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>{{from_net}} and {{from_cpu}} are withdrawn from {{receiver}}’s NET and CPU bandwidths respectively. These funds are used to purchase REX tokens at the current market exchange rate. In order for the action to succeed, {{owner}} must have voted for a proxy or at least 21 block producers.</para>
+<para>A sell order of the purchased amount can only be initiated after waiting for the maturity period of 4 to 5 days to pass. Even then, depending on the market conditions, the initiated sell order may not be executed immediately.</para>
+<para><heading level="1">updateauth</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Modify Account Permission summary: &apos;Add or update the {{nowrap permission}} permission of {{nowrap account}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md210">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/account.png#3d55a2fc3a5c20b456f5657faf666bc25ffd06f4836c5e8256f741149b0b294f</title>
+<para>Modify, and create if necessary, the {{permission}} permission of {{account}} to have a parent permission of {{parent}} and the following authority: {{to_json auth}}</para>
+<para><heading level="1">updaterex</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Update REX Owner Vote Weight summary: &apos;Update vote weight to current value of held REX tokens&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md212">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Update vote weight of {{owner}} account to current value of held REX tokens.</para>
+<para><heading level="1">updtrevision</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Update System Contract Revision Number summary: &apos;Update system contract revision number&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md214">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/admin.png#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e</title>
+<para>{{$action.account}} advances the system contract revision number to {{revision}}.</para>
+<para><heading level="1">voteproducer</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Vote for Block Producers summary: &apos;{{nowrap voter}} votes for {{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> proxy}}the proxy {{nowrap proxy}}{{else}}up to 30 block producer candidates{{/if}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md216">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/voting.png#db28cd3db6e62d4509af3644ce7d377329482a14bb4bfaca2aa5f1400d8e8a84</title>
+<para>{{<ref refid="eosio_8system__tests_8cpp_1a020e67667b720177b3b9f825306965f5" kindref="member">if</ref> proxy}} {{voter}} votes for the proxy {{proxy}}. At the time of voting the full weight of voter’s staked (CPU + NET) tokens will be cast towards each of the producers voted by {{proxy}}. {{else}} {{voter}} votes for the following block producer candidates:</para>
+<para>{{#each producers}}<itemizedlist>
+<listitem><para>{{this}} {{/each}}</para>
+</listitem></itemizedlist>
+</para>
+<para>At the time of voting the full weight of voter’s staked (CPU + NET) tokens will be cast towards each of the above producers. {{/if}}</para>
+<para><heading level="1">withdraw</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Withdraw from REX Fund summary: &apos;Withdraw {{nowrap amount}} from {{nowrap owner}}’s REX fund by transferring to {{owner}}’s liquid balance&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md218">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/rex.png#d229837fa62a464b9c71e06060aa86179adf0b3f4e3b8c4f9702f4f4b0c340a8</title>
+<para>Withdraws {{amount}} from {{owner}}’s REX fund and transfer them to {{owner}}’s liquid balance.</para>
+<para><heading level="1">powerup</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Powerup resources summary: &apos;User may powerup to reserve resources&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_system_ricardian_eosio_system_contracts_1autotoc_md220">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/resource.png#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19</title>
+<para>Users may use the powerup action to reserve resources. </para>
+</sect2>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.system/ricardian/eosio.system.contracts.md"/>
+  </compounddef>
+</doxygen>

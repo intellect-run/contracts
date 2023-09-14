@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="system_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Reference<sp/>contracts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reference<sp/>contracts<sp/>are<sp/>a<sp/>collection<sp/>of<sp/>contracts<sp/>deployable<sp/>to<sp/>an<sp/>[Antelope](https://github.com/AntelopeIO)<sp/>blockchain<sp/>which<sp/>implements<sp/>a<sp/>lot<sp/>of<sp/>critical<sp/>functionality<sp/>that<sp/>goes<sp/>beyond<sp/>what<sp/>is<sp/>provided<sp/>by<sp/>the<sp/>base<sp/>Antelope<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Antelope<sp/>protocol<sp/>includes<sp/>capabilities<sp/>such<sp/>as:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>an<sp/>accounts<sp/>and<sp/>permissions<sp/>system<sp/>which<sp/>enables<sp/>a<sp/>flexible<sp/>permission<sp/>system<sp/>that<sp/>allows<sp/>authorization<sp/>authority<sp/>over<sp/>specific<sp/>actions<sp/>in<sp/>a<sp/>transaction<sp/>to<sp/>be<sp/>satisfied<sp/>by<sp/>the<sp/>appropriate<sp/>combination<sp/>of<sp/>signatures;</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>a<sp/>consensus<sp/>algorithm<sp/>to<sp/>propose<sp/>and<sp/>finalize<sp/>blocks<sp/>by<sp/>a<sp/>set<sp/>of<sp/>active<sp/>block<sp/>producers<sp/>that<sp/>can<sp/>be<sp/>arbitrarily<sp/>selected<sp/>by<sp/>privileged<sp/>smart<sp/>contracts<sp/>running<sp/>on<sp/>the<sp/>blockchain;</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>a<sp/>basic<sp/>resource<sp/>management<sp/>system<sp/>that<sp/>tracks<sp/>usage<sp/>of<sp/>CPU/NET<sp/>and<sp/>RAM<sp/>per<sp/>account<sp/>and<sp/>enforces<sp/>limits<sp/>based<sp/>on<sp/>per-account<sp/>quotas<sp/>that<sp/>can<sp/>be<sp/>adjusted<sp/>by<sp/>privileged<sp/>smart<sp/>contracts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">However,<sp/>the<sp/>Antelope<sp/>protocol<sp/>itself<sp/>does<sp/>not<sp/>immediately<sp/>provide:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>a<sp/>mechanism<sp/>for<sp/>multiple<sp/>accounts<sp/>to<sp/>reach<sp/>consensus<sp/>on<sp/>authorization<sp/>of<sp/>a<sp/>proposed<sp/>transaction<sp/>on-chain<sp/>before<sp/>executing<sp/>it;</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>a<sp/>consensus<sp/>mechanism<sp/>that<sp/>goes<sp/>beyond<sp/>the<sp/>consensus<sp/>algorithm<sp/>to<sp/>determine<sp/>how<sp/>block<sp/>producers<sp/>are<sp/>selected<sp/>and<sp/>to<sp/>align<sp/>incentives<sp/>by<sp/>providing<sp/>appropriate<sp/>rewards<sp/>and<sp/>punishments<sp/>to<sp/>block<sp/>producers<sp/>or<sp/>the<sp/>entities<sp/>that<sp/>get<sp/>them<sp/>into<sp/>that<sp/>position;</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>more<sp/>sophisticated<sp/>resource<sp/>management<sp/>systems<sp/>that<sp/>create<sp/>markets<sp/>for<sp/>users<sp/>to<sp/>acquire<sp/>resource<sp/>rights;</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>or,<sp/>even<sp/>something<sp/>as<sp/>seemingly<sp/>basic<sp/>as<sp/>the<sp/>concept<sp/>of<sp/>tokens<sp/>(whether<sp/>fungible<sp/>or<sp/>non-fungible).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>reference<sp/>contracts<sp/>in<sp/>this<sp/>repository<sp/>provide<sp/>all<sp/>of<sp/>the<sp/>above<sp/>and<sp/>more<sp/>by<sp/>building<sp/>higher-level<sp/>features<sp/>or<sp/>abstractions<sp/>on<sp/>top<sp/>of<sp/>the<sp/>primitive<sp/>mechanisms<sp/>provided<sp/>by<sp/>the<sp/>Antelope<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>collection<sp/>of<sp/>reference<sp/>contracts<sp/>consists<sp/>of<sp/>the<sp/>following<sp/>individual<sp/>contracts:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>[boot<sp/>contract](contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp):<sp/>A<sp/>minimal<sp/>contract<sp/>that<sp/>only<sp/>serves<sp/>the<sp/>purpose<sp/>of<sp/>activating<sp/>protocol<sp/>features<sp/>which<sp/>enables<sp/>other<sp/>more<sp/>sophisticated<sp/>contracts<sp/>to<sp/>be<sp/>deployed<sp/>onto<sp/>the<sp/>blockchain.<sp/>(Note:<sp/>this<sp/>contract<sp/>must<sp/>be<sp/>deployed<sp/>to<sp/>the<sp/>privileged<sp/>`eosio`<sp/>account.)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[bios<sp/>contract](contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp):<sp/>A<sp/>simple<sp/>alternative<sp/>to<sp/>the<sp/>core<sp/>contract<sp/>which<sp/>is<sp/>suitable<sp/>for<sp/>test<sp/>chains<sp/>or<sp/>perhaps<sp/>centralized<sp/>blockchains.<sp/>(Note:<sp/>this<sp/>contract<sp/>must<sp/>be<sp/>deployed<sp/>to<sp/>the<sp/>privileged<sp/>`eosio`<sp/>account.)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[token<sp/>contract](contracts/eosio.token/include/eosio.token/eosio.token.hpp):<sp/>A<sp/>contract<sp/>enabling<sp/>fungible<sp/>tokens.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[core<sp/>contract](contracts/eosio.system/include/eosio.system/eosio.system.hpp):<sp/>A<sp/>monolithic<sp/>contract<sp/>that<sp/>includes<sp/>a<sp/>variety<sp/>of<sp/>different<sp/>functions<sp/>which<sp/>enhances<sp/>a<sp/>base<sp/>Antelope<sp/>blockchain<sp/>for<sp/>use<sp/>as<sp/>a<sp/>public,<sp/>decentralized<sp/>blockchain<sp/>in<sp/>an<sp/>opinionated<sp/>way.<sp/>(Note:<sp/>This<sp/>contract<sp/>must<sp/>be<sp/>deployed<sp/>to<sp/>the<sp/>privileged<sp/>`eosio`<sp/>account.<sp/>Additionally,<sp/>this<sp/>contract<sp/>requires<sp/>that<sp/>the<sp/>token<sp/>contract<sp/>is<sp/>deployed<sp/>to<sp/>the<sp/>`eosio.token`<sp/>account<sp/>and<sp/>has<sp/>already<sp/>been<sp/>used<sp/>to<sp/>setup<sp/>the<sp/>core<sp/>token.)<sp/>The<sp/>functions<sp/>contained<sp/>within<sp/>this<sp/>monolithic<sp/>contract<sp/>include<sp/>(non-exhaustive):</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>+<sp/>Delegated<sp/>Proof<sp/>of<sp/>Stake<sp/>(DPoS)<sp/>consensus<sp/>mechanism<sp/>for<sp/>selecting<sp/>and<sp/>paying<sp/>(via<sp/>core<sp/>token<sp/>inflation)<sp/>a<sp/>set<sp/>of<sp/>block<sp/>producers<sp/>that<sp/>are<sp/>chosen<sp/>through<sp/>delegation<sp/>of<sp/>the<sp/>staked<sp/>core<sp/>tokens.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>+<sp/>Allocation<sp/>of<sp/>CPU/NET<sp/>resources<sp/>based<sp/>on<sp/>core<sp/>tokens<sp/>in<sp/>which<sp/>the<sp/>core<sp/>tokens<sp/>are<sp/>either<sp/>staked<sp/>for<sp/>an<sp/>indefinite<sp/>allocation<sp/>of<sp/>some<sp/>fraction<sp/>of<sp/>available<sp/>CPU/NET<sp/>resources,<sp/>or<sp/>they<sp/>are<sp/>paid<sp/>as<sp/>a<sp/>fee<sp/>in<sp/>exchange<sp/>for<sp/>a<sp/>time-limited<sp/>allocation<sp/>of<sp/>CPU/NET<sp/>resources<sp/>via<sp/>REX<sp/>or<sp/>via<sp/>PowerUp.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>+<sp/>An<sp/>automated<sp/>market<sp/>maker<sp/>enabling<sp/>a<sp/>market<sp/>for<sp/>RAM<sp/>resources<sp/>which<sp/>allows<sp/>users<sp/>to<sp/>buy<sp/>or<sp/>sell<sp/>available<sp/>RAM<sp/>allocations.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>+<sp/>An<sp/>auction<sp/>for<sp/>bidding<sp/>for<sp/>premium<sp/>account<sp/>names.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[multisig<sp/>contract](contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp):<sp/>A<sp/>contract<sp/>that<sp/>enables<sp/>proposing<sp/>Antelope<sp/>transactions<sp/>on<sp/>the<sp/>blockchain,<sp/>collecting<sp/>authorization<sp/>approvals<sp/>for<sp/>many<sp/>accounts,<sp/>and<sp/>then<sp/>executing<sp/>the<sp/>actions<sp/>within<sp/>the<sp/>transaction<sp/>after<sp/>authorization<sp/>requirements<sp/>of<sp/>the<sp/>transaction<sp/>have<sp/>been<sp/>reached.<sp/>(Note:<sp/>this<sp/>contract<sp/>must<sp/>be<sp/>deployed<sp/>to<sp/>a<sp/>privileged<sp/>account.)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[wrap<sp/>contract](contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp):<sp/>A<sp/>contract<sp/>that<sp/>wraps<sp/>around<sp/>any<sp/>Antelope<sp/>transaction<sp/>and<sp/>allows<sp/>for<sp/>executing<sp/>its<sp/>actions<sp/>without<sp/>needing<sp/>to<sp/>satisfy<sp/>the<sp/>authorization<sp/>requirements<sp/>of<sp/>the<sp/>transaction.<sp/>If<sp/>used,<sp/>the<sp/>permissions<sp/>of<sp/>the<sp/>account<sp/>hosting<sp/>this<sp/>contract<sp/>should<sp/>be<sp/>configured<sp/>to<sp/>only<sp/>allow<sp/>highly<sp/>trusted<sp/>parties<sp/>(e.g.<sp/>the<sp/>operators<sp/>of<sp/>the<sp/>blockchain)<sp/>to<sp/>have<sp/>the<sp/>ability<sp/>to<sp/>execute<sp/>its<sp/>actions.<sp/>(Note:<sp/>this<sp/>contract<sp/>must<sp/>be<sp/>deployed<sp/>to<sp/>a<sp/>privileged<sp/>account.)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Repository<sp/>organization</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`main`<sp/>branch<sp/>contains<sp/>the<sp/>latest<sp/>state<sp/>of<sp/>development;<sp/>do<sp/>not<sp/>use<sp/>this<sp/>for<sp/>production.<sp/>Refer<sp/>to<sp/>the<sp/>[releases<sp/>page](https://github.com/AntelopeIO/reference-contracts/releases)<sp/>for<sp/>current<sp/>information<sp/>on<sp/>releases,<sp/>pre-releases,<sp/>and<sp/>obsolete<sp/>releases<sp/>as<sp/>well<sp/>as<sp/>the<sp/>corresponding<sp/>tags<sp/>for<sp/>those<sp/>releases.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Supported<sp/>Operating<sp/>Systems</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[CDT](https://github.com/AntelopeIO/cdt)<sp/>is<sp/>required<sp/>to<sp/>build<sp/>contracts.<sp/>Any<sp/>operating<sp/>systems<sp/>supported<sp/>by<sp/>CDT<sp/>is<sp/>sufficient<sp/>to<sp/>build<sp/>the<sp/>reference<sp/>contracts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>build<sp/>and<sp/>run<sp/>the<sp/>tests<sp/>as<sp/>well,<sp/>[Leap](https://github.com/AntelopeIO/leap)<sp/>is<sp/>also<sp/>required<sp/>as<sp/>a<sp/>dependency,<sp/>which<sp/>may<sp/>have<sp/>its<sp/>further<sp/>restrictions<sp/>on<sp/>supported<sp/>operating<sp/>systems.</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>build<sp/>guide<sp/>below<sp/>will<sp/>assume<sp/>you<sp/>are<sp/>running<sp/>Ubuntu<sp/>20.04.<sp/>However,<sp/>as<sp/>mentioned<sp/>above,<sp/>other<sp/>operating<sp/>systems<sp/>may<sp/>also<sp/>be<sp/>supported.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>or<sp/>install<sp/>CDT<sp/>dependency</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>CDT<sp/>dependency<sp/>is<sp/>required<sp/>with<sp/>a<sp/>minimum<sp/>version<sp/>of<sp/>3.0.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>easiest<sp/>way<sp/>to<sp/>satisfy<sp/>this<sp/>dependency<sp/>is<sp/>to<sp/>install<sp/>CDT<sp/>on<sp/>your<sp/>system<sp/>through<sp/>a<sp/>package.<sp/>Find<sp/>the<sp/>release<sp/>of<sp/>a<sp/>compatible<sp/>version<sp/>of<sp/>CDT<sp/>from<sp/>its<sp/>[releases<sp/>page](https://github.com/AntelopeIO/cdt/releases),<sp/>download<sp/>the<sp/>package<sp/>file<sp/>appropriate<sp/>for<sp/>your<sp/>OS<sp/>from<sp/>the<sp/>attached<sp/>assets,<sp/>and<sp/>install<sp/>the<sp/>package.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>you<sp/>can<sp/>build<sp/>CDT<sp/>from<sp/>source.<sp/>Please<sp/>refer<sp/>to<sp/>the<sp/>guide<sp/>in<sp/>the<sp/>[CDT<sp/>README](https://github.com/AntelopeIO/cdt#building-from-source)<sp/>for<sp/>instructions<sp/>on<sp/>how<sp/>to<sp/>do<sp/>this.<sp/>If<sp/>you<sp/>choose<sp/>to<sp/>go<sp/>with<sp/>building<sp/>CDT<sp/>from<sp/>source,<sp/>please<sp/>keep<sp/>the<sp/>path<sp/>to<sp/>the<sp/>build<sp/>directory<sp/>in<sp/>the<sp/>shell<sp/>environment<sp/>variable<sp/>`CDT_BUILD_PATH`<sp/>for<sp/>later<sp/>use<sp/>when<sp/>building<sp/>the<sp/>reference<sp/>contracts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Optionally<sp/>build<sp/>Leap<sp/>dependency</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Leap<sp/>dependency<sp/>is<sp/>optional.<sp/>It<sp/>is<sp/>only<sp/>needed<sp/>if<sp/>you<sp/>wish<sp/>to<sp/>also<sp/>build<sp/>the<sp/>tests<sp/>using<sp/>the<sp/>`BUILD_TESTS`<sp/>CMake<sp/>flag.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unfortunately,<sp/>it<sp/>is<sp/>not<sp/>currently<sp/>possible<sp/>to<sp/>satisfy<sp/>the<sp/>contract<sp/>testing<sp/>dependencies<sp/>through<sp/>the<sp/>Leap<sp/>packages<sp/>made<sp/>available<sp/>from<sp/>the<sp/>[Leap<sp/>releases<sp/>page](https://github.com/AntelopeIO/leap/releases).<sp/>So<sp/>if<sp/>you<sp/>want<sp/>to<sp/>build<sp/>the<sp/>contract<sp/>tests,<sp/>you<sp/>will<sp/>first<sp/>need<sp/>to<sp/>build<sp/>Leap<sp/>from<sp/>source.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Please<sp/>refer<sp/>to<sp/>the<sp/>guide<sp/>in<sp/>the<sp/>[Leap<sp/>README](https://github.com/AntelopeIO/leap#building-from-source)<sp/>for<sp/>instructions<sp/>on<sp/>how<sp/>to<sp/>do<sp/>this.<sp/>If<sp/>you<sp/>choose<sp/>to<sp/>go<sp/>with<sp/>building<sp/>Leap<sp/>from<sp/>source,<sp/>please<sp/>keep<sp/>the<sp/>path<sp/>to<sp/>the<sp/>build<sp/>directory<sp/>in<sp/>the<sp/>shell<sp/>environment<sp/>variable<sp/>`LEAP_BUILD_PATH`<sp/>for<sp/>later<sp/>use<sp/>when<sp/>building<sp/>the<sp/>reference<sp/>contracts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>reference<sp/>contracts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Beyond<sp/>CDT<sp/>and<sp/>optionally<sp/>Leap<sp/>(if<sp/>also<sp/>building<sp/>the<sp/>tests),<sp/>no<sp/>additional<sp/>dependencies<sp/>are<sp/>required<sp/>to<sp/>build<sp/>the<sp/>reference<sp/>contracts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>instructions<sp/>below<sp/>assume<sp/>you<sp/>are<sp/>building<sp/>the<sp/>reference<sp/>contracts<sp/>with<sp/>tests,<sp/>have<sp/>already<sp/>built<sp/>Leap<sp/>from<sp/>source,<sp/>and<sp/>have<sp/>the<sp/>CDT<sp/>dependency<sp/>installed<sp/>on<sp/>your<sp/>system.<sp/>For<sp/>some<sp/>other<sp/>configurations,<sp/>expand<sp/>the<sp/>hidden<sp/>panels<sp/>placed<sp/>lower<sp/>within<sp/>this<sp/>section.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>all<sp/>configurations,<sp/>you<sp/>should<sp/>first<sp/>`cd`<sp/>into<sp/>the<sp/>directory<sp/>containing<sp/>cloned<sp/>reference<sp/>contracts<sp/>repository.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Build<sp/>reference<sp/>contracts<sp/>with<sp/>tests<sp/>using<sp/>Leap<sp/>built<sp/>from<sp/>source<sp/>and<sp/>with<sp/>installed<sp/>CDT<sp/>package:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-DCMAKE_BUILD_TYPE=Release<sp/>-DBUILD_TESTS=ON<sp/>-Dleap_DIR=&quot;${LEAP_BUILD_PATH}/lib/cmake/leap&quot;<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>-j<sp/>$(nproc)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Note:**<sp/>`CMAKE_BUILD_TYPE`<sp/>has<sp/>no<sp/>impact<sp/>on<sp/>the<sp/>WASM<sp/>files<sp/>generated<sp/>for<sp/>the<sp/>contracts.<sp/>It<sp/>only<sp/>impacts<sp/>how<sp/>the<sp/>test<sp/>binaries<sp/>are<sp/>built.<sp/>Use<sp/>`-DCMAKE_BUILD_TYPE=Debug`<sp/>if<sp/>you<sp/>want<sp/>to<sp/>create<sp/>test<sp/>binaries<sp/>that<sp/>you<sp/>can<sp/>debug.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;details&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;summary&gt;Build<sp/>reference<sp/>contracts<sp/>with<sp/>tests<sp/>using<sp/>Leap<sp/>and<sp/>CDT<sp/>both<sp/>built<sp/>from<sp/>source&lt;/summary&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-DCMAKE_BUILD_TYPE=Release<sp/>-DBUILD_TESTS=ON<sp/>-Dcdt_DIR=&quot;${CDT_BUILD_PATH}/lib/cmake/cdt&quot;<sp/>-Dleap_DIR=&quot;${LEAP_BUILD_PATH}/lib/cmake/leap&quot;<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>-j<sp/>$(nproc)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&lt;/details&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;details&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;summary&gt;Build<sp/>reference<sp/>contracts<sp/>without<sp/>tests<sp/>and<sp/>with<sp/>CDT<sp/>build<sp/>from<sp/>source&lt;/summary&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-DCMAKE_BUILD_TYPE=Release<sp/>-DBUILD_TESTS=OFF<sp/>-Dcdt_DIR=&quot;${CDT_BUILD_PATH}/lib/cmake/cdt&quot;<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>-j<sp/>$(nproc)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;/details&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Supported<sp/>CMake<sp/>options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>following<sp/>is<sp/>a<sp/>list<sp/>of<sp/>custom<sp/>CMake<sp/>options<sp/>supported<sp/>in<sp/>building<sp/>the<sp/>reference<sp/>contracts<sp/>(default<sp/>values<sp/>are<sp/>shown<sp/>below):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">-DBUILD_TESTS=OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Do<sp/>not<sp/>build<sp/>the<sp/>tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-DSYSTEM_CONFIGURABLE_WASM_LIMITS=ON<sp/><sp/><sp/><sp/>Enable<sp/>use<sp/>of<sp/>the<sp/>CONFIGURABLE_WASM_LIMITS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>protocol<sp/>feature</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-DSYSTEM_BLOCKCHAIN_PARAMETERS=ON<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enable<sp/>use<sp/>of<sp/>the<sp/>BLOCKCHAIN_PARAMETERS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>protocol<sp/>feature</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Running<sp/>tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assuming<sp/>you<sp/>built<sp/>with<sp/>`BUILD_TESTS=ON`,<sp/>you<sp/>can<sp/>run<sp/>the<sp/>tests.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build/tests</highlight></codeline>
+<codeline><highlight class="normal">ctest<sp/>-j<sp/>$(nproc)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[MIT](LICENSE)</highlight></codeline>
+    </programlisting>
+    <location file="system/README.md"/>
+  </compounddef>
+</doxygen>

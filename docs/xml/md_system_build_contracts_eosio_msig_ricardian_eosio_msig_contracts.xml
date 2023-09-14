@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts" kind="page">
+    <compoundname>md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts</compoundname>
+    <title>eosio.msig.contracts</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">approve</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Approve Proposed Transaction summary: &apos;{{nowrap level.actor}} approves the {{nowrap proposal_name}} proposal&apos; </para>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md96">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{level.actor}} approves the {{proposal_name}} proposal proposed by {{proposer}} with the {{level.permission}} permission of {{level.actor}}.</para>
+<para><heading level="1">cancel</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Cancel Proposed Transaction summary: &apos;{{nowrap canceler}} cancels the {{nowrap proposal_name}} proposal&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md98">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{canceler}} cancels the {{proposal_name}} proposal submitted by {{proposer}}.</para>
+<para><heading level="1">exec</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Execute Proposed Transaction summary: &apos;{{nowrap executer}} executes the {{nowrap proposal_name}} proposal&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md100">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{executer}} executes the {{proposal_name}} proposal submitted by {{proposer}} if the minimum required approvals for the proposal have been secured.</para>
+<para><heading level="1">invalidate</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Invalidate All Approvals summary: &apos;{{nowrap account}} invalidates approvals on outstanding proposals&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md102">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{account}} invalidates all approvals on proposals which have not yet executed.</para>
+<para><heading level="1">propose</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Propose Transaction summary: &apos;{{nowrap proposer}} creates the {{nowrap proposal_name}}&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md104">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{proposer}} creates the {{proposal_name}} proposal for the following transaction: {{to_json trx}}</para>
+<para>The proposal requests approvals from the following accounts at the specified permission levels: {{#each requested}}<itemizedlist>
+<listitem><para>{{this.permission}} permission of {{this.actor}} {{/each}}</para>
+</listitem></itemizedlist>
+</para>
+<para>If the proposed transaction is not executed prior to {{trx.expiration}}, the proposal will automatically expire.</para>
+<para><heading level="1">unapprove</heading>
+</para>
+<para><hruler/>
+ spec_version: &quot;0.2.0&quot; title: Unapprove Proposed Transaction summary: &apos;{{nowrap level.actor}} revokes the approval previously provided to {{nowrap proposal_name}} proposal&apos; </para>
+</sect2>
+<sect2 id="md_system_build_contracts_eosio_msig_ricardian_eosio_msig_contracts_1autotoc_md106">
+<title>icon: https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</title>
+<para>{{level.actor}} revokes the approval previously provided at their {{level.permission}} permission level from the {{proposal_name}} proposal proposed by {{proposer}}. </para>
+</sect2>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.msig/ricardian/eosio.msig.contracts.md"/>
+  </compounddef>
+</doxygen>

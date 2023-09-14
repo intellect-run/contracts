@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_draft_draft_clauses" kind="page">
+    <compoundname>md_draft_draft_clauses</compoundname>
+    <title>draft.clauses</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">UserAgreement</heading>
+</para>
+<para>User agreement for the chain can go here. </para>
+    </detaileddescription>
+    <location file="draft/draft.clauses.md"/>
+  </compounddef>
+</doxygen>

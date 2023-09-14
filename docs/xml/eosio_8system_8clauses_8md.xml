@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="eosio_8system_8clauses_8md" kind="file" language="Markdown">
+    <compoundname>eosio.system.clauses.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;clause&quot;&gt;UserAgreement&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">User<sp/>agreement<sp/>for<sp/>the<sp/>chain<sp/>can<sp/>go<sp/>here.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;clause&quot;&gt;BlockProducerAgreement&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">I,<sp/>{{producer}},<sp/>hereby<sp/>nominate<sp/>myself<sp/>for<sp/>consideration<sp/>as<sp/>an<sp/>elected<sp/>block<sp/>producer.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Additional<sp/>conditions<sp/>for<sp/>block<sp/>producer<sp/>agreement<sp/>can<sp/>go<sp/>here.</highlight></codeline>
+    </programlisting>
+    <location file="system/contracts/eosio.system/ricardian/eosio.system.clauses.md"/>
+  </compounddef>
+</doxygen>

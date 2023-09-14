@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structnew__org__struct" kind="struct" language="C++" prot="public">
+    <compoundname>new_org_struct</compoundname>
+    <includes refid="users_8hpp" local="no">users.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnew__org__struct_1afe286ce31a0f6a948c3dfd3fa41f6868" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name new_org_struct::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>new_org_struct::username</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="163" column="17" bodyfile="common/users.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a142d7d656f9b6c79f484aa2c8a9cb013" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>new_org_struct::name</qualifiedname>
+        <briefdescription>
+<para>Полное наименование </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="164" column="17" bodyfile="common/users.hpp" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1aab5defee125df439ce319d34df29b493" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::short_name</definition>
+        <argsstring></argsstring>
+        <name>short_name</name>
+        <qualifiedname>new_org_struct::short_name</qualifiedname>
+        <briefdescription>
+<para>Краткое наименование </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="165" column="17" bodyfile="common/users.hpp" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1ac697f1c505b3f86a6602afe8ee157302" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <qualifiedname>new_org_struct::address</qualifiedname>
+        <briefdescription>
+<para>Юридический адрес </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="166" column="17" bodyfile="common/users.hpp" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a9e04e042f5a843d9956773a6d366dc4e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::ogrn</definition>
+        <argsstring></argsstring>
+        <name>ogrn</name>
+        <qualifiedname>new_org_struct::ogrn</qualifiedname>
+        <briefdescription>
+<para>ОГРН </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="167" column="17" bodyfile="common/users.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a0a19491ed30f535b8c72bf939412f37f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::inn</definition>
+        <argsstring></argsstring>
+        <name>inn</name>
+        <qualifiedname>new_org_struct::inn</qualifiedname>
+        <briefdescription>
+<para>ИНН </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="168" column="17" bodyfile="common/users.hpp" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a12e61b3e7538ce17a6ed9aac35bfdd6b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::logo</definition>
+        <argsstring></argsstring>
+        <name>logo</name>
+        <qualifiedname>new_org_struct::logo</qualifiedname>
+        <briefdescription>
+<para>Логотип </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="169" column="17" bodyfile="common/users.hpp" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a9cd8be190fa2b64609ac7cac26a21342" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::phone</definition>
+        <argsstring></argsstring>
+        <name>phone</name>
+        <qualifiedname>new_org_struct::phone</qualifiedname>
+        <briefdescription>
+<para>Номер телефона </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="170" column="17" bodyfile="common/users.hpp" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a409085989c8b065f4c5da0aa6ddae2f4" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>new_org_struct::email</qualifiedname>
+        <briefdescription>
+<para>Электронная почта </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="171" column="17" bodyfile="common/users.hpp" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1ae9daef33b6eb5c7223306d0a548ab23d" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::registration</definition>
+        <argsstring></argsstring>
+        <name>registration</name>
+        <qualifiedname>new_org_struct::registration</qualifiedname>
+        <briefdescription>
+<para>Дата регистрации юрлица </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="172" column="17" bodyfile="common/users.hpp" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a3f8e257edac1ce91daefed2723a39a78" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string new_org_struct::website</definition>
+        <argsstring></argsstring>
+        <name>website</name>
+        <qualifiedname>new_org_struct::website</qualifiedname>
+        <briefdescription>
+<para>Веб-сайт </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="173" column="17" bodyfile="common/users.hpp" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a7de03d51e6daf27fbeb7af18ec0ba2a0" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structbank" kindref="compound">bank</ref> &gt;</type>
+        <definition>std::vector&lt;bank&gt; new_org_struct::accounts</definition>
+        <argsstring></argsstring>
+        <name>accounts</name>
+        <qualifiedname>new_org_struct::accounts</qualifiedname>
+        <briefdescription>
+<para>Банковские счета </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="174" column="17" bodyfile="common/users.hpp" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a3edd482029472600f8110abb63f22ec0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool new_org_struct::is_cooperative</definition>
+        <argsstring></argsstring>
+        <name>is_cooperative</name>
+        <qualifiedname>new_org_struct::is_cooperative</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Является ли кооперативом </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="175" column="10" bodyfile="common/users.hpp" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a1b14a3b368d0465f82424936395c1d96" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; new_org_struct::coop_type</definition>
+        <argsstring></argsstring>
+        <name>coop_type</name>
+        <qualifiedname>new_org_struct::coop_type</qualifiedname>
+        <briefdescription>
+<para>Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="176" column="19" bodyfile="common/users.hpp" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a52312c0249272b4eebc1257feda0b3b2" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; new_org_struct::token_contract</definition>
+        <argsstring></argsstring>
+        <name>token_contract</name>
+        <qualifiedname>new_org_struct::token_contract</qualifiedname>
+        <briefdescription>
+<para>Договор токена </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="177" column="19" bodyfile="common/users.hpp" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a6b41c286066648df700ccaf77c2d3163" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; new_org_struct::slug</definition>
+        <argsstring></argsstring>
+        <name>slug</name>
+        <qualifiedname>new_org_struct::slug</qualifiedname>
+        <briefdescription>
+<para>ЧПУ (Человеко-понятный URL) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="178" column="19" bodyfile="common/users.hpp" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a273ba05baf96911cc6e2170ba54d8b31" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; new_org_struct::announce</definition>
+        <argsstring></argsstring>
+        <name>announce</name>
+        <qualifiedname>new_org_struct::announce</qualifiedname>
+        <briefdescription>
+<para>Анонс </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="179" column="19" bodyfile="common/users.hpp" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1ae6c0df340a6544bb31867f376d2b6e96" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; new_org_struct::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>new_org_struct::description</qualifiedname>
+        <briefdescription>
+<para>Описание </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="180" column="19" bodyfile="common/users.hpp" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1aa523837eadf48d60a5fa372af4915249" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; new_org_struct::initial</definition>
+        <argsstring></argsstring>
+        <name>initial</name>
+        <qualifiedname>new_org_struct::initial</qualifiedname>
+        <briefdescription>
+<para>Вступительный взнос </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="181" column="19" bodyfile="common/users.hpp" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1aa74e5df96c7174dfaca6075913279605" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; new_org_struct::minimum</definition>
+        <argsstring></argsstring>
+        <name>minimum</name>
+        <qualifiedname>new_org_struct::minimum</qualifiedname>
+        <briefdescription>
+<para>Минимальный взнос </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="182" column="19" bodyfile="common/users.hpp" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a0bd62e85c853697a7b4207648d515ae9" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; new_org_struct::membership</definition>
+        <argsstring></argsstring>
+        <name>membership</name>
+        <qualifiedname>new_org_struct::membership</qualifiedname>
+        <briefdescription>
+<para>Членский взнос </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="183" column="19" bodyfile="common/users.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnew__org__struct_1a296dc59f88491363bb011f6424361e12" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; new_org_struct::period</definition>
+        <argsstring></argsstring>
+        <name>period</name>
+        <qualifiedname>new_org_struct::period</qualifiedname>
+        <briefdescription>
+<para>Периодичность (per case, daily, weekly, monthly, quarterly, half a year, annually, onetime) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="184" column="19" bodyfile="common/users.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура данных нового юридического лица </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>new_org_struct</label>
+        <link refid="structnew__org__struct"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>address</edgelabel>
+          <edgelabel>email</edgelabel>
+          <edgelabel>inn</edgelabel>
+          <edgelabel>logo</edgelabel>
+          <edgelabel>name</edgelabel>
+          <edgelabel>ogrn</edgelabel>
+          <edgelabel>phone</edgelabel>
+          <edgelabel>registration</edgelabel>
+          <edgelabel>short_name</edgelabel>
+          <edgelabel>website</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/users.hpp" line="162" column="1" bodyfile="common/users.hpp" bodystart="162" bodyend="185"/>
+    <listofallmembers>
+      <member refid="structnew__org__struct_1a7de03d51e6daf27fbeb7af18ec0ba2a0" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>accounts</name></member>
+      <member refid="structnew__org__struct_1ac697f1c505b3f86a6602afe8ee157302" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>address</name></member>
+      <member refid="structnew__org__struct_1a273ba05baf96911cc6e2170ba54d8b31" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>announce</name></member>
+      <member refid="structnew__org__struct_1a1b14a3b368d0465f82424936395c1d96" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>coop_type</name></member>
+      <member refid="structnew__org__struct_1ae6c0df340a6544bb31867f376d2b6e96" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>description</name></member>
+      <member refid="structnew__org__struct_1a409085989c8b065f4c5da0aa6ddae2f4" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>email</name></member>
+      <member refid="structnew__org__struct_1aa523837eadf48d60a5fa372af4915249" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>initial</name></member>
+      <member refid="structnew__org__struct_1a0a19491ed30f535b8c72bf939412f37f" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>inn</name></member>
+      <member refid="structnew__org__struct_1a3edd482029472600f8110abb63f22ec0" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>is_cooperative</name></member>
+      <member refid="structnew__org__struct_1a12e61b3e7538ce17a6ed9aac35bfdd6b" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>logo</name></member>
+      <member refid="structnew__org__struct_1a0bd62e85c853697a7b4207648d515ae9" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>membership</name></member>
+      <member refid="structnew__org__struct_1aa74e5df96c7174dfaca6075913279605" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>minimum</name></member>
+      <member refid="structnew__org__struct_1a142d7d656f9b6c79f484aa2c8a9cb013" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>name</name></member>
+      <member refid="structnew__org__struct_1a9e04e042f5a843d9956773a6d366dc4e" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>ogrn</name></member>
+      <member refid="structnew__org__struct_1a296dc59f88491363bb011f6424361e12" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>period</name></member>
+      <member refid="structnew__org__struct_1a9cd8be190fa2b64609ac7cac26a21342" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>phone</name></member>
+      <member refid="structnew__org__struct_1ae9daef33b6eb5c7223306d0a548ab23d" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>registration</name></member>
+      <member refid="structnew__org__struct_1aab5defee125df439ce319d34df29b493" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>short_name</name></member>
+      <member refid="structnew__org__struct_1a6b41c286066648df700ccaf77c2d3163" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>slug</name></member>
+      <member refid="structnew__org__struct_1a52312c0249272b4eebc1257feda0b3b2" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>token_contract</name></member>
+      <member refid="structnew__org__struct_1afe286ce31a0f6a948c3dfd3fa41f6868" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>username</name></member>
+      <member refid="structnew__org__struct_1a3f8e257edac1ce91daefed2723a39a78" prot="public" virt="non-virtual"><scope>new_org_struct</scope><name>website</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

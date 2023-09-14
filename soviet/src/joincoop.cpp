@@ -1,5 +1,18 @@
 using namespace eosio;
 
+/**
+\ingroup public_actions
+\brief Заявка на вступление в кооператив
+*
+* Этот метод вызывается контрактом registrator при поступлении заявления на вступление в кооператив. При успешном вызове формируется повестка на голосование членам совета. Повестка по вопросам регистрации аккаунтов может быть автоматизирована.
+*
+* @param coop_username Имя кооператива
+* @param username Имя пользователя
+* @param position_title Заголовок должности
+* @param position Должность
+* 
+* @note Авторизация требуется от аккаунта: @p _registrator
+*/
 void soviet::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position) { 
   require_auth(_registrator);
 

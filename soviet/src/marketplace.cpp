@@ -1,5 +1,16 @@
 using namespace eosio;
 
+/**
+\ingroup public_actions
+\brief Обмен в кооперативе
+*
+* Этот метод вызывается контрактом marketplace при создании запроса на обмен в кооперативе. При успешном вызове формируется повестка со всеми сопровождающими документами, которая отправляется на голосование членам совета.
+*
+* @param coop_username Имя кооператива
+* @param exchange_id Идентификатор обмена
+* 
+* @note Авторизация требуется от аккаунта: @p _marketplace
+*/
 void soviet::change(eosio::name coop_username, uint64_t exchange_id) { 
   require_auth(_marketplace);
 

@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespaceeosio" kind="namespace" language="C++">
+    <compoundname>eosio</compoundname>
+    <innerclass refid="structeosio_1_1automator" prot="public">eosio::automator</innerclass>
+    <innerclass refid="structeosio_1_1autosigner" prot="public">eosio::autosigner</innerclass>
+    <innerclass refid="structeosio_1_1changes" prot="public">eosio::changes</innerclass>
+    <innerclass refid="structeosio_1_1counts" prot="public">eosio::counts</innerclass>
+    <innerclass refid="structeosio_1_1joincoops" prot="public">eosio::joincoops</innerclass>
+    <innerclass refid="classeosio_1_1multisig" prot="public">eosio::multisig</innerclass>
+    <innerclass refid="classeosio_1_1soviet" prot="public">eosio::soviet</innerclass>
+    <innerclass refid="classeosio_1_1token" prot="public">eosio::token</innerclass>
+    <innerclass refid="classeosio_1_1wrap" prot="public">eosio::wrap</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeosio_1af04d0325c76e07a604c33890aa464181" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;automator&quot;_n, <ref refid="structeosio_1_1automator" kindref="compound">automator</ref>, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt; <ref refid="structeosio_1_1automator" kindref="compound">automator</ref>, uint64_t, &amp;<ref refid="structeosio_1_1automator_1a59d3a964fe9d7205a93f453f5ce70eb7" kindref="member">automator::by_action</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bymembaction&quot;_n, eosio::const_mem_fun&lt; <ref refid="structeosio_1_1automator" kindref="compound">automator</ref>, uint128_t, &amp;<ref refid="structeosio_1_1automator_1a726d6fcdfc8f0e84c96f7abda1020a69" kindref="member">automator::by_member_and_action_type</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;automator&quot;_n, automator, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt;automator, uint64_t, &amp;automator::by_action&gt; &gt;, eosio::indexed_by&lt;&quot;bymembaction&quot;_n, eosio::const_mem_fun&lt;automator, uint128_t, &amp;automator::by_member_and_action_type&gt; &gt; &gt; eosio::automator_index</definition>
+        <argsstring></argsstring>
+        <name>automator_index</name>
+        <qualifiedname>eosio::automator_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="85" column="2" bodyfile="soviet/soviet.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosio_1acf5ac0eb7a5a29eebbe8289c11fc3768" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;autosigner&quot;_n, <ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;autosigner&quot;_n, autosigner&gt; eosio::autosigner_index</definition>
+        <argsstring></argsstring>
+        <name>autosigner_index</name>
+        <qualifiedname>eosio::autosigner_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="93" column="30" bodyfile="soviet/soviet.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosio_1ad3c1abebeb51a91ae0b8ea806e93729f" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;joincoops&quot;_n, <ref refid="structeosio_1_1joincoops" kindref="compound">joincoops</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;joincoops&quot;_n, joincoops&gt; eosio::joincoops_index</definition>
+        <argsstring></argsstring>
+        <name>joincoops_index</name>
+        <qualifiedname>eosio::joincoops_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="107" column="30" bodyfile="soviet/soviet.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosio_1aaea7ad24c42f9686f6dfc4db3bfa6d23" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;changes&quot;_n, <ref refid="structeosio_1_1changes" kindref="compound">changes</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;changes&quot;_n, changes&gt; eosio::changes_index</definition>
+        <argsstring></argsstring>
+        <name>changes_index</name>
+        <qualifiedname>eosio::changes_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="120" column="30" bodyfile="soviet/soviet.hpp" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeosio_1a5a18f73f0452f4391a2e8abfc7d0f373" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>transaction_header</type>
+        <definition>transaction_header eosio::get_trx_header</definition>
+        <argsstring>(const char *ptr, size_t sz)</argsstring>
+        <name>get_trx_header</name>
+        <qualifiedname>eosio::get_trx_header</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/src/eosio.msig.cpp" line="256" column="20" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="256" bodyend="261" declfile="system/contracts/eosio.msig/src/eosio.msig.cpp" declline="9" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio_1af902933339a070f5af0f38e4c4af7f07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eosio::trx_is_authorized</definition>
+        <argsstring>(const std::vector&lt; permission_level &gt; &amp;approvals, const std::vector&lt; char &gt; &amp;packed_trx)</argsstring>
+        <name>trx_is_authorized</name>
+        <qualifiedname>eosio::trx_is_authorized</qualifiedname>
+        <param>
+          <type>const std::vector&lt; permission_level &gt; &amp;</type>
+          <declname>approvals</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; char &gt; &amp;</type>
+          <declname>packed_trx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/src/eosio.msig.cpp" line="263" column="6" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="263" bodyend="270" declfile="system/contracts/eosio.msig/src/eosio.msig.cpp" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio_1abaa5d0db854d769ac41e2f062f417485" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Function</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; permission_level &gt;</type>
+        <definition>std::vector&lt; permission_level &gt; eosio::get_approvals_and_adjust_table</definition>
+        <argsstring>(name self, name proposer, name proposal_name, Function &amp;&amp;table_op)</argsstring>
+        <name>get_approvals_and_adjust_table</name>
+        <qualifiedname>eosio::get_approvals_and_adjust_table</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>Function &amp;&amp;</type>
+          <declname>table_op</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/src/eosio.msig.cpp" line="13" column="13" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="13" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soviet/soviet.hpp" line="17" column="1"/>
+  </compounddef>
+</doxygen>

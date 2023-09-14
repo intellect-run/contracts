@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="registrator_8cpp" kind="file" language="C++">
+    <compoundname>registrator.cpp</compoundname>
+    <includes refid="registrator_8hpp" local="yes">registrator.hpp</includes>
+    <incdepgraph>
+      <node id="17">
+        <label>../common/balances.hpp</label>
+        <link refid="balances_8hpp"/>
+      </node>
+      <node id="10">
+        <label>../common/consts.hpp</label>
+        <link refid="consts_8hpp"/>
+      </node>
+      <node id="11">
+        <label>../common/coops.hpp</label>
+        <link refid="coops_8hpp"/>
+      </node>
+      <node id="12">
+        <label>../common/permissions.hpp</label>
+        <link refid="permissions_8hpp"/>
+      </node>
+      <node id="13">
+        <label>../common/rammarket.hpp</label>
+        <link refid="rammarket_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../common/users.hpp</label>
+        <link refid="users_8hpp"/>
+      </node>
+      <node id="16">
+        <label>../common/utils.hpp</label>
+        <link refid="utils_8hpp"/>
+      </node>
+      <node id="1">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>algorithm</label>
+      </node>
+      <node id="15">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/contract.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/crypto.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/multi_index.hpp</label>
+      </node>
+      <node id="8">
+        <label>eosio/system.hpp</label>
+      </node>
+      <node id="9">
+        <label>eosio/time.hpp</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="registrator_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>The apply method implements the dispatch of events to this contract. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.cpp" line="345" column="6" bodyfile="registrator/registrator.cpp" bodystart="345" bodyend="372"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="registrator_8hpp" kindref="compound">registrator.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gacdfebb1a75a61c5d88ac5c280033d5b7" kindref="member">registrator::newaccount</ref>(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/>payer,<sp/>eosio::name<sp/>referer,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/>username,<sp/>eosio::public_key<sp/>public_key,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/>cpu,<sp/>eosio::asset<sp/>net,<sp/>uint64_t<sp/>ram_bytes,<sp/>std::string<sp/>meta)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>require_auth(payer);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="structauthority" kindref="compound">authority</ref><sp/>active_auth;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>active_auth.<ref refid="structauthority_1ab9fbc4a419012844e80ffebb57d76971" kindref="member">threshold</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="structkey__weight" kindref="compound">key_weight</ref><sp/>keypermission{public_key,<sp/>1};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>active_auth.<ref refid="structauthority_1a7538d1edffef8dd8ebe41758fbc4fdd8" kindref="member">keys</ref>.emplace_back(keypermission);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="structauthority" kindref="compound">authority</ref><sp/>owner_auth;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ram_price<sp/>=<sp/><ref refid="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" kindref="member">eosiosystem::determine_ram_price</ref>(ram_bytes);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>eosio::asset<sp/>total_pay<sp/>=<sp/>cpu<sp/>+<sp/>net<sp/>+<sp/>ram_price;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" kindref="member">sub_balance</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>payer,<sp/>total_pay,<sp/><ref refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kindref="member">_root_contract</ref>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>owner_auth.<ref refid="structauthority_1ab9fbc4a419012844e80ffebb57d76971" kindref="member">threshold</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>eosio::permission_level<sp/>permission(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;eosio.code&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="structpermission__level__weight" kindref="compound">permission_level_weight</ref><sp/>accountpermission{permission,<sp/>1};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>owner_auth.<ref refid="structauthority_1a0929cd72740ad0953b59fdc1df188b60" kindref="member">accounts</ref>.emplace_back(accountpermission);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>action(permission_level(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n),<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;newaccount&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::tuple(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>username,<sp/>owner_auth,<sp/>active_auth))</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.send();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>action(permission_level{<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;buyram&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>username,<sp/>ram_price))</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.send();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>action(permission_level{<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;delegatebw&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>username,<sp/>net,<sp/>cpu,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.send();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>card<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>eosio::check(card<sp/>==<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;account<sp/>has<sp/>been<sp/>already<sp/>registered&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.emplace(payer,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;n)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>n.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>n.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>n.registrator<sp/>=<sp/>payer;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>n.registration_amount<sp/>=<sp/>total_pay;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>n.referer<sp/>=<sp/>referer;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>n.registered_at<sp/>=</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>n.meta<sp/>=<sp/>meta;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga25589c2c87b594bea2a82aea5bd1112c" kindref="member">registrator::reguser</ref>(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/>eosio::name<sp/>username,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>profile_hash</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">)<sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref><sp/><ref refid="structorgs" kindref="compound">orgs</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>registrator_org<sp/>=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>eosio::check(registrator_org<sp/>!=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Регистратор<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>eosio::check(registrator_org<sp/>-&gt;<sp/>is_coop()<sp/>&amp;&amp;<sp/>registrator_org<sp/>-&gt;<sp/>is_verified(),</highlight><highlight class="stringliteral">&quot;Регистрация<sp/>пользователей<sp/>доступна<sp/>только<sp/>для<sp/>кооперативов&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);<sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>new_user<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>eosio::check(new_user!=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Участник<sp/>не<sp/>найден<sp/>в<sp/>картотеке&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.modify(new_user,<sp/>username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;c)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>c.type<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1affe664f09d6b1f7e34b429eb3d6b7d2d" kindref="member">users_index</ref><sp/><ref refid="structusers" kindref="compound">users</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>user<sp/>=<sp/><ref refid="structusers" kindref="compound">users</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>eosio::check(user<sp/>==<sp/><ref refid="structusers" kindref="compound">users</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Участник<sp/>уже<sp/>зарегистрирован&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><ref refid="structusers" kindref="compound">users</ref>.emplace(username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;acc)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>acc.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>acc.profile_hash<sp/>=<sp/>profile_hash;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga7bb89160d6aa3dc59c5f78daeb0a6476" kindref="member">registrator::verificate</ref>(eosio::name<sp/>username){</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>account<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>eosio::check(account<sp/>!=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Аккаунт<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(account<sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">_n){</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="users_8hpp_1affe664f09d6b1f7e34b429eb3d6b7d2d" kindref="member">users_index</ref><sp/><ref refid="structusers" kindref="compound">users</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>user<sp/>=<sp/><ref refid="structusers" kindref="compound">users</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(user<sp/>!=<sp/><ref refid="structusers" kindref="compound">users</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Пользователь<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structusers" kindref="compound">users</ref>.modify(user,<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.verificator<sp/>=<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.is_verified<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(account<sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;org&quot;</highlight><highlight class="normal">_n){</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="users_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref><sp/><ref refid="structorgs" kindref="compound">orgs</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org<sp/>=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(org<sp/>!=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structorgs" kindref="compound">orgs</ref>.modify(org,<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.verificator<sp/>=<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.is_verified<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.verification.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga917f5557795120c2e303be599030d563" kindref="member">registrator::regorg</ref>(<ref refid="structnew__org__struct" kindref="compound">new_org_struct</ref><sp/>new_org)<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>require_auth(new_org.<ref refid="structnew__org__struct_1afe286ce31a0f6a948c3dfd3fa41f6868" kindref="member">username</ref>);<sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="users_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref><sp/><ref refid="structorgs" kindref="compound">orgs</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structorgs" kindref="compound">orgs</ref>.emplace(<ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>org)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.username<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1afe286ce31a0f6a948c3dfd3fa41f6868" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.name<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a142d7d656f9b6c79f484aa2c8a9cb013" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.short_name<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1aab5defee125df439ce319d34df29b493" kindref="member">short_name</ref>;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.address<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1ac697f1c505b3f86a6602afe8ee157302" kindref="member">address</ref>;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.ogrn<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a9e04e042f5a843d9956773a6d366dc4e" kindref="member">ogrn</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.inn<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a0a19491ed30f535b8c72bf939412f37f" kindref="member">inn</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.logo<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a12e61b3e7538ce17a6ed9aac35bfdd6b" kindref="member">logo</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.phone<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a9cd8be190fa2b64609ac7cac26a21342" kindref="member">phone</ref>;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.email<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a409085989c8b065f4c5da0aa6ddae2f4" kindref="member">email</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.registration<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1ae9daef33b6eb5c7223306d0a548ab23d" kindref="member">registration</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.website<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a3f8e257edac1ce91daefed2723a39a78" kindref="member">website</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.accounts<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a7de03d51e6daf27fbeb7af18ec0ba2a0" kindref="member">accounts</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.is_cooperative<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a3edd482029472600f8110abb63f22ec0" kindref="member">is_cooperative</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.coop_type<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a1b14a3b368d0465f82424936395c1d96" kindref="member">coop_type</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.token_contract<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a52312c0249272b4eebc1257feda0b3b2" kindref="member">token_contract</ref>;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.slug<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a6b41c286066648df700ccaf77c2d3163" kindref="member">slug</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.announce<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a273ba05baf96911cc6e2170ba54d8b31" kindref="member">announce</ref>;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.description<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1ae6c0df340a6544bb31867f376d2b6e96" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.initial<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1aa523837eadf48d60a5fa372af4915249" kindref="member">initial</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.minimum<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1aa74e5df96c7174dfaca6075913279605" kindref="member">minimum</ref>;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.membership<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a0bd62e85c853697a7b4207648d515ae9" kindref="member">membership</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>org.period<sp/>=<sp/>new_org.<ref refid="structnew__org__struct_1a296dc59f88491363bb011f6424361e12" kindref="member">period</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>});<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga575710c03cd02b5e813816ea7e51500e" kindref="member">registrator::joincoop</ref>(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>username,<sp/>std::string<sp/>position_title,<sp/>eosio::name<sp/>position,<sp/>std::string<sp/>ricardian_data,<sp/>std::string<sp/>statement_hash){</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a5606c7bd2cd3481be33ac3ae62e198db" kindref="member">members_index</ref><sp/><ref refid="structmembers" kindref="compound">members</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>member<sp/>=<sp/><ref refid="structmembers" kindref="compound">members</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>eosio::check(member<sp/>==<sp/><ref refid="structmembers" kindref="compound">members</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Участник<sp/>уже<sp/>является<sp/>членом<sp/>кооператива&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>action(permission_level{<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;joincoop&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coop_username,<sp/>username,<sp/>position_title,<sp/>position))</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>.send();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" kindref="member">registrator::update</ref>(eosio::name<sp/>username,</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>meta)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>account<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>eosio::check(account<sp/>!=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;account<sp/>is<sp/>not<sp/>registered&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.modify(account,<sp/>username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;acc)<sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>acc.meta<sp/>=<sp/>meta;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="264"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" kindref="member">registrator::changekey</ref>(eosio::name<sp/>username,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::public_key<sp/>public_key)<sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>card<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(username.value);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(card<sp/>!=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end())<sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structauthority" kindref="compound">authority</ref><sp/>active_auth;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>active_auth.<ref refid="structauthority_1ab9fbc4a419012844e80ffebb57d76971" kindref="member">threshold</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structkey__weight" kindref="compound">key_weight</ref><sp/>keypermission{public_key,<sp/>1};</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>active_auth.<ref refid="structauthority_1a7538d1edffef8dd8ebe41758fbc4fdd8" kindref="member">keys</ref>.emplace_back(keypermission);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Change<sp/>active<sp/>authority<sp/>of<sp/>card<sp/>to<sp/>a<sp/>new<sp/>key</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::action(eosio::permission_level(card-&gt;username,<sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;owner&quot;</highlight><highlight class="normal">)),</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">),<sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;updateauth&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::tuple(card-&gt;username,<sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name(</highlight><highlight class="stringliteral">&quot;owner&quot;</highlight><highlight class="normal">),<sp/>active_auth))</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>.send();</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gade0cb6032b21e1b753ec1b4f2b4bea73" kindref="member">registrator::confirmreg</ref>(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>member,<sp/>std::string<sp/>position_title,<sp/>eosio::name<sp/>position)<sp/>{</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><ref refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kindref="member">accounts_index</ref><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>account<sp/>=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.find(member.value);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/>eosio::check(account<sp/>!=<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;account<sp/>is<sp/>not<sp/>found&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><ref refid="structaccounts" kindref="compound">accounts</ref>.modify(account,<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;g)<sp/>{<sp/>g.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n;<sp/>});</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a5606c7bd2cd3481be33ac3ae62e198db" kindref="member">members_index</ref><sp/><ref refid="structmembers" kindref="compound">members</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>coop_username.value);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><ref refid="structmembers" kindref="compound">members</ref>.emplace(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;m){</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>m.username<sp/>=<sp/>member;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>m.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>m.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>m.is_accepted<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>m.is_initial<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>m.is_minimum<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>m.position_title<sp/>=<sp/>position_title;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>m.position<sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="340"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="registrator_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kindref="member">apply</ref>(uint64_t<sp/>receiver,<sp/>uint64_t<sp/>code,<sp/>uint64_t<sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(code<sp/>==<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">::_registrator</ref>.value)<sp/>{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;update&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" kindref="member">registrator::update</ref>);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;confirmreg&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1gade0cb6032b21e1b753ec1b4f2b4bea73" kindref="member">registrator::confirmreg</ref>);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;newaccount&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1gacdfebb1a75a61c5d88ac5c280033d5b7" kindref="member">registrator::newaccount</ref>);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;reguser&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1ga25589c2c87b594bea2a82aea5bd1112c" kindref="member">registrator::reguser</ref>);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;regorg&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1ga917f5557795120c2e303be599030d563" kindref="member">registrator::regorg</ref>);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;changekey&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" kindref="member">registrator::changekey</ref>);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;joincoop&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>execute_action(name(receiver),<sp/>name(code),<sp/>&amp;<ref refid="group__public__actions_1ga575710c03cd02b5e813816ea7e51500e" kindref="member">registrator::joincoop</ref>);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="362"><highlight class="normal">}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;transfer&quot;</highlight><highlight class="normal">_n.value)<sp/>{<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">transfer<sp/>{<sp/>eosio::name<sp/>from;<sp/>eosio::name<sp/>to;<sp/>eosio::asset<sp/>quantity;<sp/>std::string<sp/>memo;<sp/>};</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>op<sp/>=<sp/>eosio::unpack_action_data&lt;transfer&gt;();</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op.to<sp/>==<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username<sp/>=<sp/>eosio::name(op.memo.c_str());</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" kindref="member">add_balance</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>username,<sp/>op.quantity,<sp/>eosio::name(code));</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="372"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="373"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="registrator/registrator.cpp"/>
+  </compounddef>
+</doxygen>

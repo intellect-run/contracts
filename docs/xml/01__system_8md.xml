@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="01__system_8md" kind="file" language="Markdown">
+    <compoundname>01_system.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>System<sp/>contracts,<sp/>system<sp/>accounts,<sp/>privileged<sp/>accounts</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">At<sp/>the<sp/>genesis<sp/>of<sp/>an<sp/>Antelope-based<sp/>blockchain,<sp/>there<sp/>is<sp/>only<sp/>one<sp/>account<sp/>present,<sp/>`eosio`<sp/>account,<sp/>which<sp/>is<sp/>the<sp/>main<sp/>`system<sp/>account`.<sp/>There<sp/>are<sp/>other<sp/>`system<sp/>account`s,<sp/>created<sp/>by<sp/>`eosio`<sp/>account,<sp/>which<sp/>control<sp/>specific<sp/>actions<sp/>of<sp/>the<sp/>`system<sp/>contract`s<sp/>[mentioned<sp/>in<sp/>previous<sp/>section](../#system-contracts-defined-in-reference-contracts).<sp/>__Note__<sp/>the<sp/>terms<sp/>`system<sp/>contract`<sp/>and<sp/>`system<sp/>account`.<sp/>`Privileged<sp/>accounts`<sp/>are<sp/>accounts<sp/>which<sp/>can<sp/>execute<sp/>a<sp/>transaction<sp/>while<sp/>skipping<sp/>the<sp/>standard<sp/>authorization<sp/>check.<sp/>To<sp/>ensure<sp/>that<sp/>this<sp/>is<sp/>not<sp/>a<sp/>security<sp/>hole,<sp/>the<sp/>permission<sp/>authority<sp/>over<sp/>these<sp/>accounts<sp/>is<sp/>granted<sp/>to<sp/>`eosio.prods`<sp/>system<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">As<sp/>you<sp/>just<sp/>learned<sp/>the<sp/>relation<sp/>between<sp/>a<sp/>`system<sp/>account`<sp/>and<sp/>a<sp/>`system<sp/>contract`,<sp/>it<sp/>is<sp/>also<sp/>important<sp/>to<sp/>remember<sp/>that<sp/>not<sp/>all<sp/>system<sp/>accounts<sp/>contain<sp/>a<sp/>system<sp/>contract,<sp/>but<sp/>each<sp/>system<sp/>account<sp/>has<sp/>important<sp/>roles<sp/>in<sp/>the<sp/>blockchain<sp/>functionality,<sp/>as<sp/>follows:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|Account|Privileged|Has<sp/>contract|Description|</highlight></codeline>
+<codeline><highlight class="normal">|---|---|---|---|</highlight></codeline>
+<codeline><highlight class="normal">|eosio|Yes|It<sp/>contains<sp/>the<sp/>`eosio.system`<sp/>contract|The<sp/>main<sp/>system<sp/>account<sp/>on<sp/>an<sp/>Antelope-based<sp/>blockchain.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.msig|Yes|It<sp/>contains<sp/>the<sp/>`eosio.msig`<sp/>contract|Allows<sp/>the<sp/>signing<sp/>of<sp/>a<sp/>multi-sig<sp/>transaction<sp/>proposal<sp/>for<sp/>later<sp/>execution<sp/>if<sp/>all<sp/>required<sp/>parties<sp/>sign<sp/>the<sp/>proposal<sp/>before<sp/>the<sp/>expiration<sp/>time.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.wrap|Yes|It<sp/>contains<sp/>the<sp/>`eosio.wrap`<sp/>contract.|Simplifies<sp/>block<sp/>producer<sp/>superuser<sp/>actions<sp/>by<sp/>making<sp/>them<sp/>more<sp/>readable<sp/>and<sp/>easier<sp/>to<sp/>audit.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.token|No|It<sp/>contains<sp/>the<sp/>`eosio.token`<sp/>contract.|Defines<sp/>the<sp/>structures<sp/>and<sp/>actions<sp/>allowing<sp/>users<sp/>to<sp/>create,<sp/>issue,<sp/>and<sp/>manage<sp/>tokens<sp/>on<sp/>Antelope-based<sp/>blockchains.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.names|No|No|The<sp/>account<sp/>which<sp/>is<sp/>holding<sp/>funds<sp/>from<sp/>namespace<sp/>auctions.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.bpay|No|No|The<sp/>account<sp/>that<sp/>pays<sp/>the<sp/>block<sp/>producers<sp/>for<sp/>producing<sp/>blocks.<sp/>It<sp/>assigns<sp/>0.25%<sp/>of<sp/>the<sp/>inflation<sp/>based<sp/>on<sp/>the<sp/>amount<sp/>of<sp/>blocks<sp/>a<sp/>block<sp/>producer<sp/>created<sp/>in<sp/>the<sp/>last<sp/>24<sp/>hours.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.prods|No|No|The<sp/>account<sp/>representing<sp/>the<sp/>union<sp/>of<sp/>all<sp/>current<sp/>active<sp/>block<sp/>producers<sp/>permissions.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.ram|No|No|The<sp/>account<sp/>that<sp/>keeps<sp/>track<sp/>of<sp/>the<sp/>SYS<sp/>balances<sp/>based<sp/>on<sp/>users<sp/>actions<sp/>of<sp/>buying<sp/>or<sp/>selling<sp/>RAM.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.ramfee|No|No|The<sp/>account<sp/>that<sp/>keeps<sp/>track<sp/>of<sp/>the<sp/>fees<sp/>collected<sp/>from<sp/>users<sp/>RAM<sp/>trading<sp/>actions:<sp/>0.5%<sp/>from<sp/>the<sp/>value<sp/>of<sp/>each<sp/>trade<sp/>goes<sp/>into<sp/>this<sp/>account.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.saving|No|No|The<sp/>account<sp/>which<sp/>holds<sp/>the<sp/>4%<sp/>of<sp/>network<sp/>inflation.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.stake|No|No|The<sp/>account<sp/>that<sp/>keeps<sp/>track<sp/>of<sp/>all<sp/>SYS<sp/>tokens<sp/>which<sp/>have<sp/>been<sp/>staked<sp/>for<sp/>NET<sp/>or<sp/>CPU<sp/>bandwidth.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.vpay|No|No|The<sp/>account<sp/>that<sp/>pays<sp/>the<sp/>block<sp/>producers<sp/>accordingly<sp/>with<sp/>the<sp/>votes<sp/>won.<sp/>It<sp/>assigns<sp/>0.75%<sp/>of<sp/>inflation<sp/>based<sp/>on<sp/>the<sp/>amount<sp/>of<sp/>votes<sp/>a<sp/>block<sp/>producer<sp/>won<sp/>in<sp/>the<sp/>last<sp/>24<sp/>hours.|</highlight></codeline>
+<codeline><highlight class="normal">|eosio.rex|No|No|The<sp/>account<sp/>that<sp/>keeps<sp/>track<sp/>of<sp/>fees<sp/>and<sp/>balances<sp/>resulted<sp/>from<sp/>REX<sp/>related<sp/>actions<sp/>execution.|</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/01_key-concepts/01_system.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_004daf74da121d7a866e3baa615fcc5b" kind="dir">
+    <compoundname>system/tests</compoundname>
+    <innerfile refid="eosio_8limitauth__tests_8cpp">eosio.limitauth_tests.cpp</innerfile>
+    <innerfile refid="eosio_8msig__tests_8cpp">eosio.msig_tests.cpp</innerfile>
+    <innerfile refid="eosio_8powerup__tests_8cpp">eosio.powerup_tests.cpp</innerfile>
+    <innerfile refid="eosio_8system__blockinfo__tests_8cpp">eosio.system_blockinfo_tests.cpp</innerfile>
+    <innerfile refid="eosio_8system__tester_8hpp">eosio.system_tester.hpp</innerfile>
+    <innerfile refid="eosio_8system__tests_8cpp">eosio.system_tests.cpp</innerfile>
+    <innerfile refid="eosio_8token__tests_8cpp">eosio.token_tests.cpp</innerfile>
+    <innerfile refid="eosio_8wrap__tests_8cpp">eosio.wrap_tests.cpp</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="test__symbol_8hpp">test_symbol.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/tests/"/>
+  </compounddef>
+</doxygen>

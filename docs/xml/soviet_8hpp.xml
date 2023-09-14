@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="soviet_8hpp" kind="file" language="C++">
+    <compoundname>soviet.hpp</compoundname>
+    <includes local="no">eosio/binary_extension.hpp</includes>
+    <includes local="no">eosio/eosio.hpp</includes>
+    <includes local="no">eosio/ignore.hpp</includes>
+    <includes local="no">eosio/transaction.hpp</includes>
+    <includes local="no">eosio/asset.hpp</includes>
+    <includes local="no">eosio/singleton.hpp</includes>
+    <includes refid="consts_8hpp" local="yes">../common/consts.hpp</includes>
+    <includes refid="utils_8hpp" local="yes">../common/utils.hpp</includes>
+    <includes refid="users_8hpp" local="yes">../common/users.hpp</includes>
+    <includes refid="coops_8hpp" local="yes">../common/coops.hpp</includes>
+    <includes refid="counts_8hpp" local="yes">../common/counts.hpp</includes>
+    <includes refid="admins_8hpp" local="yes">../common/admins.hpp</includes>
+    <includedby refid="soviet_2soviet_8cpp" local="yes">soviet/soviet.cpp</includedby>
+    <incdepgraph>
+      <node id="13">
+        <label>../common/admins.hpp</label>
+        <link refid="admins_8hpp"/>
+      </node>
+      <node id="8">
+        <label>../common/consts.hpp</label>
+        <link refid="consts_8hpp"/>
+      </node>
+      <node id="11">
+        <label>../common/coops.hpp</label>
+        <link refid="coops_8hpp"/>
+      </node>
+      <node id="12">
+        <label>../common/counts.hpp</label>
+        <link refid="counts_8hpp"/>
+      </node>
+      <node id="10">
+        <label>../common/users.hpp</label>
+        <link refid="users_8hpp"/>
+      </node>
+      <node id="9">
+        <label>../common/utils.hpp</label>
+        <link refid="utils_8hpp"/>
+      </node>
+      <node id="1">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="2">
+        <label>eosio/binary_extension.hpp</label>
+      </node>
+      <node id="3">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/ignore.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/singleton.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/transaction.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classeosio_1_1soviet" prot="public">eosio::soviet</innerclass>
+    <innerclass refid="structeosio_1_1counts" prot="public">eosio::counts</innerclass>
+    <innerclass refid="structeosio_1_1automator" prot="public">eosio::automator</innerclass>
+    <innerclass refid="structeosio_1_1autosigner" prot="public">eosio::autosigner</innerclass>
+    <innerclass refid="structeosio_1_1joincoops" prot="public">eosio::joincoops</innerclass>
+    <innerclass refid="structeosio_1_1changes" prot="public">eosio::changes</innerclass>
+    <innernamespace refid="namespaceeosio">eosio</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/binary_extension.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/eosio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/ignore.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/transaction.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/asset.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/singleton.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/consts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/utils.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/users.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/coops.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/counts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/admins.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="namespaceeosio" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref><sp/>{</highlight></codeline>
+<codeline lineno="18" refid="classeosio_1_1soviet" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract(<ref refid="consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" kindref="member">SOVIET</ref>)]]<sp/><ref refid="classeosio_1_1soviet" kindref="compound">soviet</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>eosio::contract<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>contract::contract;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//soviet.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>exec(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>newid(uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//admin.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addstaff(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username,<sp/>std::vector&lt;right&gt;<sp/>rights,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rmstaff(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setrights(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>username,<sp/>std::vector&lt;right&gt;<sp/>rights);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>validate(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//regaccount.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>joincoop(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>username,<sp/>std::string<sp/>position_title,<sp/>eosio::name<sp/>position);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>joincoop_effect(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>decision_id,<sp/>uint64_t<sp/>card_id);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//automator.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>automate(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>member,<sp/>eosio::name<sp/>action_type,<sp/>eosio::name<sp/>provider,<sp/>std::string<sp/>encrypted_private_key);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>disautomate(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>member,<sp/>uint64_t<sp/>automation_id<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>is_valid_action_for_automation(eosio::name<sp/>action_type);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//chairman.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>authorize(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>chairman,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createboard(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>type,<sp/>std::vector&lt;board_member&gt;<sp/><ref refid="structmembers" kindref="compound">members</ref>,<sp/>std::string<sp/>name,<sp/>std::string<sp/>description);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//voting.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>votefor(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>member,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>voteagainst(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>member,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cancelvote(eosio::name<sp/>coop_username,<sp/>eosio::name<sp/>member,<sp/>uint64_t<sp/>decision_id);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//marketplace.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>change(eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>exchange_id);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>change_effect(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coop_username,<sp/>uint64_t<sp/>decision_id,<sp/>uint64_t<sp/>card_id);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="structeosio_1_1counts" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structeosio_1_1counts" kindref="compound">counts</ref><sp/>:<sp/><ref refid="structcounts__base" kindref="compound">counts_base</ref><sp/>{};</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="66" refid="structeosio_1_1automator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structeosio_1_1automator" kindref="compound">automator</ref><sp/>{</highlight></codeline>
+<codeline lineno="67" refid="structeosio_1_1automator_1a71904acdde50a9e49b8cd4e65074cfc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1automator_1a71904acdde50a9e49b8cd4e65074cfc1" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="68" refid="structeosio_1_1automator_1ab35f7c3b638441dac34949ec340499a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structeosio_1_1automator_1ab35f7c3b638441dac34949ec340499a2" kindref="member">coop_username</ref>;<sp/></highlight></codeline>
+<codeline lineno="69" refid="structeosio_1_1automator_1a3e9167336a434487762cffd8af1db0da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1automator_1a3e9167336a434487762cffd8af1db0da" kindref="member">board_id</ref>;<sp/></highlight></codeline>
+<codeline lineno="70" refid="structeosio_1_1automator_1a00ee4d8eb850b5a594e7fe5bc2f37252" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structeosio_1_1automator_1a00ee4d8eb850b5a594e7fe5bc2f37252" kindref="member">member</ref>;<sp/></highlight></codeline>
+<codeline lineno="71" refid="structeosio_1_1automator_1abe089e463b8844e42be72e2c95f7212a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structeosio_1_1automator_1abe089e463b8844e42be72e2c95f7212a" kindref="member">action_type</ref>;<sp/></highlight></codeline>
+<codeline lineno="72" refid="structeosio_1_1automator_1aae93d7e6be417bf12838a1b3a0871bfe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structeosio_1_1automator_1aae93d7e6be417bf12838a1b3a0871bfe" kindref="member">permission_name</ref>;<sp/></highlight></codeline>
+<codeline lineno="73" refid="structeosio_1_1automator_1ade7fc5cbbffb9701d6d29dad8b70576e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structeosio_1_1automator_1ade7fc5cbbffb9701d6d29dad8b70576e" kindref="member">encrypted_private_key</ref>;<sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structeosio_1_1automator_1afc7c424a0d473897ef4e9e76f17e8d0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1automator_1afc7c424a0d473897ef4e9e76f17e8d0c" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;<sp/>}</highlight></codeline>
+<codeline lineno="76" refid="structeosio_1_1automator_1a726d6fcdfc8f0e84c96f7abda1020a69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structeosio_1_1automator_1a726d6fcdfc8f0e84c96f7abda1020a69" kindref="member">by_member_and_action_type</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(member.value,<sp/>action_type.value);<sp/>}<sp/></highlight></codeline>
+<codeline lineno="77" refid="structeosio_1_1automator_1a59d3a964fe9d7205a93f453f5ce70eb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1automator_1a59d3a964fe9d7205a93f453f5ce70eb7" kindref="member">by_action</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action_type.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;automator&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structeosio_1_1automator" kindref="compound">automator</ref>,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byaction&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;automator,<sp/>uint64_t,<sp/>&amp;automator::by_action&gt;&gt;,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bymembaction&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;automator,<sp/>uint128_t,<sp/>&amp;automator::by_member_and_action_type&gt;&gt;</highlight></codeline>
+<codeline lineno="85" refid="namespaceeosio_1af04d0325c76e07a604c33890aa464181" refkind="member"><highlight class="normal"><sp/><sp/>&gt;<sp/><ref refid="namespaceeosio_1af04d0325c76e07a604c33890aa464181" kindref="member">automator_index</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="structeosio_1_1autosigner" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref><sp/>{</highlight></codeline>
+<codeline lineno="89" refid="structeosio_1_1autosigner_1ae723c9212461794be834a55e0169a6c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1autosigner_1ae723c9212461794be834a55e0169a6c9" kindref="member">decision_id</ref>;</highlight></codeline>
+<codeline lineno="90" refid="structeosio_1_1autosigner_1af66f2d083d71f9b93c9bebbb827612b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1autosigner_1af66f2d083d71f9b93c9bebbb827612b7" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>decision_id;<sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="namespaceeosio_1acf5ac0eb7a5a29eebbe8289c11fc3768" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;autosigner&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structeosio_1_1autosigner" kindref="compound">autosigner</ref>&gt;<sp/><ref refid="namespaceeosio_1acf5ac0eb7a5a29eebbe8289c11fc3768" kindref="member">autosigner_index</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="structeosio_1_1joincoops" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structeosio_1_1joincoops" kindref="compound">joincoops</ref><sp/>{</highlight></codeline>
+<codeline lineno="97" refid="structeosio_1_1joincoops_1a2400b81922f344fbfa41dda06c2caa4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1joincoops_1a2400b81922f344fbfa41dda06c2caa4d" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="98" refid="structeosio_1_1joincoops_1ad0a709dbb47d3d94d1b4bafe335bd05c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structeosio_1_1joincoops_1ad0a709dbb47d3d94d1b4bafe335bd05c" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="99" refid="structeosio_1_1joincoops_1ab3b0842b664a04a69858d83714845dca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_paid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="100" refid="structeosio_1_1joincoops_1a198fbc9e86daba2b45e29ff0f5fd7704" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structeosio_1_1joincoops_1a198fbc9e86daba2b45e29ff0f5fd7704" kindref="member">notice</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="structeosio_1_1joincoops_1ad9376fa463217ba4416efb37b9ac3919" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1joincoops_1ad9376fa463217ba4416efb37b9ac3919" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="namespaceeosio_1ad3c1abebeb51a91ae0b8ea806e93729f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;joincoops&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structeosio_1_1joincoops" kindref="compound">joincoops</ref>&gt;<sp/><ref refid="namespaceeosio_1ad3c1abebeb51a91ae0b8ea806e93729f" kindref="member">joincoops_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="structeosio_1_1changes" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structeosio_1_1changes" kindref="compound">changes</ref><sp/>{</highlight></codeline>
+<codeline lineno="110" refid="structeosio_1_1changes_1a1da338e5afbafe3f9e58b71a521653d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1changes_1a1da338e5afbafe3f9e58b71a521653d4" kindref="member">exchange_id</ref>;</highlight><highlight class="comment">//идентификатор<sp/>обмена<sp/>в<sp/>контракте<sp/>marketplace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="structeosio_1_1changes_1a4884a28fe0214a60358b488618b942b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structeosio_1_1changes_1a4884a28fe0214a60358b488618b942b5" kindref="member">is_paid</ref>;</highlight><highlight class="comment">//деньги<sp/>получены<sp/>на<sp/>счёт<sp/>кооператива<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="structeosio_1_1changes_1add264769c554aed739ee82a27d555118" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structeosio_1_1changes_1add264769c554aed739ee82a27d555118" kindref="member">is_recieved</ref>;</highlight><highlight class="comment">//товар<sp/>получен<sp/>плательщиком</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="structeosio_1_1changes_1a1cf86a750b9919c95c922bee629928ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structeosio_1_1changes_1a1cf86a750b9919c95c922bee629928ac" kindref="member">is_withdrawed</ref>;</highlight><highlight class="comment">//деньги<sp/>выплачены<sp/>владельцу<sp/>товара</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="structeosio_1_1changes_1a14ed5cf6a920654a31391657b46ae6a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structeosio_1_1changes_1a14ed5cf6a920654a31391657b46ae6a6" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange_id;<sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="namespaceeosio_1aaea7ad24c42f9686f6dfc4db3bfa6d23" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;changes&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structeosio_1_1changes" kindref="compound">changes</ref>&gt;<sp/><ref refid="namespaceeosio_1aaea7ad24c42f9686f6dfc4db3bfa6d23" kindref="member">changes_index</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="soviet/soviet.hpp"/>
+  </compounddef>
+</doxygen>

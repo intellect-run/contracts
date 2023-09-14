@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_b91dc011a36447c0e58feb0a66398332" kind="dir">
+    <compoundname>system/build/contracts/eosio.system/CMakeFiles/rex.results.dir/src</compoundname>
+    <innerfile refid="rex_8results_8cpp_8obj_8d">rex.results.cpp.obj.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.system/CMakeFiles/rex.results.dir/src/"/>
+  </compounddef>
+</doxygen>

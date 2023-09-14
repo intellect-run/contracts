@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespaceeosio__system" kind="namespace" language="C++">
+    <compoundname>eosio_system</compoundname>
+    <innerclass refid="classeosio__system_1_1eosio__system__tester" prot="public">eosio_system::eosio_system_tester</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeosio__system_1a88231cdd2d2c65528b97fb62b1fad462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(account_name acct)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acct</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1089" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1089" bodyend="1099"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1a934e2d3278cb21f623fdc78e30d747f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(std::string_view acct)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acct</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1100" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1100" bodyend="1102"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1a7871be20d97113b8d2ab409427dc7696" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(account_name acct, const asset &amp;vote_stake)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acct</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>vote_stake</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1104" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1104" bodyend="1106"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1aaf23cd143824a4f2f7ceb94c68fbaa0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(std::string_view acct, const asset &amp;vote_stake)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acct</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>vote_stake</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1107" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1107" bodyend="1109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1ad03af2f3b3c775934cd97b46aa90f0dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(account_name acct, int64_t vote_stake)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acct</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>vote_stake</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1111" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1111" bodyend="1113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1a0b5e2acd4136934a787bb0a38f2fe43c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::voter</definition>
+        <argsstring>(std::string_view acct, int64_t vote_stake)</argsstring>
+        <name>voter</name>
+        <qualifiedname>eosio_system::voter</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acct</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>vote_stake</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1114" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1114" bodyend="1116"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1ad6bf3917c9bb1d24d8e756e52513b41a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::mutable_variant_object</type>
+        <definition>fc::mutable_variant_object eosio_system::proxy</definition>
+        <argsstring>(account_name acct)</argsstring>
+        <name>proxy</name>
+        <qualifiedname>eosio_system::proxy</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>acct</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1118" column="35" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1118" bodyend="1120"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosio__system_1ae5efe356846ecbf975dec6a67934acb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio_system::M</definition>
+        <argsstring>(const string &amp;eos_str)</argsstring>
+        <name>M</name>
+        <qualifiedname>eosio_system::M</qualifiedname>
+        <param>
+          <type>const string &amp;</type>
+          <declname>eos_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1122" column="17" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1122" bodyend="1124"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/tests/eosio.system_tester.hpp" line="26" column="1"/>
+  </compounddef>
+</doxygen>

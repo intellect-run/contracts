@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="05__how-to-create-issue-and-transfer-a-token_8md" kind="file" language="Markdown">
+    <compoundname>05_how-to-create-issue-and-transfer-a-token.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>How<sp/>to<sp/>create,<sp/>issue<sp/>and<sp/>transfer<sp/>a<sp/>token</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>1:<sp/>Obtain<sp/>Contract<sp/>Source</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Navigate<sp/>to<sp/>your<sp/>contracts<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>CONTRACTS_DIR</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pull<sp/>the<sp/>source</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/AntelopeIO/reference-contracts<sp/>--branch<sp/>main<sp/>--single-branch</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>reference-contracts/contracts/eosio.token</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>2:<sp/>Create<sp/>Account<sp/>for<sp/>Contract</highlight></codeline>
+<codeline><highlight class="normal">[[info]]</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>You<sp/>may<sp/>have<sp/>to<sp/>unlock<sp/>your<sp/>wallet<sp/>first!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>create<sp/>account<sp/>eosio<sp/>eosio.token<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>3:<sp/>Compile<sp/>the<sp/>Contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">eosio-cpp<sp/>-I<sp/>include<sp/>-o<sp/>eosio.token.wasm<sp/>src/eosio.token.cpp<sp/>--abigen</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>4:<sp/>Deploy<sp/>the<sp/>Token<sp/>Contract</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>eosio.token<sp/>CONTRACTS_DIR/reference-contracts/contracts/eosio.token<sp/>--abi<sp/>eosio.token.abi<sp/>-p<sp/>eosio.token@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result<sp/>should<sp/>look<sp/>similar<sp/>to<sp/>the<sp/>one<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">Reading<sp/>WASM<sp/>from<sp/>...</highlight></codeline>
+<codeline><highlight class="normal">Publishing<sp/>contract...</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>69c68b1bd5d61a0cc146b11e89e11f02527f24e4b240731c4003ad1dc0c87c2c<sp/><sp/>9696<sp/>bytes<sp/><sp/>6290<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio<sp/>&lt;=<sp/>eosio::setcode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;account&quot;:&quot;eosio.token&quot;,&quot;vmtype&quot;:0,&quot;vmversion&quot;:0,&quot;code&quot;:&quot;0061736d0100000001aa011c60037f7e7f0060047f...</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio<sp/>&lt;=<sp/>eosio::setabi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;account&quot;:&quot;eosio.token&quot;,&quot;abi&quot;:&quot;0e656f73696f3a3a6162692f312e30000605636c6f73650002056f776e6572046e61...</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>5:<sp/>Create<sp/>the<sp/>Token</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>eosio.token<sp/>create<sp/>&apos;[<sp/>&quot;eosio&quot;,<sp/>&quot;1000000000.0000<sp/>SYS&quot;]&apos;<sp/>-p<sp/>eosio.token@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result<sp/>should<sp/>look<sp/>similar<sp/>to<sp/>the<sp/>one<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12<sp/><sp/>120<sp/>bytes<sp/><sp/>1000<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/>eosio.token<sp/>&lt;=<sp/>eosio.token::create<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;issuer&quot;:&quot;eosio&quot;,&quot;maximum_supply&quot;:&quot;1000000000.0000<sp/>SYS&quot;}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">An<sp/>alternate<sp/>approach<sp/>uses<sp/>named<sp/>arguments:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>eosio.token<sp/>create<sp/>&apos;{&quot;issuer&quot;:&quot;eosio&quot;,<sp/>&quot;maximum_supply&quot;:&quot;1000000000.0000<sp/>SYS&quot;}&apos;<sp/>-p<sp/>eosio.token@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result<sp/>should<sp/>look<sp/>similar<sp/>to<sp/>the<sp/>one<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12<sp/><sp/>120<sp/>bytes<sp/><sp/>1000<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/>eosio.token<sp/>&lt;=<sp/>eosio.token::create<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;issuer&quot;:&quot;eosio&quot;,&quot;maximum_supply&quot;:&quot;1000000000.0000<sp/>SYS&quot;}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>command<sp/>created<sp/>a<sp/>new<sp/>token<sp/>`SYS`<sp/>with<sp/>a<sp/>precision<sp/>of<sp/>4<sp/>decimals<sp/>and<sp/>a<sp/>maximum<sp/>supply<sp/>of<sp/>1000000000.0000<sp/>SYS.<sp/><sp/>To<sp/>create<sp/>this<sp/>token<sp/>requires<sp/>the<sp/>permission<sp/>of<sp/>the<sp/>`eosio.token`<sp/>contract.<sp/>For<sp/>this<sp/>reason,<sp/>`-p<sp/>eosio.token@active`<sp/>was<sp/>passed<sp/>to<sp/>authorize<sp/>the<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>6:<sp/>Issue<sp/>Tokens</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>issuer<sp/>can<sp/>issue<sp/>new<sp/>tokens<sp/>to<sp/>the<sp/>issuer<sp/>account<sp/>in<sp/>our<sp/>case<sp/>`eosio`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>eosio.token<sp/>issue<sp/>&apos;[<sp/>&quot;eosio&quot;,<sp/>&quot;100.0000<sp/>SYS&quot;,<sp/>&quot;memo&quot;<sp/>]&apos;<sp/>-p<sp/>eosio@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result<sp/>should<sp/>look<sp/>similar<sp/>to<sp/>the<sp/>one<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>a26b29d66044ad95edf0fc04bad3073e99718bc26d27f3c006589adedb717936<sp/><sp/>128<sp/>bytes<sp/><sp/>337<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/>eosio.token<sp/>&lt;=<sp/>eosio.token::issue<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;to&quot;:&quot;eosio&quot;,&quot;quantity&quot;:&quot;100.0000<sp/>SYS&quot;,&quot;memo&quot;:&quot;memo&quot;}</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Step<sp/>7:<sp/>Transfer<sp/>Tokens</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Now<sp/>that<sp/>account<sp/>`eosio`<sp/>has<sp/>been<sp/>issued<sp/>tokens,<sp/>transfer<sp/>some<sp/>of<sp/>them<sp/>to<sp/>account<sp/>`bob`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>eosio.token<sp/>transfer<sp/>&apos;[<sp/>&quot;eosio&quot;,<sp/>&quot;bob&quot;,<sp/>&quot;25.0000<sp/>SYS&quot;,<sp/>&quot;m&quot;<sp/>]&apos;<sp/>-p<sp/>eosio@active</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result<sp/>should<sp/>look<sp/>similar<sp/>to<sp/>the<sp/>one<sp/>below:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>60d334850151cb95c35fe31ce2e8b536b51441c5fd4c3f2fea98edcc6d69f39d<sp/><sp/>128<sp/>bytes<sp/><sp/>497<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/>eosio.token<sp/>&lt;=<sp/>eosio.token::transfer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;from&quot;:&quot;eosio&quot;,&quot;to&quot;:&quot;bob&quot;,&quot;quantity&quot;:&quot;25.0000<sp/>SYS&quot;,&quot;memo&quot;:&quot;m&quot;}</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio<sp/>&lt;=<sp/>eosio.token::transfer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;from&quot;:&quot;eosio&quot;,&quot;to&quot;:&quot;bob&quot;,&quot;quantity&quot;:&quot;25.0000<sp/>SYS&quot;,&quot;memo&quot;:&quot;m&quot;}</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bob<sp/>&lt;=<sp/>eosio.token::transfer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;from&quot;:&quot;eosio&quot;,&quot;to&quot;:&quot;bob&quot;,&quot;quantity&quot;:&quot;25.0000<sp/>SYS&quot;,&quot;memo&quot;:&quot;m&quot;}</highlight></codeline>
+<codeline><highlight class="normal">warning:<sp/>transaction<sp/>executed<sp/>locally,<sp/>but<sp/>may<sp/>not<sp/>be<sp/>confirmed<sp/>by<sp/>the<sp/>network<sp/>yet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Now<sp/>check<sp/>if<sp/>&quot;bob&quot;<sp/>got<sp/>the<sp/>tokens<sp/>using<sp/>[cleos<sp/>get<sp/>currency<sp/>balance](https://github.com/AntelopeIO/leap/blob/main/docs/02_cleos/03_command-reference/get/currency-balance.md)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>currency<sp/>balance<sp/>eosio.token<sp/>bob<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">25.00<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Check<sp/>&quot;eosio&apos;s&quot;<sp/>balance,<sp/>notice<sp/>that<sp/>tokens<sp/>were<sp/>deducted<sp/>from<sp/>the<sp/>account</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>currency<sp/>balance<sp/>eosio.token<sp/>eosio<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Result:</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">75.00<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/04_guides/05_how-to-create-issue-and-transfer-a-token.md"/>
+  </compounddef>
+</doxygen>

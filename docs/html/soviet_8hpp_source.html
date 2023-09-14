@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Контракты: Исходный файл soviet/soviet.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Контракты
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('soviet_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">soviet.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="soviet_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// #pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;eosio/binary_extension.hpp&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;eosio/eosio.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;eosio/ignore.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;eosio/transaction.hpp&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;eosio/asset.hpp&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;eosio/singleton.hpp&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../common/consts.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../common/utils.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../common/users.hpp&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../common/coops.hpp&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;../common/counts.hpp&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;../common/admins.hpp&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceeosio.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeosio.html">eosio</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classeosio_1_1soviet.html">   18</a></span><span class="keyword">class </span>[[eosio::contract(<a class="code hl_define" href="consts_8hpp.html#a37a9762fc7553d1d410dc6e5c9c61e76">SOVIET</a>)]] <a class="code hl_class" href="classeosio_1_1soviet.html">soviet</a> : <span class="keyword">public</span> eosio::contract {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">using</span> contract::contract;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   <span class="comment">//soviet.cpp</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  [[eosio::action]] <span class="keywordtype">void</span> exec(eosio::name executer, eosio::name coop_username, uint64_t decision_id);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  [[eosio::action]] <span class="keywordtype">void</span> newid(uint64_t decision_id);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="comment">//admin.cpp</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  [[eosio::action]] <span class="keywordtype">void</span> addstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector&lt;right&gt; rights, std::string meta);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  [[eosio::action]] <span class="keywordtype">void</span> rmstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  [[eosio::action]] <span class="keywordtype">void</span> setrights(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector&lt;right&gt; rights);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  [[eosio::action]] <span class="keywordtype">void</span> validate(eosio::name coop_username, uint64_t board_id, eosio::name username, uint64_t decision_id);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="comment">//regaccount.cpp</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  [[eosio::action]] <span class="keywordtype">void</span> joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> joincoop_effect(eosio::name executer, eosio::name coop_username, uint64_t decision_id, uint64_t card_id);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="comment">//automator.cpp</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  [[eosio::action]] <span class="keywordtype">void</span> automate(eosio::name coop_username, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  [[eosio::action]] <span class="keywordtype">void</span> disautomate(eosio::name coop_username, uint64_t board_id, eosio::name member, uint64_t automation_id );</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> is_valid_action_for_automation(eosio::name action_type);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="comment">//chairman.cpp</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  [[eosio::action]] <span class="keywordtype">void</span> authorize(eosio::name coop_username, eosio::name chairman, uint64_t decision_id);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  [[eosio::action]] <span class="keywordtype">void</span> createboard(eosio::name coop_username, eosio::name chairman, eosio::name type, std::vector&lt;board_member&gt; <a class="code hl_struct" href="structmembers.html">members</a>, std::string name, std::string description);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="comment">//voting.cpp</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  [[eosio::action]] <span class="keywordtype">void</span> votefor(eosio::name coop_username, eosio::name member, uint64_t decision_id);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  [[eosio::action]] <span class="keywordtype">void</span> voteagainst(eosio::name coop_username, eosio::name member, uint64_t decision_id);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  [[eosio::action]] <span class="keywordtype">void</span> cancelvote(eosio::name coop_username, eosio::name member, uint64_t decision_id);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">//marketplace.cpp</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  [[eosio::action]] <span class="keywordtype">void</span> change(eosio::name coop_username, uint64_t exchange_id);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> change_effect(eosio::name executer, eosio::name coop_username, uint64_t decision_id, uint64_t card_id);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structeosio_1_1counts.html">   56</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structeosio_1_1counts.html">counts</a> : <a class="code hl_struct" href="structcounts__base.html">counts_base</a> {};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html">   66</a></span><span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structeosio_1_1automator.html">automator</a> {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#a71904acdde50a9e49b8cd4e65074cfc1">   67</a></span>    uint64_t <a class="code hl_variable" href="structeosio_1_1automator.html#a71904acdde50a9e49b8cd4e65074cfc1">id</a>; </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#ab35f7c3b638441dac34949ec340499a2">   68</a></span>    eosio::name <a class="code hl_variable" href="structeosio_1_1automator.html#ab35f7c3b638441dac34949ec340499a2">coop_username</a>; </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#a3e9167336a434487762cffd8af1db0da">   69</a></span>    uint64_t <a class="code hl_variable" href="structeosio_1_1automator.html#a3e9167336a434487762cffd8af1db0da">board_id</a>; </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#a00ee4d8eb850b5a594e7fe5bc2f37252">   70</a></span>    eosio::name <a class="code hl_variable" href="structeosio_1_1automator.html#a00ee4d8eb850b5a594e7fe5bc2f37252">member</a>; </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#abe089e463b8844e42be72e2c95f7212a">   71</a></span>    eosio::name <a class="code hl_variable" href="structeosio_1_1automator.html#abe089e463b8844e42be72e2c95f7212a">action_type</a>; </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#aae93d7e6be417bf12838a1b3a0871bfe">   72</a></span>    eosio::name <a class="code hl_variable" href="structeosio_1_1automator.html#aae93d7e6be417bf12838a1b3a0871bfe">permission_name</a>; </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#ade7fc5cbbffb9701d6d29dad8b70576e">   73</a></span>    std::string <a class="code hl_variable" href="structeosio_1_1automator.html#ade7fc5cbbffb9701d6d29dad8b70576e">encrypted_private_key</a>; </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#afc7c424a0d473897ef4e9e76f17e8d0c">   75</a></span>    uint64_t <a class="code hl_function" href="structeosio_1_1automator.html#afc7c424a0d473897ef4e9e76f17e8d0c">primary_key</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> id; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#a726d6fcdfc8f0e84c96f7abda1020a69">   76</a></span>    uint128_t <a class="code hl_function" href="structeosio_1_1automator.html#a726d6fcdfc8f0e84c96f7abda1020a69">by_member_and_action_type</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(member.value, action_type.value); } </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structeosio_1_1automator.html#a59d3a964fe9d7205a93f453f5ce70eb7">   77</a></span>    uint64_t <a class="code hl_function" href="structeosio_1_1automator.html#a59d3a964fe9d7205a93f453f5ce70eb7">by_action</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> action_type.value; } </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;automator&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1automator.html">automator</a>,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    eosio::indexed_by&lt;<span class="stringliteral">&quot;byaction&quot;</span>_n, eosio::const_mem_fun&lt;automator, uint64_t, &amp;automator::by_action&gt;&gt;,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    eosio::indexed_by&lt;<span class="stringliteral">&quot;bymembaction&quot;</span>_n, eosio::const_mem_fun&lt;automator, uint128_t, &amp;automator::by_member_and_action_type&gt;&gt;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespaceeosio.html#af04d0325c76e07a604c33890aa464181">   85</a></span>  &gt; <a class="code hl_typedef" href="namespaceeosio.html#af04d0325c76e07a604c33890aa464181">automator_index</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structeosio_1_1autosigner.html">   88</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structeosio_1_1autosigner.html">autosigner</a> {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structeosio_1_1autosigner.html#ae723c9212461794be834a55e0169a6c9">   89</a></span>    uint64_t <a class="code hl_variable" href="structeosio_1_1autosigner.html#ae723c9212461794be834a55e0169a6c9">decision_id</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structeosio_1_1autosigner.html#af66f2d083d71f9b93c9bebbb827612b7">   90</a></span>    uint64_t <a class="code hl_function" href="structeosio_1_1autosigner.html#af66f2d083d71f9b93c9bebbb827612b7">primary_key</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> decision_id; }    </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  };</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespaceeosio.html#acf5ac0eb7a5a29eebbe8289c11fc3768">   93</a></span>  <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;autosigner&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1autosigner.html">autosigner</a>&gt; <a class="code hl_typedef" href="namespaceeosio.html#acf5ac0eb7a5a29eebbe8289c11fc3768">autosigner_index</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html">   96</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structeosio_1_1joincoops.html">joincoops</a> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html#a2400b81922f344fbfa41dda06c2caa4d">   97</a></span>    uint64_t <a class="code hl_variable" href="structeosio_1_1joincoops.html#a2400b81922f344fbfa41dda06c2caa4d">id</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html#ad0a709dbb47d3d94d1b4bafe335bd05c">   98</a></span>    eosio::name <a class="code hl_variable" href="structeosio_1_1joincoops.html#ad0a709dbb47d3d94d1b4bafe335bd05c">username</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html#ab3b0842b664a04a69858d83714845dca">   99</a></span>    <span class="keywordtype">bool</span> is_paid = <span class="keyword">false</span>; </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html#a198fbc9e86daba2b45e29ff0f5fd7704">  100</a></span>    std::string <a class="code hl_variable" href="structeosio_1_1joincoops.html#a198fbc9e86daba2b45e29ff0f5fd7704">notice</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structeosio_1_1joincoops.html#ad9376fa463217ba4416efb37b9ac3919">  102</a></span>    uint64_t <a class="code hl_function" href="structeosio_1_1joincoops.html#ad9376fa463217ba4416efb37b9ac3919">primary_key</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <span class="keywordflow">return</span> id;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    };</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  };</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="namespaceeosio.html#ad3c1abebeb51a91ae0b8ea806e93729f">  107</a></span>  <span class="keyword">typedef</span> eosio::multi_index&lt;<span class="stringliteral">&quot;joincoops&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1joincoops.html">joincoops</a>&gt; <a class="code hl_typedef" href="namespaceeosio.html#ad3c1abebeb51a91ae0b8ea806e93729f">joincoops_index</a>; </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html">  109</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structeosio_1_1changes.html">changes</a> {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html#a1da338e5afbafe3f9e58b71a521653d4">  110</a></span>    uint64_t <a class="code hl_variable" href="structeosio_1_1changes.html#a1da338e5afbafe3f9e58b71a521653d4">exchange_id</a>;<span class="comment">//идентификатор обмена в контракте marketplace</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html#a4884a28fe0214a60358b488618b942b5">  111</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structeosio_1_1changes.html#a4884a28fe0214a60358b488618b942b5">is_paid</a>;<span class="comment">//деньги получены на счёт кооператива  </span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html#add264769c554aed739ee82a27d555118">  112</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structeosio_1_1changes.html#add264769c554aed739ee82a27d555118">is_recieved</a>;<span class="comment">//товар получен плательщиком</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html#a1cf86a750b9919c95c922bee629928ac">  113</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structeosio_1_1changes.html#a1cf86a750b9919c95c922bee629928ac">is_withdrawed</a>;<span class="comment">//деньги выплачены владельцу товара</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structeosio_1_1changes.html#a14ed5cf6a920654a31391657b46ae6a6">  115</a></span>    uint64_t <a class="code hl_function" href="structeosio_1_1changes.html#a14ed5cf6a920654a31391657b46ae6a6">primary_key</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <span class="keywordflow">return</span> exchange_id; </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    };</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  };</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespaceeosio.html#aaea7ad24c42f9686f6dfc4db3bfa6d23">  120</a></span>  <span class="keyword">typedef</span> eosio::multi_index&lt;<span class="stringliteral">&quot;changes&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1changes.html">changes</a>&gt; <a class="code hl_typedef" href="namespaceeosio.html#aaea7ad24c42f9686f6dfc4db3bfa6d23">changes_index</a>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+<div class="ttc" id="aclasseosio_1_1soviet_html"><div class="ttname"><a href="classeosio_1_1soviet.html">eosio::soviet</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:18</div></div>
+<div class="ttc" id="aconsts_8hpp_html_a37a9762fc7553d1d410dc6e5c9c61e76"><div class="ttname"><a href="consts_8hpp.html#a37a9762fc7553d1d410dc6e5c9c61e76">SOVIET</a></div><div class="ttdeci">#define SOVIET</div><div class="ttdef"><b>Definition:</b> consts.hpp:5</div></div>
+<div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:17</div></div>
+<div class="ttc" id="anamespaceeosio_html_aaea7ad24c42f9686f6dfc4db3bfa6d23"><div class="ttname"><a href="namespaceeosio.html#aaea7ad24c42f9686f6dfc4db3bfa6d23">eosio::changes_index</a></div><div class="ttdeci">eosio::multi_index&lt;&quot;changes&quot;_n, changes &gt; changes_index</div><div class="ttdef"><b>Definition:</b> soviet.hpp:120</div></div>
+<div class="ttc" id="anamespaceeosio_html_acf5ac0eb7a5a29eebbe8289c11fc3768"><div class="ttname"><a href="namespaceeosio.html#acf5ac0eb7a5a29eebbe8289c11fc3768">eosio::autosigner_index</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;autosigner&quot;_n, autosigner &gt; autosigner_index</div><div class="ttdef"><b>Definition:</b> soviet.hpp:93</div></div>
+<div class="ttc" id="anamespaceeosio_html_ad3c1abebeb51a91ae0b8ea806e93729f"><div class="ttname"><a href="namespaceeosio.html#ad3c1abebeb51a91ae0b8ea806e93729f">eosio::joincoops_index</a></div><div class="ttdeci">eosio::multi_index&lt;&quot;joincoops&quot;_n, joincoops &gt; joincoops_index</div><div class="ttdef"><b>Definition:</b> soviet.hpp:107</div></div>
+<div class="ttc" id="anamespaceeosio_html_af04d0325c76e07a604c33890aa464181"><div class="ttname"><a href="namespaceeosio.html#af04d0325c76e07a604c33890aa464181">eosio::automator_index</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;automator&quot;_n, automator, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt; automator, uint64_t, &amp;automator::by_action &gt; &gt;, eosio::indexed_by&lt;&quot;bymembaction&quot;_n, eosio::const_mem_fun&lt; automator, uint128_t, &amp;automator::by_member_and_action_type &gt; &gt; &gt; automator_index</div><div class="ttdef"><b>Definition:</b> soviet.hpp:85</div></div>
+<div class="ttc" id="astructcounts__base_html"><div class="ttname"><a href="structcounts__base.html">counts_base</a></div><div class="ttdef"><b>Definition:</b> counts.hpp:1</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html"><div class="ttname"><a href="structeosio_1_1automator.html">eosio::automator</a></div><div class="ttdoc">Таблица автоматизированных действий</div><div class="ttdef"><b>Definition:</b> soviet.hpp:66</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_a00ee4d8eb850b5a594e7fe5bc2f37252"><div class="ttname"><a href="structeosio_1_1automator.html#a00ee4d8eb850b5a594e7fe5bc2f37252">eosio::automator::member</a></div><div class="ttdeci">eosio::name member</div><div class="ttdoc">Член совета, который автоматизировал данное действие</div><div class="ttdef"><b>Definition:</b> soviet.hpp:70</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_a3e9167336a434487762cffd8af1db0da"><div class="ttname"><a href="structeosio_1_1automator.html#a3e9167336a434487762cffd8af1db0da">eosio::automator::board_id</a></div><div class="ttdeci">uint64_t board_id</div><div class="ttdoc">Идентификатор совета, который автоматизировал данное действие</div><div class="ttdef"><b>Definition:</b> soviet.hpp:69</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_a59d3a964fe9d7205a93f453f5ce70eb7"><div class="ttname"><a href="structeosio_1_1automator.html#a59d3a964fe9d7205a93f453f5ce70eb7">eosio::automator::by_action</a></div><div class="ttdeci">uint64_t by_action() const</div><div class="ttdoc">Индекс по типу действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:77</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_a71904acdde50a9e49b8cd4e65074cfc1"><div class="ttname"><a href="structeosio_1_1automator.html#a71904acdde50a9e49b8cd4e65074cfc1">eosio::automator::id</a></div><div class="ttdeci">uint64_t id</div><div class="ttdoc">Уникальный идентификатор автоматизированного действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:67</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_a726d6fcdfc8f0e84c96f7abda1020a69"><div class="ttname"><a href="structeosio_1_1automator.html#a726d6fcdfc8f0e84c96f7abda1020a69">eosio::automator::by_member_and_action_type</a></div><div class="ttdeci">uint128_t by_member_and_action_type() const</div><div class="ttdoc">Индекс по члену совета и типу действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:76</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_aae93d7e6be417bf12838a1b3a0871bfe"><div class="ttname"><a href="structeosio_1_1automator.html#aae93d7e6be417bf12838a1b3a0871bfe">eosio::automator::permission_name</a></div><div class="ttdeci">eosio::name permission_name</div><div class="ttdoc">Имя разрешения для авторизации действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:72</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_ab35f7c3b638441dac34949ec340499a2"><div class="ttname"><a href="structeosio_1_1automator.html#ab35f7c3b638441dac34949ec340499a2">eosio::automator::coop_username</a></div><div class="ttdeci">eosio::name coop_username</div><div class="ttdoc">Имя кооператива, к которому относится данное автоматизированное действие</div><div class="ttdef"><b>Definition:</b> soviet.hpp:68</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_abe089e463b8844e42be72e2c95f7212a"><div class="ttname"><a href="structeosio_1_1automator.html#abe089e463b8844e42be72e2c95f7212a">eosio::automator::action_type</a></div><div class="ttdeci">eosio::name action_type</div><div class="ttdoc">Тип автоматизированного действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:71</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_ade7fc5cbbffb9701d6d29dad8b70576e"><div class="ttname"><a href="structeosio_1_1automator.html#ade7fc5cbbffb9701d6d29dad8b70576e">eosio::automator::encrypted_private_key</a></div><div class="ttdeci">std::string encrypted_private_key</div><div class="ttdoc">Зашифрованный приватный ключ для авторизации действия</div><div class="ttdef"><b>Definition:</b> soviet.hpp:73</div></div>
+<div class="ttc" id="astructeosio_1_1automator_html_afc7c424a0d473897ef4e9e76f17e8d0c"><div class="ttname"><a href="structeosio_1_1automator.html#afc7c424a0d473897ef4e9e76f17e8d0c">eosio::automator::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> soviet.hpp:75</div></div>
+<div class="ttc" id="astructeosio_1_1autosigner_html"><div class="ttname"><a href="structeosio_1_1autosigner.html">eosio::autosigner</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:88</div></div>
+<div class="ttc" id="astructeosio_1_1autosigner_html_ae723c9212461794be834a55e0169a6c9"><div class="ttname"><a href="structeosio_1_1autosigner.html#ae723c9212461794be834a55e0169a6c9">eosio::autosigner::decision_id</a></div><div class="ttdeci">uint64_t decision_id</div><div class="ttdef"><b>Definition:</b> soviet.hpp:89</div></div>
+<div class="ttc" id="astructeosio_1_1autosigner_html_af66f2d083d71f9b93c9bebbb827612b7"><div class="ttname"><a href="structeosio_1_1autosigner.html#af66f2d083d71f9b93c9bebbb827612b7">eosio::autosigner::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> soviet.hpp:90</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html"><div class="ttname"><a href="structeosio_1_1changes.html">eosio::changes</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:109</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html_a14ed5cf6a920654a31391657b46ae6a6"><div class="ttname"><a href="structeosio_1_1changes.html#a14ed5cf6a920654a31391657b46ae6a6">eosio::changes::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> soviet.hpp:115</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html_a1cf86a750b9919c95c922bee629928ac"><div class="ttname"><a href="structeosio_1_1changes.html#a1cf86a750b9919c95c922bee629928ac">eosio::changes::is_withdrawed</a></div><div class="ttdeci">bool is_withdrawed</div><div class="ttdef"><b>Definition:</b> soviet.hpp:113</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html_a1da338e5afbafe3f9e58b71a521653d4"><div class="ttname"><a href="structeosio_1_1changes.html#a1da338e5afbafe3f9e58b71a521653d4">eosio::changes::exchange_id</a></div><div class="ttdeci">uint64_t exchange_id</div><div class="ttdef"><b>Definition:</b> soviet.hpp:110</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html_a4884a28fe0214a60358b488618b942b5"><div class="ttname"><a href="structeosio_1_1changes.html#a4884a28fe0214a60358b488618b942b5">eosio::changes::is_paid</a></div><div class="ttdeci">bool is_paid</div><div class="ttdef"><b>Definition:</b> soviet.hpp:111</div></div>
+<div class="ttc" id="astructeosio_1_1changes_html_add264769c554aed739ee82a27d555118"><div class="ttname"><a href="structeosio_1_1changes.html#add264769c554aed739ee82a27d555118">eosio::changes::is_recieved</a></div><div class="ttdeci">bool is_recieved</div><div class="ttdef"><b>Definition:</b> soviet.hpp:112</div></div>
+<div class="ttc" id="astructeosio_1_1counts_html"><div class="ttname"><a href="structeosio_1_1counts.html">eosio::counts</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:56</div></div>
+<div class="ttc" id="astructeosio_1_1joincoops_html"><div class="ttname"><a href="structeosio_1_1joincoops.html">eosio::joincoops</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:96</div></div>
+<div class="ttc" id="astructeosio_1_1joincoops_html_a198fbc9e86daba2b45e29ff0f5fd7704"><div class="ttname"><a href="structeosio_1_1joincoops.html#a198fbc9e86daba2b45e29ff0f5fd7704">eosio::joincoops::notice</a></div><div class="ttdeci">std::string notice</div><div class="ttdef"><b>Definition:</b> soviet.hpp:100</div></div>
+<div class="ttc" id="astructeosio_1_1joincoops_html_a2400b81922f344fbfa41dda06c2caa4d"><div class="ttname"><a href="structeosio_1_1joincoops.html#a2400b81922f344fbfa41dda06c2caa4d">eosio::joincoops::id</a></div><div class="ttdeci">uint64_t id</div><div class="ttdef"><b>Definition:</b> soviet.hpp:97</div></div>
+<div class="ttc" id="astructeosio_1_1joincoops_html_ad0a709dbb47d3d94d1b4bafe335bd05c"><div class="ttname"><a href="structeosio_1_1joincoops.html#ad0a709dbb47d3d94d1b4bafe335bd05c">eosio::joincoops::username</a></div><div class="ttdeci">eosio::name username</div><div class="ttdef"><b>Definition:</b> soviet.hpp:98</div></div>
+<div class="ttc" id="astructeosio_1_1joincoops_html_ad9376fa463217ba4416efb37b9ac3919"><div class="ttname"><a href="structeosio_1_1joincoops.html#ad9376fa463217ba4416efb37b9ac3919">eosio::joincoops::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> soviet.hpp:102</div></div>
+<div class="ttc" id="astructmembers_html"><div class="ttname"><a href="structmembers.html">members</a></div><div class="ttdoc">Структура, представляющая членов кооператива.</div><div class="ttdef"><b>Definition:</b> coops.hpp:143</div></div>
+<div class="ttc" id="autils_8hpp_html_a9674246df019d9c71da6884b1fd0fe39"><div class="ttname"><a href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a></div><div class="ttdeci">static uint128_t combine_ids(const uint64_t &amp;x, const uint64_t &amp;y)</div><div class="ttdef"><b>Definition:</b> utils.hpp:2</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8227e9b4ea7c26213abc03b1561b6824.html">soviet</a></li><li class="navelem"><a class="el" href="soviet_8hpp.html">soviet.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

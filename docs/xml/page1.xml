@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="page1" kind="page">
+    <compoundname>page1</compoundname>
+    <title>Example Page</title>
+    <tableofcontents>
+      <tocsect>
+        <name>An example section</name>
+        <reference>page1_1sec</reference>
+    <tableofcontents>
+      <tocsect>
+        <name>The first subsection</name>
+        <reference>page1_1subsection1</reference>
+    </tocsect>
+      <tocsect>
+        <name>The second subsection</name>
+        <reference>page1_1subsection2</reference>
+    </tocsect>
+    </tableofcontents>
+    </tocsect>
+    </tableofcontents>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Leading text. </para>
+<sect1 id="page1_1sec">
+<title>An example section</title>
+<para>This page contains the subsections <ref refid="page1_1subsection1" kindref="member">The first subsection</ref> and <ref refid="page1_1subsection2" kindref="member">The second subsection</ref>. </para>
+<sect2 id="page1_1subsection1">
+<title>The first subsection</title>
+<para>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </para>
+</sect2>
+<sect2 id="page1_1subsection2">
+<title>The second subsection</title>
+<para>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</para>
+<para><simplesect kind="note"><para>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </para>
+</simplesect>
+</para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="registrator/doxygen-awesome-css/docs/page.dox"/>
+  </compounddef>
+</doxygen>

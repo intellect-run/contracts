@@ -15,6 +15,18 @@ using namespace eosio;
   require_auth(_soviet);
 };
 
+/**
+\ingroup public_actions
+\brief Исполнение решения совета
+*
+* Этот метод позволяет исполнить решение совета. Исполнение решения включает в себя проверку, что решение существует, что оно было авторизовано, и что оно еще не было выполнено. В зависимости от типа решения, вызывается соответствующая функция для его реализации.
+*
+* @param executer Имя аккаунта, который исполняет решение
+* @param coop_username Имя кооператива
+* @param decision_id Идентификатор решения для исполнения
+* 
+* @note Авторизация требуется от аккаунта: @p executer
+*/
 void soviet::exec(eosio::name executer, eosio::name coop_username, uint64_t decision_id) { 
   require_auth(executer);
 

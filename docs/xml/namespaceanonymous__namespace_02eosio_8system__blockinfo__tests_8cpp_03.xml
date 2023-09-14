@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespaceanonymous__namespace_02eosio_8system__blockinfo__tests_8cpp_03" kind="namespace" language="C++">
+    <compoundname>anonymous_namespace{eosio.system_blockinfo_tests.cpp}</compoundname>
+    <innerclass refid="structanonymous__namespace_02eosio_8system__blockinfo__tests_8cpp_03_1_1block__info__record" prot="public">anonymous_namespace{eosio.system_blockinfo_tests.cpp}::block_info_record</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceanonymous__namespace_02eosio_8system__blockinfo__tests_8cpp_03_1a8af8482f663883a74d851f6e286ac4b9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t anonymous_namespace{eosio.system_blockinfo_tests.cpp}::rolling_window_size</definition>
+        <argsstring></argsstring>
+        <name>rolling_window_size</name>
+        <qualifiedname>anonymous_namespace{eosio.system_blockinfo_tests.cpp}::rolling_window_size</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_blockinfo_tests.cpp" line="35" column="27" bodyfile="system/tests/eosio.system_blockinfo_tests.cpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/tests/eosio.system_blockinfo_tests.cpp" line="20" column="1"/>
+  </compounddef>
+</doxygen>

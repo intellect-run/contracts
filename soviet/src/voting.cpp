@@ -27,6 +27,19 @@ void add_vote_against(eosio::name coop_username, eosio::name member, uint64_t de
   });
 }
 
+
+/**
+\ingroup public_actions
+\brief Голосование за решение совета
+*
+* Этот метод позволяет члену совета голосовать за конкретное решение. Если у члена совета нет права голоса или голосование уже было произведено ранее, процедура завершится ошибкой. После голосования рассчитывается, превысило ли количество голосов "за" заданный процент консенсуса от общего количества членов.
+*
+* @param coop_username Имя кооператива
+* @param member Имя члена совета, голосующего за решение
+* @param decision_id Идентификатор решения, за которое происходит голосование
+* 
+* @note Авторизация требуется от аккаунта: @p member или @p permission_level{member, "oracle"_n}
+*/
 void soviet::votefor(eosio::name coop_username, eosio::name member, uint64_t decision_id) { 
   if (!has_auth(member)) {
     require_auth(permission_level{member, "oracle"_n});
@@ -57,7 +70,18 @@ void soviet::votefor(eosio::name coop_username, eosio::name member, uint64_t dec
 
 };
 
-
+/**
+\ingroup public_actions
+\brief Голосование против решения совета
+*
+* Этот метод позволяет члену совета голосовать против конкретного решения. Если у члена совета нет права голоса или голосование уже было произведено ранее, процедура завершится ошибкой.
+*
+* @param coop_username Имя кооператива
+* @param member Имя члена совета, голосующего против решения
+* @param decision_id Идентификатор решения, против которого происходит голосование
+* 
+* @note Авторизация требуется от аккаунта: @p member или @p permission_level{member, "provide"_n}
+*/
 void soviet::voteagainst(eosio::name coop_username, eosio::name member, uint64_t decision_id) { 
   
   if (!has_auth(member)) {
@@ -79,7 +103,18 @@ void soviet::voteagainst(eosio::name coop_username, eosio::name member, uint64_t
   add_vote_against(coop_username, member, decision_id);
 };
 
-
+/**
+\ingroup public_actions
+\brief Отмена голосования членом совета
+*
+* Этот метод позволяет члену совета отменить свой голос, поданный ранее, по конкретному решению. Если голосование не было произведено или решение не найдено, процедура завершится ошибкой.
+*
+* @param coop_username Имя кооператива
+* @param member Имя члена совета, отменяющего свое голосование
+* @param decision_id Идентификатор решения, по которому голосование было проведено
+* 
+* @note Авторизация требуется от аккаунта: @p member или @p permission_level{member, "provide"_n}
+*/
 void soviet::cancelvote(eosio::name coop_username, eosio::name member, uint64_t decision_id) {
   
   if (!has_auth(member)) {

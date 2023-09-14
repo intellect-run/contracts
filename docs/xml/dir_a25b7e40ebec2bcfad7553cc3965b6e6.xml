@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_a25b7e40ebec2bcfad7553cc3965b6e6" kind="dir">
+    <compoundname>system/build/contracts/eosio.boot/CMakeFiles/eosio.boot.dir</compoundname>
+    <innerdir refid="dir_75fc1af4165b4824336b855d45b3d9fe">system/build/contracts/eosio.boot/CMakeFiles/eosio.boot.dir/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.boot/CMakeFiles/eosio.boot.dir/"/>
+  </compounddef>
+</doxygen>

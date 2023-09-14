@@ -1,19 +1,27 @@
 #include "registrator.hpp"
-using namespace eosio;
 
-
-/*
- * 1. Регистрация аккаунта в каталог через АНО с данными в хранилище АНО (Фио и
- * что что еще, наверное)
- * 2. Регистрация индивидуального лица через контракт регистратора с хранением
- * приватных данных где-то
- * 3. Оповещение АНО о изменении статуса аккаунта?
+/**
+ * @brief Регистрирует новый аккаунт.
+ * 
+ * Действие позволяет создать новый аккаунт, выполнив все необходимые шаги по резервированию RAM, 
+ * делегированию CPU и NET, а также регистрации пользователя в контракте.
+ * @note Авторизация требуется от аккаунта: @p payer
+ *
+ * @param payer Аккаунт, который оплачивает создание нового аккаунта.
+ * @param referer Реферер, который представил нового пользователя.
+ * @param username Имя нового аккаунта.
+ * @param public_key Открытый ключ нового аккаунта.
+ * @param cpu Количество AXON, делегированных на CPU для нового аккаунта.
+ * @param net Количество AXON, делегированных на NET для нового аккаунта.
+ * @param ram_bytes Количество RAM в байтах для нового аккаунта.
+ * @param meta Дополнительная мета-информация.
+ *
+ * 
+ * @ingroup public_actions
  */
-
-
 [[eosio::action]] void registrator::newaccount(
     eosio::name payer, eosio::name referer,
-    eosio::name username, std::string uid, eosio::public_key public_key,
+    eosio::name username, eosio::public_key public_key,
     eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta) {
   require_auth(payer);
   
@@ -55,41 +63,25 @@ using namespace eosio;
     n.registrator = payer;
     n.registration_amount = total_pay;
     n.referer = referer;
-    n.uid = uid;
-    n.uid_hash = hashit(uid);
     n.registered_at =
         eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     n.meta = meta;
   });
 }
 
-/**
- * @brief      Метод регистрации индивидуального лица
- * @auth    registrator
- * @ingroup public_actions
- * @param[in]  registrator        имя аккаунта регистратора
- * @param[in]  referer      имя аккаунта реферера нового аккаунта (не
- обязательно, если set_referer = false)
- * @param[in]  newaccount   имя нового аккаунта
- * @param[in]  public_key   публичный ключ нового аккаунта
- * @param[in]  cpu          количество системного токена в CPU
- * @param[in]  net          количество системного токена в NET
- * @param[in]  ram_bytes
- *
- *   количество оперативной памяти нового аккаунта
- * @param[in]  is_guest     флаг регистрации в качестве гостя
- * @param[in]  set_referer  флаг автоматической установки реферера в контракт
- партнёров
 
- * @details Метод производит регистрацию нового аккаунта в системе. Если
- is_guest = true, то аккаунт регистрируется
- * в качестве гостя, что означает, что контракт регистратора устанавливает права
- владельца нового аккаунта на себя.
- * Если is_guest = false, то регистратор создаёт новый аккаунт с передачей прав
- владельца на него.
- * Флаг set_referer используется для автоматической установки партнёра в
- реферальную структуру, что не обязательно.
- */
+/**
+\ingroup public_actions
+\brief Регистрация пользователя
+*
+* Этот метод предназначен для регистрации аккаунта в качестве физического лица.
+* После регистрации пользователь получает статус "user". Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.
+*
+* @param username Имя пользователя, который регистрируется
+* @param profile_hash Хэш-ссылка на зашифрованный профиль пользователя, сохраненный в IPFS
+* 
+* @note Авторизация требуется от аккаунта: @p username
+*/
 [[eosio::action]] void registrator::reguser(
    eosio::name username,
    std::string profile_hash
@@ -121,6 +113,17 @@ using namespace eosio;
   });
 }
 
+/**
+\ingroup public_actions
+\brief Верификация аккаунта
+*
+* Этот метод позволяет верифицировать аккаунты как пользователей, так и организаций.
+* На данный момент может быть применен только аккаунтом автономной некоммерческой организации "Кооперативная Экономика".
+*
+* @param username Имя аккаунта, который подлежит верификации
+* 
+* @note Авторизация требуется от аккаунта: @p _ano
+*/
 [[eosio::action]] void registrator::verificate(eosio::name username){
   require_auth(_ano);
 
@@ -153,7 +156,17 @@ using namespace eosio;
 }
 
 
-
+/**
+\ingroup public_actions
+\brief Регистрация юридического лица
+*
+* Этот метод позволяет регистрировать аккаунт в качестве юридического лица. 
+* Все данные в карточке юридического лица публичны и хранятся в блокчейне.
+*
+* @param new_org Структура данных нового юридического лица
+* 
+* @note Авторизация требуется от аккаунта: @p new_org.username
+*/
 [[eosio::action]] void registrator::regorg(new_org_struct new_org) {
     require_auth(new_org.username);  
 
@@ -186,7 +199,30 @@ using namespace eosio;
 
 }
 
-
+/**
+\ingroup public_actions
+\brief Подача заявления на членство в кооперативе
+*
+* Этот метод позволяет подать заявление на вступление в кооператив от имени физического или юридического лица. 
+* После подачи заявления, оно направляется на рассмотрение в совет кооператива для голосования.
+*
+* @param coop_username Имя кооператива
+* @param username Имя заявителя
+* @param position_title Наименование должности заявителя
+* @param position Код должности заявителя, который может быть одним из следующего списка: 
+*  - chairman
+*  - vpchairman
+*  - director
+*  - vpdirector
+*  - boardmember
+*  - execmember
+*  - votingmember
+*  - assocmember
+* @param ricardian_data Переменные шаблона заявления, которые вставляются в рикардианский договор, содержащийся в ABI метода действия контракта.
+* @param statement_hash Хэш ссылка на заявление
+* 
+* @note Авторизация требуется от аккаунта: @p username
+*/
 [[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash){
   require_auth(username);
 
@@ -199,17 +235,20 @@ using namespace eosio;
   .send();
 };
 
-/**
- * @brief      Метод обновления профиля
- * @auth    username
- * @ingroup public_actions
 
- * @details Метод производит поиск аккаунтов гостей с истекшим сроком давности
- * и заменяет им активные права доступа. Отозванные аккаунты помещаются в
- таблицу reserved для дальнейшего использования или полного удаления.
- */
+/**
+\ingroup public_actions
+\brief Обновление метаданных аккаунта
+*
+* Этот метод позволяет обновить метаданные указанного аккаунта. 
+* Только владелец аккаунта имеет право обновлять его метаданные.
+*
+* @param username Имя аккаунта, который требуется обновить
+* @param meta Новые метаданные для аккаунта
+* 
+* @note Авторизация требуется от аккаунта: @p username
+*/
 [[eosio::action]] void registrator::update(eosio::name username,
-                                           std::string uid,
                                            std::string meta) {
   require_auth(username);
 
@@ -220,24 +259,28 @@ using namespace eosio;
   eosio::check(account != accounts.end(), "account is not registered");
 
   accounts.modify(account, username, [&](auto &acc) {
-    acc.uid = uid;
-    acc.uid_hash = hashit(uid);
     acc.meta = meta;
   });
 }
 
-/**
- * @brief      Метод восстановления ключа
- * @auth    любой аккаунт
- * @ingroup public_actions
 
- * @details Метод производит поиск аккаунтов гостей с истекшим сроком давности
- * и заменяет им активные права доступа. Отозванные аккаунты помещаются в
- таблицу reserved для дальнейшего использования или полного удаления.
- */
+
+
+/**
+\ingroup public_actions
+\brief Изменение ключа активной учетной записи
+*
+* Этот метод позволяет изменить активный ключ указанной учетной записи.
+* Только аккаунт автономной некомерческой организации "Кооперативная Экономика" имеет право изменять ключи учетных записей.
+*
+* @param username Имя аккаунта, ключ которого требуется изменить
+* @param public_key Новый публичный ключ для активной учетной записи
+* 
+* @note Авторизация требуется от аккаунта: @p _ano
+*/
 [[eosio::action]] void registrator::changekey(eosio::name username,
                                               eosio::public_key public_key) {
-  require_auth(_soviet);
+  require_auth(_ano);
 
   accounts_index accounts(_registrator, _registrator.value);
 
@@ -249,7 +292,7 @@ using namespace eosio;
     key_weight keypermission{public_key, 1};
     active_auth.keys.emplace_back(keypermission);
 
-    // Change active authority of caard to a new key
+    // Change active authority of card to a new key
     eosio::action(eosio::permission_level(card->username, eosio::name("owner")),
                   eosio::name("eosio"), eosio::name("updateauth"),
                   std::tuple(card->username, eosio::name("active"),
@@ -257,17 +300,23 @@ using namespace eosio;
     .send();
   }
 }
+
+
+
 /**
- * @brief      Метод подтверждения регистрации
- * @auth payer
- * @ingroup public_actions
- * @param[in]  payer
- * @param[in]  username  The username
- * @param[in]  quantity  The quantity
- * @details Метод оплаты вызывается гостем после пополнения своего баланса как
- * регистратора. Оплата списывается с баланса регистратора, а права владельца
- * заменяются на публичный ключ, указанный в объекте гостя.
- */
+\ingroup public_actions
+\brief Подтверждение регистрации члена кооператива
+*
+* Этот метод позволяет подтвердить регистрацию пользователя (физического или юридического лица) в качестве члена кооператива.
+* Подтверждение может быть осуществлено только аккаунтом контракта совета кооператива после принятия соответствующего решения.
+*
+* @param coop_username Имя кооператива
+* @param member Имя члена кооператива
+* @param position_title Название должности
+* @param position Код должности (например, chairman, director и др.)
+* 
+* @note Авторизация требуется от аккаунта: @p _soviet
+*/
 [[eosio::action]] void registrator::confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position) {
   require_auth(_soviet);
 

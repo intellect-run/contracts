@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1changes" kind="struct" language="C++" prot="public">
+    <compoundname>eosio::changes</compoundname>
+    <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1changes_1a1da338e5afbafe3f9e58b71a521653d4" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::changes::exchange_id</definition>
+        <argsstring></argsstring>
+        <name>exchange_id</name>
+        <qualifiedname>eosio::changes::exchange_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="110" column="14" bodyfile="soviet/soviet.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1changes_1a4884a28fe0214a60358b488618b942b5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eosio::changes::is_paid</definition>
+        <argsstring></argsstring>
+        <name>is_paid</name>
+        <qualifiedname>eosio::changes::is_paid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="111" column="10" bodyfile="soviet/soviet.hpp" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1changes_1add264769c554aed739ee82a27d555118" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eosio::changes::is_recieved</definition>
+        <argsstring></argsstring>
+        <name>is_recieved</name>
+        <qualifiedname>eosio::changes::is_recieved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="112" column="10" bodyfile="soviet/soviet.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1changes_1a1cf86a750b9919c95c922bee629928ac" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eosio::changes::is_withdrawed</definition>
+        <argsstring></argsstring>
+        <name>is_withdrawed</name>
+        <qualifiedname>eosio::changes::is_withdrawed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="113" column="10" bodyfile="soviet/soviet.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1changes_1a14ed5cf6a920654a31391657b46ae6a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::changes::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::changes::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="115" column="14" bodyfile="soviet/soviet.hpp" bodystart="115" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soviet/soviet.hpp" line="109" column="3" bodyfile="soviet/soviet.hpp" bodystart="109" bodyend="118"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1changes_1a1da338e5afbafe3f9e58b71a521653d4" prot="public" virt="non-virtual"><scope>eosio::changes</scope><name>exchange_id</name></member>
+      <member refid="structeosio_1_1changes_1a4884a28fe0214a60358b488618b942b5" prot="public" virt="non-virtual"><scope>eosio::changes</scope><name>is_paid</name></member>
+      <member refid="structeosio_1_1changes_1add264769c554aed739ee82a27d555118" prot="public" virt="non-virtual"><scope>eosio::changes</scope><name>is_recieved</name></member>
+      <member refid="structeosio_1_1changes_1a1cf86a750b9919c95c922bee629928ac" prot="public" virt="non-virtual"><scope>eosio::changes</scope><name>is_withdrawed</name></member>
+      <member refid="structeosio_1_1changes_1a14ed5cf6a920654a31391657b46ae6a6" prot="public" virt="non-virtual"><scope>eosio::changes</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

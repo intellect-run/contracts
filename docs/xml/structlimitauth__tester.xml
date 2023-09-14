@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structlimitauth__tester" kind="struct" language="C++" prot="public">
+    <compoundname>limitauth_tester</compoundname>
+    <basecompoundref refid="classeosio__system_1_1eosio__system__tester" prot="public" virt="non-virtual">eosio_system::eosio_system_tester</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlimitauth__tester_1a9f9b15b3aef2d2f91fdd7ec62d3fb191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::push_action</definition>
+        <argsstring>(name code, name action, permission_level auth, const variant_object &amp;data)</argsstring>
+        <name>push_action</name>
+        <qualifiedname>limitauth_tester::push_action</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>auth</declname>
+        </param>
+        <param>
+          <type>const variant_object &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="27" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a57f6f3a0dd109d723b604295322e4153" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::limitauthchg</definition>
+        <argsstring>(permission_level pl, const name &amp;account, const std::vector&lt; name &gt; &amp;allow_perms, const std::vector&lt; name &gt; &amp;disallow_perms)</argsstring>
+        <name>limitauthchg</name>
+        <qualifiedname>limitauth_tester::limitauthchg</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; name &gt; &amp;</type>
+          <declname>allow_perms</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; name &gt; &amp;</type>
+          <declname>disallow_perms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="37" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="37" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a3943a870f12d4b04dc52dc2ae33c3556" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::push_action_raw</definition>
+        <argsstring>(name code, name act, permission_level pl, const Ts &amp;... data)</argsstring>
+        <name>push_action_raw</name>
+        <qualifiedname>limitauth_tester::push_action_raw</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>act</declname>
+        </param>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>const Ts &amp;...</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="44" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="44" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1ac34749f47c30b019811674f343168b74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::updateauth</definition>
+        <argsstring>(permission_level pl, name account, name permission, name parent, authority auth)</argsstring>
+        <name>updateauth</name>
+        <qualifiedname>limitauth_tester::updateauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type><ref refid="structauthority" kindref="compound">authority</ref></type>
+          <declname>auth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="68" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1acab77918e0a1dfd7d6d56264caf48744" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::deleteauth</definition>
+        <argsstring>(permission_level pl, name account, name permission)</argsstring>
+        <name>deleteauth</name>
+        <qualifiedname>limitauth_tester::deleteauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>permission</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="73" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a96ab61f1706d45ca80aba62f0e3c9ed3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::linkauth</definition>
+        <argsstring>(permission_level pl, name account, name code, name type, name requirement)</argsstring>
+        <name>linkauth</name>
+        <qualifiedname>limitauth_tester::linkauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>requirement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="78" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a623c70d06ecf636b1766db2183bdcf65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::unlinkauth</definition>
+        <argsstring>(permission_level pl, name account, name code, name type)</argsstring>
+        <name>unlinkauth</name>
+        <qualifiedname>limitauth_tester::unlinkauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="83" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a578874d43b7e212b5d80475326ad1dcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::updateauth</definition>
+        <argsstring>(permission_level pl, name account, name permission, name parent, authority auth, name authorized_by)</argsstring>
+        <name>updateauth</name>
+        <qualifiedname>limitauth_tester::updateauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type><ref refid="structauthority" kindref="compound">authority</ref></type>
+          <declname>auth</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>authorized_by</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="91" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a1d3d4a12de030f88f727e3b92a18ff1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::deleteauth</definition>
+        <argsstring>(permission_level pl, name account, name permission, name authorized_by)</argsstring>
+        <name>deleteauth</name>
+        <qualifiedname>limitauth_tester::deleteauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>authorized_by</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="96" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a01f7e73d4fc080011508a350b2b3e02b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::linkauth</definition>
+        <argsstring>(permission_level pl, name account, name code, name type, name requirement, name authorized_by)</argsstring>
+        <name>linkauth</name>
+        <qualifiedname>limitauth_tester::linkauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>requirement</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>authorized_by</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="101" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="structlimitauth__tester_1a64730dbef72a36ac6059b3100d0844a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result limitauth_tester::unlinkauth</definition>
+        <argsstring>(permission_level pl, name account, name code, name type, name authorized_by)</argsstring>
+        <name>unlinkauth</name>
+        <qualifiedname>limitauth_tester::unlinkauth</qualifiedname>
+        <param>
+          <type><ref refid="eosio_8msig__tests_8cpp_1adb5a7af6f4a8319d70ccf6363031f4dc" kindref="member">permission_level</ref></type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>authorized_by</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.limitauth_tests.cpp" line="106" column="18" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>TESTER</label>
+      </node>
+      <node id="2">
+        <label>eosio_system::eosio_system_tester</label>
+        <link refid="classeosio__system_1_1eosio__system__tester"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>limitauth_tester</label>
+        <link refid="structlimitauth__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>TESTER</label>
+      </node>
+      <node id="2">
+        <label>eosio_system::eosio_system_tester</label>
+        <link refid="classeosio__system_1_1eosio__system__tester"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>limitauth_tester</label>
+        <link refid="structlimitauth__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.limitauth_tests.cpp" line="26" column="1" bodyfile="system/tests/eosio.limitauth_tests.cpp" bodystart="26" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a678d5b9ffe4f1273ed95cf404d5aa1d2" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>_get_rentrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6553b790e5c86a895a17ba6d2b208913" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>abi_ser</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a768f85f1c86806f972e63c8546dd49d5" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>active_and_vote_producers</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1acfbdb6caf2b2828f1a61c0df1cc5a81e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>bancor_convert</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4fab2c1ab589a64cbb4cb1db0c1f704e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>basic_setup</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad41862f086e9bed7443a2b38b292e8a3" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>bidname</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6fb41f7d875e2730d4d88b4eb2e656bf" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>bidname</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a03ead0f2dcc36130ff17afca29b727ca" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>buyram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab1b188663acb238700a26239b5ae2ad9" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>buyram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a315a10ead6b384340ce31fea858ca73a" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>buyrambytes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af1989a5eea49e6fecafd1e5afb244f95" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>buyrambytes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3916c7408e4609e84dd7f3ffdaef489e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>buyrex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a771ce588f7187ed5c4795e3d26c8233c" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>cancelrexorder</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a51502ee7653a2cee8779e3804f271316" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>closerex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a1bf1c4522b527bb365e808fc4c6aab9e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>consolidate</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a63919e0d46756f9f4aa372a98778fcbd" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>create_account_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8bf65a4197f989e95359bf25418d7659" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>create_account_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0c60c30078a54826d8a28ea286f655ce" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>create_accounts_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0f053efff5f77dea7072b6df3e84190f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>create_core_token</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a7df3e836a238c57f8594b36834d241c4" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>create_currency</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab97524dc86760d07e8fd71eea2d9d6bf" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>cross_15_percent_threshold</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a579e18d603498db516e244989d227270" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>defundcpuloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4e16e243a83e9d92148d3fff49f745b0" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>defundnetloan</name></member>
+      <member refid="structlimitauth__tester_1acab77918e0a1dfd7d6d56264caf48744" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>deleteauth</name></member>
+      <member refid="structlimitauth__tester_1a1d3d4a12de030f88f727e3b92a18ff1c" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>deleteauth</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3cdcde139935536e87a548266069913b" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>deploy_contract</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6a38854c1eb66a4ac172e7d3b555de19" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>deposit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a44a0c6df9b49d9894c436eca2cfad07e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>eosio_system_tester</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3499991ede5f1d3619b54b2837c9c257" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>eosio_system_tester</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5e44f744e1a7f992c30b146d568d68b1" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>fundcpuloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae42010c2c7f512916fcfa573d5ef1f66" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>fundnetloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae5088f57b04b156f822d6ff47681172a" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a275685caa99eaa12e3ff607531e1edc6" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aaccfeda8eca71df19e4c0a355f5a4312" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_buyrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a41e42475b0d1c27804519cac227fb3bc" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_cpu_limit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aab8f376e45d2051fdd817ffe9f9369e2" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_cpu_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6e1bc6f4e832ceb842498c56c9075f15" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_dbw_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0fd6e250611cdb6a1c77fd3bf9dbd430" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_global_state</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa9c99ba30baea1a26f7c66cfc49ab0ad" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_global_state2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0814dde23aecedb7ad38800784951b13" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_global_state3</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a65881b461203722d223743a6e86cdc63" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_last_cpu_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a143113b4d08c88fdb8a013e944bd1928" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_last_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2845d60e62059778773ee26f4c6249af" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_last_net_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a14cb532b8b85ab96fd902ce4818ce104" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_loan_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a345d24aec3753991e6717200b1223a68" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_net_limit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a93d2a1cb0cfcd3cbd8bd7458e73992c7" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_net_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab43aee8d11661b443993370901b68e2c" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_producer_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a19f96e654e9e2f1cb809d134d393dbc0" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_producer_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab856c77dcef575f37057044e77c7645d" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_producer_info2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a56f664849c185ca19acdf55e6d84f357" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_producer_info2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ada1743be54f74d015482cd8909f25c84" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_refund_request</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a90323c47bf67962f5c1a4ece3e22746f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rentcpu_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5cc198ce96cfc9ec7ed26a75c3161eda" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rentnet_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ac461b0845c0909670ea63557bc0b66fb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a709b0f5fcf87b2efef2971a0c15d9a0d" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_balance_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9bf2f95b82dd447cbe00da9ac35edad6" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_fund</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a006d8169fcce2262295ceeb50b2c644d" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_fund_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a22162fc47dbf43df1b10cd696637d3e9" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_order</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae639446b1000581d5404a2470ccac800" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_order_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1adc8d15f66b51953b31471ae431203bfb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_pool</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af68fb8acfdccaec2b30ce2554cf87d89" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_return_buckets</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2a0f287afd099062caa6c41ccbd04bd0" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_return_pool</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5e64a18345f786e4231c9282aa087f20" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rex_vote_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af5c3274d9dff9741985165ee52f9345d" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_rexorder_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4f531d0c87d0b495a2fa0286fe8f5f21" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_sellrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad373b5b15515f68610dfa0a3f637452e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_stats</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a787b2e1fec87415e568f0ae1350e3404" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_token_supply</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9539a007f44e41461074f05b1efa9078" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_total_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a81d67ba19737037e026cad8ee01e24a7" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_total_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a63acf9f8042be1845a31634ae8595615" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_unstaketorex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a62935be2581d8b7d6d38f5009f4131b1" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_voter_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6ff715a6bacc35dfa9327ac2c9b84bca" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>get_voter_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af0e3099fcc062cccac6d268abd8b52ca" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>initialize_multisig</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8144e5150722d9565526fe3f5da73bc6" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>issue</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab1401976ac157bfdd31b92dd10a56a54" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5fbeb0a3214e4e51de3abd29b5b4a59b" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4b08957ce831b8b92eb2664c37785213" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad665af58abde40741213e8a97a4b49f7" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aee1cf394b09c7d3f73ca366d8e7afc79" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>last_block_time</name></member>
+      <member refid="structlimitauth__tester_1a57f6f3a0dd109d723b604295322e4153" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>limitauthchg</name></member>
+      <member refid="structlimitauth__tester_1a96ab61f1706d45ca80aba62f0e3c9ed3" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>linkauth</name></member>
+      <member refid="structlimitauth__tester_1a01f7e73d4fc080011508a350b2b3e02b" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>linkauth</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8149fd6ecbd28d8fef0e9773560b8c60" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>microseconds_since_epoch_of_iso_string</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad77b290540b7cd6790ad04ce7811a8fb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>mvfrsavings</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9a36b004fef8c3a6d0facfc51c6a0d9a" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>mvtosavings</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a14283c7bae38bac1d1bd5fafc7a7b1d2" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>producer_parameters_example</name></member>
+      <member refid="structlimitauth__tester_1a9f9b15b3aef2d2f91fdd7ec62d3fb191" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>push_action</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a294d15bfc4b915bd36cffb8154faabaf" prot="public" virt="non-virtual" ambiguityscope="eosio_system::eosio_system_tester::"><scope>limitauth_tester</scope><name>push_action</name></member>
+      <member refid="structlimitauth__tester_1a3943a870f12d4b04dc52dc2ae33c3556" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>push_action_raw</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5c4a1ddae7b062d0a5864820638e62b4" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>regproducer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ada855d88294b713e445bba7dc594dd7c" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>remaining_setup</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a18713af89a1654090a0516a60f25249f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>rentcpu</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0da15d442da5b99268330d5e12f8d572" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>rentnet</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a39bf21779fbf0d6e860a583f8df64649" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>rexexec</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a7a53705cef5f0c4c880dc3a65aa3a8ec" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>sellram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a407908b657e28f5ad7e9ba1904539614" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>sellram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a978b8c24bf75f9f4de486cd5e09a25a8" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>sellrex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4bf9437b44cc9514362b25c30500467f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>setinflation</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>setup_level</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ac8c7bd56d14a558e005bbf8acd350a95" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>setup_producer_accounts</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1adfc053b0749db71a4da569903f384379" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>setup_rex_accounts</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a19dfc7a9435a9d40c54f8933c088e5b2" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad79507eaf003aff54ec3e6b3b91b2c11" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad6573013c72ff4f563acf10eea34600a" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9e4c0f8412ef9b1ca29b3967d76668ba" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6b99acf015bceecb5efe646e8581f7f1" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake2votes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad1e062371feb52e43cd63f1878340ccb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake2votes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1acb43ec38190c09b97f0774f9e1ed0dba" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa25b8e3716cac55da717db56bbf60e37" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1afea1622cde89b08f2f44c0c378b95d8f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a36a9d6ced4c4da301b21f4a91aae0fb6" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad27754cc7a6376a9734d05efe5d0baac" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>token_abi_ser</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6ce6277e5545006b0528b09c1c89dec8" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af0ee9bb3c31aa10a013c7522af1fdba1" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2361caa1339e2dd4a3727b7640730dd9" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1abb2933afdcaf7e18a8f526b737aed8cb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>transfer</name></member>
+      <member refid="structlimitauth__tester_1a623c70d06ecf636b1766db2183bdcf65" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unlinkauth</name></member>
+      <member refid="structlimitauth__tester_1a64730dbef72a36ac6059b3100d0844a1" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unlinkauth</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa400d0654037644e9ea13fc81b521b7b" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a41eb069ce6a684c14f7a59d162e2cc1e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a81069dea0d351098baa1c5ff362b5cda" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4e80fb07f345d7d8429c12e877f41a0c" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae777944b5826fc95680df4a7b3fd2141" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>unstaketorex</name></member>
+      <member refid="structlimitauth__tester_1ac34749f47c30b019811674f343168b74" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>updateauth</name></member>
+      <member refid="structlimitauth__tester_1a578874d43b7e212b5d80475326ad1dcb" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>updateauth</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aed0dc358ed43d15be3a778d80c55410f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>updaterex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a843ab97e6090ad56369f85749542be5e" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>vote</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1abf775b2f5f2422555e886f114f682e89" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>vote</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4146e614926727ff74b52c2cd2cf033f" prot="public" virt="non-virtual"><scope>limitauth_tester</scope><name>withdraw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_c389d2503d71df164ac253b1895cde0d" kind="dir">
+    <compoundname>system/build/contracts/eosio.system</compoundname>
+    <innerdir refid="dir_382b71127b42efa0fda4fd0f88f0289b">system/build/contracts/eosio.system/CMakeFiles</innerdir>
+    <innerdir refid="dir_9dc0f3f037add9cb641acc71dd6e268f">system/build/contracts/eosio.system/ricardian</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/eosio.system/"/>
+  </compounddef>
+</doxygen>

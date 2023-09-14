@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structpowerup__tester_1_1account__info" kind="struct" language="C++" prot="public">
+    <compoundname>powerup_tester::account_info</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpowerup__tester_1_1account__info_1ae209834e350c97f89e61d129a421fb16" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t powerup_tester::account_info::ram</definition>
+        <argsstring></argsstring>
+        <name>ram</name>
+        <qualifiedname>powerup_tester::account_info::ram</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="183" column="15" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpowerup__tester_1_1account__info_1ab26e90733905a912078c48ac3421a797" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t powerup_tester::account_info::net</definition>
+        <argsstring></argsstring>
+        <name>net</name>
+        <qualifiedname>powerup_tester::account_info::net</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="184" column="15" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpowerup__tester_1_1account__info_1a632159a928c93f8df3ffc79eb9be654b" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t powerup_tester::account_info::cpu</definition>
+        <argsstring></argsstring>
+        <name>cpu</name>
+        <qualifiedname>powerup_tester::account_info::cpu</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="185" column="15" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpowerup__tester_1_1account__info_1ab3c1cbaed3d1313b93370edf46ed8178" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset powerup_tester::account_info::liquid</definition>
+        <argsstring></argsstring>
+        <name>liquid</name>
+        <qualifiedname>powerup_tester::account_info::liquid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.powerup_tests.cpp" line="186" column="15" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>asset</label>
+      </node>
+      <node id="1">
+        <label>powerup_tester::account_info</label>
+        <link refid="structpowerup__tester_1_1account__info"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>liquid</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.powerup_tests.cpp" line="182" column="4" bodyfile="system/tests/eosio.powerup_tests.cpp" bodystart="182" bodyend="187"/>
+    <listofallmembers>
+      <member refid="structpowerup__tester_1_1account__info_1a632159a928c93f8df3ffc79eb9be654b" prot="public" virt="non-virtual"><scope>powerup_tester::account_info</scope><name>cpu</name></member>
+      <member refid="structpowerup__tester_1_1account__info_1ab3c1cbaed3d1313b93370edf46ed8178" prot="public" virt="non-virtual"><scope>powerup_tester::account_info</scope><name>liquid</name></member>
+      <member refid="structpowerup__tester_1_1account__info_1ab26e90733905a912078c48ac3421a797" prot="public" virt="non-virtual"><scope>powerup_tester::account_info</scope><name>net</name></member>
+      <member refid="structpowerup__tester_1_1account__info_1ae209834e350c97f89e61d129a421fb16" prot="public" virt="non-virtual"><scope>powerup_tester::account_info</scope><name>ram</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

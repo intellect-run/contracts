@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_acdfd021be313e61d469534a02a7bb11" kind="dir">
+    <compoundname>system/build/contracts/test_contracts/sendinline</compoundname>
+    <innerdir refid="dir_b3a5fe7804c7ca594e1cb542ef1e216e">system/build/contracts/test_contracts/sendinline/CMakeFiles</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/test_contracts/sendinline/"/>
+  </compounddef>
+</doxygen>

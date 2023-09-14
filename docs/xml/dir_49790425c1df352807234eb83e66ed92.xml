@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_49790425c1df352807234eb83e66ed92" kind="dir">
+    <compoundname>system/build/contracts/test_contracts/blockinfo_tester</compoundname>
+    <innerdir refid="dir_4c5ddccb4cc3eb7a0a4dedebfa1b1a0c">system/build/contracts/test_contracts/blockinfo_tester/CMakeFiles</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/build/contracts/test_contracts/blockinfo_tester/"/>
+  </compounddef>
+</doxygen>

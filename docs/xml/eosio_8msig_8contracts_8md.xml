@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="eosio_8msig_8contracts_8md" kind="file" language="Markdown">
+    <compoundname>eosio.msig.contracts.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;approve&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Approve<sp/>Proposed<sp/>Transaction</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>level.actor}}<sp/>approves<sp/>the<sp/>{{nowrap<sp/>proposal_name}}<sp/>proposal&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{level.actor}}<sp/>approves<sp/>the<sp/>{{proposal_name}}<sp/>proposal<sp/>proposed<sp/>by<sp/>{{proposer}}<sp/>with<sp/>the<sp/>{{level.permission}}<sp/>permission<sp/>of<sp/>{{level.actor}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;cancel&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Cancel<sp/>Proposed<sp/>Transaction</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>canceler}}<sp/>cancels<sp/>the<sp/>{{nowrap<sp/>proposal_name}}<sp/>proposal&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{canceler}}<sp/>cancels<sp/>the<sp/>{{proposal_name}}<sp/>proposal<sp/>submitted<sp/>by<sp/>{{proposer}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;exec&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Execute<sp/>Proposed<sp/>Transaction</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>executer}}<sp/>executes<sp/>the<sp/>{{nowrap<sp/>proposal_name}}<sp/>proposal&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{executer}}<sp/>executes<sp/>the<sp/>{{proposal_name}}<sp/>proposal<sp/>submitted<sp/>by<sp/>{{proposer}}<sp/>if<sp/>the<sp/>minimum<sp/>required<sp/>approvals<sp/>for<sp/>the<sp/>proposal<sp/>have<sp/>been<sp/>secured.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;invalidate&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Invalidate<sp/>All<sp/>Approvals</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>account}}<sp/>invalidates<sp/>approvals<sp/>on<sp/>outstanding<sp/>proposals&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{account}}<sp/>invalidates<sp/>all<sp/>approvals<sp/>on<sp/>proposals<sp/>which<sp/>have<sp/>not<sp/>yet<sp/>executed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;propose&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Propose<sp/>Transaction</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>proposer}}<sp/>creates<sp/>the<sp/>{{nowrap<sp/>proposal_name}}&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{proposer}}<sp/>creates<sp/>the<sp/>{{proposal_name}}<sp/>proposal<sp/>for<sp/>the<sp/>following<sp/>transaction:</highlight></codeline>
+<codeline><highlight class="normal">{{to_json<sp/>trx}}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>proposal<sp/>requests<sp/>approvals<sp/>from<sp/>the<sp/>following<sp/>accounts<sp/>at<sp/>the<sp/>specified<sp/>permission<sp/>levels:</highlight></codeline>
+<codeline><highlight class="normal">{{#each<sp/>requested}}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>+<sp/>{{this.permission}}<sp/>permission<sp/>of<sp/>{{this.actor}}</highlight></codeline>
+<codeline><highlight class="normal">{{/each}}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>the<sp/>proposed<sp/>transaction<sp/>is<sp/>not<sp/>executed<sp/>prior<sp/>to<sp/>{{trx.expiration}},<sp/>the<sp/>proposal<sp/>will<sp/>automatically<sp/>expire.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;unapprove&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Unapprove<sp/>Proposed<sp/>Transaction</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;{{nowrap<sp/>level.actor}}<sp/>revokes<sp/>the<sp/>approval<sp/>previously<sp/>provided<sp/>to<sp/>{{nowrap<sp/>proposal_name}}<sp/>proposal&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/multisig.png#4fb41d3cf02d0dd2d35a29308e93c2d826ec770d6bb520db668f530764be7153</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{level.actor}}<sp/>revokes<sp/>the<sp/>approval<sp/>previously<sp/>provided<sp/>at<sp/>their<sp/>{{level.permission}}<sp/>permission<sp/>level<sp/>from<sp/>the<sp/>{{proposal_name}}<sp/>proposal<sp/>proposed<sp/>by<sp/>{{proposer}}.</highlight></codeline>
+    </programlisting>
+    <location file="system/build/contracts/eosio.msig/ricardian/eosio.msig.contracts.md"/>
+  </compounddef>
+</doxygen>

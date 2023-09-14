@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="06__vote_8md" kind="file" language="Markdown">
+    <compoundname>06_vote.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>Voting<sp/>on<sp/>Antelope-based<sp/>blockchains</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>an<sp/>Antelope-based<sp/>network<sp/>the<sp/>blockchain<sp/>is<sp/>kept<sp/>alive<sp/>by<sp/>nodes<sp/>which<sp/>are<sp/>interconnected<sp/>between<sp/>each<sp/>other,<sp/>communicating<sp/>with<sp/>each<sp/>other<sp/>via<sp/>peer<sp/>to<sp/>peer<sp/>protocols.<sp/>Some<sp/>of<sp/>these<sp/>nodes<sp/>are<sp/>elected,<sp/>via<sp/>a<sp/>voting<sp/>process,<sp/>by<sp/>the<sp/>token<sp/>holders<sp/>to<sp/>be<sp/>producer<sp/>nodes.<sp/>They<sp/>produce<sp/>blocks,<sp/>validate<sp/>them<sp/>and<sp/>reach<sp/>consensus<sp/>on<sp/>what<sp/>transactions<sp/>are<sp/>allowed<sp/>in<sp/>each<sp/>block,<sp/>their<sp/>order,<sp/>and<sp/>what<sp/>blocks<sp/>are<sp/>finalized<sp/>and<sp/>stored<sp/>forever<sp/>in<sp/>the<sp/>blockchain.<sp/>This<sp/>way<sp/>the<sp/>governance,<sp/>the<sp/>mechanism<sp/>by<sp/>which<sp/>collective<sp/>documents<sp/>are<sp/>made,<sp/>of<sp/>the<sp/>blockchain<sp/>is<sp/>achieved<sp/>through<sp/>the<sp/>21<sp/>active<sp/>block<sp/>producers<sp/>which<sp/>are<sp/>appointed<sp/>by<sp/>token<sp/>holders&apos;<sp/>votes.<sp/>It&apos;s<sp/>the<sp/>21<sp/>active<sp/>block<sp/>producers<sp/>which<sp/>continuously<sp/>create<sp/>the<sp/>blockchain<sp/>by<sp/>creating<sp/>blocks,<sp/>and<sp/>securing<sp/>them<sp/>by<sp/>validating<sp/>them,<sp/>and<sp/>reaching<sp/>consensus.<sp/>Consensus<sp/>is<sp/>reached<sp/>when<sp/>2/3+1<sp/>active<sp/>block<sp/>producers<sp/>agree<sp/>on<sp/>validity<sp/>of<sp/>a<sp/>block,<sp/>that<sp/>is<sp/>all<sp/>transactions<sp/>contained<sp/>in<sp/>it<sp/>and<sp/>their<sp/>order.<sp/>The<sp/>21<sp/>producers<sp/>is<sp/>the<sp/>default<sp/>value<sp/>however<sp/>it<sp/>can<sp/>be<sp/>configured<sp/>to<sp/>be<sp/>higher<sp/>or<sp/>smaller<sp/>to<sp/>meet<sp/>each<sp/>business<sp/>case<sp/>requirements.</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/01_key-concepts/06_vote.md"/>
+  </compounddef>
+</doxygen>

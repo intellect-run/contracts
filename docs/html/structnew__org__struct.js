@@ -1,0 +1,25 @@
+var structnew__org__struct =
+[
+    [ "accounts", "structnew__org__struct.html#a7de03d51e6daf27fbeb7af18ec0ba2a0", null ],
+    [ "address", "structnew__org__struct.html#ac697f1c505b3f86a6602afe8ee157302", null ],
+    [ "announce", "structnew__org__struct.html#a273ba05baf96911cc6e2170ba54d8b31", null ],
+    [ "coop_type", "structnew__org__struct.html#a1b14a3b368d0465f82424936395c1d96", null ],
+    [ "description", "structnew__org__struct.html#ae6c0df340a6544bb31867f376d2b6e96", null ],
+    [ "email", "structnew__org__struct.html#a409085989c8b065f4c5da0aa6ddae2f4", null ],
+    [ "initial", "structnew__org__struct.html#aa523837eadf48d60a5fa372af4915249", null ],
+    [ "inn", "structnew__org__struct.html#a0a19491ed30f535b8c72bf939412f37f", null ],
+    [ "is_cooperative", "structnew__org__struct.html#a3edd482029472600f8110abb63f22ec0", null ],
+    [ "logo", "structnew__org__struct.html#a12e61b3e7538ce17a6ed9aac35bfdd6b", null ],
+    [ "membership", "structnew__org__struct.html#a0bd62e85c853697a7b4207648d515ae9", null ],
+    [ "minimum", "structnew__org__struct.html#aa74e5df96c7174dfaca6075913279605", null ],
+    [ "name", "structnew__org__struct.html#a142d7d656f9b6c79f484aa2c8a9cb013", null ],
+    [ "ogrn", "structnew__org__struct.html#a9e04e042f5a843d9956773a6d366dc4e", null ],
+    [ "period", "structnew__org__struct.html#a296dc59f88491363bb011f6424361e12", null ],
+    [ "phone", "structnew__org__struct.html#a9cd8be190fa2b64609ac7cac26a21342", null ],
+    [ "registration", "structnew__org__struct.html#ae9daef33b6eb5c7223306d0a548ab23d", null ],
+    [ "short_name", "structnew__org__struct.html#aab5defee125df439ce319d34df29b493", null ],
+    [ "slug", "structnew__org__struct.html#a6b41c286066648df700ccaf77c2d3163", null ],
+    [ "token_contract", "structnew__org__struct.html#a52312c0249272b4eebc1257feda0b3b2", null ],
+    [ "username", "structnew__org__struct.html#afe286ce31a0f6a948c3dfd3fa41f6868", null ],
+    [ "website", "structnew__org__struct.html#a3f8e257edac1ce91daefed2723a39a78", null ]
+];

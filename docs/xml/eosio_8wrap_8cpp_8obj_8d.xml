@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="eosio_8wrap_8cpp_8obj_8d" kind="file" language="D">
+    <compoundname>eosio.wrap.cpp.obj.d</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>/CMakeFiles/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>.dir/src/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>.cpp.obj:<sp/>\</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><sp/><sp/>/project/system/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>/src/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>.cpp<sp/>\</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/><sp/>/project/system/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>/include/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.<ref refid="classeosio_1_1wrap" kindref="compound">wrap</ref>.hpp<sp/>\</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/<ref refid="namespaceeosio" kindref="compound">eosio</ref>.hpp<sp/>\</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/action.hpp<sp/>\</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cstdlib<sp/>\</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__config<sp/>\</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/stdlib.h<sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/stdlib.h<sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/features.h<sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/bits/alltypes.h<sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/bits/wchar.h<sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/bits/stdint.h<sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/bits/stddef.h<sp/>\</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/alloca.h<sp/>\</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/math.h<sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/math.h<sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/type_traits<sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cstddef<sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/version<sp/>\</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/stddef.h<sp/>\</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__nullptr<sp/>\</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/limits<sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__undef_macros<sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/serialize.hpp<sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/bluegrass/meta/preprocessor.hpp<sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/datastream.hpp<sp/>\</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/check.hpp<sp/>\</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>\</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/string_view<sp/>\</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__string<sp/>\</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/algorithm<sp/>\</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/initializer_list<sp/>\</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cstring<sp/>\</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">.h<sp/>\</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">.h<sp/>\</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/strings.h<sp/>\</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/utility<sp/>\</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__tuple<sp/>\</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cstdint<sp/>\</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/stdint.h<sp/>\</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/stdint.h<sp/>\</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__debug<sp/>\</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/iosfwd<sp/>\</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/wchar.h<sp/>\</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/wchar.h<sp/>\</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/memory<sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/typeinfo<sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/exception<sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>\</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/iterator<sp/>\</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__functional_base<sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/tuple<sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/stdexcept<sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cassert<sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/assert.h<sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/functional<sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/bit<sp/>\</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cstdio<sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/stdio.h<sp/>\</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/stdio.h<sp/>\</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cwchar<sp/>\</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cwctype<sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/cctype<sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/ctype.h<sp/>\</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/ctype.h<sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/wctype.h<sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/wctype.h<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/<ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" kindref="member">varint</ref>.hpp<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/bluegrass/meta/for_each.hpp<sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/bluegrass/meta/function_traits.hpp<sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/bluegrass/meta/utility.hpp<sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/list<sp/>\</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/queue<sp/>\</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/deque<sp/>\</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__split_buffer<sp/>\</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/vector<sp/>\</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__bit_reference<sp/>\</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/climits<sp/>\</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/limits.h<sp/>\</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/limits.h<sp/>\</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/bits/limits.h<sp/>\</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/array<sp/>\</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/</highlight><highlight class="keyword">set</highlight><highlight class="normal"><sp/>\</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__tree<sp/>\</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/__node_handle<sp/>\</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/optional<sp/>\</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/map<sp/>\</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/variant<sp/>\</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/name.hpp<sp/>\</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/serialize.hpp<sp/>\</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/reflect.hpp<sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/bluegrass/meta/refl.hpp<sp/>\</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/print.hpp<sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/types.hpp<sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/fixed_bytes.hpp<sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/datastream.hpp<sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/ignore.hpp<sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/time.hpp<sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/chrono<sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/ctime<sp/>\</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libc/time.h<sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/libcxx/ratio<sp/>\</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/print.hpp<sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/multi_index.hpp<sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/action.hpp<sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/dispatcher.hpp<sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/<ref refid="eosio_8msig__tests_8cpp_1a2f004bfe4f7133f4d560065c2729e2c8" kindref="member">contract</ref>.hpp<sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/ignore.hpp<sp/>\</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/transaction.hpp<sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/system.hpp<sp/>\</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/contracts/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/../../core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/check.hpp<sp/>\</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>/usr/opt/cdt/4.0.0/bin/../include/eosiolib/core/<ref refid="namespaceeosio" kindref="compound">eosio</ref>/name.hpp</highlight></codeline>
+    </programlisting>
+    <location file="system/build/contracts/eosio.wrap/CMakeFiles/eosio.wrap.dir/src/eosio.wrap.cpp.obj.d"/>
+  </compounddef>
+</doxygen>

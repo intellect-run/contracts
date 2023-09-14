@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="06__how-to-sign-a-multisig-transaction-with-eosio_8msig_8md" kind="file" language="Markdown">
+    <compoundname>06_how-to-sign-a-multisig-transaction-with-eosio.msig.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>How<sp/>to<sp/>sign<sp/>a<sp/>multisig<sp/>transaction<sp/>with<sp/>eosio.msig</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>eosio.msig</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Prerequisites:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>eosio.token<sp/>contract<sp/>installed<sp/>to<sp/>eosio.token<sp/>account,<sp/>eosio.msig<sp/>contract<sp/>installed<sp/>on<sp/>eosio.msig<sp/>account<sp/>which<sp/>is<sp/>a<sp/>priviliged<sp/>account.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>account<sp/>&apos;treasury&apos;<sp/>is<sp/>the<sp/>issuer<sp/>of<sp/>SYS<sp/>token.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>account<sp/>&apos;tester&apos;<sp/>exists.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>keys<sp/>to<sp/>accounts<sp/>&apos;treasury&apos;<sp/>and<sp/>&apos;tester&apos;<sp/>imported<sp/>into<sp/>local<sp/>wallet,<sp/>the<sp/>wallet<sp/>is<sp/>unlocked.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>One<sp/>user<sp/>creates<sp/>a<sp/>proposal:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose<sp/>test<sp/>&apos;[{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}]&apos;<sp/>&apos;[{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}]&apos;<sp/>eosio.token<sp/>issue<sp/>&apos;{&quot;to&quot;:<sp/>&quot;tester&quot;,<sp/>&quot;quantity&quot;:<sp/>&quot;1000.0000<sp/>SYS&quot;,<sp/>&quot;memo&quot;:<sp/>&quot;&quot;}&apos;<sp/>-p<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>e26f3a3a7cba524a7b15a0b6c77c7daa73d3ba9bf84e83f9c2cdf27fcb183d61<sp/><sp/>336<sp/>bytes<sp/><sp/>107520<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::propose<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;requested&quot;:[{&quot;actor&quot;:&quot;treasury&quot;,&quot;permission&quot;:&quot;active&quot;}]...</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Another<sp/>user<sp/>reviews<sp/>the<sp/>transaction:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>review<sp/>tester<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;proposal_name&quot;:<sp/>&quot;test&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;requested_approvals&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;treasury&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;provided_approvals&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;packed_transaction&quot;:<sp/>&quot;00aee75a0000000000000000000000000100a6823403ea30550000000000a5317601000000fe6a6cd4cd00000000a8ed323219000000005c95b1ca809698000000000004454f530000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-05-01T00:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;region&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_kcpu_usage&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.token&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;issue&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;treasury&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;to&quot;:<sp/>&quot;tester&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;quantity&quot;:<sp/>&quot;1000.0000<sp/>SYS&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;memo&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;hex_data&quot;:<sp/>&quot;000000005c95b1ca809698000000000004454f530000000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>And<sp/>then<sp/>approves<sp/>it:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>approve<sp/>tester<sp/>test<sp/>&apos;{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}&apos;<sp/>-p<sp/>treasury</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>475970a4b0016368d0503d1ce01577376f91f5a5ba63dd4353683bd95101b88d<sp/><sp/>256<sp/>bytes<sp/><sp/>108544<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::approve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;level&quot;:{&quot;actor&quot;:&quot;treasury&quot;,&quot;permission&quot;:&quot;active&quot;}}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>First<sp/>user<sp/>initiates<sp/>execution:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>exec<sp/>tester<sp/>test<sp/>-p<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>64e5eaceb77362694055f572ae35876111e87b637a55250de315b1b55e56d6c2<sp/><sp/>248<sp/>bytes<sp/><sp/>109568<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;executer&quot;:&quot;tester&quot;}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Cleos<sp/>usage<sp/>example<sp/>for<sp/>transferring<sp/>tokens.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Prerequisites:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>eosio.token<sp/>contract<sp/>installed<sp/>to<sp/>eosio.token<sp/>account,<sp/>eosio.msig<sp/>contract<sp/>installed<sp/>on<sp/>eosio.msig<sp/>account<sp/>which<sp/>is<sp/>a<sp/>priviliged<sp/>account.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>account<sp/>&apos;treasury&apos;<sp/>has<sp/>at<sp/>least<sp/>1.1000<sp/>SYS<sp/>token<sp/>balance.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>account<sp/>&apos;tester&apos;<sp/>exists.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>keys<sp/>to<sp/>accounts<sp/>&apos;treasury&apos;<sp/>and<sp/>&apos;tester&apos;<sp/>imported<sp/>into<sp/>local<sp/>wallet,<sp/>the<sp/>wallet<sp/>is<sp/>unlocked.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>One<sp/>user<sp/>creates<sp/>a<sp/>proposal:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>propose<sp/>test<sp/>&apos;[{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}]&apos;<sp/>&apos;[{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}]&apos;<sp/>eosio.token<sp/>transfer<sp/>&apos;{&quot;from&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;to&quot;:<sp/>&quot;tester&quot;,<sp/>&quot;quantity&quot;:<sp/>&quot;1.0000<sp/>SYS&quot;,<sp/>&quot;memo&quot;:<sp/>&quot;&quot;}&apos;<sp/>-p<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>e26f3a3a7cba524a7b15a0b6c77c7daa73d3ba9bf84e83f9c2cdf27fcb183d61<sp/><sp/>336<sp/>bytes<sp/><sp/>107520<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::propose<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;requested&quot;:[{&quot;actor&quot;:&quot;treasury&quot;,&quot;permission&quot;:&quot;active&quot;}]...</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Another<sp/>user<sp/>reviews<sp/>the<sp/>transaction:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>review<sp/>tester<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;proposal_name&quot;:<sp/>&quot;test&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;requested_approvals&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;treasury&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;provided_approvals&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;packed_transaction&quot;:<sp/>&quot;00aee75a0000000000000000000000000100a6823403ea30550000000000a5317601000000fe6a6cd4cd00000000a8ed323219000000005c95b1ca809698000000000004454f530000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;transaction&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;expiration&quot;:<sp/>&quot;2018-05-01T00:00:00&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;region&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_num&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ref_block_prefix&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_net_usage_words&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;max_kcpu_usage&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;delay_sec&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;context_free_actions&quot;:<sp/>[],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;actions&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;account&quot;:<sp/>&quot;eosio.token&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;transfer&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;authorization&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;actor&quot;:<sp/>&quot;treasury&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;permission&quot;:<sp/>&quot;active&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;data&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;from&quot;:<sp/>&quot;treasury&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;to&quot;:<sp/>&quot;tester&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;quantity&quot;:<sp/>&quot;1.0000<sp/>SYS&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;memo&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;hex_data&quot;:<sp/>&quot;000000005c95b1ca809698000000000004454f530000000000&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>And<sp/>then<sp/>approves<sp/>it:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>approve<sp/>tester<sp/>test<sp/>&apos;{&quot;actor&quot;:<sp/>&quot;treasury&quot;,<sp/>&quot;permission&quot;:<sp/>&quot;active&quot;}&apos;<sp/>-p<sp/>treasury</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>475970a4b0016368d0503d1ce01577376f91f5a5ba63dd4353683bd95101b88d<sp/><sp/>256<sp/>bytes<sp/><sp/>108544<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::approve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;level&quot;:{&quot;actor&quot;:&quot;treasury&quot;,&quot;permission&quot;:&quot;active&quot;}}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>First<sp/>user<sp/>check<sp/>account<sp/>balance<sp/>before<sp/>executing<sp/>the<sp/>proposed<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>account<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">SYS<sp/>balances:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>liquid:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0487<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.0000<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>unstaking:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>total:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4.0487<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>First<sp/>user<sp/>initiates<sp/>execution<sp/>of<sp/>proposed<sp/>transaction:</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>multisig<sp/>exec<sp/>tester<sp/>test<sp/>-p<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>64e5eaceb77362694055f572ae35876111e87b637a55250de315b1b55e56d6c2<sp/><sp/>248<sp/>bytes<sp/><sp/>109568<sp/>cycles</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/>eosio.msig<sp/>&lt;=<sp/>eosio.msig::exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;proposer&quot;:&quot;tester&quot;,&quot;proposal_name&quot;:&quot;test&quot;,&quot;executer&quot;:&quot;tester&quot;}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>First<sp/>user<sp/>can<sp/>check<sp/>account<sp/>balance,<sp/>it<sp/>should<sp/>be<sp/>increased<sp/>by<sp/>1.0000<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>account<sp/>tester</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">SYS<sp/>balances:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>liquid:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.0487<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.0000<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>unstaking:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0000<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>total:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4.0487<sp/>SYS</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/04_guides/06_how-to-sign-a-multisig-transaction-with-eosio.msig.md"/>
+  </compounddef>
+</doxygen>

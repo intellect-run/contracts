@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structcore__sym" kind="struct" language="C++" prot="public">
+    <compoundname>core_sym</compoundname>
+    <includes refid="test__symbol_8hpp" local="no">test_symbol.hpp</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>eosio::chain::asset</type>
+        <definition>static eosio::chain::asset core_sym::from_string</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>from_string</name>
+        <qualifiedname>core_sym::from_string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/test_symbol.hpp" line="13" column="38" bodyfile="system/tests/test_symbol.hpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/tests/test_symbol.hpp" line="12" column="1" bodyfile="system/tests/test_symbol.hpp" bodystart="12" bodyend="16"/>
+    <listofallmembers>
+      <member refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" prot="public" virt="non-virtual"><scope>core_sym</scope><name>from_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

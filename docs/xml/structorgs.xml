@@ -1,0 +1,654 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structorgs" kind="struct" language="C++" prot="public">
+    <compoundname>orgs</compoundname>
+    <includes refid="users_8hpp" local="no">users.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structorgs_1a30bd763b06c88e2db7fe63b7829448c8" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name orgs::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>orgs::username</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="194" column="15" bodyfile="common/users.hpp" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1ae6431f4f421b347e828673c17c11016a" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name orgs::parent_username</definition>
+        <argsstring></argsstring>
+        <name>parent_username</name>
+        <qualifiedname>orgs::parent_username</qualifiedname>
+        <briefdescription>
+<para>Имя родительской организации, если есть. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="195" column="15" bodyfile="common/users.hpp" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a7f2292b35d32249116fbabc45ee29f90" prot="public" static="no" mutable="no">
+        <type><ref refid="structverification" kindref="compound">verification</ref></type>
+        <definition>verification orgs::verification</definition>
+        <argsstring></argsstring>
+        <name>verification</name>
+        <qualifiedname>orgs::verification</qualifiedname>
+        <briefdescription>
+<para>Информация о верификации организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="196" column="16" bodyfile="common/users.hpp" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1ae3e89e39dc1dac2fa382f52c7dfa1499" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>orgs::name</qualifiedname>
+        <briefdescription>
+<para>Полное наименование организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="197" column="15" bodyfile="common/users.hpp" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a2856436e3f095cf78cf6d6a617c79d61" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::short_name</definition>
+        <argsstring></argsstring>
+        <name>short_name</name>
+        <qualifiedname>orgs::short_name</qualifiedname>
+        <briefdescription>
+<para>Краткое наименование организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="198" column="15" bodyfile="common/users.hpp" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a756f0d831a24d9a4f9f52e51106f135d" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <qualifiedname>orgs::address</qualifiedname>
+        <briefdescription>
+<para>Юридический адрес организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="199" column="15" bodyfile="common/users.hpp" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a3da6502bd383a53b200b7db125575b5d" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::ogrn</definition>
+        <argsstring></argsstring>
+        <name>ogrn</name>
+        <qualifiedname>orgs::ogrn</qualifiedname>
+        <briefdescription>
+<para>ОГРН организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="200" column="15" bodyfile="common/users.hpp" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1affc82d5743aea6b5f69b447f36537cb5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::inn</definition>
+        <argsstring></argsstring>
+        <name>inn</name>
+        <qualifiedname>orgs::inn</qualifiedname>
+        <briefdescription>
+<para>ИНН организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="201" column="15" bodyfile="common/users.hpp" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1aa2163b8b2c75dd675de51c6e44ded60c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::logo</definition>
+        <argsstring></argsstring>
+        <name>logo</name>
+        <qualifiedname>orgs::logo</qualifiedname>
+        <briefdescription>
+<para>Логотип организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="202" column="15" bodyfile="common/users.hpp" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1abbe8d02b45decc5efbe76645d07588b7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::phone</definition>
+        <argsstring></argsstring>
+        <name>phone</name>
+        <qualifiedname>orgs::phone</qualifiedname>
+        <briefdescription>
+<para>Контактный телефон организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="203" column="15" bodyfile="common/users.hpp" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a959f11805a84c42797f8acdde30adecd" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>orgs::email</qualifiedname>
+        <briefdescription>
+<para>Электронная почта организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="204" column="15" bodyfile="common/users.hpp" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1aef9dd189590bfe100c957ce5bde967e1" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::registration</definition>
+        <argsstring></argsstring>
+        <name>registration</name>
+        <qualifiedname>orgs::registration</qualifiedname>
+        <briefdescription>
+<para>Дата регистрации юридического лица. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="205" column="15" bodyfile="common/users.hpp" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a704ac67823483cb07bb24fa5245b19aa" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string orgs::website</definition>
+        <argsstring></argsstring>
+        <name>website</name>
+        <qualifiedname>orgs::website</qualifiedname>
+        <briefdescription>
+<para>Веб-сайт организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="206" column="15" bodyfile="common/users.hpp" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a773b57c51cda33e3e474defc180d0e7d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structbank" kindref="compound">bank</ref> &gt;</type>
+        <definition>std::vector&lt;bank&gt; orgs::accounts</definition>
+        <argsstring></argsstring>
+        <name>accounts</name>
+        <qualifiedname>orgs::accounts</qualifiedname>
+        <briefdescription>
+<para>Информация о банковских счетах организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="207" column="15" bodyfile="common/users.hpp" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a7e106134eb289da6034239f59f8c8b00" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool orgs::is_cooperative</definition>
+        <argsstring></argsstring>
+        <name>is_cooperative</name>
+        <qualifiedname>orgs::is_cooperative</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Флаг, указывающий, является ли организация кооперативом. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="208" column="8" bodyfile="common/users.hpp" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a5d2790457eea86c9e0e0df2afacdb52e" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; orgs::coop_type</definition>
+        <argsstring></argsstring>
+        <name>coop_type</name>
+        <qualifiedname>orgs::coop_type</qualifiedname>
+        <briefdescription>
+<para>Тип некоммерческой организации (если это кооператив). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="209" column="17" bodyfile="common/users.hpp" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a135a3014d3e21024a2eb16b775d46a2f" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; orgs::token_contract</definition>
+        <argsstring></argsstring>
+        <name>token_contract</name>
+        <qualifiedname>orgs::token_contract</qualifiedname>
+        <briefdescription>
+<para>Контракт токена, связанного с организацией. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="210" column="17" bodyfile="common/users.hpp" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a33846e60c8725628db622e8f5a2511dc" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; orgs::slug</definition>
+        <argsstring></argsstring>
+        <name>slug</name>
+        <qualifiedname>orgs::slug</qualifiedname>
+        <briefdescription>
+<para>Уникальный идентификатор организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="211" column="17" bodyfile="common/users.hpp" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a3f04706245d1ce159961028fe3ea8265" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; orgs::announce</definition>
+        <argsstring></argsstring>
+        <name>announce</name>
+        <qualifiedname>orgs::announce</qualifiedname>
+        <briefdescription>
+<para>Анонс организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="212" column="17" bodyfile="common/users.hpp" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a9fc7273b84ea89d7e3be8189bb7de823" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; orgs::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>orgs::description</qualifiedname>
+        <briefdescription>
+<para>Описание организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="213" column="17" bodyfile="common/users.hpp" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a36a73688848c389a2f2626df93ce9d0d" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; uint64_t &gt;</type>
+        <definition>std::optional&lt;uint64_t&gt; orgs::members_count</definition>
+        <argsstring></argsstring>
+        <name>members_count</name>
+        <qualifiedname>orgs::members_count</qualifiedname>
+        <briefdescription>
+<para>Количество членов организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="214" column="17" bodyfile="common/users.hpp" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1ae939c459ab38616d44ad9544fc499512" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; uint64_t &gt;</type>
+        <definition>std::optional&lt;uint64_t&gt; orgs::users_count</definition>
+        <argsstring></argsstring>
+        <name>users_count</name>
+        <qualifiedname>orgs::users_count</qualifiedname>
+        <briefdescription>
+<para>Количество пользователей организации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="215" column="17" bodyfile="common/users.hpp" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1ac0049e14ff707d167f0484cea9b6740c" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; uint64_t &gt;</type>
+        <definition>std::optional&lt;uint64_t&gt; orgs::orgs_counts</definition>
+        <argsstring></argsstring>
+        <name>orgs_counts</name>
+        <qualifiedname>orgs::orgs_counts</qualifiedname>
+        <briefdescription>
+<para>Количество подорганизаций. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="216" column="17" bodyfile="common/users.hpp" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1ad2dd42d38888aadcd9b212d26dfd4b8e" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; orgs::initial</definition>
+        <argsstring></argsstring>
+        <name>initial</name>
+        <qualifiedname>orgs::initial</qualifiedname>
+        <briefdescription>
+<para>Вступительный взнос (если применимо). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="217" column="17" bodyfile="common/users.hpp" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1abdf961fb24a7135fd0a2eba44ed0d0cb" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; orgs::minimum</definition>
+        <argsstring></argsstring>
+        <name>minimum</name>
+        <qualifiedname>orgs::minimum</qualifiedname>
+        <briefdescription>
+<para>Минимальный взнос (если применимо). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="218" column="17" bodyfile="common/users.hpp" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a4983389f1ef9ec6b722a1471031a83c7" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::asset &gt;</type>
+        <definition>std::optional&lt;eosio::asset&gt; orgs::membership</definition>
+        <argsstring></argsstring>
+        <name>membership</name>
+        <qualifiedname>orgs::membership</qualifiedname>
+        <briefdescription>
+<para>Членский взнос (если применимо). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="219" column="17" bodyfile="common/users.hpp" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorgs_1a93ab1b5c27d0b55d80651a72353beec5" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::name &gt;</type>
+        <definition>std::optional&lt;eosio::name&gt; orgs::period</definition>
+        <argsstring></argsstring>
+        <name>period</name>
+        <qualifiedname>orgs::period</qualifiedname>
+        <briefdescription>
+<para>Периодичность взносов. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="220" column="17" bodyfile="common/users.hpp" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structorgs_1ad63f7f770daeaf11e9960f0bb3413257" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t orgs::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>orgs::primary_key</qualifiedname>
+        <briefdescription>
+<para>Возвращает первичный ключ учетной записи организации. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - первичный ключ, равный значению имени аккаунта организации. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="233" column="12" bodyfile="common/users.hpp" bodystart="233" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t orgs::by_parent</definition>
+        <argsstring>() const</argsstring>
+        <name>by_parent</name>
+        <qualifiedname>orgs::by_parent</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по родительской организации. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению имени родительской организации. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="241" column="12" bodyfile="common/users.hpp" bodystart="241" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>uint128_t orgs::by_coop_childs</definition>
+        <argsstring>() const</argsstring>
+        <name>by_coop_childs</name>
+        <qualifiedname>orgs::by_coop_childs</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ для индекса кооперативных подразделений организации. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint128_t - составной ключ, включающий значения имени организации и родительской организации. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="249" column="13" bodyfile="common/users.hpp" bodystart="249" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1a62e31444747797512f25c736d36e8ad3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t orgs::is_coop_index</definition>
+        <argsstring>() const</argsstring>
+        <name>is_coop_index</name>
+        <qualifiedname>orgs::is_coop_index</qualifiedname>
+        <briefdescription>
+<para>Возвращает индекс для определения, является ли организация кооперативом. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный 1, если организация является кооперативом, иначе 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="257" column="12" bodyfile="common/users.hpp" bodystart="257" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1a9c08ac2829263b63bcf3cb773855691a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t orgs::bycooptype</definition>
+        <argsstring>() const</argsstring>
+        <name>bycooptype</name>
+        <qualifiedname>orgs::bycooptype</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ для индекса по типу некоммерческой организации (если это кооператив). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению типа некоммерческой организации. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="265" column="12" bodyfile="common/users.hpp" bodystart="265" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1ab93e3b210063838c61fdc01849e93124" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t orgs::is_verified_index</definition>
+        <argsstring>() const</argsstring>
+        <name>is_verified_index</name>
+        <qualifiedname>orgs::is_verified_index</qualifiedname>
+        <briefdescription>
+<para>Возвращает индекс для определения, является ли организация верифицированной. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный 1, если организация верифицирована, иначе 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="273" column="12" bodyfile="common/users.hpp" bodystart="273" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1a56f3d02c014cc9448b0dc2e771c99f10" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool orgs::is_coop</definition>
+        <argsstring>() const</argsstring>
+        <name>is_coop</name>
+        <qualifiedname>orgs::is_coop</qualifiedname>
+        <briefdescription>
+<para>Проверяет, является ли организация кооперативом. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bool - true, если организация является кооперативом, иначе false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="281" column="8" bodyfile="common/users.hpp" bodystart="281" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="structorgs_1a153188e5dd5b21d491fd733feb6e8ff5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool orgs::is_verified</definition>
+        <argsstring>() const</argsstring>
+        <name>is_verified</name>
+        <qualifiedname>orgs::is_verified</qualifiedname>
+        <briefdescription>
+<para>Проверяет, верифицирована ли организация. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bool - true, если организация верифицирована, иначе false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/users.hpp" line="289" column="8" bodyfile="common/users.hpp" bodystart="289" bodyend="291"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая организации. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура содержит информацию о юридических лицах (организациях), их верификации и других параметрах. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="4">
+        <label>time_point_sec</label>
+      </node>
+      <node id="1">
+        <label>orgs</label>
+        <link refid="structorgs"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>parent_username</edgelabel>
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>verification</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>address</edgelabel>
+          <edgelabel>email</edgelabel>
+          <edgelabel>inn</edgelabel>
+          <edgelabel>logo</edgelabel>
+          <edgelabel>name</edgelabel>
+          <edgelabel>ogrn</edgelabel>
+          <edgelabel>phone</edgelabel>
+          <edgelabel>registration</edgelabel>
+          <edgelabel>short_name</edgelabel>
+          <edgelabel>website</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>verification</label>
+        <link refid="structverification"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>verificator</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>last_update</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>notice</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/users.hpp" line="193" column="1" bodyfile="common/users.hpp" bodystart="193" bodyend="292"/>
+    <listofallmembers>
+      <member refid="structorgs_1a773b57c51cda33e3e474defc180d0e7d" prot="public" virt="non-virtual"><scope>orgs</scope><name>accounts</name></member>
+      <member refid="structorgs_1a756f0d831a24d9a4f9f52e51106f135d" prot="public" virt="non-virtual"><scope>orgs</scope><name>address</name></member>
+      <member refid="structorgs_1a3f04706245d1ce159961028fe3ea8265" prot="public" virt="non-virtual"><scope>orgs</scope><name>announce</name></member>
+      <member refid="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" prot="public" virt="non-virtual"><scope>orgs</scope><name>by_coop_childs</name></member>
+      <member refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" prot="public" virt="non-virtual"><scope>orgs</scope><name>by_parent</name></member>
+      <member refid="structorgs_1a9c08ac2829263b63bcf3cb773855691a" prot="public" virt="non-virtual"><scope>orgs</scope><name>bycooptype</name></member>
+      <member refid="structorgs_1a5d2790457eea86c9e0e0df2afacdb52e" prot="public" virt="non-virtual"><scope>orgs</scope><name>coop_type</name></member>
+      <member refid="structorgs_1a9fc7273b84ea89d7e3be8189bb7de823" prot="public" virt="non-virtual"><scope>orgs</scope><name>description</name></member>
+      <member refid="structorgs_1a959f11805a84c42797f8acdde30adecd" prot="public" virt="non-virtual"><scope>orgs</scope><name>email</name></member>
+      <member refid="structorgs_1ad2dd42d38888aadcd9b212d26dfd4b8e" prot="public" virt="non-virtual"><scope>orgs</scope><name>initial</name></member>
+      <member refid="structorgs_1affc82d5743aea6b5f69b447f36537cb5" prot="public" virt="non-virtual"><scope>orgs</scope><name>inn</name></member>
+      <member refid="structorgs_1a56f3d02c014cc9448b0dc2e771c99f10" prot="public" virt="non-virtual"><scope>orgs</scope><name>is_coop</name></member>
+      <member refid="structorgs_1a62e31444747797512f25c736d36e8ad3" prot="public" virt="non-virtual"><scope>orgs</scope><name>is_coop_index</name></member>
+      <member refid="structorgs_1a7e106134eb289da6034239f59f8c8b00" prot="public" virt="non-virtual"><scope>orgs</scope><name>is_cooperative</name></member>
+      <member refid="structorgs_1a153188e5dd5b21d491fd733feb6e8ff5" prot="public" virt="non-virtual"><scope>orgs</scope><name>is_verified</name></member>
+      <member refid="structorgs_1ab93e3b210063838c61fdc01849e93124" prot="public" virt="non-virtual"><scope>orgs</scope><name>is_verified_index</name></member>
+      <member refid="structorgs_1aa2163b8b2c75dd675de51c6e44ded60c" prot="public" virt="non-virtual"><scope>orgs</scope><name>logo</name></member>
+      <member refid="structorgs_1a36a73688848c389a2f2626df93ce9d0d" prot="public" virt="non-virtual"><scope>orgs</scope><name>members_count</name></member>
+      <member refid="structorgs_1a4983389f1ef9ec6b722a1471031a83c7" prot="public" virt="non-virtual"><scope>orgs</scope><name>membership</name></member>
+      <member refid="structorgs_1abdf961fb24a7135fd0a2eba44ed0d0cb" prot="public" virt="non-virtual"><scope>orgs</scope><name>minimum</name></member>
+      <member refid="structorgs_1ae3e89e39dc1dac2fa382f52c7dfa1499" prot="public" virt="non-virtual"><scope>orgs</scope><name>name</name></member>
+      <member refid="structorgs_1a3da6502bd383a53b200b7db125575b5d" prot="public" virt="non-virtual"><scope>orgs</scope><name>ogrn</name></member>
+      <member refid="structorgs_1ac0049e14ff707d167f0484cea9b6740c" prot="public" virt="non-virtual"><scope>orgs</scope><name>orgs_counts</name></member>
+      <member refid="structorgs_1ae6431f4f421b347e828673c17c11016a" prot="public" virt="non-virtual"><scope>orgs</scope><name>parent_username</name></member>
+      <member refid="structorgs_1a93ab1b5c27d0b55d80651a72353beec5" prot="public" virt="non-virtual"><scope>orgs</scope><name>period</name></member>
+      <member refid="structorgs_1abbe8d02b45decc5efbe76645d07588b7" prot="public" virt="non-virtual"><scope>orgs</scope><name>phone</name></member>
+      <member refid="structorgs_1ad63f7f770daeaf11e9960f0bb3413257" prot="public" virt="non-virtual"><scope>orgs</scope><name>primary_key</name></member>
+      <member refid="structorgs_1aef9dd189590bfe100c957ce5bde967e1" prot="public" virt="non-virtual"><scope>orgs</scope><name>registration</name></member>
+      <member refid="structorgs_1a2856436e3f095cf78cf6d6a617c79d61" prot="public" virt="non-virtual"><scope>orgs</scope><name>short_name</name></member>
+      <member refid="structorgs_1a33846e60c8725628db622e8f5a2511dc" prot="public" virt="non-virtual"><scope>orgs</scope><name>slug</name></member>
+      <member refid="structorgs_1a135a3014d3e21024a2eb16b775d46a2f" prot="public" virt="non-virtual"><scope>orgs</scope><name>token_contract</name></member>
+      <member refid="structorgs_1a30bd763b06c88e2db7fe63b7829448c8" prot="public" virt="non-virtual"><scope>orgs</scope><name>username</name></member>
+      <member refid="structorgs_1ae939c459ab38616d44ad9544fc499512" prot="public" virt="non-virtual"><scope>orgs</scope><name>users_count</name></member>
+      <member refid="structorgs_1a7f2292b35d32249116fbabc45ee29f90" prot="public" virt="non-virtual"><scope>orgs</scope><name>verification</name></member>
+      <member refid="structorgs_1a704ac67823483cb07bb24fa5245b19aa" prot="public" virt="non-virtual"><scope>orgs</scope><name>website</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

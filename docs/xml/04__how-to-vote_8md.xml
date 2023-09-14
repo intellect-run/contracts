@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="04__how-to-vote_8md" kind="file" language="Markdown">
+    <compoundname>04_how-to-vote.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">content_title:<sp/>How<sp/>to<sp/>vote</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Goal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Vote<sp/>for<sp/>a<sp/>block<sp/>producer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Before<sp/>you<sp/>begin</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Install<sp/>the<sp/>current<sp/>supported<sp/>version<sp/>of<sp/>cleos</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Ensure<sp/>the<sp/>reference<sp/>system<sp/>contracts<sp/>from<sp/>`reference-contracts`<sp/>repository<sp/>is<sp/>deployed<sp/>and<sp/>used<sp/>to<sp/>manage<sp/>system<sp/>resources</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Understand<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>What<sp/>is<sp/>a<sp/>block<sp/>producer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>How<sp/>does<sp/>voting<sp/>works</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Unlock<sp/>your<sp/>wallet</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Steps</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assume<sp/>you<sp/>are<sp/>going<sp/>to<sp/>vote<sp/>for<sp/>blockproducer1<sp/>and<sp/>blockproducer2<sp/>from<sp/>an<sp/>account<sp/>called<sp/>`eosiotestts2`,<sp/>execute<sp/>the<sp/>following:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>system<sp/>voteproducer<sp/>prods<sp/>eosiotestts2<sp/>blockproducer1<sp/>blockproducer2</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>should<sp/>see<sp/>something<sp/>like<sp/>below:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">executed<sp/>transaction:<sp/>2d8b58f7387aef52a1746d7a22d304bbbe0304481d7751fc4a50b619df62676d<sp/><sp/>128<sp/>bytes<sp/><sp/>374<sp/>us</highlight></codeline>
+<codeline><highlight class="normal">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio<sp/>&lt;=<sp/>eosio::voteproducer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{&quot;voter&quot;:&quot;eosiotestts2&quot;,&quot;proxy&quot;:&quot;&quot;,&quot;producers&quot;:[&quot;blockproducer1&quot;,&quot;blockproducer2&quot;]}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="system/docs/04_guides/04_how-to-vote.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2812 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classeosio__system_1_1eosio__system__tester" kind="class" language="C++" prot="public">
+    <compoundname>eosio_system::eosio_system_tester</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TESTER</basecompoundref>
+    <derivedcompoundref refid="structlimitauth__tester" prot="public" virt="non-virtual">limitauth_tester</derivedcompoundref>
+    <includes refid="eosio_8system__tester_8hpp" local="no">eosio.system_tester.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>setup_level</name>
+        <qualifiedname>eosio_system::eosio_system_tester::setup_level</qualifiedname>
+        <enumvalue id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35adc43e863c176e9b9f2a0b6054b24bd1a" prot="public">
+          <name>minimal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35a9b438b3ae36d520a02a1a53790b97e69" prot="public">
+          <name>core_token</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35a2bc35c86b419682d4aa6fe589f72ae7a" prot="public">
+          <name>deploy_contract</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35ae9dc924f238fa6cc29465942875fe8f0" prot="public">
+          <name>full</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="87" column="4" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="87" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classeosio__system_1_1eosio__system__tester_1a6553b790e5c86a895a17ba6d2b208913" prot="public" static="no" mutable="no">
+        <type>abi_serializer</type>
+        <definition>abi_serializer eosio_system::eosio_system_tester::abi_ser</definition>
+        <argsstring></argsstring>
+        <name>abi_ser</name>
+        <qualifiedname>eosio_system::eosio_system_tester::abi_ser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1085" column="19" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1085" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classeosio__system_1_1eosio__system__tester_1ad27754cc7a6376a9734d05efe5d0baac" prot="public" static="no" mutable="no">
+        <type>abi_serializer</type>
+        <definition>abi_serializer eosio_system::eosio_system_tester::token_abi_ser</definition>
+        <argsstring></argsstring>
+        <name>token_abi_ser</name>
+        <qualifiedname>eosio_system::eosio_system_tester::token_abi_ser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1086" column="19" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1086" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4fab2c1ab589a64cbb4cb1db0c1f704e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::basic_setup</definition>
+        <argsstring>()</argsstring>
+        <name>basic_setup</name>
+        <qualifiedname>eosio_system::eosio_system_tester::basic_setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="32" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="32" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a0f053efff5f77dea7072b6df3e84190f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::create_core_token</definition>
+        <argsstring>(symbol core_symbol=symbol{CORE_SYM})</argsstring>
+        <name>create_core_token</name>
+        <qualifiedname>eosio_system::eosio_system_tester::create_core_token</qualifiedname>
+        <param>
+          <type>symbol</type>
+          <declname>core_symbol</declname>
+          <defval>symbol{<ref refid="test__symbol_8hpp_1af288246ded3673b7a516aeaaca84ab01" kindref="member">CORE_SYM</ref>}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="50" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a3cdcde139935536e87a548266069913b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::deploy_contract</definition>
+        <argsstring>(bool call_init=true)</argsstring>
+        <name>deploy_contract</name>
+        <qualifiedname>eosio_system::eosio_system_tester::deploy_contract</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>call_init</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="57" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="57" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ada855d88294b713e445bba7dc594dd7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::remaining_setup</definition>
+        <argsstring>()</argsstring>
+        <name>remaining_setup</name>
+        <qualifiedname>eosio_system::eosio_system_tester::remaining_setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="76" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="76" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a44a0c6df9b49d9894c436eca2cfad07e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eosio_system::eosio_system_tester::eosio_system_tester</definition>
+        <argsstring>(setup_level l=setup_level::full)</argsstring>
+        <name>eosio_system_tester</name>
+        <qualifiedname>eosio_system::eosio_system_tester::eosio_system_tester</qualifiedname>
+        <param>
+          <type><ref refid="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35" kindref="member">setup_level</ref></type>
+          <declname>l</declname>
+          <defval><ref refid="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35ae9dc924f238fa6cc29465942875fe8f0" kindref="member">setup_level::full</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="95" column="4" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="95" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a3499991ede5f1d3619b54b2837c9c257" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Lambda</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>eosio_system::eosio_system_tester::eosio_system_tester</definition>
+        <argsstring>(Lambda setup)</argsstring>
+        <name>eosio_system_tester</name>
+        <qualifiedname>eosio_system::eosio_system_tester::eosio_system_tester</qualifiedname>
+        <param>
+          <type>Lambda</type>
+          <declname>setup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="111" column="4" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="111" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a0c60c30078a54826d8a28ea286f655ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::create_accounts_with_resources</definition>
+        <argsstring>(vector&lt; account_name &gt; accounts, account_name creator=config::system_account_name)</argsstring>
+        <name>create_accounts_with_resources</name>
+        <qualifiedname>eosio_system::eosio_system_tester::create_accounts_with_resources</qualifiedname>
+        <param>
+          <type>vector&lt; account_name &gt;</type>
+          <declname>accounts</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>creator</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="121" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="121" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a63919e0d46756f9f4aa372a98778fcbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>transaction_trace_ptr</type>
+        <definition>transaction_trace_ptr eosio_system::eosio_system_tester::create_account_with_resources</definition>
+        <argsstring>(account_name a, account_name creator, uint32_t ram_bytes=8000)</argsstring>
+        <name>create_account_with_resources</name>
+        <qualifiedname>eosio_system::eosio_system_tester::create_account_with_resources</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ram_bytes</declname>
+          <defval>8000</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="127" column="26" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="127" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a8bf65a4197f989e95359bf25418d7659" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>transaction_trace_ptr</type>
+        <definition>transaction_trace_ptr eosio_system::eosio_system_tester::create_account_with_resources</definition>
+        <argsstring>(account_name a, account_name creator, asset ramfunds, bool multisig, asset net=core_sym::from_string(&quot;10.0000&quot;), asset cpu=core_sym::from_string(&quot;10.0000&quot;))</argsstring>
+        <name>create_account_with_resources</name>
+        <qualifiedname>eosio_system::eosio_system_tester::create_account_with_resources</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>ramfunds</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>multisig</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>net</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;10.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>cpu</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;10.0000&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="163" column="26" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="163" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ac8c7bd56d14a558e005bbf8acd350a95" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>transaction_trace_ptr</type>
+        <definition>transaction_trace_ptr eosio_system::eosio_system_tester::setup_producer_accounts</definition>
+        <argsstring>(const std::vector&lt; account_name &gt; &amp;accounts, asset ram=core_sym::from_string(&quot;1.0000&quot;), asset cpu=core_sym::from_string(&quot;80.0000&quot;), asset net=core_sym::from_string(&quot;80.0000&quot;))</argsstring>
+        <name>setup_producer_accounts</name>
+        <qualifiedname>eosio_system::eosio_system_tester::setup_producer_accounts</qualifiedname>
+        <param>
+          <type>const std::vector&lt; account_name &gt; &amp;</type>
+          <declname>accounts</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>ram</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;1.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>cpu</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;80.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>net</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;80.0000&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="206" column="26" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="206" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a03ead0f2dcc36130ff17afca29b727ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::buyram</definition>
+        <argsstring>(const account_name &amp;payer, account_name receiver, const asset &amp;eosin)</argsstring>
+        <name>buyram</name>
+        <qualifiedname>eosio_system::eosio_system_tester::buyram</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>eosin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="249" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="249" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ab1b188663acb238700a26239b5ae2ad9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::buyram</definition>
+        <argsstring>(std::string_view payer, std::string_view receiver, const asset &amp;eosin)</argsstring>
+        <name>buyram</name>
+        <qualifiedname>eosio_system::eosio_system_tester::buyram</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>eosin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="252" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="252" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a315a10ead6b384340ce31fea858ca73a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::buyrambytes</definition>
+        <argsstring>(const account_name &amp;payer, account_name receiver, uint32_t numbytes)</argsstring>
+        <name>buyrambytes</name>
+        <qualifiedname>eosio_system::eosio_system_tester::buyrambytes</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>account_name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>numbytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="256" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="256" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1af1989a5eea49e6fecafd1e5afb244f95" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::buyrambytes</definition>
+        <argsstring>(std::string_view payer, std::string_view receiver, uint32_t numbytes)</argsstring>
+        <name>buyrambytes</name>
+        <qualifiedname>eosio_system::eosio_system_tester::buyrambytes</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>numbytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="259" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="259" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a7a53705cef5f0c4c880dc3a65aa3a8ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::sellram</definition>
+        <argsstring>(const account_name &amp;account, uint64_t numbytes)</argsstring>
+        <name>sellram</name>
+        <qualifiedname>eosio_system::eosio_system_tester::sellram</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>numbytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="263" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="263" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a407908b657e28f5ad7e9ba1904539614" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::sellram</definition>
+        <argsstring>(std::string_view account, uint64_t numbytes)</argsstring>
+        <name>sellram</name>
+        <qualifiedname>eosio_system::eosio_system_tester::sellram</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>numbytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="266" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="266" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a294d15bfc4b915bd36cffb8154faabaf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::push_action</definition>
+        <argsstring>(const account_name &amp;signer, const action_name &amp;name, const variant_object &amp;data, bool auth=true)</argsstring>
+        <name>push_action</name>
+        <qualifiedname>eosio_system::eosio_system_tester::push_action</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>signer</declname>
+        </param>
+        <param>
+          <type>const action_name &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const variant_object &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>auth</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="270" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="270" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a19dfc7a9435a9d40c54f8933c088e5b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="281" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="281" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad79507eaf003aff54ec3e6b3b91b2c11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake</definition>
+        <argsstring>(std::string_view from, std::string_view to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="290" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="290" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad6573013c72ff4f563acf10eea34600a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake</definition>
+        <argsstring>(const account_name &amp;acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="294" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="294" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a9e4c0f8412ef9b1ca29b3967d76668ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake</definition>
+        <argsstring>(std::string_view acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="297" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="297" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1acb43ec38190c09b97f0774f9e1ed0dba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake_with_transfer</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake_with_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake_with_transfer</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="301" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="301" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aa25b8e3716cac55da717db56bbf60e37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake_with_transfer</definition>
+        <argsstring>(std::string_view from, std::string_view to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake_with_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake_with_transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="310" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="310" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1afea1622cde89b08f2f44c0c378b95d8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake_with_transfer</definition>
+        <argsstring>(const account_name &amp;acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake_with_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake_with_transfer</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="314" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="314" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a36a9d6ced4c4da301b21f4a91aae0fb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::stake_with_transfer</definition>
+        <argsstring>(std::string_view acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>stake_with_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake_with_transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="317" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="317" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aa400d0654037644e9ea13fc81b521b7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::unstake</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>unstake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::unstake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="321" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="321" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a41eb069ce6a684c14f7a59d162e2cc1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::unstake</definition>
+        <argsstring>(std::string_view from, std::string_view to, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>unstake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::unstake</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="329" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="329" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a81069dea0d351098baa1c5ff362b5cda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::unstake</definition>
+        <argsstring>(const account_name &amp;acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>unstake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::unstake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="333" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="333" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4e80fb07f345d7d8429c12e877f41a0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::unstake</definition>
+        <argsstring>(std::string_view acnt, const asset &amp;net, const asset &amp;cpu)</argsstring>
+        <name>unstake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::unstake</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="336" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="336" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1acfbdb6caf2b2828f1a61c0df1cc5a81e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t eosio_system::eosio_system_tester::bancor_convert</definition>
+        <argsstring>(int64_t S, int64_t R, int64_t T)</argsstring>
+        <name>bancor_convert</name>
+        <qualifiedname>eosio_system::eosio_system_tester::bancor_convert</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>S</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>R</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="340" column="12" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="340" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a345d24aec3753991e6717200b1223a68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t eosio_system::eosio_system_tester::get_net_limit</definition>
+        <argsstring>(account_name a)</argsstring>
+        <name>get_net_limit</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_net_limit</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="342" column="12" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="342" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a41e42475b0d1c27804519cac227fb3bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t eosio_system::eosio_system_tester::get_cpu_limit</definition>
+        <argsstring>(account_name a)</argsstring>
+        <name>get_cpu_limit</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_cpu_limit</qualifiedname>
+        <param>
+          <type>account_name</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="348" column="12" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="348" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6a38854c1eb66a4ac172e7d3b555de19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::deposit</definition>
+        <argsstring>(const account_name &amp;owner, const asset &amp;amount)</argsstring>
+        <name>deposit</name>
+        <qualifiedname>eosio_system::eosio_system_tester::deposit</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="354" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="354" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4146e614926727ff74b52c2cd2cf033f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::withdraw</definition>
+        <argsstring>(const account_name &amp;owner, const asset &amp;amount)</argsstring>
+        <name>withdraw</name>
+        <qualifiedname>eosio_system::eosio_system_tester::withdraw</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="361" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="361" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a3916c7408e4609e84dd7f3ffdaef489e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::buyrex</definition>
+        <argsstring>(const account_name &amp;from, const asset &amp;amount)</argsstring>
+        <name>buyrex</name>
+        <qualifiedname>eosio_system::eosio_system_tester::buyrex</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="368" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="368" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aaccfeda8eca71df19e4c0a355f5a4312" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_buyrex_result</definition>
+        <argsstring>(const account_name &amp;from, const asset &amp;amount)</argsstring>
+        <name>get_buyrex_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_buyrex_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="375" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="375" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ae777944b5826fc95680df4a7b3fd2141" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::unstaketorex</definition>
+        <argsstring>(const account_name &amp;owner, const account_name &amp;receiver, const asset &amp;from_net, const asset &amp;from_cpu)</argsstring>
+        <name>unstaketorex</name>
+        <qualifiedname>eosio_system::eosio_system_tester::unstaketorex</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from_net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from_cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="389" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="389" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a63acf9f8042be1845a31634ae8595615" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_unstaketorex_result</definition>
+        <argsstring>(const account_name &amp;owner, const account_name &amp;receiver, const asset &amp;from_net, const asset &amp;from_cpu)</argsstring>
+        <name>get_unstaketorex_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_unstaketorex_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from_net</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from_cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="398" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="398" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a978b8c24bf75f9f4de486cd5e09a25a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::sellrex</definition>
+        <argsstring>(const account_name &amp;from, const asset &amp;rex)</argsstring>
+        <name>sellrex</name>
+        <qualifiedname>eosio_system::eosio_system_tester::sellrex</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>rex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="417" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="417" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4f531d0c87d0b495a2fa0286fe8f5f21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_sellrex_result</definition>
+        <argsstring>(const account_name &amp;from, const asset &amp;rex)</argsstring>
+        <name>get_sellrex_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_sellrex_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>rex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="424" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="424" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1af5c3274d9dff9741985165ee52f9345d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto eosio_system::eosio_system_tester::get_rexorder_result</definition>
+        <argsstring>(const transaction_trace_ptr &amp;trace)</argsstring>
+        <name>get_rexorder_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rexorder_result</qualifiedname>
+        <param>
+          <type>const transaction_trace_ptr &amp;</type>
+          <declname>trace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="438" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="438" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a771ce588f7187ed5c4795e3d26c8233c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::cancelrexorder</definition>
+        <argsstring>(const account_name &amp;owner)</argsstring>
+        <name>cancelrexorder</name>
+        <qualifiedname>eosio_system::eosio_system_tester::cancelrexorder</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="452" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="452" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a18713af89a1654090a0516a60f25249f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::rentcpu</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver, const asset &amp;payment, const asset &amp;fund=core_sym::from_string(&quot;0.0000&quot;))</argsstring>
+        <name>rentcpu</name>
+        <qualifiedname>eosio_system::eosio_system_tester::rentcpu</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>fund</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;0.0000&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="456" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="456" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a0da15d442da5b99268330d5e12f8d572" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::rentnet</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver, const asset &amp;payment, const asset &amp;fund=core_sym::from_string(&quot;0.0000&quot;))</argsstring>
+        <name>rentnet</name>
+        <qualifiedname>eosio_system::eosio_system_tester::rentnet</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>fund</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;0.0000&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="465" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="465" bodyend="472"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a678d5b9ffe4f1273ed95cf404d5aa1d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::_get_rentrex_result</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver, const asset &amp;payment, bool cpu)</argsstring>
+        <name>_get_rentrex_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::_get_rentrex_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="474" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="474" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a90323c47bf67962f5c1a4ece3e22746f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_rentcpu_result</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver, const asset &amp;payment)</argsstring>
+        <name>get_rentcpu_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rentcpu_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="495" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="495" bodyend="497"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a5cc198ce96cfc9ec7ed26a75c3161eda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_rentnet_result</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver, const asset &amp;payment)</argsstring>
+        <name>get_rentnet_result</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rentnet_result</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="499" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="499" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a5e44f744e1a7f992c30b146d568d68b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::fundcpuloan</definition>
+        <argsstring>(const account_name &amp;from, const uint64_t loan_num, const asset &amp;payment)</argsstring>
+        <name>fundcpuloan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::fundcpuloan</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="503" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="503" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ae42010c2c7f512916fcfa573d5ef1f66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::fundnetloan</definition>
+        <argsstring>(const account_name &amp;from, const uint64_t loan_num, const asset &amp;payment)</argsstring>
+        <name>fundnetloan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::fundnetloan</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="511" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="511" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a579e18d603498db516e244989d227270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::defundcpuloan</definition>
+        <argsstring>(const account_name &amp;from, const uint64_t loan_num, const asset &amp;amount)</argsstring>
+        <name>defundcpuloan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::defundcpuloan</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="520" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="520" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4e16e243a83e9d92148d3fff49f745b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::defundnetloan</definition>
+        <argsstring>(const account_name &amp;from, const uint64_t loan_num, const asset &amp;amount)</argsstring>
+        <name>defundnetloan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::defundnetloan</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="528" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="528" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aed0dc358ed43d15be3a778d80c55410f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::updaterex</definition>
+        <argsstring>(const account_name &amp;owner)</argsstring>
+        <name>updaterex</name>
+        <qualifiedname>eosio_system::eosio_system_tester::updaterex</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="536" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="536" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a39bf21779fbf0d6e860a583f8df64649" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::rexexec</definition>
+        <argsstring>(const account_name &amp;user, uint16_t max)</argsstring>
+        <name>rexexec</name>
+        <qualifiedname>eosio_system::eosio_system_tester::rexexec</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="540" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="540" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a1bf1c4522b527bb365e808fc4c6aab9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::consolidate</definition>
+        <argsstring>(const account_name &amp;owner)</argsstring>
+        <name>consolidate</name>
+        <qualifiedname>eosio_system::eosio_system_tester::consolidate</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="544" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="544" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a9a36b004fef8c3a6d0facfc51c6a0d9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::mvtosavings</definition>
+        <argsstring>(const account_name &amp;owner, const asset &amp;rex)</argsstring>
+        <name>mvtosavings</name>
+        <qualifiedname>eosio_system::eosio_system_tester::mvtosavings</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>rex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="548" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="548" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad77b290540b7cd6790ad04ce7811a8fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::mvfrsavings</definition>
+        <argsstring>(const account_name &amp;owner, const asset &amp;rex)</argsstring>
+        <name>mvfrsavings</name>
+        <qualifiedname>eosio_system::eosio_system_tester::mvfrsavings</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>rex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="552" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="552" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a51502ee7653a2cee8779e3804f271316" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::closerex</definition>
+        <argsstring>(const account_name &amp;owner)</argsstring>
+        <name>closerex</name>
+        <qualifiedname>eosio_system::eosio_system_tester::closerex</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="556" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="556" bodyend="558"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a143113b4d08c88fdb8a013e944bd1928" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_last_loan</definition>
+        <argsstring>(bool cpu)</argsstring>
+        <name>get_last_loan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_last_loan</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="560" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="560" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a65881b461203722d223743a6e86cdc63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_last_cpu_loan</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_cpu_loan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_last_cpu_loan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="586" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="586" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a2845d60e62059778773ee26f4c6249af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_last_net_loan</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_net_loan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_last_net_loan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="590" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="590" bodyend="592"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a14cb532b8b85ab96fd902ce4818ce104" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_loan_info</definition>
+        <argsstring>(const uint64_t &amp;loan_num, bool cpu) const</argsstring>
+        <name>get_loan_info</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_loan_info</qualifiedname>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>loan_num</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="594" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="594" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aab8f376e45d2051fdd817ffe9f9369e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_cpu_loan</definition>
+        <argsstring>(const uint64_t loan_num) const</argsstring>
+        <name>get_cpu_loan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_cpu_loan</qualifiedname>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="600" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="600" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a93d2a1cb0cfcd3cbd8bd7458e73992c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_net_loan</definition>
+        <argsstring>(const uint64_t loan_num) const</argsstring>
+        <name>get_net_loan</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_net_loan</qualifiedname>
+        <param>
+          <type>const uint64_t</type>
+          <declname>loan_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="604" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="604" bodyend="606"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6e1bc6f4e832ceb842498c56c9075f15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_dbw_obj</definition>
+        <argsstring>(const account_name &amp;from, const account_name &amp;receiver) const</argsstring>
+        <name>get_dbw_obj</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_dbw_obj</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>receiver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="608" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="608" bodyend="611"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ac461b0845c0909670ea63557bc0b66fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_rex_balance</definition>
+        <argsstring>(const account_name &amp;act) const</argsstring>
+        <name>get_rex_balance</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_balance</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="613" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="613" bodyend="616"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a709b0f5fcf87b2efef2971a0c15d9a0d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_balance_obj</definition>
+        <argsstring>(const account_name &amp;act) const</argsstring>
+        <name>get_rex_balance_obj</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_balance_obj</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="618" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="618" bodyend="621"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a9bf2f95b82dd447cbe00da9ac35edad6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_rex_fund</definition>
+        <argsstring>(const account_name &amp;act) const</argsstring>
+        <name>get_rex_fund</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_fund</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="623" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="623" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a006d8169fcce2262295ceeb50b2c644d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_fund_obj</definition>
+        <argsstring>(const account_name &amp;act) const</argsstring>
+        <name>get_rex_fund_obj</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_fund_obj</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="628" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="628" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a5e64a18345f786e4231c9282aa087f20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_rex_vote_stake</definition>
+        <argsstring>(const account_name &amp;act) const</argsstring>
+        <name>get_rex_vote_stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_vote_stake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="633" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="633" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a22162fc47dbf43df1b10cd696637d3e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_order</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_rex_order</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_order</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="638" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="638" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ae639446b1000581d5404a2470ccac800" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_order_obj</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_rex_order_obj</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_order_obj</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="643" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="643" bodyend="646"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1adc8d15f66b51953b31471ae431203bfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_pool</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rex_pool</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_pool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="648" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="648" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a2a0f287afd099062caa6c41ccbd04bd0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_return_pool</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rex_return_pool</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_return_pool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="669" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="669" bodyend="688"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1af68fb8acfdccaec2b30ce2554cf87d89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_rex_return_buckets</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rex_return_buckets</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_rex_return_buckets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="690" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="690" bodyend="709"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1adfc053b0749db71a4da569903f384379" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::setup_rex_accounts</definition>
+        <argsstring>(const std::vector&lt; account_name &gt; &amp;accounts, const asset &amp;init_balance, const asset &amp;net=core_sym::from_string(&quot;80.0000&quot;), const asset &amp;cpu=core_sym::from_string(&quot;80.0000&quot;), bool deposit_into_rex_fund=true)</argsstring>
+        <name>setup_rex_accounts</name>
+        <qualifiedname>eosio_system::eosio_system_tester::setup_rex_accounts</qualifiedname>
+        <param>
+          <type>const std::vector&lt; account_name &gt; &amp;</type>
+          <declname>accounts</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>init_balance</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>net</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;80.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>cpu</declname>
+          <defval><ref refid="structcore__sym_1a3e6ce4f2125788d8fd56a9e1b1ef9353" kindref="member">core_sym::from_string</ref>(&quot;80.0000&quot;)</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deposit_into_rex_fund</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="711" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="711" bodyend="733"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad41862f086e9bed7443a2b38b292e8a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::bidname</definition>
+        <argsstring>(const account_name &amp;bidder, const account_name &amp;newname, const asset &amp;bid)</argsstring>
+        <name>bidname</name>
+        <qualifiedname>eosio_system::eosio_system_tester::bidname</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>bidder</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>newname</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>bid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="735" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="735" bodyend="741"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6fb41f7d875e2730d4d88b4eb2e656bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::bidname</definition>
+        <argsstring>(std::string_view bidder, std::string_view newname, const asset &amp;bid)</argsstring>
+        <name>bidname</name>
+        <qualifiedname>eosio_system::eosio_system_tester::bidname</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>bidder</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>newname</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>bid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="742" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="742" bodyend="744"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a5c4a1ddae7b062d0a5864820638e62b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::regproducer</definition>
+        <argsstring>(const account_name &amp;acnt, int params_fixture=1)</argsstring>
+        <name>regproducer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::regproducer</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>acnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>params_fixture</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="769" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="769" bodyend="778"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a843ab97e6090ad56369f85749542be5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::vote</definition>
+        <argsstring>(const account_name &amp;voter, const std::vector&lt; account_name &gt; &amp;producers, const account_name &amp;proxy=name(0))</argsstring>
+        <name>vote</name>
+        <qualifiedname>eosio_system::eosio_system_tester::vote</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>voter</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; account_name &gt; &amp;</type>
+          <declname>producers</declname>
+        </param>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>proxy</declname>
+          <defval>name(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="780" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="780" bodyend="785"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1abf775b2f5f2422555e886f114f682e89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::vote</definition>
+        <argsstring>(const account_name &amp;voter, const std::vector&lt; account_name &gt; &amp;producers, std::string_view proxy)</argsstring>
+        <name>vote</name>
+        <qualifiedname>eosio_system::eosio_system_tester::vote</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>voter</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; account_name &gt; &amp;</type>
+          <declname>producers</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>proxy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="786" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="786" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aee1cf394b09c7d3f73ca366d8e7afc79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t eosio_system::eosio_system_tester::last_block_time</definition>
+        <argsstring>() const</argsstring>
+        <name>last_block_time</name>
+        <qualifiedname>eosio_system::eosio_system_tester::last_block_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="790" column="13" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="790" bodyend="792"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ae5088f57b04b156f822d6ff47681172a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_balance</definition>
+        <argsstring>(const account_name &amp;act, symbol balance_symbol=symbol{CORE_SYM})</argsstring>
+        <name>get_balance</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_balance</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <param>
+          <type>symbol</type>
+          <declname>balance_symbol</declname>
+          <defval>symbol{<ref refid="test__symbol_8hpp_1af288246ded3673b7a516aeaaca84ab01" kindref="member">CORE_SYM</ref>}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="794" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="794" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a275685caa99eaa12e3ff607531e1edc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_balance</definition>
+        <argsstring>(std::string_view act, symbol balance_symbol=symbol{CORE_SYM})</argsstring>
+        <name>get_balance</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_balance</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>act</declname>
+        </param>
+        <param>
+          <type>symbol</type>
+          <declname>balance_symbol</declname>
+          <defval>symbol{<ref refid="test__symbol_8hpp_1af288246ded3673b7a516aeaaca84ab01" kindref="member">CORE_SYM</ref>}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="799" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="799" bodyend="801"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a9539a007f44e41461074f05b1efa9078" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_total_stake</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_total_stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_total_stake</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="803" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="803" bodyend="806"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a81d67ba19737037e026cad8ee01e24a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_total_stake</definition>
+        <argsstring>(std::string_view act)</argsstring>
+        <name>get_total_stake</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_total_stake</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="807" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="807" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a62935be2581d8b7d6d38f5009f4131b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_voter_info</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_voter_info</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_voter_info</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="811" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="811" bodyend="814"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6ff715a6bacc35dfa9327ac2c9b84bca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_voter_info</definition>
+        <argsstring>(std::string_view act)</argsstring>
+        <name>get_voter_info</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_voter_info</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="815" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="815" bodyend="817"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ab43aee8d11661b443993370901b68e2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_producer_info</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_producer_info</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_producer_info</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="819" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="819" bodyend="822"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a19f96e654e9e2f1cb809d134d393dbc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_producer_info</definition>
+        <argsstring>(std::string_view act)</argsstring>
+        <name>get_producer_info</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_producer_info</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="823" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="823" bodyend="825"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ab856c77dcef575f37057044e77c7645d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_producer_info2</definition>
+        <argsstring>(const account_name &amp;act)</argsstring>
+        <name>get_producer_info2</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_producer_info2</qualifiedname>
+        <param>
+          <type>const account_name &amp;</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="827" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="827" bodyend="830"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a56f664849c185ca19acdf55e6d84f357" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_producer_info2</definition>
+        <argsstring>(std::string_view act)</argsstring>
+        <name>get_producer_info2</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_producer_info2</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>act</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="831" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="831" bodyend="833"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a7df3e836a238c57f8594b36834d241c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::create_currency</definition>
+        <argsstring>(name contract, name manager, asset maxsupply)</argsstring>
+        <name>create_currency</name>
+        <qualifiedname>eosio_system::eosio_system_tester::create_currency</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>contract</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>maxsupply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="835" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="835" bodyend="841"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a8144e5150722d9565526fe3f5da73bc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::issue</definition>
+        <argsstring>(const asset &amp;amount, const name &amp;manager=config::system_account_name)</argsstring>
+        <name>issue</name>
+        <qualifiedname>eosio_system::eosio_system_tester::issue</qualifiedname>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="843" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="843" bodyend="849"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6ce6277e5545006b0528b09c1c89dec8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::transfer</definition>
+        <argsstring>(const name &amp;from, const name &amp;to, const asset &amp;amount, const name &amp;manager=config::system_account_name)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::transfer</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="851" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="851" bodyend="858"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1af0ee9bb3c31aa10a013c7522af1fdba1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::transfer</definition>
+        <argsstring>(const name &amp;from, std::string_view to, const asset &amp;amount, const name &amp;manager=config::system_account_name)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::transfer</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="860" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="860" bodyend="862"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a2361caa1339e2dd4a3727b7640730dd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::transfer</definition>
+        <argsstring>(std::string_view from, std::string_view to, const asset &amp;amount, std::string_view manager)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="864" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="864" bodyend="866"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1abb2933afdcaf7e18a8f526b737aed8cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::transfer</definition>
+        <argsstring>(std::string_view from, std::string_view to, const asset &amp;amount)</argsstring>
+        <name>transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="868" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="868" bodyend="870"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ab1401976ac157bfdd31b92dd10a56a54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::issue_and_transfer</definition>
+        <argsstring>(const name &amp;to, const asset &amp;amount, const name &amp;manager=config::system_account_name)</argsstring>
+        <name>issue_and_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::issue_and_transfer</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>manager</declname>
+          <defval>config::system_account_name</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="872" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="872" bodyend="896"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a5fbeb0a3214e4e51de3abd29b5b4a59b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::issue_and_transfer</definition>
+        <argsstring>(std::string_view to, const asset &amp;amount, std::string_view manager)</argsstring>
+        <name>issue_and_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::issue_and_transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="898" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="898" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4b08957ce831b8b92eb2664c37785213" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::issue_and_transfer</definition>
+        <argsstring>(std::string_view to, const asset &amp;amount, const name &amp;manager)</argsstring>
+        <name>issue_and_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::issue_and_transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="902" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="902" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad665af58abde40741213e8a97a4b49f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::issue_and_transfer</definition>
+        <argsstring>(std::string_view to, const asset &amp;amount)</argsstring>
+        <name>issue_and_transfer</name>
+        <qualifiedname>eosio_system::eosio_system_tester::issue_and_transfer</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="906" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="906" bodyend="908"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a6b99acf015bceecb5efe646e8581f7f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double eosio_system::eosio_system_tester::stake2votes</definition>
+        <argsstring>(asset stake)</argsstring>
+        <name>stake2votes</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake2votes</qualifiedname>
+        <param>
+          <type>asset</type>
+          <declname>stake</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="910" column="11" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="910" bodyend="913"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad1e062371feb52e43cd63f1878340ccb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double eosio_system::eosio_system_tester::stake2votes</definition>
+        <argsstring>(const string &amp;s)</argsstring>
+        <name>stake2votes</name>
+        <qualifiedname>eosio_system::eosio_system_tester::stake2votes</qualifiedname>
+        <param>
+          <type>const string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="915" column="11" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="915" bodyend="917"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ad373b5b15515f68610dfa0a3f637452e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_stats</definition>
+        <argsstring>(const string &amp;symbolname)</argsstring>
+        <name>get_stats</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_stats</qualifiedname>
+        <param>
+          <type>const string &amp;</type>
+          <declname>symbolname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="919" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="919" bodyend="924"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a787b2e1fec87415e568f0ae1350e3404" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosio_system::eosio_system_tester::get_token_supply</definition>
+        <argsstring>()</argsstring>
+        <name>get_token_supply</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_token_supply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="926" column="10" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="926" bodyend="928"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a8149fd6ecbd28d8fef0e9773560b8c60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio_system::eosio_system_tester::microseconds_since_epoch_of_iso_string</definition>
+        <argsstring>(const fc::variant &amp;v)</argsstring>
+        <name>microseconds_since_epoch_of_iso_string</name>
+        <qualifiedname>eosio_system::eosio_system_tester::microseconds_since_epoch_of_iso_string</qualifiedname>
+        <param>
+          <type>const fc::variant &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="930" column="13" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="930" bodyend="932"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a0fd6e250611cdb6a1c77fd3bf9dbd430" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_global_state</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_state</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_global_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="934" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="934" bodyend="938"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1aa9c99ba30baea1a26f7c66cfc49ab0ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_global_state2</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_state2</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_global_state2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="940" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="940" bodyend="943"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a0814dde23aecedb7ad38800784951b13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_global_state3</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_state3</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_global_state3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="945" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="945" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ada1743be54f74d015482cd8909f25c84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant</type>
+        <definition>fc::variant eosio_system::eosio_system_tester::get_refund_request</definition>
+        <argsstring>(name account)</argsstring>
+        <name>get_refund_request</name>
+        <qualifiedname>eosio_system::eosio_system_tester::get_refund_request</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="950" column="16" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="950" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1af0e3099fcc062cccac6d268abd8b52ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>abi_serializer</type>
+        <definition>abi_serializer eosio_system::eosio_system_tester::initialize_multisig</definition>
+        <argsstring>()</argsstring>
+        <name>initialize_multisig</name>
+        <qualifiedname>eosio_system::eosio_system_tester::initialize_multisig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="955" column="19" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="955" bodyend="978"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a768f85f1c86806f972e63c8546dd49d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; name &gt;</type>
+        <definition>vector&lt; name &gt; eosio_system::eosio_system_tester::active_and_vote_producers</definition>
+        <argsstring>()</argsstring>
+        <name>active_and_vote_producers</name>
+        <qualifiedname>eosio_system::eosio_system_tester::active_and_vote_producers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="980" column="11" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="980" bodyend="1032"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1ab97524dc86760d07e8fd71eea2d9d6bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio_system::eosio_system_tester::cross_15_percent_threshold</definition>
+        <argsstring>()</argsstring>
+        <name>cross_15_percent_threshold</name>
+        <qualifiedname>eosio_system::eosio_system_tester::cross_15_percent_threshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1034" column="9" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1034" bodyend="1075"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a4bf9437b44cc9514362b25c30500467f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>action_result</type>
+        <definition>action_result eosio_system::eosio_system_tester::setinflation</definition>
+        <argsstring>(int64_t annual_rate, int64_t inflation_pay_factor, int64_t votepay_factor)</argsstring>
+        <name>setinflation</name>
+        <qualifiedname>eosio_system::eosio_system_tester::setinflation</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>annual_rate</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>inflation_pay_factor</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>votepay_factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="1077" column="18" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="1077" bodyend="1083"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classeosio__system_1_1eosio__system__tester_1a14283c7bae38bac1d1bd5fafc7a7b1d2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fc::variant_object</type>
+        <definition>static fc::variant_object eosio_system::eosio_system_tester::producer_parameters_example</definition>
+        <argsstring>(int n)</argsstring>
+        <name>producer_parameters_example</name>
+        <qualifiedname>eosio_system::eosio_system_tester::producer_parameters_example</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/tests/eosio.system_tester.hpp" line="746" column="30" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="746" bodyend="767"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>TESTER</label>
+      </node>
+      <node id="1">
+        <label>eosio_system::eosio_system_tester</label>
+        <link refid="classeosio__system_1_1eosio__system__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>limitauth_tester</label>
+        <link refid="structlimitauth__tester"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>TESTER</label>
+      </node>
+      <node id="1">
+        <label>eosio_system::eosio_system_tester</label>
+        <link refid="classeosio__system_1_1eosio__system__tester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/tests/eosio.system_tester.hpp" line="29" column="1" bodyfile="system/tests/eosio.system_tester.hpp" bodystart="29" bodyend="1087"/>
+    <listofallmembers>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a678d5b9ffe4f1273ed95cf404d5aa1d2" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>_get_rentrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6553b790e5c86a895a17ba6d2b208913" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>abi_ser</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a768f85f1c86806f972e63c8546dd49d5" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>active_and_vote_producers</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1acfbdb6caf2b2828f1a61c0df1cc5a81e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>bancor_convert</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4fab2c1ab589a64cbb4cb1db0c1f704e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>basic_setup</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad41862f086e9bed7443a2b38b292e8a3" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>bidname</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6fb41f7d875e2730d4d88b4eb2e656bf" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>bidname</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a03ead0f2dcc36130ff17afca29b727ca" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>buyram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab1b188663acb238700a26239b5ae2ad9" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>buyram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a315a10ead6b384340ce31fea858ca73a" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>buyrambytes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af1989a5eea49e6fecafd1e5afb244f95" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>buyrambytes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3916c7408e4609e84dd7f3ffdaef489e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>buyrex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a771ce588f7187ed5c4795e3d26c8233c" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>cancelrexorder</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a51502ee7653a2cee8779e3804f271316" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>closerex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a1bf1c4522b527bb365e808fc4c6aab9e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>consolidate</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a63919e0d46756f9f4aa372a98778fcbd" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>create_account_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8bf65a4197f989e95359bf25418d7659" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>create_account_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0c60c30078a54826d8a28ea286f655ce" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>create_accounts_with_resources</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0f053efff5f77dea7072b6df3e84190f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>create_core_token</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a7df3e836a238c57f8594b36834d241c4" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>create_currency</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab97524dc86760d07e8fd71eea2d9d6bf" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>cross_15_percent_threshold</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a579e18d603498db516e244989d227270" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>defundcpuloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4e16e243a83e9d92148d3fff49f745b0" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>defundnetloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3cdcde139935536e87a548266069913b" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>deploy_contract</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6a38854c1eb66a4ac172e7d3b555de19" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>deposit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a44a0c6df9b49d9894c436eca2cfad07e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>eosio_system_tester</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a3499991ede5f1d3619b54b2837c9c257" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>eosio_system_tester</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5e44f744e1a7f992c30b146d568d68b1" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>fundcpuloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae42010c2c7f512916fcfa573d5ef1f66" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>fundnetloan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae5088f57b04b156f822d6ff47681172a" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a275685caa99eaa12e3ff607531e1edc6" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aaccfeda8eca71df19e4c0a355f5a4312" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_buyrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a41e42475b0d1c27804519cac227fb3bc" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_cpu_limit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aab8f376e45d2051fdd817ffe9f9369e2" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_cpu_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6e1bc6f4e832ceb842498c56c9075f15" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_dbw_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0fd6e250611cdb6a1c77fd3bf9dbd430" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_global_state</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa9c99ba30baea1a26f7c66cfc49ab0ad" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_global_state2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0814dde23aecedb7ad38800784951b13" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_global_state3</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a65881b461203722d223743a6e86cdc63" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_last_cpu_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a143113b4d08c88fdb8a013e944bd1928" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_last_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2845d60e62059778773ee26f4c6249af" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_last_net_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a14cb532b8b85ab96fd902ce4818ce104" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_loan_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a345d24aec3753991e6717200b1223a68" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_net_limit</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a93d2a1cb0cfcd3cbd8bd7458e73992c7" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_net_loan</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab43aee8d11661b443993370901b68e2c" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_producer_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a19f96e654e9e2f1cb809d134d393dbc0" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_producer_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab856c77dcef575f37057044e77c7645d" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_producer_info2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a56f664849c185ca19acdf55e6d84f357" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_producer_info2</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ada1743be54f74d015482cd8909f25c84" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_refund_request</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a90323c47bf67962f5c1a4ece3e22746f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rentcpu_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5cc198ce96cfc9ec7ed26a75c3161eda" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rentnet_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ac461b0845c0909670ea63557bc0b66fb" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_balance</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a709b0f5fcf87b2efef2971a0c15d9a0d" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_balance_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9bf2f95b82dd447cbe00da9ac35edad6" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_fund</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a006d8169fcce2262295ceeb50b2c644d" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_fund_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a22162fc47dbf43df1b10cd696637d3e9" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_order</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae639446b1000581d5404a2470ccac800" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_order_obj</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1adc8d15f66b51953b31471ae431203bfb" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_pool</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af68fb8acfdccaec2b30ce2554cf87d89" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_return_buckets</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2a0f287afd099062caa6c41ccbd04bd0" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_return_pool</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5e64a18345f786e4231c9282aa087f20" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rex_vote_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af5c3274d9dff9741985165ee52f9345d" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_rexorder_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4f531d0c87d0b495a2fa0286fe8f5f21" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_sellrex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad373b5b15515f68610dfa0a3f637452e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_stats</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a787b2e1fec87415e568f0ae1350e3404" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_token_supply</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9539a007f44e41461074f05b1efa9078" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_total_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a81d67ba19737037e026cad8ee01e24a7" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_total_stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a63acf9f8042be1845a31634ae8595615" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_unstaketorex_result</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a62935be2581d8b7d6d38f5009f4131b1" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_voter_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6ff715a6bacc35dfa9327ac2c9b84bca" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>get_voter_info</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af0e3099fcc062cccac6d268abd8b52ca" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>initialize_multisig</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8144e5150722d9565526fe3f5da73bc6" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>issue</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ab1401976ac157bfdd31b92dd10a56a54" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5fbeb0a3214e4e51de3abd29b5b4a59b" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4b08957ce831b8b92eb2664c37785213" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad665af58abde40741213e8a97a4b49f7" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>issue_and_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aee1cf394b09c7d3f73ca366d8e7afc79" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>last_block_time</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a8149fd6ecbd28d8fef0e9773560b8c60" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>microseconds_since_epoch_of_iso_string</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad77b290540b7cd6790ad04ce7811a8fb" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>mvfrsavings</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9a36b004fef8c3a6d0facfc51c6a0d9a" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>mvtosavings</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a14283c7bae38bac1d1bd5fafc7a7b1d2" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>producer_parameters_example</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a294d15bfc4b915bd36cffb8154faabaf" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>push_action</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a5c4a1ddae7b062d0a5864820638e62b4" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>regproducer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ada855d88294b713e445bba7dc594dd7c" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>remaining_setup</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a18713af89a1654090a0516a60f25249f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>rentcpu</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a0da15d442da5b99268330d5e12f8d572" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>rentnet</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a39bf21779fbf0d6e860a583f8df64649" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>rexexec</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a7a53705cef5f0c4c880dc3a65aa3a8ec" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>sellram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a407908b657e28f5ad7e9ba1904539614" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>sellram</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a978b8c24bf75f9f4de486cd5e09a25a8" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>sellrex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4bf9437b44cc9514362b25c30500467f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>setinflation</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae7e0ff4e2ebe321e9508b432c8d1ca35" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>setup_level</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ac8c7bd56d14a558e005bbf8acd350a95" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>setup_producer_accounts</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1adfc053b0749db71a4da569903f384379" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>setup_rex_accounts</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a19dfc7a9435a9d40c54f8933c088e5b2" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad79507eaf003aff54ec3e6b3b91b2c11" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad6573013c72ff4f563acf10eea34600a" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a9e4c0f8412ef9b1ca29b3967d76668ba" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6b99acf015bceecb5efe646e8581f7f1" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake2votes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad1e062371feb52e43cd63f1878340ccb" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake2votes</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1acb43ec38190c09b97f0774f9e1ed0dba" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa25b8e3716cac55da717db56bbf60e37" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1afea1622cde89b08f2f44c0c378b95d8f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a36a9d6ced4c4da301b21f4a91aae0fb6" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>stake_with_transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ad27754cc7a6376a9734d05efe5d0baac" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>token_abi_ser</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a6ce6277e5545006b0528b09c1c89dec8" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1af0ee9bb3c31aa10a013c7522af1fdba1" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a2361caa1339e2dd4a3727b7640730dd9" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1abb2933afdcaf7e18a8f526b737aed8cb" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>transfer</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aa400d0654037644e9ea13fc81b521b7b" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a41eb069ce6a684c14f7a59d162e2cc1e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a81069dea0d351098baa1c5ff362b5cda" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4e80fb07f345d7d8429c12e877f41a0c" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>unstake</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1ae777944b5826fc95680df4a7b3fd2141" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>unstaketorex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1aed0dc358ed43d15be3a778d80c55410f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>updaterex</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a843ab97e6090ad56369f85749542be5e" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>vote</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1abf775b2f5f2422555e886f114f682e89" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>vote</name></member>
+      <member refid="classeosio__system_1_1eosio__system__tester_1a4146e614926727ff74b52c2cd2cf033f" prot="public" virt="non-virtual"><scope>eosio_system::eosio_system_tester</scope><name>withdraw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

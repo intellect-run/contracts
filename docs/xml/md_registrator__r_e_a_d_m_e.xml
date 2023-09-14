@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md_registrator__r_e_a_d_m_e" kind="page">
+    <compoundname>md_registrator_README</compoundname>
+    <title>REG</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Стек: C/C++, eosio.cdt 1.5.0</para>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md21">
+<title>Введение</title>
+<para>Поскольку каждый новый аккаунт системы должен получить ресурсы RAM, CPU и NET, а количество ресурсов в системе ограничено, то все регистрации являются платными и за них кто-то должен заплатить в системном токене. Регистратор обеспечивает работу FREEMIUM бизнес-модели, при которой, пользователь получает возможность ограниченного использования любого продукта системы до истечения срока давности пользования своим гостевым аккаунтом. Регистратором нового аккаунта может выступить любой аккаунт системы и получить комиссию за это.</para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md22">
+<title>Компиляция</title>
+<para>Заменить ABSOLUTE_PATH_TO_CONTRACT на абсолютный путь к директории контракта reg. <programlisting><codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.5.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.5.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>reg<sp/>-o<sp/>reg.wasm<sp/>registrator.cpp&quot;<sp/>&amp;<sp/></highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md23">
+<title>Установка</title>
+<para><programlisting><codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>registrator<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>registrator</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md24">
+<title>Генерация документации</title>
+<para>Требуется Doxygen версии от 1.9.3 <programlisting><codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md25">
+<title>Действующие аккаунты</title>
+<para><itemizedlist>
+<listitem><para>me - собственное имя аккаунта контракта</para>
+</listitem><listitem><para>partners - имя аккаунта контракта хранилища партнёров</para>
+</listitem><listitem><para>core - имя аккаунта цифровой экономики ядра</para>
+</listitem><listitem><para>system_account - имя аккаунта системного контракта <linebreak/>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md26">
+<title>Основные управляющие параметры</title>
+<para><itemizedlist>
+<listitem><para>GUEST_EXPIRATION - продолжительность гостевого периода, после которого, аккаунт может быть отозван</para>
+</listitem><listitem><para>SYMBOL - системный токен</para>
+</listitem><listitem><para>ramcore_symbol - идентификационный токен рынка оперативной памяти</para>
+</listitem><listitem><para>RAM_symbol - токен рынка оперативной памяти</para>
+</listitem><listitem><para>MIN_AMOUNT - комиссия, взымаемая регистратором за пользование гостевым аккаунтом</para>
+</listitem><listitem><para>BASKET - количество гостевых аккаунтов, которые могут быть отозваны за один вызов действия</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md27">
+<title>Роли</title>
+<para><itemizedlist>
+<listitem><para>Пользователь. Гость или партнёр, чей аккаунт регистрируется.</para>
+</listitem><listitem><para>Регистратор. Тот, кто регистрирует аккаунт и оплачивает ресурсы аккаунта.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md28">
+<title>Пополнение баланса</title>
+<para>Для совершения действий регистрации аккаунта, необходимо обладать системным токеном на своём балансе в регистраторе. Для пополнения баланса, необходимо отправить перевод на аккаунт контракта в системном токене с указанием регистратора в поле memo: <programlisting><codeline><highlight class="normal">cleos<sp/>transfer<sp/>your_account<sp/>registrator<sp/>&quot;100.0000<sp/>FLOWER&quot;<sp/>&quot;registrator&quot;</highlight></codeline>
+</programlisting> После чего можем получить баланс регистратора из таблицы: <programlisting><codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>registrator<sp/>registrator<sp/>balance</highlight></codeline>
+</programlisting> В ответе будет баланс: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;registrator&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;quantity&quot;:<sp/>&quot;100.0000<sp/>FLOWER&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md29">
+<title>Регистрация гостя</title>
+<para>Для регистрации аккаунта в качестве гостя, необходимо вызвать метод regaccount, передав параметр is_guest = true: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>regaccount<sp/>&apos;[registrator,<sp/>&quot;&quot;,<sp/>tester,<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>16384,<sp/>true,<sp/>false]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+</programlisting> Тогда, получив аккаунт tester, мы увидим, что права владельца находятся у регистратора: <programlisting><codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.908<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.169<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.169<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>92.31<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>92.31<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+</programlisting> Для оплаты регистрации, гость должен пополнить свой баланс и вызвать метод payforguest: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>payguest<sp/>&apos;[registrator,<sp/>tester,<sp/>&quot;3.2786<sp/>FLOWER&quot;]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+</programlisting> Сумма к оплате может быть получена в таблице guests. Она расчитывается исходя из стоимости оперативной памяти в момент регистрации и количества системного токена, закладываемого в CPU и NET.</para>
+<para>После оплаты, мы можем убедиться, что права владельца аккаунта находятся у владельца ключа: <programlisting><codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.926<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>97<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>23.16<sp/>ms<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md30">
+<title>Регистрация партнёра</title>
+<para>Для регистрации аккаунта в качестве гостя, необходимо вызвать метод regaccount, передав параметр is_guest = false: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>regaccount<sp/>&apos;[registrator,<sp/>&quot;&quot;,<sp/>tester2,<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>&quot;1.0000<sp/>FLOWER&quot;,<sp/>16384,<sp/>true,<sp/>false]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+</programlisting></para>
+<para>Тогда, получив аккаунт tester2, мы увидим, что права владельца находятся у владельца ключа: <programlisting><codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>3.365<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>0.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>staked:<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>stake<sp/>delegated<sp/>from<sp/>account<sp/>to<sp/>self)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>0.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/><sp/></highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md31">
+<title>Отзыв аккаунта гостя</title>
+<para>Для того, чтобы отозвать аккаунт у гостя, необходимо вызвать метод update. Метод получает таблицу guests с сортировкой по ключу expiration_at, и заменяет активные ключи аккаунтов на себя. Количество аккаунтов к отзыву за один вызов метода update регулируется константой BASKET. Вызов метода может осуществить любой аккаунт сети. <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>registrator<sp/>update<sp/>&apos;[]&apos;<sp/>-p<sp/>registrator</highlight></codeline>
+</programlisting> Получив объект аккаунта истекшего гостя, увидим, что активные права доступа теперь принадлежат регистратору: <programlisting><codeline><highlight class="normal">permissions:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>owner<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active<sp/><sp/><sp/><sp/><sp/>1:<sp/><sp/><sp/><sp/>1<sp/>registrator@eosio.code,<sp/></highlight></codeline>
+<codeline><highlight class="normal">memory:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>quota:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/>KiB<sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/>2.891<sp/>KiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">net<sp/>bandwidth:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3.109<sp/>TiB<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cpu<sp/>bandwidth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>delegated:<sp/><sp/><sp/><sp/>1.0000<sp/>FLOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(total<sp/>staked<sp/>delegated<sp/>to<sp/>account<sp/>from<sp/>others)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>used:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>us<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>available:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>limit:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>90.57<sp/>hr<sp/></highlight></codeline>
+</programlisting> Все отозванные аккаунты хрянятся в таблице reserved: <programlisting><codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>registrator<sp/>registrator<sp/>reserved</highlight></codeline>
+</programlisting> В ответе список отозванных аккаунтов с указанием регистраторов: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;eyfyjkpbctwv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;hgrmogbyerml&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;yotlnhctihdg&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;registrator&quot;:<sp/>&quot;registrator&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>]</highlight></codeline>
+</programlisting></para>
+<sect3 id="md_registrator__r_e_a_d_m_e_1autotoc_md32">
+<title>Документация к методам и таблицам контракта</title>
+<para>Документация к методам и таблицам контракта доступна в папке docs/html/index.html</para>
+</sect3>
+</sect1>
+<sect1 id="md_registrator__r_e_a_d_m_e_1autotoc_md33">
+<title>TODO</title>
+<para><itemizedlist>
+<listitem><para>Рассмотреть возможность внедрения бизнес-модель доходного пула ликвидности для аккаунтов, обеспечивающих регистрацию гостей. Сейчас каждый регистратор обеспечивает оплату стоимости аккаунта собственными средствами. Предоставить возможность собирать средства на оплату новых регистраций из числа средств партнёров.</para>
+</listitem><listitem><para>Внедрить систему оценки и выдачу коротких имён.</para>
+</listitem><listitem><para>Убрать LEGACY связь с контрактом core в методе payforguest. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="registrator/README.md"/>
+  </compounddef>
+</doxygen>

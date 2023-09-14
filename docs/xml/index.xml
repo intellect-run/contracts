@@ -1,0 +1,1514 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="ru">
+  <compound refid="structeosiobios_1_1bios_1_1abi__hash" kind="struct"><name>eosiobios::bios::abi_hash</name>
+    <member refid="structeosiobios_1_1bios_1_1abi__hash_1a9192f39fbb92a8ef905d1f28056e904d" kind="variable"><name>owner</name></member>
+    <member refid="structeosiobios_1_1bios_1_1abi__hash_1aa92ab376c71ad111a260a5b566207656" kind="variable"><name>hash</name></member>
+    <member refid="structeosiobios_1_1bios_1_1abi__hash_1aee318ae24137cc1a7c1db705957d9e52" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1abi__hash" kind="struct"><name>eosiosystem::abi_hash</name>
+    <member refid="structeosiosystem_1_1abi__hash_1a4fb47566cda77ad38ad41fcf4fa3616d" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1abi__hash_1aa4a25380a39a47af422f17cbea44ba7a" kind="variable"><name>hash</name></member>
+    <member refid="structeosiosystem_1_1abi__hash_1ad54c525ed4f04c7729f5d46b8e641e30" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosio_1_1token_1_1account" kind="struct"><name>eosio::token::account</name>
+    <member refid="structeosio_1_1token_1_1account_1a6d6aaf37aa4e794b64a1b04990339043" kind="variable"><name>balance</name></member>
+    <member refid="structeosio_1_1token_1_1account_1a0881195a3cc88813bfc082903e2e627a" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structaccounts" kind="struct"><name>accounts</name>
+    <member refid="structaccounts_1a05876c5415522c3ff8a3d8e8a783d6a7" kind="variable"><name>username</name></member>
+    <member refid="structaccounts_1a0498f8a07ad571d52548a076370d9253" kind="variable"><name>status</name></member>
+    <member refid="structaccounts_1aaa9631adef3e542db5ddc1e2388dfd61" kind="variable"><name>reputation</name></member>
+    <member refid="structaccounts_1af1bfc2d1e94ebb71271c0ce836558160" kind="variable"><name>type</name></member>
+    <member refid="structaccounts_1a432b7b14e9da714d2de1546dbbd74a7e" kind="variable"><name>registrator</name></member>
+    <member refid="structaccounts_1a42c6052506d3b2d89bbbb95913591809" kind="variable"><name>referer</name></member>
+    <member refid="structaccounts_1a9aa73b3535b162d4dbcdb5c581146ce2" kind="variable"><name>registration_amount</name></member>
+    <member refid="structaccounts_1aeecfd8c0939c8e7de20db6126b965bd9" kind="variable"><name>meta</name></member>
+    <member refid="structaccounts_1a5ab584c673fa71b1aebd8eb3ec4e69e5" kind="variable"><name>registered_at</name></member>
+    <member refid="structaccounts_1a84633a253175f02bb81c1260645780ea" kind="variable"><name>last_update</name></member>
+    <member refid="structaccounts_1a38b262d4ca61e4cecb3f1eab1a5d3887" kind="variable"><name>signature_expires_at</name></member>
+    <member refid="structaccounts_1a00f7df522967257d7bf5fd065d942241" kind="variable"><name>signature_last_update</name></member>
+    <member refid="structaccounts_1ac5356720544cfbfc9b82d829f4fa4f37" kind="function"><name>primary_key</name></member>
+    <member refid="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" kind="function"><name>by_referer</name></member>
+    <member refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" kind="function"><name>by_type</name></member>
+    <member refid="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" kind="function"><name>by_status</name></member>
+    <member refid="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" kind="function"><name>by_registr</name></member>
+  </compound>
+  <compound refid="structeosio_1_1multisig_1_1approval" kind="struct"><name>eosio::multisig::approval</name>
+    <member refid="structeosio_1_1multisig_1_1approval_1a7de164e0abd4d7ecec9da2f67fe57ece" kind="variable"><name>level</name></member>
+    <member refid="structeosio_1_1multisig_1_1approval_1a07e19daf20f6ca5a96251a0c590cbe31" kind="variable"><name>time</name></member>
+  </compound>
+  <compound refid="structeosio_1_1multisig_1_1approvals__info" kind="struct"><name>eosio::multisig::approvals_info</name>
+    <member refid="structeosio_1_1multisig_1_1approvals__info_1a7067d083de3933cab8fa1b961e1d810d" kind="variable"><name>version</name></member>
+    <member refid="structeosio_1_1multisig_1_1approvals__info_1a76bf340c4c8c42d573664bd0fab91675" kind="variable"><name>proposal_name</name></member>
+    <member refid="structeosio_1_1multisig_1_1approvals__info_1ad173253fe8f9e34c17117db4baeb41ae" kind="variable"><name>requested_approvals</name></member>
+    <member refid="structeosio_1_1multisig_1_1approvals__info_1a6d57f9792fe5bc8b2cacbf071e1059f8" kind="variable"><name>provided_approvals</name></member>
+    <member refid="structeosio_1_1multisig_1_1approvals__info_1ac7ec9b713d3a499006ea9ba9030e10b4" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structauthority" kind="struct"><name>authority</name>
+    <member refid="structauthority_1ab9fbc4a419012844e80ffebb57d76971" kind="variable"><name>threshold</name></member>
+    <member refid="structauthority_1a7538d1edffef8dd8ebe41758fbc4fdd8" kind="variable"><name>keys</name></member>
+    <member refid="structauthority_1a0929cd72740ad0953b59fdc1df188b60" kind="variable"><name>accounts</name></member>
+    <member refid="structauthority_1a809a2560b802fdd64dab31f7193a045b" kind="variable"><name>waits</name></member>
+  </compound>
+  <compound refid="structeosiobios_1_1authority" kind="struct"><name>eosiobios::authority</name>
+    <member refid="structeosiobios_1_1authority_1a39fdbcf135683889becbb79b7f494df0" kind="variable"><name>threshold</name></member>
+    <member refid="structeosiobios_1_1authority_1ab3a3f653907a5490ab96ac7605198f2c" kind="variable"><name>keys</name></member>
+    <member refid="structeosiobios_1_1authority_1a1f834bcacfd6abd1d2f7aa389990cf5a" kind="variable"><name>accounts</name></member>
+    <member refid="structeosiobios_1_1authority_1a674014ea85ff0ee9d4dcd9a3d1922d61" kind="variable"><name>waits</name></member>
+  </compound>
+  <compound refid="structeosioboot_1_1authority" kind="struct"><name>eosioboot::authority</name>
+    <member refid="structeosioboot_1_1authority_1a5b48219c77dcce29612ebbe13e938a0b" kind="variable"><name>threshold</name></member>
+    <member refid="structeosioboot_1_1authority_1a8a29267ddb0d0f2ce3c26ce76f0ad027" kind="variable"><name>keys</name></member>
+    <member refid="structeosioboot_1_1authority_1a95c344e31f5bfb700d54a989e79d9bdd" kind="variable"><name>accounts</name></member>
+    <member refid="structeosioboot_1_1authority_1a46eb48c5adc47301ee18186e19dc1795" kind="variable"><name>waits</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1authority" kind="struct"><name>eosiosystem::authority</name>
+    <member refid="structeosiosystem_1_1authority_1a81af9d5da4986a2630f58039f1b42848" kind="variable"><name>threshold</name></member>
+    <member refid="structeosiosystem_1_1authority_1a9143e8ec444196d3e3fd99a47a2df4c8" kind="variable"><name>keys</name></member>
+    <member refid="structeosiosystem_1_1authority_1ad24536a9a087da188510fec55141ef37" kind="variable"><name>accounts</name></member>
+    <member refid="structeosiosystem_1_1authority_1a7015a1a5d7dd1bb6a723b7f121f4870f" kind="variable"><name>waits</name></member>
+  </compound>
+  <compound refid="structeosio_1_1automator" kind="struct"><name>eosio::automator</name>
+    <member refid="structeosio_1_1automator_1a71904acdde50a9e49b8cd4e65074cfc1" kind="variable"><name>id</name></member>
+    <member refid="structeosio_1_1automator_1ab35f7c3b638441dac34949ec340499a2" kind="variable"><name>coop_username</name></member>
+    <member refid="structeosio_1_1automator_1a3e9167336a434487762cffd8af1db0da" kind="variable"><name>board_id</name></member>
+    <member refid="structeosio_1_1automator_1a00ee4d8eb850b5a594e7fe5bc2f37252" kind="variable"><name>member</name></member>
+    <member refid="structeosio_1_1automator_1abe089e463b8844e42be72e2c95f7212a" kind="variable"><name>action_type</name></member>
+    <member refid="structeosio_1_1automator_1aae93d7e6be417bf12838a1b3a0871bfe" kind="variable"><name>permission_name</name></member>
+    <member refid="structeosio_1_1automator_1ade7fc5cbbffb9701d6d29dad8b70576e" kind="variable"><name>encrypted_private_key</name></member>
+    <member refid="structeosio_1_1automator_1afc7c424a0d473897ef4e9e76f17e8d0c" kind="function"><name>primary_key</name></member>
+    <member refid="structeosio_1_1automator_1a726d6fcdfc8f0e84c96f7abda1020a69" kind="function"><name>by_member_and_action_type</name></member>
+    <member refid="structeosio_1_1automator_1a59d3a964fe9d7205a93f453f5ce70eb7" kind="function"><name>by_action</name></member>
+  </compound>
+  <compound refid="structeosio_1_1autosigner" kind="struct"><name>eosio::autosigner</name>
+    <member refid="structeosio_1_1autosigner_1ae723c9212461794be834a55e0169a6c9" kind="variable"><name>decision_id</name></member>
+    <member refid="structeosio_1_1autosigner_1af66f2d083d71f9b93c9bebbb827612b7" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structmarketplace_1_1balances" kind="struct"><name>marketplace::balances</name>
+  </compound>
+  <compound refid="structregistrator_1_1balances" kind="struct"><name>registrator::balances</name>
+  </compound>
+  <compound refid="structbalances__base" kind="struct"><name>balances_base</name>
+    <member refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" kind="variable"><name>id</name></member>
+    <member refid="structbalances__base_1acebf235da280f8d16533b6913912da41" kind="variable"><name>contract</name></member>
+    <member refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" kind="variable"><name>quantity</name></member>
+    <member refid="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" kind="function"><name>primary_key</name></member>
+    <member refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" kind="function"><name>byconsym</name></member>
+  </compound>
+  <compound refid="structbank" kind="struct"><name>bank</name>
+    <member refid="structbank_1ac222eff37f2528232734f3c6b4425b67" kind="variable"><name>account</name></member>
+    <member refid="structbank_1a20b362142d5c764f45432e0efd1f36e0" kind="variable"><name>created_at</name></member>
+    <member refid="structbank_1a9d3a91fdf7922097c93148ffdf4c815d" kind="variable"><name>last_update</name></member>
+    <member refid="structbank_1a5364d9937ea115f7b721270e942505b0" kind="variable"><name>is_active</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1bid__refund" kind="struct"><name>eosiosystem::bid_refund</name>
+    <member refid="structeosiosystem_1_1bid__refund_1ae6bd67f412850f81514ea8b5a5ad4abd" kind="variable"><name>bidder</name></member>
+    <member refid="structeosiosystem_1_1bid__refund_1aec14d41b70f2332af3e94d84f480077f" kind="variable"><name>amount</name></member>
+    <member refid="structeosiosystem_1_1bid__refund_1a3a7f9c7f81457c17f15ade541c402af1" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="classeosiobios_1_1bios" kind="class"><name>eosiobios::bios</name>
+    <member refid="classeosiobios_1_1bios_1a2e27cd48a27fdf2f13e7e49c236effab" kind="typedef"><name>abi_hash_table</name></member>
+    <member refid="classeosiobios_1_1bios_1ac51372f90c1c7f5b9fe20c5fe1b414be" kind="typedef"><name>newaccount_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a4f8bd4830434c2f90d1595182e3c2d43" kind="typedef"><name>updateauth_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a10d38a405fb47716f4b9617664c56c1d" kind="typedef"><name>deleteauth_action</name></member>
+    <member refid="classeosiobios_1_1bios_1aa23c7a9882776e23792f72958e7e2698" kind="typedef"><name>linkauth_action</name></member>
+    <member refid="classeosiobios_1_1bios_1afc60db5f0cdb49c29e2027eea445ef5d" kind="typedef"><name>unlinkauth_action</name></member>
+    <member refid="classeosiobios_1_1bios_1acf3f2105a1de301314fb8d559adb2f34" kind="typedef"><name>canceldelay_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a3284dadf28210ffea040c8eddc01e7b7" kind="typedef"><name>setcode_action</name></member>
+    <member refid="classeosiobios_1_1bios_1adec46384d14a191009d1821aea836c2e" kind="typedef"><name>setabi_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a3f4944b933f2524b915295ace2c3ccf8" kind="typedef"><name>setpriv_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a8dd8ef730cb1bd25c940c69b67557df4" kind="typedef"><name>setalimits_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a6366d6a56bedac0269d795e5e1b52163" kind="typedef"><name>setprods_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a99756330be6311220baba883425df47b" kind="typedef"><name>setparams_action</name></member>
+    <member refid="classeosiobios_1_1bios_1ab0a2b9e56d84260b7cc1d496856ca232" kind="typedef"><name>reqauth_action</name></member>
+    <member refid="classeosiobios_1_1bios_1abc8584942d7320f82da8dd093c30af52" kind="typedef"><name>activate_action</name></member>
+    <member refid="classeosiobios_1_1bios_1aeca598319b21f76fdf17fe8c5091d8bc" kind="typedef"><name>reqactivated_action</name></member>
+    <member refid="classeosiobios_1_1bios_1a289a68eec1095060829ae3f3cedba2b1" kind="function"><name>newaccount</name></member>
+    <member refid="classeosiobios_1_1bios_1a6da029e3f9ffbcb2bfc3cc6f555a3bcd" kind="function"><name>updateauth</name></member>
+    <member refid="classeosiobios_1_1bios_1a496491a411e8263ae0d91179526c25a6" kind="function"><name>deleteauth</name></member>
+    <member refid="classeosiobios_1_1bios_1ac88e1fbb2bf9f23fcf351ab4f02bcf23" kind="function"><name>linkauth</name></member>
+    <member refid="classeosiobios_1_1bios_1a754f09c20691df6b7292dad22b3a80c9" kind="function"><name>unlinkauth</name></member>
+    <member refid="classeosiobios_1_1bios_1a7b70dcae7153a74de611cc78e59b0352" kind="function"><name>canceldelay</name></member>
+    <member refid="classeosiobios_1_1bios_1afb059bb5862ce9b0cda885bc130a52e3" kind="function"><name>setcode</name></member>
+    <member refid="classeosiobios_1_1bios_1a0663bbf0563a9ad67960ccbae6222911" kind="function"><name>setabi</name></member>
+    <member refid="classeosiobios_1_1bios_1a317235869c18964d6d9425eefa533098" kind="function"><name>onerror</name></member>
+    <member refid="classeosiobios_1_1bios_1ae5de33639414c0c00e090a2ca7418c69" kind="function"><name>setpriv</name></member>
+    <member refid="classeosiobios_1_1bios_1ac7a64a2f4cf193136957f5be5aeca85b" kind="function"><name>setalimits</name></member>
+    <member refid="classeosiobios_1_1bios_1aac48a883107aeacbd1b567a2e3fbad12" kind="function"><name>setprods</name></member>
+    <member refid="classeosiobios_1_1bios_1ad4047afa380b9eda3ecc232d89bf05a7" kind="function"><name>setparams</name></member>
+    <member refid="classeosiobios_1_1bios_1abfefcfb3d6b2b221052a6e017de18c56" kind="function"><name>reqauth</name></member>
+    <member refid="classeosiobios_1_1bios_1ad642c358d927b33340654d59f9dd0df9" kind="function"><name>activate</name></member>
+    <member refid="classeosiobios_1_1bios_1a3f7b5f24b41381cde54901b02ee1793d" kind="function"><name>reqactivated</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1block__info_1_1block__batch__info" kind="struct"><name>eosiosystem::block_info::block_batch_info</name>
+    <member refid="structeosiosystem_1_1block__info_1_1block__batch__info_1aabf1478c4a361b8fc044f77c4617e32b" kind="variable"><name>batch_start_height</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__batch__info_1af7f9f6a56f32f91ec80622736fe86478" kind="variable"><name>batch_start_timestamp</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__batch__info_1a54af69850d006e2a43fdea538f5c0695" kind="variable"><name>batch_current_end_height</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__batch__info_1aef63da736d0ed2568917a4e9aeb44931" kind="variable"><name>batch_current_end_timestamp</name></member>
+  </compound>
+  <compound refid="structeosiobios_1_1block__header" kind="struct"><name>eosiobios::block_header</name>
+    <member refid="structeosiobios_1_1block__header_1ac25070170e000a8427f2e96d0e3fd7b0" kind="variable"><name>timestamp</name></member>
+    <member refid="structeosiobios_1_1block__header_1a0c794f15d473ccc576dc403676689536" kind="variable"><name>producer</name></member>
+    <member refid="structeosiobios_1_1block__header_1ad0e00f2357c447a2001b9192849aa839" kind="variable"><name>confirmed</name></member>
+    <member refid="structeosiobios_1_1block__header_1aae1cc92b2256891adbd2539efa99cc34" kind="variable"><name>previous</name></member>
+    <member refid="structeosiobios_1_1block__header_1adb40a37bf4327f68e081a07cc2abe5c8" kind="variable"><name>transaction_mroot</name></member>
+    <member refid="structeosiobios_1_1block__header_1af1c275fdf2db888deff6db96514dfbd8" kind="variable"><name>action_mroot</name></member>
+    <member refid="structeosiobios_1_1block__header_1af34fd0dd085bf489c10b02be5f4dd209" kind="variable"><name>schedule_version</name></member>
+    <member refid="structeosiobios_1_1block__header_1a75189b8a7b99f93b14f9b775bf343396" kind="variable"><name>new_producers</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1block__header" kind="struct"><name>eosiosystem::block_header</name>
+    <member refid="structeosiosystem_1_1block__header_1a9c9c9cbc1cd8ef72b0fce4d6e81002ec" kind="variable"><name>timestamp</name></member>
+    <member refid="structeosiosystem_1_1block__header_1aaa922bddcad01318dc6fc11dc13c5e79" kind="variable"><name>producer</name></member>
+    <member refid="structeosiosystem_1_1block__header_1a4982fd9b60cbc7a50b5b533af097c373" kind="variable"><name>confirmed</name></member>
+    <member refid="structeosiosystem_1_1block__header_1a777160bdbc82a251b0bfb9c7d6e2e4a8" kind="variable"><name>previous</name></member>
+    <member refid="structeosiosystem_1_1block__header_1abdae1afa7aa05897fe48322c0973fe7a" kind="variable"><name>transaction_mroot</name></member>
+    <member refid="structeosiosystem_1_1block__header_1a743915ddc889a572f74dbd4f20be28c4" kind="variable"><name>action_mroot</name></member>
+    <member refid="structeosiosystem_1_1block__header_1a5a58fc892253b39a20815926440e0637" kind="variable"><name>schedule_version</name></member>
+    <member refid="structeosiosystem_1_1block__header_1a209c1b178d315a0f672d628675f065ac" kind="variable"><name>new_producers</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1block__info_1_1block__info__record" kind="struct"><name>eosiosystem::block_info::block_info_record</name>
+    <member refid="structeosiosystem_1_1block__info_1_1block__info__record_1a9561691091de21a997db569d84d53a0d" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__info__record_1a7e0b0f4b78c5dcdff23495596e7cb488" kind="variable"><name>block_height</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__info__record_1afaa04cfe4be674be7f3d4d497e90c072" kind="variable"><name>block_timestamp</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1block__info__record_1abbe8ecea1c14ab583d956b76a9be0407" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structboard__member" kind="struct"><name>board_member</name>
+    <member refid="structboard__member_1adf5286ff237471ceabc65d4d091972d0" kind="variable"><name>username</name></member>
+    <member refid="structboard__member_1a20b8902343fc67a6f8a0665a4e40b330" kind="variable"><name>is_voting</name></member>
+    <member refid="structboard__member_1a2961218c9a14c7125a53ade0c15e5598" kind="variable"><name>position_title</name></member>
+    <member refid="structboard__member_1a10fea881563dbbbbee4ad11c3756e7ec" kind="variable"><name>position</name></member>
+  </compound>
+  <compound refid="structboards" kind="struct"><name>boards</name>
+    <member refid="structboards_1a4902e87f13247db8f837629544f12a6a" kind="variable"><name>id</name></member>
+    <member refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" kind="variable"><name>type</name></member>
+    <member refid="structboards_1ad9a12ccbc9bdbabfe1dbd5f7cffdb06f" kind="variable"><name>name</name></member>
+    <member refid="structboards_1ae8f0825aa67789f638169abf513ce674" kind="variable"><name>description</name></member>
+    <member refid="structboards_1a784be337829b64e7caaa6c6657f5c262" kind="variable"><name>members</name></member>
+    <member refid="structboards_1add47e6975c343415f278a0414c714066" kind="variable"><name>created_at</name></member>
+    <member refid="structboards_1acaad31053c6dc00a9b99faaece7213bc" kind="variable"><name>last_update</name></member>
+    <member refid="structboards_1a8a887a056d41000b8183975cc5fe0c91" kind="function"><name>primary_key</name></member>
+    <member refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" kind="function"><name>by_type</name></member>
+    <member refid="structboards_1a3108c80a73de20b8ad7a776e108abe26" kind="function"><name>is_valid_member</name></member>
+    <member refid="structboards_1acfe79079ce96ef59fea0f86c95506cb8" kind="function"><name>is_voting_member</name></member>
+    <member refid="structboards_1ad1e613d161e0dfb3bee0b043b71c13db" kind="function"><name>is_valid_chairman</name></member>
+    <member refid="structboards_1a151ec00b76ae9f7c7fdc1e4dee7f0412" kind="function"><name>has_voting_right</name></member>
+    <member refid="structboards_1a3eb726cb1d52d85288567c3e5848828e" kind="function"><name>get_members_count</name></member>
+  </compound>
+  <compound refid="classeosioboot_1_1boot" kind="class"><name>eosioboot::boot</name>
+    <member refid="classeosioboot_1_1boot_1afb42b3bf34ae219ac1796e3735e277f4" kind="function"><name>newaccount</name></member>
+    <member refid="classeosioboot_1_1boot_1a1f7d810103d9bbbecdb702c09ee99395" kind="function"><name>updateauth</name></member>
+    <member refid="classeosioboot_1_1boot_1a0ccd59d7e8891b0bb442bc7b8c85b638" kind="function"><name>deleteauth</name></member>
+    <member refid="classeosioboot_1_1boot_1a5a8b5601405f5d4e42df1a11344ff852" kind="function"><name>linkauth</name></member>
+    <member refid="classeosioboot_1_1boot_1a870947efb13e3dbe8347896a0bc50c30" kind="function"><name>unlinkauth</name></member>
+    <member refid="classeosioboot_1_1boot_1a8e9b77d3fb7fc8112975038e71161d4b" kind="function"><name>canceldelay</name></member>
+    <member refid="classeosioboot_1_1boot_1a3190de12a6aaf5c60558f88571e63356" kind="function"><name>setcode</name></member>
+    <member refid="classeosioboot_1_1boot_1aa4ed14d213fec73c2dfaf66c11aa18d7" kind="function"><name>setabi</name></member>
+    <member refid="classeosioboot_1_1boot_1a0ba8ab7685d8e217a383f151c7aaee79" kind="typedef"><name>newaccount_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a6d9f1be43138a0ea7e5bdfc568250a82" kind="typedef"><name>updateauth_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a2e9f73ce19159c557d213f27c0e3e43d" kind="typedef"><name>deleteauth_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a59658ecc01553c951f8d8126c0ec2b7d" kind="typedef"><name>linkauth_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a542952b4056a0870784df9351afe0e14" kind="typedef"><name>unlinkauth_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a429ac92bc85444c33f5bbb5045685120" kind="typedef"><name>canceldelay_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a2d0969b28894f32d4ab5e082ffb479ed" kind="typedef"><name>setcode_action</name></member>
+    <member refid="classeosioboot_1_1boot_1af978a97907d8980d80a6db9a43de8790" kind="typedef"><name>setabi_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a4202cf8724db3152de3588aa2834912c" kind="typedef"><name>activate_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a5a7f8926f3b21fa1588c86472368903e" kind="typedef"><name>reqactivated_action</name></member>
+    <member refid="classeosioboot_1_1boot_1a91777be02b457df0533db35776387b13" kind="function"><name>onerror</name></member>
+    <member refid="classeosioboot_1_1boot_1a8159d04a7a5ca851a1c654594bafba5e" kind="function"><name>activate</name></member>
+    <member refid="classeosioboot_1_1boot_1a470f541c80fa910ded5dd8c6ab2f2a18" kind="function"><name>reqactivated</name></member>
+  </compound>
+  <compound refid="structeosio_1_1changes" kind="struct"><name>eosio::changes</name>
+    <member refid="structeosio_1_1changes_1a1da338e5afbafe3f9e58b71a521653d4" kind="variable"><name>exchange_id</name></member>
+    <member refid="structeosio_1_1changes_1a4884a28fe0214a60358b488618b942b5" kind="variable"><name>is_paid</name></member>
+    <member refid="structeosio_1_1changes_1add264769c554aed739ee82a27d555118" kind="variable"><name>is_recieved</name></member>
+    <member refid="structeosio_1_1changes_1a1cf86a750b9919c95c922bee629928ac" kind="variable"><name>is_withdrawed</name></member>
+    <member refid="structeosio_1_1changes_1a14ed5cf6a920654a31391657b46ae6a6" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1exchange__state_1_1connector" kind="struct"><name>eosiosystem::exchange_state::connector</name>
+    <member refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kind="variable"><name>balance</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1_1connector_1a0132eb8bc9c7a9fe1958c98a436e4262" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosio_1_1counts" kind="struct"><name>eosio::counts</name>
+  </compound>
+  <compound refid="structmarketplace_1_1counts" kind="struct"><name>marketplace::counts</name>
+  </compound>
+  <compound refid="structcounts__base" kind="struct"><name>counts_base</name>
+    <member refid="structcounts__base_1a190877bf5f40a7a357007574c5ecc1d7" kind="variable"><name>key</name></member>
+    <member refid="structcounts__base_1a54989b6bb7004b9dce497350707fce21" kind="variable"><name>secondary_key</name></member>
+    <member refid="structcounts__base_1a7e8ded653625d24a13ae3b651c42dd5a" kind="variable"><name>value</name></member>
+    <member refid="structcounts__base_1a776ade72cbcce230ac5dd0c5d45b3578" kind="function"><name>primary_key</name></member>
+    <member refid="structcounts__base_1acabcbd93c1b35dca98c77646bbfda21d" kind="function"><name>keyskey</name></member>
+    <member refid="structcounts__base_1a79af91982641a07988d9cf8f01dc1fd1" kind="function"><name>keyvalue</name></member>
+  </compound>
+  <compound refid="structeosio_1_1token_1_1currency__stats" kind="struct"><name>eosio::token::currency_stats</name>
+    <member refid="structeosio_1_1token_1_1currency__stats_1ab24e3519d9ea9063b80d74a64ec1fd73" kind="variable"><name>supply</name></member>
+    <member refid="structeosio_1_1token_1_1currency__stats_1ab83559b6e1cdd215cf7b60153009a966" kind="variable"><name>max_supply</name></member>
+    <member refid="structeosio_1_1token_1_1currency__stats_1a98c87418ed2e156ca2bd94a8e51a0b9f" kind="variable"><name>issuer</name></member>
+    <member refid="structeosio_1_1token_1_1currency__stats_1ac651a49171c9e1b62d07e529657895ec" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structdecisions" kind="struct"><name>decisions</name>
+    <member refid="structdecisions_1aa61841427ff58ac67bf67d16c00c0250" kind="variable"><name>id</name></member>
+    <member refid="structdecisions_1a099935f67b922b218fb1087cced67665" kind="variable"><name>coop_username</name></member>
+    <member refid="structdecisions_1a7a8e39491d6be766cd3c4fa1fadafbc0" kind="variable"><name>type</name></member>
+    <member refid="structdecisions_1a6dc4138b1457997c4b4b5f493b36a57d" kind="variable"><name>card_id</name></member>
+    <member refid="structdecisions_1a8b734c20fd41967766efcd38cf7c0580" kind="variable"><name>votes_for</name></member>
+    <member refid="structdecisions_1a944df451a915494bc936415e24d39abe" kind="variable"><name>votes_against</name></member>
+    <member refid="structdecisions_1a302e21ff37fe798e2b908a4fdd1bb7bb" kind="variable"><name>approved</name></member>
+    <member refid="structdecisions_1adface34e69e2468b2986e6d395794a1a" kind="variable"><name>validated</name></member>
+    <member refid="structdecisions_1a980288ea11bd9b954357ddf4a094b4f3" kind="variable"><name>authorized</name></member>
+    <member refid="structdecisions_1a7132f2b0fb3d19396b176b64fc3e61a5" kind="variable"><name>certified</name></member>
+    <member refid="structdecisions_1a6f62beae35e1d904de6888858368b432" kind="variable"><name>executed</name></member>
+    <member refid="structdecisions_1a7393d2d0ce88224d46edaa7973fb41dd" kind="function"><name>primary_key</name></member>
+    <member refid="structdecisions_1a3084ac29d2db98d8b9bb1ad7a600c586" kind="function"><name>by_coop</name></member>
+    <member refid="structdecisions_1a63ad193a9e3448b1c03f6d91853b2589" kind="function"><name>by_card</name></member>
+    <member refid="structdecisions_1a87937d6b4c5c378d3e3ac77141b11394" kind="function"><name>bytype</name></member>
+    <member refid="structdecisions_1a6cadd228516907f8eb55f915eb03d4b8" kind="function"><name>byapproved</name></member>
+    <member refid="structdecisions_1a9661d6706d87e72e74ad3590620e5009" kind="function"><name>byvalidated</name></member>
+    <member refid="structdecisions_1ab166604702a060e0a03e885efa8c14b9" kind="function"><name>byauthorized</name></member>
+    <member refid="structdecisions_1abe34bd92cb25994c8c6f83df4e0a21cc" kind="function"><name>bycertified</name></member>
+    <member refid="structdecisions_1aa6bcc23d78063077e66c58c7feed46a7" kind="function"><name>byexecuted</name></member>
+    <member refid="structdecisions_1abe41b47952071a0589bf968b5f9cc6f6" kind="function"><name>check_for_any_vote_exist</name></member>
+    <member refid="structdecisions_1a23e686cd085c2be8cf671d55ffc8a20c" kind="function"><name>get_votes_count</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1delegated__bandwidth" kind="struct"><name>eosiosystem::delegated_bandwidth</name>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1a390e64c81acb62584280ecdf77e67882" kind="variable"><name>from</name></member>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1a45fe0c03daff4ca74728a490a1973f6d" kind="variable"><name>to</name></member>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1afb71866724fce6fda77786d5f1d4eb6a" kind="variable"><name>net_weight</name></member>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1a62526659e054a4e788ecfd334056dfdf" kind="variable"><name>cpu_weight</name></member>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1a445d41ecfce48fe5e7b73de079a889d8" kind="function"><name>is_empty</name></member>
+    <member refid="structeosiosystem_1_1delegated__bandwidth_1acc330b16cef3555d2b8bb1a1547f58dc" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structdrafts" kind="struct"><name>drafts</name>
+    <member refid="structdrafts_1ae4f6a2e4ba90a7043096bd4e794d6bf3" kind="variable"><name>id</name></member>
+    <member refid="structdrafts_1a9f0325c5ceef01e0a024fb5d757fb9e5" kind="variable"><name>lang</name></member>
+    <member refid="structdrafts_1a2edb5ab1ee9ecf41129e25aafab79833" kind="variable"><name>action_name</name></member>
+    <member refid="structdrafts_1ac5a7f4466437cdb95da8ecec0aee269a" kind="variable"><name>name</name></member>
+    <member refid="structdrafts_1a2272b3e60f6641b0d1da65099f765c25" kind="variable"><name>description</name></member>
+    <member refid="structdrafts_1aa55f776ebd674d1c19cb20e4b8643aef" kind="variable"><name>context</name></member>
+    <member refid="structdrafts_1a7b0471d233cac54714ebd5f4a2b3ff56" kind="variable"><name>data</name></member>
+    <member refid="structdrafts_1a2635b469e8f53252badbb81c06e0edc0" kind="variable"><name>is_active</name></member>
+    <member refid="structdrafts_1a87cb78e1b3cb1e251752b42b5a3f2deb" kind="variable"><name>is_approved</name></member>
+    <member refid="structdrafts_1a6654276273aa6f2624ea41188c5e7c9b" kind="variable"><name>is_standart</name></member>
+    <member refid="structdrafts_1ac59692d8dc164d2c514c6f2470752a38" kind="variable"><name>created_at</name></member>
+    <member refid="structdrafts_1a9d670530c00e8a4e1dd824630a3be354" kind="variable"><name>last_update</name></member>
+    <member refid="structdrafts_1a65adaeac3fa026ab46d407bb8a255e96" kind="variable"><name>doc_version</name></member>
+    <member refid="structdrafts_1a9fd3017e1f4512f4d43dcc432b761d70" kind="function"><name>primary_key</name></member>
+    <member refid="structdrafts_1adf0781b4b068725e00357d6ddca4da65" kind="function"><name>by_action</name></member>
+    <member refid="structdrafts_1a637f14ff2b136a0744523dda31611a34" kind="function"><name>by_action_lang</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1eosio__global__state" kind="struct"><name>eosiosystem::eosio_global_state</name>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a2a2f2607dd31f0623a7d5185bf967c4d" kind="variable"><name>max_ram_size</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1ab11f6efb709f15f9d31c3e8a20897149" kind="variable"><name>total_ram_bytes_reserved</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a491a74bf4176ddd4485941a841fff13a" kind="variable"><name>total_ram_stake</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a00d9962c27103495ffdae8b14ca89fb4" kind="variable"><name>last_producer_schedule_update</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1afabbd0323315bef9ad7b5d2f953a0340" kind="variable"><name>last_pervote_bucket_fill</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a1533ba61f8191c5323d28a19684fe0bd" kind="variable"><name>pervote_bucket</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1ab7c0fbe51aa0335e5048be97bf453db7" kind="variable"><name>perblock_bucket</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1af7d50c559ad0cfffaa68749e16aed7aa" kind="variable"><name>total_unpaid_blocks</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a08c4b026bea40e1d1ee500d289e786ad" kind="variable"><name>total_activated_stake</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a67107f34cfdffa85a1195ed0e64612db" kind="variable"><name>thresh_activated_stake_time</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a4e768096f99af94ce4048446c90075a8" kind="variable"><name>last_producer_schedule_size</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1a40342aff032242dd2a54723c60587d29" kind="variable"><name>total_producer_vote_weight</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1aa4f0ee20aedd1f86a3f984c57270bfd7" kind="variable"><name>last_name_close</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state_1ab13e31d124330a1ba278dfb46fdee173" kind="function"><name>free_ram</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1eosio__global__state2" kind="struct"><name>eosiosystem::eosio_global_state2</name>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1ad29c5ed6cc975beb7578f57aaf20c98f" kind="variable"><name>new_ram_per_block</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1a7b233e1f64b6da410d227d5891ca399c" kind="variable"><name>last_ram_increase</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1a5efff2639a098649fc9f3478a5e7115a" kind="variable"><name>last_block_num</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1a23b66248b9c355c2fa9d2a3c8eba11b5" kind="variable"><name>total_producer_votepay_share</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1aa14325e22eebf822987145b396e7fb60" kind="variable"><name>revision</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state2_1ab1a68ec079eab13d8d945ff9db03cb1f" kind="function"><name>eosio_global_state2</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1eosio__global__state3" kind="struct"><name>eosiosystem::eosio_global_state3</name>
+    <member refid="structeosiosystem_1_1eosio__global__state3_1accd351e80b36cfc0ed6db8eebef527d2" kind="variable"><name>last_vpay_state_update</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state3_1a346f3101b6b89488cba4d6d4e67d9273" kind="variable"><name>total_vpay_share_change_rate</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state3_1a8580bac2c916643fb0e5ffd33185419d" kind="function"><name>eosio_global_state3</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1eosio__global__state4" kind="struct"><name>eosiosystem::eosio_global_state4</name>
+    <member refid="structeosiosystem_1_1eosio__global__state4_1aea57a6e1843364aeed35c5fc72c51376" kind="variable"><name>continuous_rate</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state4_1a5978c2508b9d874e8191992236852b2f" kind="variable"><name>inflation_pay_factor</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state4_1a8546257ff3690e0fcb4f73a9c88762b3" kind="variable"><name>votepay_factor</name></member>
+    <member refid="structeosiosystem_1_1eosio__global__state4_1ad1567456a109d93a0308bb1780207abf" kind="function"><name>eosio_global_state4</name></member>
+  </compound>
+  <compound refid="structexchange" kind="struct"><name>exchange</name>
+    <member refid="structexchange_1a8e84e7623af395f8d56d3689b997bc92" kind="variable"><name>id</name></member>
+    <member refid="structexchange_1a6ddc83225c4f9279f07e103d353b93e5" kind="variable"><name>parent_id</name></member>
+    <member refid="structexchange_1abff4e8a374497e677c49ecbddd10f2da" kind="variable"><name>coop_username</name></member>
+    <member refid="structexchange_1acaa2e38908cc4759522a519ab4e5b020" kind="variable"><name>type</name></member>
+    <member refid="structexchange_1aa0662d5405ca80e5ff7ecde0f44f3245" kind="variable"><name>status</name></member>
+    <member refid="structexchange_1aeeddb9da07fc4c3abb417e4c5ce4f5d9" kind="variable"><name>username</name></member>
+    <member refid="structexchange_1ac91a681db1b7c3fefde2ffea19f2c36f" kind="variable"><name>contract</name></member>
+    <member refid="structexchange_1aa55de52fe23c589fa161933eca54e1eb" kind="variable"><name>price_for_piece</name></member>
+    <member refid="structexchange_1a5e0edd89a689c143a9b3b890808b88a6" kind="variable"><name>remain_pieces</name></member>
+    <member refid="structexchange_1ae7df4bbffa11cd7102b591f0dff45ede" kind="variable"><name>blocked_pieces</name></member>
+    <member refid="structexchange_1a425a1dc5b79cb40849e9ff1cfe24d2d1" kind="variable"><name>delivered_pieces</name></member>
+    <member refid="structexchange_1add5daca8e65c7bdfc41163844bb1d07a" kind="variable"><name>data</name></member>
+    <member refid="structexchange_1a5febab5dc90693a173066e1c190bbb80" kind="variable"><name>meta</name></member>
+    <member refid="structexchange_1a3cd67e59b84642a2b8b834ec897967fa" kind="function"><name>primary_key</name></member>
+    <member refid="structexchange_1aad91922434c8226846d393a6960a343b" kind="function"><name>by_coop</name></member>
+    <member refid="structexchange_1af6641a816f36ce6af1c7c3a9e7ee78c2" kind="function"><name>by_status</name></member>
+    <member refid="structexchange_1ab6ecb17793b182ce81385431fc597573" kind="function"><name>by_type</name></member>
+    <member refid="structexchange_1addeb8bcc639717b6e95f9e792fd2aa0e" kind="function"><name>by_parent</name></member>
+  </compound>
+  <compound refid="structmarketplace_1_1exchange__params" kind="struct"><name>marketplace::exchange_params</name>
+    <member refid="structmarketplace_1_1exchange__params_1a9977692f43ccadb90b0f25acf99d258f" kind="variable"><name>username</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1a4b962960ea75636a9dd3182e719221c9" kind="variable"><name>parent_id</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1ae61305f9bc70d0cbb1936068c7a6b979" kind="variable"><name>coop_username</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1a05c403df4f9fc0242e968b5d4256aaaa" kind="variable"><name>pieces</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1adfaca0998c1affcae166d58ad8b2732d" kind="variable"><name>price_for_piece</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1a8a6d429d9f3451bf507ed556258ae9aa" kind="variable"><name>data</name></member>
+    <member refid="structmarketplace_1_1exchange__params_1aa6ab45c324df58652e04bb0f9b0c13e7" kind="variable"><name>meta</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1exchange__state" kind="struct"><name>eosiosystem::exchange_state</name>
+    <member refid="structeosiosystem_1_1exchange__state_1a46dd436b7c53a2cc5fb718f18176f55f" kind="variable"><name>supply</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a64022b0822ac4b53ff484590f76ef021" kind="variable"><name>base</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a193594141203ddbb6a37d7cf56201f7f" kind="variable"><name>quote</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a7c029ed83a27b04524911cf1c3f647c8" kind="function"><name>convert_to_exchange</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1ade7bfd99be01e15093f27d95a3013ba7" kind="function"><name>convert_from_exchange</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a9b44e4142697e729fe05dc028b932c0e" kind="function"><name>convert</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1aa6e00de0427eba26f16acc1d0c85e5a7" kind="function"><name>convert_to_exchange</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a7056cfffba84abdf75b38f2d81d95ccd" kind="function"><name>convert_from_exchange</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1aff0f484e4eac6b51e3b01839a884e12e" kind="function"><name>convert</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a048b1798df129a50aade23df905cd87b" kind="function"><name>direct_convert</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1a599d5f2fd340508ef808f7a9e7f7f700" kind="function"><name>get_bancor_output</name></member>
+    <member refid="structeosiosystem_1_1exchange__state_1aab488cbf49b061bbb660f1bf5add2cf6" kind="function"><name>get_bancor_input</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1system__contract_1_1registration_1_1for__each" kind="struct"><name>eosiosystem::system_contract::registration::for_each</name>
+    <member refid="structeosiosystem_1_1system__contract_1_1registration_1_1for__each_1a2caab670fbbd125e4d35590dc814886d" kind="function"><name>call</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1system__contract_1_1registration_1_1for__each_3_01_p_01_4" kind="struct"><name>eosiosystem::system_contract::registration::for_each&lt; P &gt;</name>
+    <member refid="structeosiosystem_1_1system__contract_1_1registration_1_1for__each_3_01_p_01_4_1abdaba2a6bdbdbd9454f0f3fc86911314" kind="function"><name>call</name></member>
+  </compound>
+  <compound refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kind="struct"><name>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</name>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1ac601553260c24e5fe6ed17828e4a41ef" kind="variable"><name>batch_start_height_offset</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1a82ebd86affa47e2f8024b9083374ed8a" kind="variable"><name>batch_size</name></member>
+  </compound>
+  <compound refid="structeosio_1_1multisig_1_1invalidation" kind="struct"><name>eosio::multisig::invalidation</name>
+    <member refid="structeosio_1_1multisig_1_1invalidation_1af732aa933c30257e90b28db376af4461" kind="variable"><name>account</name></member>
+    <member refid="structeosio_1_1multisig_1_1invalidation_1a767f677a40d58d61189e2bfd2bbdff1f" kind="variable"><name>last_invalidation_time</name></member>
+    <member refid="structeosio_1_1multisig_1_1invalidation_1a8222535d8511a2cd9667a7c816a169b8" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosio_1_1joincoops" kind="struct"><name>eosio::joincoops</name>
+    <member refid="structeosio_1_1joincoops_1a2400b81922f344fbfa41dda06c2caa4d" kind="variable"><name>id</name></member>
+    <member refid="structeosio_1_1joincoops_1ad0a709dbb47d3d94d1b4bafe335bd05c" kind="variable"><name>username</name></member>
+    <member refid="structeosio_1_1joincoops_1ab3b0842b664a04a69858d83714845dca" kind="variable"><name>is_paid</name></member>
+    <member refid="structeosio_1_1joincoops_1a198fbc9e86daba2b45e29ff0f5fd7704" kind="variable"><name>notice</name></member>
+    <member refid="structeosio_1_1joincoops_1ad9376fa463217ba4416efb37b9ac3919" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiobios_1_1key__weight" kind="struct"><name>eosiobios::key_weight</name>
+    <member refid="structeosiobios_1_1key__weight_1ac2a44ff06f540ec05005ea808278b398" kind="variable"><name>key</name></member>
+    <member refid="structeosiobios_1_1key__weight_1a712f1942b6ad8deec868c03a156e609c" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosioboot_1_1key__weight" kind="struct"><name>eosioboot::key_weight</name>
+    <member refid="structeosioboot_1_1key__weight_1a6249f3c7222da01c56a3fb7d477e0356" kind="variable"><name>key</name></member>
+    <member refid="structeosioboot_1_1key__weight_1a0744bfe820d29f51d77f2d89156f1969" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1key__weight" kind="struct"><name>eosiosystem::key_weight</name>
+    <member refid="structeosiosystem_1_1key__weight_1a31686ad5ac920e70870cf69e6a2dddc6" kind="variable"><name>key</name></member>
+    <member refid="structeosiosystem_1_1key__weight_1a2e8de08d6240bb75204c4d5195489f85" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structkey__weight" kind="struct"><name>key_weight</name>
+    <member refid="structkey__weight_1a1c32ddbfc4c0d307c1f25503dfccd796" kind="variable"><name>key</name></member>
+    <member refid="structkey__weight_1ac78b3460df5fe852385da3629d2a64e6" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result" kind="struct"><name>eosiosystem::block_info::latest_block_batch_info_result</name>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1aae67f275b3852dbc62dcfbc8be6e7e8c" kind="enum"><name>error_code_enum</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3" kind="enumvalue"><name>no_error</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1aae67f275b3852dbc62dcfbc8be6e7e8caecb8e0c9f69837caaec46f55744e9f01" kind="enumvalue"><name>invalid_input</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1aae67f275b3852dbc62dcfbc8be6e7e8ca4d82a7bde8f554c393031a3a9399f385" kind="enumvalue"><name>unsupported_version</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1aae67f275b3852dbc62dcfbc8be6e7e8caeece530443605471d0bd284929c28ad8" kind="enumvalue"><name>insufficient_data</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1ad6bb99259a46f73549ee37819affcc1a" kind="variable"><name>result</name></member>
+    <member refid="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result_1ae64b5eb7efe7ddafb9aa3e260dc4fa8e" kind="variable"><name>error_code</name></member>
+  </compound>
+  <compound refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kind="struct"><name>system_contracts::testing::test_contracts::blockinfo_tester::latest_block_batch_info_result</name>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" kind="enum"><name>error_code_enum</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa2a1d4c1c3cfc5a05f9cea814b5cb5987" kind="enumvalue"><name>no_error</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa47d347c195a1c26fdbce91210f28a157" kind="enumvalue"><name>invalid_input</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aabaabaf67659e847cf8aac8c9b9cafeca" kind="enumvalue"><name>unsupported_version</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aaf18cb9d59b963ddb71352e9cf8f03bc8" kind="enumvalue"><name>insufficient_data</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a6bef31839eb6c99ff3bb5f69bbb8b7a5" kind="variable"><name>result</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" kind="variable"><name>error_code</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a8c36a77acb6436c335c075939e5ffc0d" kind="function"><name>has_error</name></member>
+    <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a98a9efbd6bbda91e666bd57e16095adb" kind="function"><name>get_error</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1limit__auth__change" kind="struct"><name>eosiosystem::limit_auth_change</name>
+    <member refid="structeosiosystem_1_1limit__auth__change_1ac9ee9788288b853d89f9bbe7ab73ccac" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1limit__auth__change_1a624c1c7a43da37e6697c618801ac1a4c" kind="variable"><name>account</name></member>
+    <member refid="structeosiosystem_1_1limit__auth__change_1a9535c07d3294a3a65a69adb9ff8f6301" kind="variable"><name>allow_perms</name></member>
+    <member refid="structeosiosystem_1_1limit__auth__change_1a49b0036332a792a390387813cfe20afd" kind="variable"><name>disallow_perms</name></member>
+    <member refid="structeosiosystem_1_1limit__auth__change_1afca9e603259b25aca9807294c17d3a5a" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="classmarketplace" kind="class"><name>marketplace</name>
+    <member refid="classmarketplace_1aa7c0193de8af681a5e36bdc3fb75d595" kind="function"><name>marketplace</name></member>
+    <member refid="classmarketplace_1a4a1a5d78b2606e4883239fc79afdfb40" kind="function"><name>apply</name></member>
+    <member refid="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" kind="function"><name>newid</name></member>
+    <member refid="group__public__actions_1gaada4a6d50780714dc9cfd6356a28a3dc" kind="function"><name>authorize</name></member>
+    <member refid="group__public__actions_1ga74c30d5573748d4cf4c5a660568b2a60" kind="function"><name>offer</name></member>
+    <member refid="group__public__actions_1gab643c84304eeca5b09587fa01ee7a5eb" kind="function"><name>order</name></member>
+    <member refid="group__public__actions_1gad92430513caeffc680137faf448dfa62" kind="function"><name>accept</name></member>
+    <member refid="group__public__actions_1ga5a22790e2e3d7b7e99fe2bfab6c921ea" kind="function"><name>decline</name></member>
+    <member refid="group__public__actions_1ga7a94bccd35c4e34b2be7278ecd23092f" kind="function"><name>complete</name></member>
+    <member refid="group__public__actions_1gad65f1fa4ca14d3e25d2910a38770edaa" kind="function"><name>cancel</name></member>
+    <member refid="group__public__actions_1ga6424522b5a905f3340618bc496b0e8db" kind="function"><name>update</name></member>
+    <member refid="group__public__actions_1ga22590103c02d594a96c7fa0021c3cf6c" kind="function"><name>addpieces</name></member>
+    <member refid="group__public__actions_1ga3517422842b666b51776938bcebb2e2f" kind="function"><name>moderate</name></member>
+    <member refid="group__public__actions_1ga7b9e65c0a9b8fc66441dd858d3bf7713" kind="function"><name>prohibit</name></member>
+    <member refid="group__public__actions_1ga330151d5b275e35f3f2d29b7d1d28a06" kind="function"><name>unpublish</name></member>
+    <member refid="group__public__actions_1gafb7c81428848bbc7e9401cdbfa4544d2" kind="function"><name>publish</name></member>
+    <member refid="classmarketplace_1a41fdf6803d401a4917a7d31d60190ec3" kind="function"><name>create</name></member>
+    <member refid="classmarketplace_1a250d91530423ff0e919ca9f59f11d862" kind="function"><name>create_parent_order</name></member>
+    <member refid="classmarketplace_1a0a0434b6e5396d58690f72ee123b8385" kind="function"><name>create_child_order</name></member>
+    <member refid="classmarketplace_1a16d1a74dbd360dde5e296a0fc71e3c6d" kind="function"><name>cancel_parent_order</name></member>
+    <member refid="classmarketplace_1ac55f3326e70c3ffe87122bb39c86f002" kind="function"><name>cancel_child_order</name></member>
+  </compound>
+  <compound refid="structmembers" kind="struct"><name>members</name>
+    <member refid="structmembers_1acd8704216796cd0c8bcf568f6c061a36" kind="variable"><name>username</name></member>
+    <member refid="structmembers_1a0a998eeaf1a01f48301c8ab90355891f" kind="variable"><name>created_at</name></member>
+    <member refid="structmembers_1a5b35eec3e9a4c95b0fa41528817913ca" kind="variable"><name>last_update</name></member>
+    <member refid="structmembers_1acae55fdc8bdd745b39e2ec2633f4f2a6" kind="variable"><name>last_min_pay</name></member>
+    <member refid="structmembers_1ad6efc0ce9b6e84d34196df651a0e591a" kind="variable"><name>position_title</name></member>
+    <member refid="structmembers_1ab238fb2ca6164b2e355f341ea39b6178" kind="variable"><name>position</name></member>
+    <member refid="structmembers_1af5d60936223bc846d2ec5814e6ffeff1" kind="variable"><name>is_accepted</name></member>
+    <member refid="structmembers_1a2f5e873854edba0bf3571dbaab59507b" kind="variable"><name>is_initial</name></member>
+    <member refid="structmembers_1aa96a971d1a0387c007951780417248be" kind="variable"><name>is_minimum</name></member>
+    <member refid="structmembers_1ae8725768e25ad2331e36549792566f73" kind="variable"><name>is_voting</name></member>
+    <member refid="structmembers_1a3c3b2e39c103c29aa2627e865dc1a6a1" kind="function"><name>primary_key</name></member>
+    <member refid="structmembers_1a5bba6bdb3df9e9c0546e9e81c1e2115d" kind="function"><name>bylastpay</name></member>
+  </compound>
+  <compound refid="classeosio_1_1multisig" kind="class"><name>eosio::multisig</name>
+    <member refid="classeosio_1_1multisig_1a6b2b36f41c47c6cd4d93fecfd8cc60cf" kind="typedef"><name>propose_action</name></member>
+    <member refid="classeosio_1_1multisig_1a78ab9fde21f9ded0848d08fa608928be" kind="typedef"><name>approve_action</name></member>
+    <member refid="classeosio_1_1multisig_1a36509e236e810ab65fa9f0d4d4819a44" kind="typedef"><name>unapprove_action</name></member>
+    <member refid="classeosio_1_1multisig_1aa24ce647e2b69d4def57d629b12a5947" kind="typedef"><name>cancel_action</name></member>
+    <member refid="classeosio_1_1multisig_1a190673aa69f84e30b207ce0d7fcfdeaf" kind="typedef"><name>exec_action</name></member>
+    <member refid="classeosio_1_1multisig_1ac2bc17cd429e3e5c7b5dd8469db4fb74" kind="typedef"><name>invalidate_action</name></member>
+    <member refid="classeosio_1_1multisig_1a4f80f1ab1d2bd88d9ee3964e8cf34771" kind="typedef"><name>proposals</name></member>
+    <member refid="classeosio_1_1multisig_1a1ad32ac47eba850bcecb5940b21b1f04" kind="typedef"><name>old_approvals</name></member>
+    <member refid="classeosio_1_1multisig_1a63a04fd1cf67821038757093a19934e4" kind="typedef"><name>approvals</name></member>
+    <member refid="classeosio_1_1multisig_1a22ec4ca93c516c0b46aa306ef14929e6" kind="typedef"><name>invalidations</name></member>
+    <member refid="classeosio_1_1multisig_1acb9cee084979625820b6f45492f13be0" kind="function"><name>propose</name></member>
+    <member refid="classeosio_1_1multisig_1a5cccb8b23b9fffa1b27d443fad9ce3e9" kind="function"><name>approve</name></member>
+    <member refid="classeosio_1_1multisig_1a7d6e568f96c6697728e316557a9bcf1e" kind="function"><name>unapprove</name></member>
+    <member refid="classeosio_1_1multisig_1a2dc849ab961ea31c0e93ebace0f0dd00" kind="function"><name>cancel</name></member>
+    <member refid="classeosio_1_1multisig_1ac31b3d91892bf8fcdad8d6f123c278ff" kind="function"><name>exec</name></member>
+    <member refid="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" kind="function"><name>invalidate</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1name__bid" kind="struct"><name>eosiosystem::name_bid</name>
+    <member refid="structeosiosystem_1_1name__bid_1a3463fcad67e50421775df9e215fcc6f5" kind="variable"><name>newname</name></member>
+    <member refid="structeosiosystem_1_1name__bid_1a96ebb10d61560583560670e686216783" kind="variable"><name>high_bidder</name></member>
+    <member refid="structeosiosystem_1_1name__bid_1ac9ef960920cc7cf790dbe29b7378a1e6" kind="variable"><name>high_bid</name></member>
+    <member refid="structeosiosystem_1_1name__bid_1aaf689933142cde0cc33c8a945d5e1dde" kind="variable"><name>last_bid_time</name></member>
+    <member refid="structeosiosystem_1_1name__bid_1aee075c874d04b3b4fa03a6b7ba0e1be5" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1name__bid_1a5b559444f1ddf4eee7a32c53a3ef9485" kind="function"><name>by_high_bid</name></member>
+  </compound>
+  <compound refid="classeosiosystem_1_1native" kind="class"><name>eosiosystem::native</name>
+    <member refid="classeosiosystem_1_1native_1aae644336375e87bb08912d4f550c8aeb" kind="typedef"><name>newaccount_action</name></member>
+    <member refid="classeosiosystem_1_1native_1a10fb5510d34718e92de6b0491d1eaf53" kind="typedef"><name>updateauth_action</name></member>
+    <member refid="classeosiosystem_1_1native_1ab75271688a763dacb3e2fa6cddae04e4" kind="typedef"><name>deleteauth_action</name></member>
+    <member refid="classeosiosystem_1_1native_1a9003ba3e7e55f294f3d028f02873d5f9" kind="typedef"><name>linkauth_action</name></member>
+    <member refid="classeosiosystem_1_1native_1ab85b9770a900421b081ab8f339c5c71f" kind="typedef"><name>unlinkauth_action</name></member>
+    <member refid="classeosiosystem_1_1native_1aa83db95970cb619e8d1715e5d83bbb52" kind="typedef"><name>canceldelay_action</name></member>
+    <member refid="classeosiosystem_1_1native_1af476ff0c6f3be13b08c57b5857715766" kind="typedef"><name>setcode_action</name></member>
+    <member refid="classeosiosystem_1_1native_1a5db33d8b5c93fb9b60f6216d62077802" kind="typedef"><name>setabi_action</name></member>
+    <member refid="classeosiosystem_1_1native_1ab81dda3be834b68780bbae5c2e8368e0" kind="function"><name>newaccount</name></member>
+    <member refid="classeosiosystem_1_1native_1a2bbeca58b24029a5ab0fc90832dde56b" kind="function"><name>updateauth</name></member>
+    <member refid="classeosiosystem_1_1native_1a49cc638f16ddc898952a8f032ffd6c2c" kind="function"><name>deleteauth</name></member>
+    <member refid="classeosiosystem_1_1native_1a35b93b9e7ae3eaa60619189c7694499e" kind="function"><name>linkauth</name></member>
+    <member refid="classeosiosystem_1_1native_1aa1e2097e289d4da3acc2876cc24e8897" kind="function"><name>unlinkauth</name></member>
+    <member refid="classeosiosystem_1_1native_1ac2da52c0f6c1698bbe76a84f23917feb" kind="function"><name>canceldelay</name></member>
+    <member refid="classeosiosystem_1_1native_1a379fe8f4ca5a42a6011dbf9c8f30b6ff" kind="function"><name>onerror</name></member>
+    <member refid="classeosiosystem_1_1native_1aff24a543859381c1670183f5b4d343aa" kind="function"><name>setabi</name></member>
+    <member refid="classeosiosystem_1_1native_1a225a51ac200eb80061ecbea5980e0b7b" kind="function"><name>setcode</name></member>
+  </compound>
+  <compound refid="structnew__org__struct" kind="struct"><name>new_org_struct</name>
+    <member refid="structnew__org__struct_1afe286ce31a0f6a948c3dfd3fa41f6868" kind="variable"><name>username</name></member>
+    <member refid="structnew__org__struct_1a142d7d656f9b6c79f484aa2c8a9cb013" kind="variable"><name>name</name></member>
+    <member refid="structnew__org__struct_1aab5defee125df439ce319d34df29b493" kind="variable"><name>short_name</name></member>
+    <member refid="structnew__org__struct_1ac697f1c505b3f86a6602afe8ee157302" kind="variable"><name>address</name></member>
+    <member refid="structnew__org__struct_1a9e04e042f5a843d9956773a6d366dc4e" kind="variable"><name>ogrn</name></member>
+    <member refid="structnew__org__struct_1a0a19491ed30f535b8c72bf939412f37f" kind="variable"><name>inn</name></member>
+    <member refid="structnew__org__struct_1a12e61b3e7538ce17a6ed9aac35bfdd6b" kind="variable"><name>logo</name></member>
+    <member refid="structnew__org__struct_1a9cd8be190fa2b64609ac7cac26a21342" kind="variable"><name>phone</name></member>
+    <member refid="structnew__org__struct_1a409085989c8b065f4c5da0aa6ddae2f4" kind="variable"><name>email</name></member>
+    <member refid="structnew__org__struct_1ae9daef33b6eb5c7223306d0a548ab23d" kind="variable"><name>registration</name></member>
+    <member refid="structnew__org__struct_1a3f8e257edac1ce91daefed2723a39a78" kind="variable"><name>website</name></member>
+    <member refid="structnew__org__struct_1a7de03d51e6daf27fbeb7af18ec0ba2a0" kind="variable"><name>accounts</name></member>
+    <member refid="structnew__org__struct_1a3edd482029472600f8110abb63f22ec0" kind="variable"><name>is_cooperative</name></member>
+    <member refid="structnew__org__struct_1a1b14a3b368d0465f82424936395c1d96" kind="variable"><name>coop_type</name></member>
+    <member refid="structnew__org__struct_1a52312c0249272b4eebc1257feda0b3b2" kind="variable"><name>token_contract</name></member>
+    <member refid="structnew__org__struct_1a6b41c286066648df700ccaf77c2d3163" kind="variable"><name>slug</name></member>
+    <member refid="structnew__org__struct_1a273ba05baf96911cc6e2170ba54d8b31" kind="variable"><name>announce</name></member>
+    <member refid="structnew__org__struct_1ae6c0df340a6544bb31867f376d2b6e96" kind="variable"><name>description</name></member>
+    <member refid="structnew__org__struct_1aa523837eadf48d60a5fa372af4915249" kind="variable"><name>initial</name></member>
+    <member refid="structnew__org__struct_1aa74e5df96c7174dfaca6075913279605" kind="variable"><name>minimum</name></member>
+    <member refid="structnew__org__struct_1a0bd62e85c853697a7b4207648d515ae9" kind="variable"><name>membership</name></member>
+    <member refid="structnew__org__struct_1a296dc59f88491363bb011f6424361e12" kind="variable"><name>period</name></member>
+  </compound>
+  <compound refid="structeosio_1_1multisig_1_1old__approvals__info" kind="struct"><name>eosio::multisig::old_approvals_info</name>
+    <member refid="structeosio_1_1multisig_1_1old__approvals__info_1ababd8996161ac79d6889b81a2f1755af" kind="variable"><name>proposal_name</name></member>
+    <member refid="structeosio_1_1multisig_1_1old__approvals__info_1ae499fbd3582721ecd3caa4d0ff71737f" kind="variable"><name>requested_approvals</name></member>
+    <member refid="structeosio_1_1multisig_1_1old__approvals__info_1a1f9c8bcc263e6a6d324c81e1cbbd49f1" kind="variable"><name>provided_approvals</name></member>
+    <member refid="structeosio_1_1multisig_1_1old__approvals__info_1a3a8558018b8d987b48ae8d0d0935611e" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structorgs" kind="struct"><name>orgs</name>
+    <member refid="structorgs_1a30bd763b06c88e2db7fe63b7829448c8" kind="variable"><name>username</name></member>
+    <member refid="structorgs_1ae6431f4f421b347e828673c17c11016a" kind="variable"><name>parent_username</name></member>
+    <member refid="structorgs_1a7f2292b35d32249116fbabc45ee29f90" kind="variable"><name>verification</name></member>
+    <member refid="structorgs_1ae3e89e39dc1dac2fa382f52c7dfa1499" kind="variable"><name>name</name></member>
+    <member refid="structorgs_1a2856436e3f095cf78cf6d6a617c79d61" kind="variable"><name>short_name</name></member>
+    <member refid="structorgs_1a756f0d831a24d9a4f9f52e51106f135d" kind="variable"><name>address</name></member>
+    <member refid="structorgs_1a3da6502bd383a53b200b7db125575b5d" kind="variable"><name>ogrn</name></member>
+    <member refid="structorgs_1affc82d5743aea6b5f69b447f36537cb5" kind="variable"><name>inn</name></member>
+    <member refid="structorgs_1aa2163b8b2c75dd675de51c6e44ded60c" kind="variable"><name>logo</name></member>
+    <member refid="structorgs_1abbe8d02b45decc5efbe76645d07588b7" kind="variable"><name>phone</name></member>
+    <member refid="structorgs_1a959f11805a84c42797f8acdde30adecd" kind="variable"><name>email</name></member>
+    <member refid="structorgs_1aef9dd189590bfe100c957ce5bde967e1" kind="variable"><name>registration</name></member>
+    <member refid="structorgs_1a704ac67823483cb07bb24fa5245b19aa" kind="variable"><name>website</name></member>
+    <member refid="structorgs_1a773b57c51cda33e3e474defc180d0e7d" kind="variable"><name>accounts</name></member>
+    <member refid="structorgs_1a7e106134eb289da6034239f59f8c8b00" kind="variable"><name>is_cooperative</name></member>
+    <member refid="structorgs_1a5d2790457eea86c9e0e0df2afacdb52e" kind="variable"><name>coop_type</name></member>
+    <member refid="structorgs_1a135a3014d3e21024a2eb16b775d46a2f" kind="variable"><name>token_contract</name></member>
+    <member refid="structorgs_1a33846e60c8725628db622e8f5a2511dc" kind="variable"><name>slug</name></member>
+    <member refid="structorgs_1a3f04706245d1ce159961028fe3ea8265" kind="variable"><name>announce</name></member>
+    <member refid="structorgs_1a9fc7273b84ea89d7e3be8189bb7de823" kind="variable"><name>description</name></member>
+    <member refid="structorgs_1a36a73688848c389a2f2626df93ce9d0d" kind="variable"><name>members_count</name></member>
+    <member refid="structorgs_1ae939c459ab38616d44ad9544fc499512" kind="variable"><name>users_count</name></member>
+    <member refid="structorgs_1ac0049e14ff707d167f0484cea9b6740c" kind="variable"><name>orgs_counts</name></member>
+    <member refid="structorgs_1ad2dd42d38888aadcd9b212d26dfd4b8e" kind="variable"><name>initial</name></member>
+    <member refid="structorgs_1abdf961fb24a7135fd0a2eba44ed0d0cb" kind="variable"><name>minimum</name></member>
+    <member refid="structorgs_1a4983389f1ef9ec6b722a1471031a83c7" kind="variable"><name>membership</name></member>
+    <member refid="structorgs_1a93ab1b5c27d0b55d80651a72353beec5" kind="variable"><name>period</name></member>
+    <member refid="structorgs_1ad63f7f770daeaf11e9960f0bb3413257" kind="function"><name>primary_key</name></member>
+    <member refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" kind="function"><name>by_parent</name></member>
+    <member refid="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" kind="function"><name>by_coop_childs</name></member>
+    <member refid="structorgs_1a62e31444747797512f25c736d36e8ad3" kind="function"><name>is_coop_index</name></member>
+    <member refid="structorgs_1a9c08ac2829263b63bcf3cb773855691a" kind="function"><name>bycooptype</name></member>
+    <member refid="structorgs_1ab93e3b210063838c61fdc01849e93124" kind="function"><name>is_verified_index</name></member>
+    <member refid="structorgs_1a56f3d02c014cc9448b0dc2e771c99f10" kind="function"><name>is_coop</name></member>
+    <member refid="structorgs_1a153188e5dd5b21d491fd733feb6e8ff5" kind="function"><name>is_verified</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1pair__time__point__sec__int64" kind="struct"><name>eosiosystem::pair_time_point_sec_int64</name>
+    <member refid="structeosiosystem_1_1pair__time__point__sec__int64_1acd031753aeb4381736b222cb5af110f1" kind="variable"><name>first</name></member>
+    <member refid="structeosiosystem_1_1pair__time__point__sec__int64_1ac501dfa169ad5f4a3d72554082f1ea26" kind="variable"><name>second</name></member>
+    <member refid="structeosiosystem_1_1pair__time__point__sec__int64_1a61aef904c9c7214339d59263e49148b1" kind="function"><name>EOSLIB_SERIALIZE</name></member>
+  </compound>
+  <compound refid="structeosiobios_1_1permission__level__weight" kind="struct"><name>eosiobios::permission_level_weight</name>
+    <member refid="structeosiobios_1_1permission__level__weight_1a541c2041fbf4a2847144a156531ed3bb" kind="variable"><name>permission</name></member>
+    <member refid="structeosiobios_1_1permission__level__weight_1ad0a6f4cb52b93d3673b1fc22486880fa" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosioboot_1_1permission__level__weight" kind="struct"><name>eosioboot::permission_level_weight</name>
+    <member refid="structeosioboot_1_1permission__level__weight_1a5354d5a9ed36751c733ca4788058bf34" kind="variable"><name>permission</name></member>
+    <member refid="structeosioboot_1_1permission__level__weight_1abe39f569e8b39abfa6a13d786f300369" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1permission__level__weight" kind="struct"><name>eosiosystem::permission_level_weight</name>
+    <member refid="structeosiosystem_1_1permission__level__weight_1ac98d5c5795870835a76e2c1d73bda998" kind="variable"><name>permission</name></member>
+    <member refid="structeosiosystem_1_1permission__level__weight_1a2df97f79b29e376a927df14444071684" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structpermission__level__weight" kind="struct"><name>permission_level_weight</name>
+    <member refid="structpermission__level__weight_1a8e66350534de3fc26309013f5ade74b8" kind="variable"><name>permission</name></member>
+    <member refid="structpermission__level__weight_1a8a90481461f59afdd92875d0caa6959f" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1powerup__config" kind="struct"><name>eosiosystem::powerup_config</name>
+    <member refid="structeosiosystem_1_1powerup__config_1a1deffd1cf5b8de9c3ac49b5e4b08e65d" kind="variable"><name>net</name></member>
+    <member refid="structeosiosystem_1_1powerup__config_1a72a3d237b4877c573f429353dd3b8807" kind="variable"><name>cpu</name></member>
+    <member refid="structeosiosystem_1_1powerup__config_1a0bf5894e66ce146b1d46dab27ed79052" kind="variable"><name>powerup_days</name></member>
+    <member refid="structeosiosystem_1_1powerup__config_1a2d7ede4759845fcf1dd25498dfb48f10" kind="variable"><name>min_powerup_fee</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1powerup__config__resource" kind="struct"><name>eosiosystem::powerup_config_resource</name>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a898798179695199cb53c5e71898956a9" kind="variable"><name>current_weight_ratio</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a1a3d56ace89256c70b617043f60277f0" kind="variable"><name>target_weight_ratio</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a9e95f745ed5d212817932eca48bdf0bf" kind="variable"><name>assumed_stake_weight</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1afc1c25dba26389ed543136d08b7da03f" kind="variable"><name>target_timestamp</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a7c8254c0a368f5104090b068775cb6d2" kind="variable"><name>exponent</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1aaf607638f0aa2bc03080307342367da4" kind="variable"><name>decay_secs</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a999a90e06ab3ec5cd79b6d16985e8b5a" kind="variable"><name>min_price</name></member>
+    <member refid="structeosiosystem_1_1powerup__config__resource_1a7eaa914ee1cff949e5721d526e0e8308" kind="variable"><name>max_price</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1powerup__order" kind="struct"><name>eosiosystem::powerup_order</name>
+    <member refid="structeosiosystem_1_1powerup__order_1a5add3b2a59588f2a986ab8533b6ef07e" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a0c852ce9dc447d27818c6f76c9966f5b" kind="variable"><name>id</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a7367e434fe5c04cc3eea0a4e79d925f4" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a4ef585bec4e45a5643280a2be23c8abe" kind="variable"><name>net_weight</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1afedd41b2e48a95941cf15b1a44dc401c" kind="variable"><name>cpu_weight</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a2d6b97d6744b9d46cb2fa6f64ecbcc9e" kind="variable"><name>expires</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a84d6154b02216683f5bac277a9c332ab" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1ad6f472ce4c90343ff6c3a2a312ac64ab" kind="function"><name>by_owner</name></member>
+    <member refid="structeosiosystem_1_1powerup__order_1a9a404ef12847703055ba5da5b47af05a" kind="function"><name>by_expires</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1powerup__state" kind="struct"><name>eosiosystem::powerup_state</name>
+    <member refid="structeosiosystem_1_1powerup__state_1a7ac8f24cd2c7173d15f1919fa6aff42b" kind="variable"><name>default_powerup_days</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1adf46a1a98481f10048a71ad402193ddb" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1a50378b359db22153b5767eebf3d5e91e" kind="variable"><name>net</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1ac00370168898d00ee8c2793728e45636" kind="variable"><name>cpu</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1a41192b702d0a81d46a3f19e87149c740" kind="variable"><name>powerup_days</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1a1e3527154e64dac849d3a04037ff131a" kind="variable"><name>min_powerup_fee</name></member>
+    <member refid="structeosiosystem_1_1powerup__state_1a2ee6f547d067dd757cc345f51b0b385a" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1powerup__state__resource" kind="struct"><name>eosiosystem::powerup_state_resource</name>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a7757876b32f5da7946f13c72d0271cb8" kind="variable"><name>default_exponent</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a7f3faa714dfa8be991d7cd3120959b96" kind="variable"><name>default_decay_secs</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1ab33e538575a6bd6b1e73443701c9d6e6" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1ae11adb8af7452cc4b56b3c4efd27c4b5" kind="variable"><name>weight</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1aff92555e09aaa263ed2adaa3611ef7af" kind="variable"><name>weight_ratio</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a0b3fa07302f6fb0dcb44a2b581bf868e" kind="variable"><name>assumed_stake_weight</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a61179807bb5fd8b89f504a58a8bd1a92" kind="variable"><name>initial_weight_ratio</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a11b0208fbcb1a05c5796020f924d29f6" kind="variable"><name>target_weight_ratio</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a153836a8d10a7c6b92f1d5ee936afc14" kind="variable"><name>initial_timestamp</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a6a95640c112f10d333c5605c0616250e" kind="variable"><name>target_timestamp</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a0584f8973ecce81b54c6463575d8dadd" kind="variable"><name>exponent</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a4402b1bf923b042aded39e7296f0a658" kind="variable"><name>decay_secs</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a5e30c55b2f38371c654d8a806fa26d3c" kind="variable"><name>min_price</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a9792d8b112772e112a51193873e020f2" kind="variable"><name>max_price</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1a57a7d6c1f329f96a1964815e67bf5948" kind="variable"><name>utilization</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1aebc618f4a8c543197c89496058ac444a" kind="variable"><name>adjusted_utilization</name></member>
+    <member refid="structeosiosystem_1_1powerup__state__resource_1ad0454e9d4e79e5814f5acaf8324ea2e2" kind="variable"><name>utilization_timestamp</name></member>
+  </compound>
+  <compound refid="classpowup__results" kind="class"><name>powup_results</name>
+    <member refid="classpowup__results_1ad9f92d7d14262016aa90efa04e433646" kind="typedef"><name>powupresult_action</name></member>
+    <member refid="classpowup__results_1a92bf8a4505d35524f2708a7984d5df59" kind="function"><name>powupresult</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1producer__info" kind="struct"><name>eosiosystem::producer_info</name>
+    <member refid="structeosiosystem_1_1producer__info_1a8e7b745ce26e291c9bb6c01197b39481" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1abc5e3b6f64341d7a4c47dcf7f7303466" kind="variable"><name>total_votes</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1ae39a2bd7332a10fe183c86e8810ffc42" kind="variable"><name>producer_key</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a1e99c8edf840eef65937a55e81a96b50" kind="variable"><name>is_active</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1ae5fa32f4888e2db7faddb5e5b2b4da58" kind="variable"><name>url</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a24e7945da7f329a88dd915d1582a877c" kind="variable"><name>unpaid_blocks</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a2c0ee0458d7b6b5629bab41d2f94a156" kind="variable"><name>last_claim_time</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a5e543ec2f645048f754beca0fafc9daa" kind="variable"><name>location</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1acca552d34b42bf725872f6dd4883e8aa" kind="variable"><name>producer_authority</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a9a9423735c7e495e3e244a92719c5606" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a2923be76a2e0b28b39b772fc8f5f30aa" kind="function"><name>by_votes</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1ac747e9353d178231d7d71131b5c4e94e" kind="function"><name>active</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1ab83626158bab8b0d943315ace5255ada" kind="function"><name>deactivate</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a2134cf5d2aa6af5b55fa9a577654e4aa" kind="function"><name>get_producer_authority</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a317c5f6359c3a916c47dc5fd4c69ef52" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="structeosiosystem_1_1producer__info_1a7d321046f7026bec661623dc99022ff7" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1producer__info2" kind="struct"><name>eosiosystem::producer_info2</name>
+    <member refid="structeosiosystem_1_1producer__info2_1aa80744eebc2853521dd294e15124b2b3" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1producer__info2_1a62de9e8545175dc4aa45e5d9494c272b" kind="variable"><name>votepay_share</name></member>
+    <member refid="structeosiosystem_1_1producer__info2_1ae6771ab3b619d7cc3a354baf05336e96" kind="variable"><name>last_votepay_share_update</name></member>
+    <member refid="structeosiosystem_1_1producer__info2_1ae112142fed736880a03bd0ee305b34ef" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosio_1_1multisig_1_1proposal" kind="struct"><name>eosio::multisig::proposal</name>
+    <member refid="structeosio_1_1multisig_1_1proposal_1a231b1043a7721d508c07ca6c6b20385b" kind="variable"><name>proposal_name</name></member>
+    <member refid="structeosio_1_1multisig_1_1proposal_1af9a7406b371dbf10a78ce56f9f921f84" kind="variable"><name>packed_transaction</name></member>
+    <member refid="structeosio_1_1multisig_1_1proposal_1ac8b4f63052c9089874b1a0be48bcef07" kind="variable"><name>earliest_exec_time</name></member>
+    <member refid="structeosio_1_1multisig_1_1proposal_1ae459219bcd83cd451771b633277519db" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1refund__request" kind="struct"><name>eosiosystem::refund_request</name>
+    <member refid="structeosiosystem_1_1refund__request_1a11e5c7ef5cc00904a0d00bf0af8900ef" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1refund__request_1ac5513485aad2e2e0de4717ca1b06530e" kind="variable"><name>request_time</name></member>
+    <member refid="structeosiosystem_1_1refund__request_1a5f314641a1ad02216a89275dd38c8b8b" kind="variable"><name>net_amount</name></member>
+    <member refid="structeosiosystem_1_1refund__request_1a8d8e9e6b4bcdbdc1b30b045feb58c6fa" kind="variable"><name>cpu_amount</name></member>
+    <member refid="structeosiosystem_1_1refund__request_1a2061e7187b06f1adb76043b7935bd091" kind="function"><name>is_empty</name></member>
+    <member refid="structeosiosystem_1_1refund__request_1a527ccee1812739017b22d69139b2e40b" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="classeosiosystem_1_1system__contract_1_1registration" kind="class"><name>eosiosystem::system_contract::registration</name>
+    <member refid="classeosiosystem_1_1system__contract_1_1registration_1a86e430555979d16ce46d11fbfc4c5673" kind="variable"><name>this_contract</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1_1registration_1a766e47b24eb13d3c1f1cc234cbfdb06a" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="classregistrator" kind="class"><name>registrator</name>
+    <member refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" kind="function"><name>registrator</name></member>
+    <member refid="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" kind="function"><name>update</name></member>
+    <member refid="group__public__actions_1gade0cb6032b21e1b753ec1b4f2b4bea73" kind="function"><name>confirmreg</name></member>
+    <member refid="group__public__actions_1ga25589c2c87b594bea2a82aea5bd1112c" kind="function"><name>reguser</name></member>
+    <member refid="group__public__actions_1ga917f5557795120c2e303be599030d563" kind="function"><name>regorg</name></member>
+    <member refid="group__public__actions_1ga575710c03cd02b5e813816ea7e51500e" kind="function"><name>joincoop</name></member>
+    <member refid="group__public__actions_1ga7bb89160d6aa3dc59c5f78daeb0a6476" kind="function"><name>verificate</name></member>
+    <member refid="group__public__actions_1gacdfebb1a75a61c5d88ac5c280033d5b7" kind="function"><name>newaccount</name></member>
+    <member refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" kind="function"><name>changekey</name></member>
+    <member refid="classregistrator_1a459e96e1cc7864c070000cbdcdad1d82" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__balance" kind="struct"><name>eosiosystem::rex_balance</name>
+    <member refid="structeosiosystem_1_1rex__balance_1a3db8caee6ce5eb1430db7d473a072098" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1aa7efa762e2abf679ec0c159fb1439372" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1a5b062ac98d3d4ad65bdda637f1687952" kind="variable"><name>vote_stake</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1a530ed574f5fa7277422866734ba59aed" kind="variable"><name>rex_balance</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1aae06fcc4eda99c14544e1e0394335834" kind="variable"><name>matured_rex</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1ab69ca2daff48bdeb9a54de9f19895d38" kind="variable"><name>rex_maturities</name></member>
+    <member refid="structeosiosystem_1_1rex__balance_1a8aebb3d7caed879be417d12c0ea75ff8" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__fund" kind="struct"><name>eosiosystem::rex_fund</name>
+    <member refid="structeosiosystem_1_1rex__fund_1a0d87faa3b4241bb715ef75854f885815" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__fund_1a9f04d7bcf465529f0870d54aabf5ae36" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1rex__fund_1af8fa096b0e2c5d24798a659aa5ddb309" kind="variable"><name>balance</name></member>
+    <member refid="structeosiosystem_1_1rex__fund_1ada0d465ad79456e859e6dce84be99be5" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__loan" kind="struct"><name>eosiosystem::rex_loan</name>
+    <member refid="structeosiosystem_1_1rex__loan_1a0b4256fabf5de5140d7454287b7ce635" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a59654a42de37d5f6ad11ef7b1ca8845f" kind="variable"><name>from</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1ad28a74d7cfcfcbe1c7502c49f34ab988" kind="variable"><name>receiver</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1aa0eb3d72cb30bc2b205cebab93a2c4f2" kind="variable"><name>payment</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1aaa8b37af599e458df1cc4a4557558c34" kind="variable"><name>balance</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a030741dbdcc390ac07da48560f86a39b" kind="variable"><name>total_staked</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a5727e851ef16e34096c5f3864a43d994" kind="variable"><name>loan_num</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1ab9f18e11705c3798b616cf7caf476590" kind="variable"><name>expiration</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a98d977e47a68a99e7af5283f5d7621d9" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a7e1408b91e4d52c1381ce8f99b9eb521" kind="function"><name>by_expr</name></member>
+    <member refid="structeosiosystem_1_1rex__loan_1a5dc4c8b0bf062ea5a729db6c859c033d" kind="function"><name>by_owner</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__order" kind="struct"><name>eosiosystem::rex_order</name>
+    <member refid="structeosiosystem_1_1rex__order_1a3aa81dd239e34b29a863c01bc6af8d75" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1ab655d38bd47b5e4ec102503954942035" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1ab0d23a11ffd760162e02681f64e9639e" kind="variable"><name>rex_requested</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1a87cdfd344b993ca26a3451124f128911" kind="variable"><name>proceeds</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1ad648133afca5497f7e4827b65d1cc529" kind="variable"><name>stake_change</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1aea99fc69a44d35acd09707dac2af61ee" kind="variable"><name>order_time</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1a4bc7bda7076a0a6b3b410ec83d2eb365" kind="variable"><name>is_open</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1a91ae93fddccc4a9bcc9cf156ff602bd6" kind="function"><name>close</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1a38851f3f71d5a2a95de515b044fcf90b" kind="function"><name>primary_key</name></member>
+    <member refid="structeosiosystem_1_1rex__order_1a177603993abdb4e9b521d273d9cbc818" kind="function"><name>by_time</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__order__outcome" kind="struct"><name>eosiosystem::rex_order_outcome</name>
+    <member refid="structeosiosystem_1_1rex__order__outcome_1aa322c7f9f86c43de4134d427543f628f" kind="variable"><name>success</name></member>
+    <member refid="structeosiosystem_1_1rex__order__outcome_1a268d8b4466e29f8cb3dfaf58411a8602" kind="variable"><name>proceeds</name></member>
+    <member refid="structeosiosystem_1_1rex__order__outcome_1a0cede7598459d110eb4f68ea71cb1e86" kind="variable"><name>stake_change</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__pool" kind="struct"><name>eosiosystem::rex_pool</name>
+    <member refid="structeosiosystem_1_1rex__pool_1addca00704e91405d1808533eefd8fd56" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1a1819b3c6b83b60c9c31e1440dc074d58" kind="variable"><name>total_lent</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1aed217f873a6574c1db42493c9ad385d0" kind="variable"><name>total_unlent</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1ae2c5584ec5fe6f17b765e04b5c5c468a" kind="variable"><name>total_rent</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1a3a8999d7f7b8029e0d718f885b683737" kind="variable"><name>total_lendable</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1aaf99b9aead4d756af061f16febe73006" kind="variable"><name>total_rex</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1a617f0698ad272dc19fae83cd576c1dc5" kind="variable"><name>namebid_proceeds</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1a95d45a7a85681d1930a62443d0fec47a" kind="variable"><name>loan_num</name></member>
+    <member refid="structeosiosystem_1_1rex__pool_1a138432772e5150f86b56b22e5011048b" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="classrex__results" kind="class"><name>rex_results</name>
+    <member refid="classrex__results_1ae4ba8a63313cdfe4cac719d785a38ea7" kind="typedef"><name>buyresult_action</name></member>
+    <member refid="classrex__results_1a7045f3b0cbe2f486892be59a7cdcd946" kind="typedef"><name>sellresult_action</name></member>
+    <member refid="classrex__results_1a9cc818bbdd737994bf6c6c028cbadf88" kind="typedef"><name>orderresult_action</name></member>
+    <member refid="classrex__results_1a4bc44b0b83ecec66ad131019049e4c6d" kind="typedef"><name>rentresult_action</name></member>
+    <member refid="classrex__results_1a955ccff2c80578de034ee8c16bb29b47" kind="function"><name>buyresult</name></member>
+    <member refid="classrex__results_1a2fdb9897a541ee103c618e8b311afab9" kind="function"><name>sellresult</name></member>
+    <member refid="classrex__results_1aadee1538b7d17cbbe6efd8438fa46ae1" kind="function"><name>orderresult</name></member>
+    <member refid="classrex__results_1ab9cb69866c17d4344e0d50ea810ecef4" kind="function"><name>rentresult</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__return__buckets" kind="struct"><name>eosiosystem::rex_return_buckets</name>
+    <member refid="structeosiosystem_1_1rex__return__buckets_1a24996f1358821a23925f8fb6fedfbcac" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__return__buckets_1a40398601193e8e6f2e343b417c5195c6" kind="variable"><name>return_buckets</name></member>
+    <member refid="structeosiosystem_1_1rex__return__buckets_1a91e47ae14cf12803658fc81858ba7d76" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1rex__return__pool" kind="struct"><name>eosiosystem::rex_return_pool</name>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a9b16ec989d93521cc26f51b97793c662" kind="variable"><name>version</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a6bcacb0d59cb8951b83f089e2dee3bed" kind="variable"><name>last_dist_time</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a54bd0982d04bfea79eea5343cb2dce33" kind="variable"><name>pending_bucket_time</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a50d9c4534af93ce26fffc8ae21c83981" kind="variable"><name>oldest_bucket_time</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a6586a70341c24f27a2b0ef2234fc5005" kind="variable"><name>pending_bucket_proceeds</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a9c40149b316eefb370e1733584ff1d6f" kind="variable"><name>current_rate_of_increase</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a8c9014435e9325e35ee05115ac9e0ca3" kind="variable"><name>proceeds</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1ab3ac180090c440ff99d8183a8e069584" kind="variable"><name>total_intervals</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1ab5e1ccbb63ca2e93a4e66825d6bee245" kind="variable"><name>dist_interval</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a5c46fa237317e475593185efd817dbbd" kind="variable"><name>hours_per_bucket</name></member>
+    <member refid="structeosiosystem_1_1rex__return__pool_1a1e8d9b3fd69ac163dcf6d77c3aedb80a" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structright" kind="struct"><name>right</name>
+    <member refid="structright_1a72bb88ed7a935b2652edd7c01ed9cbfb" kind="variable"><name>contract</name></member>
+    <member refid="structright_1a7b8447f641a5a31a5c77b23ab3d97dd3" kind="variable"><name>action_name</name></member>
+  </compound>
+  <compound refid="classsendinline" kind="class"><name>sendinline</name>
+    <member refid="classsendinline_1a9302e043cf61d0320016d60788389ac8" kind="function"><name>send</name></member>
+  </compound>
+  <compound refid="classeosio_1_1soviet" kind="class"><name>eosio::soviet</name>
+    <member refid="group__public__actions_1ga56d446612345f60629154447e0b8e108" kind="function"><name>exec</name></member>
+    <member refid="classeosio_1_1soviet_1ab866b3027630a8c43f307387bcaad687" kind="function"><name>newid</name></member>
+    <member refid="group__public__actions_1ga00c952b8cc000504ae105c82014217e8" kind="function"><name>addstaff</name></member>
+    <member refid="group__public__actions_1gaff2ccc480f8674e7b2f1592ccff4f17b" kind="function"><name>rmstaff</name></member>
+    <member refid="group__public__actions_1gab568d02a607f4a7c8310a4387ef2a37e" kind="function"><name>setrights</name></member>
+    <member refid="group__public__actions_1ga3c28fb6fe494d72ba1a0de8d8eb7e930" kind="function"><name>validate</name></member>
+    <member refid="group__public__actions_1gab5f3356c48b5d4ed1c048125137568e5" kind="function"><name>joincoop</name></member>
+    <member refid="group__public__actions_1ga3b326646392cc5dbccf6f76b5710d7bd" kind="function"><name>automate</name></member>
+    <member refid="group__public__actions_1gae253ba528c69482ca3370ce5fcc02f61" kind="function"><name>disautomate</name></member>
+    <member refid="group__public__actions_1ga6ff3916db9519e3558e3576e47055dc0" kind="function"><name>authorize</name></member>
+    <member refid="group__public__actions_1gad1fc0777d9b64aeaeb1cde7f413222cb" kind="function"><name>createboard</name></member>
+    <member refid="group__public__actions_1ga497f15fa085d12b2638cbc96ce85ddd9" kind="function"><name>votefor</name></member>
+    <member refid="group__public__actions_1gac3d33694508208c379e18cb958a312c1" kind="function"><name>voteagainst</name></member>
+    <member refid="group__public__actions_1gac53e1df4741d4e54d05fefbcdd8612b7" kind="function"><name>cancelvote</name></member>
+    <member refid="group__public__actions_1ga51caad33b4bf87669059fe0314d674be" kind="function"><name>change</name></member>
+    <member refid="classeosio_1_1soviet_1ac5ed92ff962a4e9b879b0df3984fa282" kind="function"><name>joincoop_effect</name></member>
+    <member refid="classeosio_1_1soviet_1abe351d4443e3fc5d242876592132f56a" kind="function"><name>is_valid_action_for_automation</name></member>
+    <member refid="classeosio_1_1soviet_1a8dada84517e3b465fe811da5fe72f88e" kind="function"><name>change_effect</name></member>
+  </compound>
+  <compound refid="structstaff" kind="struct"><name>staff</name>
+    <member refid="structstaff_1aa67b206d474a4f87453bca87fda2f01b" kind="variable"><name>username</name></member>
+    <member refid="structstaff_1a8fa0fdaf003c7588f9f1185a087785ba" kind="variable"><name>position_title</name></member>
+    <member refid="structstaff_1a935eee764193e5796da146fedfc465e5" kind="variable"><name>rights</name></member>
+    <member refid="structstaff_1ab46bbfc312f86ec081fead61e3d01a10" kind="variable"><name>created_at</name></member>
+    <member refid="structstaff_1a2079dc310b3faf4112d9046e54a72ab7" kind="variable"><name>updated_at</name></member>
+    <member refid="structstaff_1a907194daa8db9aee9629350891757d22" kind="function"><name>primary_key</name></member>
+    <member refid="structstaff_1a72d9d9dac115d8379e3afa76ff712c98" kind="function"><name>has_right</name></member>
+  </compound>
+  <compound refid="classeosiosystem_1_1system__contract" kind="class"><name>eosiosystem::system_contract</name>
+    <member refid="classeosiosystem_1_1system__contract_1aba8828e31f9dc03a30c0888689f91d86" kind="typedef"><name>init_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a405cf7f71120642d5d043fa4648be9b1" kind="typedef"><name>setacctram_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1add114cf85734d0c85edacb0eb7167883" kind="typedef"><name>setacctnet_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7a538179a1332d7f139e881cff0c04cc" kind="typedef"><name>setacctcpu_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0cca489c98b5874f5493f4447e7c52a9" kind="typedef"><name>activate_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a1f08c7b7252348f1b64ad4f2699c4de5" kind="typedef"><name>delegatebw_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af86584ee57497b9c74b031060416f63b" kind="typedef"><name>deposit_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a8234e4f9251f7d72ba750d507e2db304" kind="typedef"><name>withdraw_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6d5c3ebf5382ac0b4d56869192e9823f" kind="typedef"><name>buyrex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0894cc0e8e2fa25b39e02d4127071677" kind="typedef"><name>unstaketorex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a89e8fd4a28f19fe76c015bdaacc8cb74" kind="typedef"><name>sellrex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9e06226a106c361f7847b2070ccfb136" kind="typedef"><name>cnclrexorder_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a766a5521fa602588324d62ede1c3bda9" kind="typedef"><name>rentcpu_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa6235054ddca972ad4ecd1eff6e3d589" kind="typedef"><name>rentnet_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a66a4dbb5b96180f562f5e1823fea993e" kind="typedef"><name>fundcpuloan_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a155a34b110e71371cc288e13d7078220" kind="typedef"><name>fundnetloan_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0b36044d4918b6220e81221039df8ea9" kind="typedef"><name>defcpuloan_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a57a2eb14c8fe00b86261c2664cc35148" kind="typedef"><name>defnetloan_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a3b0c64a9fcbc3446a2ca563ffcbce106" kind="typedef"><name>updaterex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7484d9db011093f3eec1b6de9e98a51b" kind="typedef"><name>rexexec_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aeae78fbfa51ce68d6a58711007a83177" kind="typedef"><name>setrex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af03ad94c5ca5fd992199e686f075a2ba" kind="typedef"><name>mvtosavings_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1adfb546aed7a8a0100202440f5fd5b619" kind="typedef"><name>mvfrsavings_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a583814bb86c124ededb026ad4589de1c" kind="typedef"><name>consolidate_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aee3673f21c82028044f3368ada9186f2" kind="typedef"><name>closerex_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5751bdd1f68be3270595b4bba1a241f4" kind="typedef"><name>undelegatebw_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a379cc18be05f0d81a71f15a52f7c6f48" kind="typedef"><name>buyram_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af7ddbe541c404f6a8d1094b8278e6128" kind="typedef"><name>buyrambytes_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a23b25bc251abc52228f93673ed544d36" kind="typedef"><name>sellram_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5ef59ea3e3db4bb9bbe075531109d687" kind="typedef"><name>refund_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ab5efbdbade110f33fed3c39083d3f76f" kind="typedef"><name>regproducer_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae39dfe220205b48d192a90abc3e790da" kind="typedef"><name>regproducer2_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a34d06c5e737193d6cf707edc7d57407e" kind="typedef"><name>unregprod_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a4caad060672784b32a36a2d634a5f3b3" kind="typedef"><name>setram_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aad4ad84241c38c3541a0438fbca0cc9b" kind="typedef"><name>setramrate_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aab2cd194b5dbe033163f2ed21c28ebc4" kind="typedef"><name>voteproducer_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aad3da6aae1bb02b7c177b98796a5107a" kind="typedef"><name>voteupdate_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a8b1c5e40db2dd35043dc289fec274da2" kind="typedef"><name>regproxy_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6fb5d3547618397ee9411fe31c549565" kind="typedef"><name>claimrewards_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9cd7fa6413479ac6ffe3e548b847ea64" kind="typedef"><name>rmvproducer_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a56315050770b4f79af95042a95b58507" kind="typedef"><name>updtrevision_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a4061267666d68ba49beda47dc1440194" kind="typedef"><name>bidname_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6d35995c9e7932d40ea91609744c9aa3" kind="typedef"><name>bidrefund_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7c19bb1d99d1abbd00be825f69fbfc3f" kind="typedef"><name>setpriv_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5546364ddc017d87f96ed0e9a6b1f931" kind="typedef"><name>setalimits_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae0cbe561757f43c3856caf74ff58ea2b" kind="typedef"><name>setparams_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1addda8e74a2c1657fbde05113951e05a3" kind="typedef"><name>setinflation_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a752504e09e8196326e836ef099588650" kind="typedef"><name>cfgpowerup_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac85b9bef9b3fc161a14712f52ec31e5b" kind="typedef"><name>powerupexec_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac3cd9f92205bbc3ba9fdfdaacdeedf61" kind="typedef"><name>powerup_action</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a41105c20306ae2478d91e0fab56f2e58" kind="variable"><name>_voters</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a668decff73ee059f8e89cd885e85f3ce" kind="variable"><name>_producers</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a685072073da57c3ccf5d4611fb157a33" kind="variable"><name>_producers2</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae0fead4e6333fb6ff81b38c873beb484" kind="variable"><name>_global</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae2f5d5c5de33662921eca488a4c2bcb1" kind="variable"><name>_global2</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a3a9a6e276267b4c193005eedd13c386f" kind="variable"><name>_global3</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af82e0e1fecce0302f8e6ff4f4bc1b164" kind="variable"><name>_global4</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a40e74853eda24e1b15d8f5b6499c8820" kind="variable"><name>_gstate</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a11360303e4449a02eb87ccab4cb0e219" kind="variable"><name>_gstate2</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae5075170abd3571b3e9bcad43e17b8fc" kind="variable"><name>_gstate3</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae2ce0798dc0c26a747af79259cff248f" kind="variable"><name>_gstate4</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a2b149f7463767158fac80045940da7d5" kind="variable"><name>_rammarket</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1acce2579f252a2d5739f2dc99eb5ff1e1" kind="variable"><name>_rexpool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0ccf372dabc1dbfa5c40f2ab5f9de7c1" kind="variable"><name>_rexretpool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ab90cd10f3de26ac0ffc1cee1ebe06e56" kind="variable"><name>_rexretbuckets</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a431e54726c73c77a9299791d5eb4d766" kind="variable"><name>_rexfunds</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9387fda3cd33795afe8f6197071e6b29" kind="variable"><name>_rexbalance</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae8fc8fedabbbe903d7ec35671e0c71cb" kind="variable"><name>_rexorders</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a8aa92752c022c824f12420a11a7fa8be" kind="variable"><name>vote_stake_updater</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1adfc25b00a14e482c7fb1161dd38096bd" kind="variable"><name>active_permission</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a21c029a978b1648e8cea9d7c60a5faf3" kind="variable"><name>token_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5b9e69a4f134680f236b696f7ec2ca0f" kind="variable"><name>ram_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a8784bf6def9ebc7dac2cbba94c715b03" kind="variable"><name>ramfee_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5cde7e6a57d453cc63d509c6657355e2" kind="variable"><name>stake_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aeec189aa121eaf90aee0c180cd59cc26" kind="variable"><name>bpay_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a3b108816fa9ae2ad0c89aae2ec31585b" kind="variable"><name>vpay_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a03e79dcf0584dd7fd1dbb1aa072befb1" kind="variable"><name>names_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9b34f8a2b01fabecd852ac3776795cb6" kind="variable"><name>saving_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af03b543de4dae959dc1fea8801a3311f" kind="variable"><name>rex_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6574c237dbe1df9698e0e63be5b20cd9" kind="variable"><name>reserve_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0b608cd46d931874c80e9b72c4f0d664" kind="variable"><name>null_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac0eb9382f47fc00bcf66b81a26805e73" kind="variable"><name>ramcore_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6317a93cd512ff0fc3b6a802bd5aa229" kind="variable"><name>ram_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1adae70035ee4360f4b5fa8113679dea04" kind="variable"><name>rex_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae1a0434a7adf53cc3a168f1b2f947ebd" kind="function"><name>system_contract</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae0264c3f2d2a640d9a60a4c9c9ca089c" kind="function"><name>~system_contract</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a63afe62bd82d52230be1e0ded1bdb644" kind="function"><name>init</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a139df610c139741a86ef0de91f2ad4d9" kind="function"><name>emit</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae75458e3f898b3bc834311fa54abc6a0" kind="function"><name>onblock</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ad5b9178dfbe60ba6059c52d488ecf303" kind="function"><name>setalimits</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1acdd7c75402f43876338d33649d2e6903" kind="function"><name>setacctram</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa4559928f468c62867916d1251fa33b3" kind="function"><name>setacctnet</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9a005d230746b68cafa934a067f287af" kind="function"><name>setacctcpu</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a1873247483b285e19010b7469419a60d" kind="function"><name>activate</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa54b498595abb1a3ad9c62c597d4f7b5" kind="function"><name>delegatebw</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a1b875a922b7ab8079b742eb8e714ae48" kind="function"><name>setrex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a99e6b1b401c6a8a023f61ed2b52e98d7" kind="function"><name>deposit</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a45eea3c4ce35174eb1c3ad1e64954d5e" kind="function"><name>withdraw</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a36aebc85b90ecf7e5389f8daea64592a" kind="function"><name>buyrex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a94675167323c97d0dcdc92c5b7f0df60" kind="function"><name>unstaketorex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9ee2d79b7e9c1432f312535936e4848f" kind="function"><name>sellrex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac4bc1aa3fe5d72c9b1ed8af258c9f935" kind="function"><name>cnclrexorder</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a2babe24ecc07b5576ce48c0b7220e7f4" kind="function"><name>rentcpu</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a89b5465c60b08ecb06538ea162751319" kind="function"><name>rentnet</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aed60ee281d5277819ed1335322b2d53f" kind="function"><name>fundcpuloan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a8e99bf65da50dc92089140618112db27" kind="function"><name>fundnetloan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a94e2f4698dd0ad80e4252a772d424481" kind="function"><name>defcpuloan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a56a54ec0ca8f37271fbcbc9cc5181145" kind="function"><name>defnetloan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a33a33fedadd8b07f8b9fcee22e1a966d" kind="function"><name>updaterex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a21d675936f040b2dcdcebff3765a60a7" kind="function"><name>rexexec</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac6c59d9470ffe96336455b92804aa4de" kind="function"><name>consolidate</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac673c662e873032e4a67b1d888b23e6f" kind="function"><name>mvtosavings</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a975cbc9b4670f245c76b0e3f3c86136f" kind="function"><name>mvfrsavings</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0a1b64d68fa08a63ee570a58d45e5626" kind="function"><name>closerex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a4db0be2c90d342ecd269fdbb57c51091" kind="function"><name>undelegatebw</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a04be77ea83f87d1533606390c37cf5d1" kind="function"><name>buyram</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a93950629ac6f931b47542727a5411097" kind="function"><name>buyrambytes</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6b00b900a128d2718244ac8a408f65d3" kind="function"><name>sellram</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a10a63e006f9869caeaf2592bdfbccc42" kind="function"><name>refund</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a252441c7b5811068d336f37ab627ecd9" kind="function"><name>regproducer</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6c1143de786b7d7601ac0b0968cb0f19" kind="function"><name>regproducer2</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0b8c45d3226929472bc5785742c05152" kind="function"><name>unregprod</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ad8a6eb47fd97c9f243019d93916ff78f" kind="function"><name>setram</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7d984add31b6060bb59d472f9f1bd1a1" kind="function"><name>setramrate</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a19d51a2b9b57ffb656612c280ee4ab4e" kind="function"><name>voteproducer</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1afd8f9ea7890c647010bc9bccdcda6ba9" kind="function"><name>voteupdate</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7192c64e5a9d0b9b202390dbfade0858" kind="function"><name>regproxy</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa4ea1b93cfb3d99fcaaabb994c711bee" kind="function"><name>setparams</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a34b35d1f073383e599d4e2bb56e20524" kind="function"><name>claimrewards</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a648ec27a9bc3bf7e36c5c88f6932b9ca" kind="function"><name>setpriv</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a2a41dc1871059a536a55626b8c76f5b9" kind="function"><name>rmvproducer</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0af4a55018801131ae7dc7a923bead0b" kind="function"><name>updtrevision</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af1c329fbf0e3e45b62b729e6ee743c62" kind="function"><name>bidname</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a1ad9f05ad7242412bf5ad87706f923ff" kind="function"><name>bidrefund</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac2cab12a3c2a1d20a3215124100cf3e1" kind="function"><name>setinflation</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae71212071f747832a2a56eb4868d9c81" kind="function"><name>cfgpowerup</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa573d628b237c167aa99fc71cb150736" kind="function"><name>powerupexec</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a998b5936930f7ce0f60df2b6a8404926" kind="function"><name>powerup</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ab940f454d4d3d0018f22bf472caf3b52" kind="function"><name>limitauthchg</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a50976d2a74593cdd840662159dc21ab1" kind="function"><name>get_core_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a91de00b875703918a8c95898a046bcc2" kind="function"><name>get_core_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa7000a5c93cf390e5495e65704919674" kind="function"><name>get_default_parameters</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7d37b1992d1299b8354e7efb1872de6c" kind="function"><name>get_default_inflation_parameters</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae6143e5f12ba87dc18105710189db14b" kind="function"><name>get_rex_maturity</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" kind="function"><name>core_symbol</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae248c8483e7ff56c697793c49bd58700" kind="function"><name>update_ram_supply</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae6107f7d60481e9d2ceceb3bc11f9e58" kind="function"><name>runrex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa4ae35d44dadd1eb2fbcc0782b89bf89" kind="function"><name>update_rex_pool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac1e24d59a71d76c1706a87584635f89d" kind="function"><name>update_resource_limits</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a9d899492df3ee11bad2f6b028ced6ace" kind="function"><name>check_voting_requirement</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a80d0308e3ef8c8f7efba13c635866332" kind="function"><name>fill_rex_order</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5366ce381bf8020a24c597109f2cb053" kind="function"><name>update_rex_account</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ad6ba033cdb66fc3e66790f4bfde91455" kind="function"><name>channel_to_rex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6a8b738310e28209d7ed24fb94cb8853" kind="function"><name>channel_namebid_to_rex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ad3d55a418a62ecbb52ef5df21b1fd2d5" kind="function"><name>rent_rex</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ae587a91e5f2759077e3259232c6b2086" kind="function"><name>fund_rex_loan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a78afae5de1343823badbc8a412a4e6c3" kind="function"><name>defund_rex_loan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af4cddb1aa9e3aa7fc0027df70880235f" kind="function"><name>transfer_from_fund</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a2341229da3b76885139cb8d762f510d4" kind="function"><name>transfer_to_fund</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a719d5ebcb8b11ac1813373d6c0b7c70b" kind="function"><name>rex_loans_available</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a99cf9915dea4dab19066fea896a3269f" kind="function"><name>rex_system_initialized</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a2a25c78af6d46b3abfe7c7ad058c4e77" kind="function"><name>rex_available</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a00a079da401dbd1a874266bcd56da155" kind="function"><name>add_to_rex_balance</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a6588b4a72f9aa7ef867cc320d8c2518e" kind="function"><name>add_to_rex_pool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a01f08af9703989d2642f0d249c6c450c" kind="function"><name>add_to_rex_return_pool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a01641f06b4f4b67ef4b4f98887e639c0" kind="function"><name>process_rex_maturities</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ab8cb48908dfa3b360a978aa69da30dfd" kind="function"><name>consolidate_rex_balance</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1af2126cfdb9750a8b4a586b6f78f81c97" kind="function"><name>read_rex_savings</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a133d92ee8729bb63fb3736b148136cf0" kind="function"><name>put_rex_savings</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a43667ea3ddb45f37a7fc0396dd193268" kind="function"><name>update_rex_stake</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0906337258bc943a64c822cdea27c98e" kind="function"><name>add_loan_to_rex_pool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a40102c661fe0f3955dacc07255679e6d" kind="function"><name>remove_loan_from_rex_pool</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a1c86b37ad9ae316440399bde38769abf" kind="function"><name>update_renewed_loan</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa4121046f43083640f3276a4e7974572" kind="function"><name>changebw</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aa192ed8af461c5162749a1a7f3886f06" kind="function"><name>update_voting_power</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0709db97aa347d697fb4cbf3f67f2a96" kind="function"><name>register_producer</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a616d617680f7ed47eb3f7fc2b984650f" kind="function"><name>update_elected_producers</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1aac11a1b221a613107fb8ca99e080a616" kind="function"><name>update_votes</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a91084ea3aa4700b2565afd34f9faff31" kind="function"><name>propagate_weight_change</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ad13608cacffe1c482186c5d6dca7c6c7" kind="function"><name>update_producer_votepay_share</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1ac4e5650d82b455248a740fb417ae9fd9" kind="function"><name>update_total_votepay_share</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a0746514c7d241fa865fcc0a03d954ce1" kind="function"><name>adjust_resources</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a5917101bfc856af43a5d29578aeec707" kind="function"><name>process_powerup_queue</name></member>
+    <member refid="classeosiosystem_1_1system__contract_1a7cabfe02d2b7028ec0a2e2aae10c1155" kind="function"><name>add_to_blockinfo_table</name></member>
+  </compound>
+  <compound refid="classeosio_1_1token" kind="class"><name>eosio::token</name>
+    <member refid="classeosio_1_1token_1ab6f5f8e8c550b3ae9492fcde3f04458a" kind="typedef"><name>create_action</name></member>
+    <member refid="classeosio_1_1token_1a0a264928ea4b4c3056884cc95c9bea49" kind="typedef"><name>issue_action</name></member>
+    <member refid="classeosio_1_1token_1adebe02a32df2bf3ca7f27eec264b32c4" kind="typedef"><name>retire_action</name></member>
+    <member refid="classeosio_1_1token_1a48e0c826f1e416bf99439b0b7e637a29" kind="typedef"><name>transfer_action</name></member>
+    <member refid="classeosio_1_1token_1aee1aaa798e4d4a973b40a5a4b95d2a21" kind="typedef"><name>open_action</name></member>
+    <member refid="classeosio_1_1token_1a3e49a7888cde765dfe8f4966b3067036" kind="typedef"><name>close_action</name></member>
+    <member refid="classeosio_1_1token_1aef73052a1688f86f1afb92879130e147" kind="typedef"><name>accounts</name></member>
+    <member refid="classeosio_1_1token_1ab30a2faa46a28a61ddfbe4241c550193" kind="typedef"><name>stats</name></member>
+    <member refid="classeosio_1_1token_1a5277670549e2458dd4a4fab4c56a9599" kind="function"><name>create</name></member>
+    <member refid="classeosio_1_1token_1a3a62d2a7493710b3e34fbdfd4fe81d59" kind="function"><name>issue</name></member>
+    <member refid="classeosio_1_1token_1a4bf7770086ab81931c6c5a22265bae4f" kind="function"><name>retire</name></member>
+    <member refid="classeosio_1_1token_1a8a9d08a9791d818797dc5f70ed8f826f" kind="function"><name>transfer</name></member>
+    <member refid="classeosio_1_1token_1a4da303699332aacdc69f3ff582477141" kind="function"><name>open</name></member>
+    <member refid="classeosio_1_1token_1a88402f75888c4cfe6a3ef0391bd7ecbd" kind="function"><name>close</name></member>
+    <member refid="classeosio_1_1token_1af0ca80206f8f0131147b0bec367c62d3" kind="function"><name>get_supply</name></member>
+    <member refid="classeosio_1_1token_1a65b248b1427e4ae01523d6f59f6a71ba" kind="function"><name>get_balance</name></member>
+    <member refid="classeosio_1_1token_1a28f25eaa6d0e7017f3d8760ad16960bc" kind="function"><name>sub_balance</name></member>
+    <member refid="classeosio_1_1token_1ad1eaa2275ba3d2da2663dd8c6595a598" kind="function"><name>add_balance</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1user__resources" kind="struct"><name>eosiosystem::user_resources</name>
+    <member refid="structeosiosystem_1_1user__resources_1a8a373411ce7eb180649f9a7c938fb7dd" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1user__resources_1ad6532b1796871feb9d26c94e69266e7a" kind="variable"><name>net_weight</name></member>
+    <member refid="structeosiosystem_1_1user__resources_1ace76500804d6a6bb4c0a2f0cc07f08b2" kind="variable"><name>cpu_weight</name></member>
+    <member refid="structeosiosystem_1_1user__resources_1a89f602f8770024c9d9fd592854ac9e75" kind="variable"><name>ram_bytes</name></member>
+    <member refid="structeosiosystem_1_1user__resources_1a62970931ec8e856b3ce21a78f5d51306" kind="function"><name>is_empty</name></member>
+    <member refid="structeosiosystem_1_1user__resources_1a8c06a7e1b3e4a3cc22af7fd677b09542" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structusers" kind="struct"><name>users</name>
+    <member refid="structusers_1a737eae3ed6e76f98919b26b20288164b" kind="variable"><name>username</name></member>
+    <member refid="structusers_1ae07b933da6c46eb7dfe70f5c95ade143" kind="variable"><name>profile_hash</name></member>
+    <member refid="structusers_1ac39df2d81bcbcf04648eab679a910044" kind="variable"><name>verification</name></member>
+    <member refid="structusers_1a6894c358dbcce05a63de742f2b5fbd8e" kind="function"><name>primary_key</name></member>
+    <member refid="structusers_1a0aef32204b2b1f86902c63150d4f230c" kind="function"><name>by_verified</name></member>
+  </compound>
+  <compound refid="structverification" kind="struct"><name>verification</name>
+    <member refid="structverification_1a7fb3c0fd447a28ad0919859e3ccb5aa7" kind="variable"><name>verificator</name></member>
+    <member refid="structverification_1aeb6702bd4b7903963252735d6f760c50" kind="variable"><name>is_verified</name></member>
+    <member refid="structverification_1a70dd1f70e9c4cd9683dfd0c7203051b5" kind="variable"><name>procedure</name></member>
+    <member refid="structverification_1aa7d19ca745ac2729d841ff65548622e6" kind="variable"><name>created_at</name></member>
+    <member refid="structverification_1a674206f7442d3ba3319ce4b22d542b04" kind="variable"><name>last_update</name></member>
+    <member refid="structverification_1a231be135ab1c6c218ca0ed86383d043c" kind="variable"><name>notice</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1voter__info" kind="struct"><name>eosiosystem::voter_info</name>
+    <member refid="structeosiosystem_1_1voter__info_1a6bb7318b053ad6dbbde3a0f4415d2cf5" kind="enum"><name>flags1_fields</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a6bb7318b053ad6dbbde3a0f4415d2cf5ae149b497807ee78e9e5180d213e5a402" kind="enumvalue"><name>ram_managed</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a6bb7318b053ad6dbbde3a0f4415d2cf5a944559ad694d4c0fc4bf286864caf2a2" kind="enumvalue"><name>net_managed</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a6bb7318b053ad6dbbde3a0f4415d2cf5ace319c6a1aa0ced6ea5a02270d863f4c" kind="enumvalue"><name>cpu_managed</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a09e1d98da6939690519ea85baedf1c01" kind="variable"><name>owner</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a482ed4e822024852ac234353ac5f08cc" kind="variable"><name>proxy</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a90023077cb4f76e82c42482dc65a2783" kind="variable"><name>producers</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a3f1a76120b906f5f304c0c4604d4bf37" kind="variable"><name>staked</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1aa60bfb8489e47d8514efd230cd18288e" kind="variable"><name>last_vote_weight</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1af7a7c2263d90ed79d2bf4281e57193c0" kind="variable"><name>proxied_vote_weight</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1aee50442b79d5561a967486e6b7a61e65" kind="variable"><name>is_proxy</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1af77c6136a8d1300951ad6f39b3c28dc1" kind="variable"><name>flags1</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a5c4ecbb96e5e70acd2b9ce55c6a886d0" kind="variable"><name>reserved2</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1ac45fcd076d0257637f5c6b80618e4647" kind="variable"><name>reserved3</name></member>
+    <member refid="structeosiosystem_1_1voter__info_1a1fdb370974b4c33380e8114ff52a7d8f" kind="function"><name>primary_key</name></member>
+  </compound>
+  <compound refid="structeosiobios_1_1wait__weight" kind="struct"><name>eosiobios::wait_weight</name>
+    <member refid="structeosiobios_1_1wait__weight_1ad5cbfb9e4e061f20ad06134ff7c7a8e9" kind="variable"><name>wait_sec</name></member>
+    <member refid="structeosiobios_1_1wait__weight_1a9a3d73af3abe1105cbb23ea8cbdecc5c" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosioboot_1_1wait__weight" kind="struct"><name>eosioboot::wait_weight</name>
+    <member refid="structeosioboot_1_1wait__weight_1a32fde6e420badc853fafc1981de02c98" kind="variable"><name>wait_sec</name></member>
+    <member refid="structeosioboot_1_1wait__weight_1a0940f3b02940bf41ec6b6ce5980ea93a" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structeosiosystem_1_1wait__weight" kind="struct"><name>eosiosystem::wait_weight</name>
+    <member refid="structeosiosystem_1_1wait__weight_1ad12a131189bb9c36470e221222338bb7" kind="variable"><name>wait_sec</name></member>
+    <member refid="structeosiosystem_1_1wait__weight_1a9a1e16d11c7b5fd2ced0b1f15f418d8a" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="structwait__weight" kind="struct"><name>wait_weight</name>
+    <member refid="structwait__weight_1a3286af83356d29e62a35ccb650d92c98" kind="variable"><name>wait_sec</name></member>
+    <member refid="structwait__weight_1a41ebcf1f6076155456429094e7db0d2f" kind="variable"><name>weight</name></member>
+  </compound>
+  <compound refid="classeosio_1_1wrap" kind="class"><name>eosio::wrap</name>
+    <member refid="classeosio_1_1wrap_1ab6b98aea95fa979a2740a617251c613e" kind="typedef"><name>exec_action</name></member>
+    <member refid="classeosio_1_1wrap_1a62a9871067de866d265fd69a5a4eac60" kind="function"><name>exec</name></member>
+  </compound>
+  <compound refid="namespaceanonymous__namespace_02block__info_8cpp_03" kind="namespace"><name>anonymous_namespace{block_info.cpp}</name>
+    <member refid="namespaceanonymous__namespace_02block__info_8cpp_03_1ad7f95fa3a1a2f6fa1c2ab0646270e17b" kind="function"><name>block_height_from_id</name></member>
+  </compound>
+  <compound refid="namespaceanonymous__namespace_02blockinfo__tester_8cpp_03" kind="namespace"><name>anonymous_namespace{blockinfo_tester.cpp}</name>
+  </compound>
+  <compound refid="namespaceeosio" kind="namespace"><name>eosio</name>
+    <member refid="namespaceeosio_1af04d0325c76e07a604c33890aa464181" kind="typedef"><name>automator_index</name></member>
+    <member refid="namespaceeosio_1acf5ac0eb7a5a29eebbe8289c11fc3768" kind="typedef"><name>autosigner_index</name></member>
+    <member refid="namespaceeosio_1ad3c1abebeb51a91ae0b8ea806e93729f" kind="typedef"><name>joincoops_index</name></member>
+    <member refid="namespaceeosio_1aaea7ad24c42f9686f6dfc4db3bfa6d23" kind="typedef"><name>changes_index</name></member>
+    <member refid="namespaceeosio_1a5a18f73f0452f4391a2e8abfc7d0f373" kind="function"><name>get_trx_header</name></member>
+    <member refid="namespaceeosio_1af902933339a070f5af0f38e4c4af7f07" kind="function"><name>trx_is_authorized</name></member>
+    <member refid="namespaceeosio_1abaa5d0db854d769ac41e2f062f417485" kind="function"><name>get_approvals_and_adjust_table</name></member>
+  </compound>
+  <compound refid="namespaceeosiobios" kind="namespace"><name>eosiobios</name>
+  </compound>
+  <compound refid="namespaceeosioboot" kind="namespace"><name>eosioboot</name>
+  </compound>
+  <compound refid="namespaceeosiosystem" kind="namespace"><name>eosiosystem</name>
+    <member refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kind="typedef"><name>real_type</name></member>
+    <member refid="namespaceeosiosystem_1a084bb74fe483e49001e674d5e66001de" kind="typedef"><name>rammarket</name></member>
+    <member refid="namespaceeosiosystem_1a5e1fbfc9229b1616bfc70a519e26e9c2" kind="typedef"><name>blockchain_parameters_t</name></member>
+    <member refid="namespaceeosiosystem_1a89109f288e4d5622f4abd4c033e5698b" kind="typedef"><name>name_bid_table</name></member>
+    <member refid="namespaceeosiosystem_1a9fb24f45319750acae81a7d91703ea05" kind="typedef"><name>bid_refund_table</name></member>
+    <member refid="namespaceeosiosystem_1a129e3f7382aec9aeb9122766f5490ea6" kind="typedef"><name>voters_table</name></member>
+    <member refid="namespaceeosiosystem_1aef9278e2c0a2a94a5ca2da72768058f9" kind="typedef"><name>producers_table</name></member>
+    <member refid="namespaceeosiosystem_1aec03ff9b9e26842a0ae7543b729b4eb8" kind="typedef"><name>producers_table2</name></member>
+    <member refid="namespaceeosiosystem_1a2757bc4c835154772dce0d5891c93b58" kind="typedef"><name>global_state_singleton</name></member>
+    <member refid="namespaceeosiosystem_1adb616b32d645551d19e31961316dee14" kind="typedef"><name>global_state2_singleton</name></member>
+    <member refid="namespaceeosiosystem_1a958a67bf9b36e7cfba8b3e2ba38ed6cd" kind="typedef"><name>global_state3_singleton</name></member>
+    <member refid="namespaceeosiosystem_1ab4454fd166d16430c6918051bef3af56" kind="typedef"><name>global_state4_singleton</name></member>
+    <member refid="namespaceeosiosystem_1a392bb6f33cd89eca7b90ee378a7ac8e3" kind="typedef"><name>user_resources_table</name></member>
+    <member refid="namespaceeosiosystem_1a4e16d907ef29397151873e2b4af00694" kind="typedef"><name>del_bandwidth_table</name></member>
+    <member refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kind="typedef"><name>refunds_table</name></member>
+    <member refid="namespaceeosiosystem_1aab279eda55b1ca1ada69524b4e57bdcc" kind="typedef"><name>rex_pool_table</name></member>
+    <member refid="namespaceeosiosystem_1ad6a995b6569fba225ac32ede6445588f" kind="typedef"><name>rex_return_pool_table</name></member>
+    <member refid="namespaceeosiosystem_1ad64bb26fc1b25cadb230ce1e28332a8d" kind="typedef"><name>rex_return_buckets_table</name></member>
+    <member refid="namespaceeosiosystem_1ab4d1e899542a55b49aadb517d5779ac7" kind="typedef"><name>rex_fund_table</name></member>
+    <member refid="namespaceeosiosystem_1ae2f4a6ffda396b4ce5d5317fa8745469" kind="typedef"><name>rex_balance_table</name></member>
+    <member refid="namespaceeosiosystem_1ad6c349c930878b3b22f1bfa41a3f0958" kind="typedef"><name>rex_cpu_loan_table</name></member>
+    <member refid="namespaceeosiosystem_1ab9ffddfccf8c34d6546d5353e4cf522f" kind="typedef"><name>rex_net_loan_table</name></member>
+    <member refid="namespaceeosiosystem_1a15c29cf918cdbf79e26c480b9a3916bd" kind="typedef"><name>rex_order_table</name></member>
+    <member refid="namespaceeosiosystem_1abd7889c011c61f31f7a50f0fe8229bdf" kind="typedef"><name>powerup_state_singleton</name></member>
+    <member refid="namespaceeosiosystem_1ab020b27ad4ebc87d910cb31fbcf9e7ac" kind="typedef"><name>powerup_order_table</name></member>
+    <member refid="namespaceeosiosystem_1ab6669b0a3e740568b4ff28936a6ac5d5" kind="typedef"><name>limit_auth_change_table</name></member>
+    <member refid="namespaceeosiosystem_1ad71bd6c8c9f27a07f389e6a3ff365692" kind="variable"><name>powerup_frac</name></member>
+    <member refid="namespaceeosiosystem_1ad9f060ae539e7622b6d65da7d0e330d1" kind="variable"><name>seconds_per_year</name></member>
+    <member refid="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" kind="variable"><name>seconds_per_day</name></member>
+    <member refid="namespaceeosiosystem_1a651e86e8ec09b9e2c5161427512d1d6c" kind="variable"><name>seconds_per_hour</name></member>
+    <member refid="namespaceeosiosystem_1a783457e9dd7058cd7db98773e7049a8c" kind="variable"><name>useconds_per_year</name></member>
+    <member refid="namespaceeosiosystem_1a967cb121feaa3f5fb5734b0095578c4b" kind="variable"><name>useconds_per_day</name></member>
+    <member refid="namespaceeosiosystem_1a72db69dbbb548aea94fb755987a949ad" kind="variable"><name>useconds_per_hour</name></member>
+    <member refid="namespaceeosiosystem_1a0a989239fac055dbc55e5e6bd05f8f5f" kind="variable"><name>blocks_per_day</name></member>
+    <member refid="namespaceeosiosystem_1a919beca0c6b93527d5dd3ac5d56866ff" kind="variable"><name>min_activated_stake</name></member>
+    <member refid="namespaceeosiosystem_1a0843661bca3ab2494b8a85111041f078" kind="variable"><name>ram_gift_bytes</name></member>
+    <member refid="namespaceeosiosystem_1abd74f7ff09c66b649bd6f1e107c4035e" kind="variable"><name>min_pervote_daily_pay</name></member>
+    <member refid="namespaceeosiosystem_1ac8dd7319fe241152601b25ac397495f9" kind="variable"><name>refund_delay_sec</name></member>
+    <member refid="namespaceeosiosystem_1a3721a156697a43ad47f62beaa02a33a0" kind="variable"><name>inflation_precision</name></member>
+    <member refid="namespaceeosiosystem_1acc1a38de77d814642baee725124491d2" kind="variable"><name>default_annual_rate</name></member>
+    <member refid="namespaceeosiosystem_1a6212da08b9833235265db622f497e3b2" kind="variable"><name>pay_factor_precision</name></member>
+    <member refid="namespaceeosiosystem_1a5620d77ccf4632bbe8f5fc70fdcfeca5" kind="variable"><name>default_inflation_pay_factor</name></member>
+    <member refid="namespaceeosiosystem_1a2e07601e403e2204f93972cef556bd46" kind="variable"><name>default_votepay_factor</name></member>
+    <member refid="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" kind="function"><name>determine_ram_price</name></member>
+    <member refid="namespaceeosiosystem_1a6c407cd2889dff2a2fd87aa6ff808b0e" kind="function"><name>has_field</name></member>
+    <member refid="namespaceeosiosystem_1a5528d1c28d5d062e4b4289b4f7ae1c77" kind="function"><name>set_field</name></member>
+    <member refid="namespaceeosiosystem_1ab75117312e65b8b2882d459d0b33ca43" kind="function"><name>convert_to_block_signing_authority</name></member>
+    <member refid="namespaceeosiosystem_1a4546341868a4a05f2e23a02e1fc33262" kind="function"><name>check_auth_change</name></member>
+    <member refid="namespaceeosiosystem_1a939f3c4dea7f79c22bef6e334f66f9ae" kind="function"><name>validate_b1_vesting</name></member>
+    <member refid="namespaceeosiosystem_1a0c548c4fb43fa5317ba67ce4a8f1253d" kind="function"><name>get_continuous_rate</name></member>
+    <member refid="namespaceeosiosystem_1a72862b8240cb5b6ca4a64d8b93156229" kind="function"><name>update_weight</name></member>
+    <member refid="namespaceeosiosystem_1a600c42d1fe52a8337535ef7fe420ad2b" kind="function"><name>update_utilization</name></member>
+    <member refid="namespaceeosiosystem_1aa9c28f07fb58db2bebdc04a0003d7954" kind="function"><name>calc_powerup_fee</name></member>
+    <member refid="namespaceeosiosystem_1a3e036636d2cc92c741db234dd33870db" kind="function"><name>stake2vote</name></member>
+  </compound>
+  <compound refid="namespaceeosiosystem_1_1block__info" kind="namespace"><name>eosiosystem::block_info</name>
+    <member refid="namespaceeosiosystem_1_1block__info_1afeae846ac56f9c10cd082d960f2b0fc2" kind="typedef"><name>block_info_table</name></member>
+    <member refid="namespaceeosiosystem_1_1block__info_1ae5a5c96dd81824619747c6ed5de30d92" kind="variable"><name>rolling_window_size</name></member>
+    <member refid="namespaceeosiosystem_1_1block__info_1a2874613dc8993ab1cc70301c121823c6" kind="function"><name>get_latest_block_batch_info</name></member>
+  </compound>
+  <compound refid="namespacesystem__contracts" kind="namespace"><name>system_contracts</name>
+  </compound>
+  <compound refid="namespacesystem__contracts_1_1testing" kind="namespace"><name>system_contracts::testing</name>
+  </compound>
+  <compound refid="namespacesystem__contracts_1_1testing_1_1test__contracts" kind="namespace"><name>system_contracts::testing::test_contracts</name>
+  </compound>
+  <compound refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester" kind="namespace"><name>system_contracts::testing::test_contracts::blockinfo_tester</name>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kind="typedef"><name>time_point</name></member>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" kind="typedef"><name>varint</name></member>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a401279c7208232bcb2a66175b597ba44" kind="typedef"><name>input_type</name></member>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a78d9b5e57a0feb8412c06a95236fb12f" kind="typedef"><name>output_type</name></member>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a705f35a783c6830287ee92b4f8146d49" kind="function"><name>process</name></member>
+    <member refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a363d3c4aeaaf0d43dc7d2c8b36f35ed6" kind="function"><name>process_call</name></member>
+  </compound>
+  <compound refid="admins_8hpp" kind="file"><name>admins.hpp</name>
+  </compound>
+  <compound refid="balances_8hpp" kind="file"><name>balances.hpp</name>
+    <member refid="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" kind="typedef"><name>balances_index</name></member>
+    <member refid="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" kind="function"><name>add_balance</name></member>
+    <member refid="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" kind="function"><name>sub_balance</name></member>
+  </compound>
+  <compound refid="consts_8hpp" kind="file"><name>consts.hpp</name>
+    <member refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kind="variable"><name>_auction_name_length_limit</name></member>
+    <member refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kind="variable"><name>_ano</name></member>
+    <member refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" kind="variable"><name>_draft</name></member>
+    <member refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" kind="variable"><name>_marketplace</name></member>
+    <member refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kind="variable"><name>_soviet</name></member>
+    <member refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kind="variable"><name>_registrator</name></member>
+    <member refid="group__public__consts_1ga2cee8e2a9c7b46a967d9f76aafc19913" kind="variable"><name>_registrator_test</name></member>
+    <member refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kind="variable"><name>_system</name></member>
+    <member refid="group__public__consts_1gaa9b7db1458d5b98cdb67071a78f9b427" kind="variable"><name>_partners</name></member>
+    <member refid="group__public__consts_1gace206e4d1676c54066a8ed734347d072" kind="variable"><name>_regaccount_action</name></member>
+    <member refid="group__public__consts_1ga4815e0ccce32e816ccd173a076751310" kind="variable"><name>_change_action</name></member>
+    <member refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" kind="variable"><name>_root_symbol</name></member>
+    <member refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kind="variable"><name>_root_contract</name></member>
+    <member refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kind="variable"><name>RAM_symbol</name></member>
+    <member refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kind="variable"><name>_ramcore_symbol</name></member>
+    <member refid="consts_8hpp_1a53678aa3958110e34fce3501d7da1bdf" kind="define"><name>ANO</name></member>
+    <member refid="consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" kind="define"><name>DRAFT</name></member>
+    <member refid="consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" kind="define"><name>MARKETPLACE</name></member>
+    <member refid="consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" kind="define"><name>SOVIET</name></member>
+    <member refid="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" kind="define"><name>REGISTRATOR</name></member>
+    <member refid="consts_8hpp_1a21b97df85e65556468b28a576311271c" kind="define"><name>SYSTEM</name></member>
+    <member refid="consts_8hpp_1a00b6615022c601acf923252159f8ca5a" kind="define"><name>PARTNERS</name></member>
+  </compound>
+  <compound refid="coops_8hpp" kind="file"><name>coops.hpp</name>
+    <member refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kind="typedef"><name>boards_index</name></member>
+    <member refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kind="typedef"><name>staff_index</name></member>
+    <member refid="coops_8hpp_1a5606c7bd2cd3481be33ac3ae62e198db" kind="typedef"><name>members_index</name></member>
+    <member refid="coops_8hpp_1a72a45f6b0b38d457b6995be901b3a86a" kind="typedef"><name>decisions_index</name></member>
+    <member refid="coops_8hpp_1ad5f003c55132daafd76023b1cf8cfa02" kind="function"><name>get_board_by_id</name></member>
+    <member refid="coops_8hpp_1aa8eecd06a1a4c3332c69d66864d67ed8" kind="function"><name>get_board_by_type_or_fail</name></member>
+    <member refid="coops_8hpp_1a21eb5cb68c5e59f071d35c1ef42bc0e5" kind="function"><name>check_for_exist_board_by_type</name></member>
+  </compound>
+  <compound refid="counts_8hpp" kind="file"><name>counts.hpp</name>
+    <member refid="counts_8hpp_1a5af27e8af61127ac08bf8af64f4e4766" kind="typedef"><name>counts_index</name></member>
+    <member refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kind="function"><name>get_global_id</name></member>
+  </compound>
+  <compound refid="drafts_8hpp" kind="file"><name>drafts.hpp</name>
+    <member refid="drafts_8hpp_1adcdee8dac166d0b65f91bde533cc38a7" kind="typedef"><name>drafts_index</name></member>
+  </compound>
+  <compound refid="common_2marketplace_8hpp" kind="file"><name>marketplace.hpp</name>
+    <member refid="common_2marketplace_8hpp_1a55235a3802ae31bc4c340a496b506d6f" kind="typedef"><name>exchange_index</name></member>
+  </compound>
+  <compound refid="marketplace_2marketplace_8hpp" kind="file"><name>marketplace.hpp</name>
+  </compound>
+  <compound refid="permissions_8hpp" kind="file"><name>permissions.hpp</name>
+  </compound>
+  <compound refid="rammarket_8hpp" kind="file"><name>rammarket.hpp</name>
+  </compound>
+  <compound refid="users_8hpp" kind="file"><name>users.hpp</name>
+    <member refid="users_8hpp_1a6b40bad9a4347c88398ce060545d50ee" kind="typedef"><name>accounts_index</name></member>
+    <member refid="users_8hpp_1affe664f09d6b1f7e34b429eb3d6b7d2d" kind="typedef"><name>users_index</name></member>
+    <member refid="users_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kind="typedef"><name>orgs_index</name></member>
+  </compound>
+  <compound refid="utils_8hpp" kind="file"><name>utils.hpp</name>
+    <member refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kind="function"><name>combine_ids</name></member>
+    <member refid="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" kind="function"><name>generate_random_name</name></member>
+    <member refid="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" kind="function"><name>hashit</name></member>
+    <member refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kind="function"><name>hash64</name></member>
+    <member refid="utils_8hpp_1ab7a22a1903f5bfdad00a096b273691c1" kind="function"><name>hash64</name></member>
+  </compound>
+  <compound refid="marketplace_2marketplace_8cpp" kind="file"><name>marketplace.cpp</name>
+    <member refid="marketplace_2marketplace_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="soviet_2src_2marketplace_8cpp" kind="file"><name>marketplace.cpp</name>
+  </compound>
+  <compound refid="admins_8cpp" kind="file"><name>admins.cpp</name>
+  </compound>
+  <compound refid="change_8cpp" kind="file"><name>change.cpp</name>
+  </compound>
+  <compound refid="marketplace_2src_2soviet_8cpp" kind="file"><name>soviet.cpp</name>
+  </compound>
+  <compound refid="soviet_2soviet_8cpp" kind="file"><name>soviet.cpp</name>
+    <member refid="soviet_2soviet_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="registrator_8cpp" kind="file"><name>registrator.cpp</name>
+    <member refid="registrator_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="registrator_8hpp" kind="file"><name>registrator.hpp</name>
+  </compound>
+  <compound refid="soviet_8hpp" kind="file"><name>soviet.hpp</name>
+  </compound>
+  <compound refid="admin_8cpp" kind="file"><name>admin.cpp</name>
+  </compound>
+  <compound refid="automator_8cpp" kind="file"><name>automator.cpp</name>
+  </compound>
+  <compound refid="chairman_8cpp" kind="file"><name>chairman.cpp</name>
+  </compound>
+  <compound refid="joincoop_8cpp" kind="file"><name>joincoop.cpp</name>
+  </compound>
+  <compound refid="soviet_2src_2voting_8cpp" kind="file"><name>voting.cpp</name>
+    <member refid="soviet_2src_2voting_8cpp_1ab20072e16a87f58fda4efc958bd13b4a" kind="function"><name>add_vote_for</name></member>
+    <member refid="soviet_2src_2voting_8cpp_1a1f4ff43f9f1a73bd6d8c80f8333511c0" kind="function"><name>add_vote_against</name></member>
+  </compound>
+  <compound refid="system_2contracts_2eosio_8system_2src_2voting_8cpp" kind="file"><name>voting.cpp</name>
+  </compound>
+  <compound refid="eosio_8bios_8hpp" kind="file"><name>eosio.bios.hpp</name>
+  </compound>
+  <compound refid="eosio_8bios_8cpp" kind="file"><name>eosio.bios.cpp</name>
+  </compound>
+  <compound refid="eosio_8boot_8hpp" kind="file"><name>eosio.boot.hpp</name>
+  </compound>
+  <compound refid="eosio_8boot_8cpp" kind="file"><name>eosio.boot.cpp</name>
+  </compound>
+  <compound refid="eosio_8msig_8hpp" kind="file"><name>eosio.msig.hpp</name>
+  </compound>
+  <compound refid="eosio_8msig_8cpp" kind="file"><name>eosio.msig.cpp</name>
+  </compound>
+  <compound refid="block__info_8hpp" kind="file"><name>block_info.hpp</name>
+  </compound>
+  <compound refid="eosio_8system_8hpp" kind="file"><name>eosio.system.hpp</name>
+    <member refid="eosio_8system_8hpp_1ab33aa73384b7c71f406673bc37eb817e" kind="define"><name>CHANNEL_RAM_AND_NAMEBID_FEES_TO_REX</name></member>
+  </compound>
+  <compound refid="exchange__state_8hpp" kind="file"><name>exchange_state.hpp</name>
+  </compound>
+  <compound refid="limit__auth__changes_8hpp" kind="file"><name>limit_auth_changes.hpp</name>
+  </compound>
+  <compound refid="native_8hpp" kind="file"><name>native.hpp</name>
+  </compound>
+  <compound refid="powerup_8results_8hpp" kind="file"><name>powerup.results.hpp</name>
+  </compound>
+  <compound refid="rex_8results_8hpp" kind="file"><name>rex.results.hpp</name>
+  </compound>
+  <compound refid="block__info_8cpp" kind="file"><name>block_info.cpp</name>
+  </compound>
+  <compound refid="delegate__bandwidth_8cpp" kind="file"><name>delegate_bandwidth.cpp</name>
+  </compound>
+  <compound refid="eosio_8system_8cpp" kind="file"><name>eosio.system.cpp</name>
+  </compound>
+  <compound refid="exchange__state_8cpp" kind="file"><name>exchange_state.cpp</name>
+  </compound>
+  <compound refid="limit__auth__changes_8cpp" kind="file"><name>limit_auth_changes.cpp</name>
+  </compound>
+  <compound refid="name__bidding_8cpp" kind="file"><name>name_bidding.cpp</name>
+  </compound>
+  <compound refid="native_8cpp" kind="file"><name>native.cpp</name>
+  </compound>
+  <compound refid="powerup_8cpp" kind="file"><name>powerup.cpp</name>
+  </compound>
+  <compound refid="powerup_8results_8cpp" kind="file"><name>powerup.results.cpp</name>
+    <member refid="powerup_8results_8cpp_1a9b58db3feef4fe7c80025d93f95d33ed" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="producer__pay_8cpp" kind="file"><name>producer_pay.cpp</name>
+  </compound>
+  <compound refid="rex_8cpp" kind="file"><name>rex.cpp</name>
+  </compound>
+  <compound refid="rex_8results_8cpp" kind="file"><name>rex.results.cpp</name>
+    <member refid="rex_8results_8cpp_1a9b58db3feef4fe7c80025d93f95d33ed" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="eosio_8token_8hpp" kind="file"><name>eosio.token.hpp</name>
+  </compound>
+  <compound refid="eosio_8token_8cpp" kind="file"><name>eosio.token.cpp</name>
+  </compound>
+  <compound refid="eosio_8wrap_8hpp" kind="file"><name>eosio.wrap.hpp</name>
+  </compound>
+  <compound refid="eosio_8wrap_8cpp" kind="file"><name>eosio.wrap.cpp</name>
+  </compound>
+  <compound refid="blockinfo__tester_8hpp" kind="file"><name>blockinfo_tester.hpp</name>
+  </compound>
+  <compound refid="blockinfo__tester_8cpp" kind="file"><name>blockinfo_tester.cpp</name>
+    <member refid="blockinfo__tester_8cpp_1a979735e53c71ba52bb8515d2c4437059" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="sendinline_8cpp" kind="file"><name>sendinline.cpp</name>
+  </compound>
+  <compound refid="group__public__consts" kind="group"><name>public_consts</name>
+    <member refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kind="variable"><name>_auction_name_length_limit</name></member>
+    <member refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kind="variable"><name>_ano</name></member>
+    <member refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" kind="variable"><name>_draft</name></member>
+    <member refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" kind="variable"><name>_marketplace</name></member>
+    <member refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kind="variable"><name>_soviet</name></member>
+    <member refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kind="variable"><name>_registrator</name></member>
+    <member refid="group__public__consts_1ga2cee8e2a9c7b46a967d9f76aafc19913" kind="variable"><name>_registrator_test</name></member>
+    <member refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kind="variable"><name>_system</name></member>
+    <member refid="group__public__consts_1gaa9b7db1458d5b98cdb67071a78f9b427" kind="variable"><name>_partners</name></member>
+    <member refid="group__public__consts_1gace206e4d1676c54066a8ed734347d072" kind="variable"><name>_regaccount_action</name></member>
+    <member refid="group__public__consts_1ga4815e0ccce32e816ccd173a076751310" kind="variable"><name>_change_action</name></member>
+    <member refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" kind="variable"><name>_root_symbol</name></member>
+    <member refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kind="variable"><name>_root_contract</name></member>
+    <member refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kind="variable"><name>RAM_symbol</name></member>
+    <member refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kind="variable"><name>_ramcore_symbol</name></member>
+  </compound>
+  <compound refid="group__public__actions" kind="group"><name>public_actions</name>
+    <member refid="group__public__actions_1gacdfebb1a75a61c5d88ac5c280033d5b7" kind="function"><name>newaccount</name></member>
+    <member refid="group__public__actions_1ga25589c2c87b594bea2a82aea5bd1112c" kind="function"><name>reguser</name></member>
+    <member refid="group__public__actions_1ga7bb89160d6aa3dc59c5f78daeb0a6476" kind="function"><name>verificate</name></member>
+    <member refid="group__public__actions_1ga917f5557795120c2e303be599030d563" kind="function"><name>regorg</name></member>
+    <member refid="group__public__actions_1ga575710c03cd02b5e813816ea7e51500e" kind="function"><name>joincoop</name></member>
+    <member refid="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" kind="function"><name>update</name></member>
+    <member refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" kind="function"><name>changekey</name></member>
+    <member refid="group__public__actions_1gade0cb6032b21e1b753ec1b4f2b4bea73" kind="function"><name>confirmreg</name></member>
+    <member refid="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" kind="function"><name>newid</name></member>
+    <member refid="group__public__actions_1ga3517422842b666b51776938bcebb2e2f" kind="function"><name>moderate</name></member>
+    <member refid="group__public__actions_1ga7b9e65c0a9b8fc66441dd858d3bf7713" kind="function"><name>prohibit</name></member>
+    <member refid="group__public__actions_1ga330151d5b275e35f3f2d29b7d1d28a06" kind="function"><name>unpublish</name></member>
+    <member refid="group__public__actions_1gafb7c81428848bbc7e9401cdbfa4544d2" kind="function"><name>publish</name></member>
+    <member refid="group__public__actions_1gab643c84304eeca5b09587fa01ee7a5eb" kind="function"><name>order</name></member>
+    <member refid="group__public__actions_1ga74c30d5573748d4cf4c5a660568b2a60" kind="function"><name>offer</name></member>
+    <member refid="group__public__actions_1gad92430513caeffc680137faf448dfa62" kind="function"><name>accept</name></member>
+    <member refid="group__public__actions_1ga5a22790e2e3d7b7e99fe2bfab6c921ea" kind="function"><name>decline</name></member>
+    <member refid="group__public__actions_1ga7a94bccd35c4e34b2be7278ecd23092f" kind="function"><name>complete</name></member>
+    <member refid="group__public__actions_1gad65f1fa4ca14d3e25d2910a38770edaa" kind="function"><name>cancel</name></member>
+    <member refid="group__public__actions_1ga6424522b5a905f3340618bc496b0e8db" kind="function"><name>update</name></member>
+    <member refid="group__public__actions_1ga22590103c02d594a96c7fa0021c3cf6c" kind="function"><name>addpieces</name></member>
+    <member refid="group__public__actions_1gaada4a6d50780714dc9cfd6356a28a3dc" kind="function"><name>authorize</name></member>
+    <member refid="group__public__actions_1ga56d446612345f60629154447e0b8e108" kind="function"><name>exec</name></member>
+    <member refid="group__public__actions_1ga00c952b8cc000504ae105c82014217e8" kind="function"><name>addstaff</name></member>
+    <member refid="group__public__actions_1gaff2ccc480f8674e7b2f1592ccff4f17b" kind="function"><name>rmstaff</name></member>
+    <member refid="group__public__actions_1gab568d02a607f4a7c8310a4387ef2a37e" kind="function"><name>setrights</name></member>
+    <member refid="group__public__actions_1ga3c28fb6fe494d72ba1a0de8d8eb7e930" kind="function"><name>validate</name></member>
+    <member refid="group__public__actions_1ga3b326646392cc5dbccf6f76b5710d7bd" kind="function"><name>automate</name></member>
+    <member refid="group__public__actions_1gae253ba528c69482ca3370ce5fcc02f61" kind="function"><name>disautomate</name></member>
+    <member refid="group__public__actions_1ga6ff3916db9519e3558e3576e47055dc0" kind="function"><name>authorize</name></member>
+    <member refid="group__public__actions_1gad1fc0777d9b64aeaeb1cde7f413222cb" kind="function"><name>createboard</name></member>
+    <member refid="group__public__actions_1gab5f3356c48b5d4ed1c048125137568e5" kind="function"><name>joincoop</name></member>
+    <member refid="group__public__actions_1ga51caad33b4bf87669059fe0314d674be" kind="function"><name>change</name></member>
+    <member refid="group__public__actions_1ga497f15fa085d12b2638cbc96ce85ddd9" kind="function"><name>votefor</name></member>
+    <member refid="group__public__actions_1gac3d33694508208c379e18cb958a312c1" kind="function"><name>voteagainst</name></member>
+    <member refid="group__public__actions_1gac53e1df4741d4e54d05fefbcdd8612b7" kind="function"><name>cancelvote</name></member>
+  </compound>
+  <compound refid="group__public__tables" kind="group"><name>public_tables</name>
+  </compound>
+  <compound refid="group__eosioboot" kind="group"><name>eosioboot</name>
+  </compound>
+  <compound refid="dir_16b66e83d3a95362013bdac50b133c5e" kind="dir"><name>system/contracts/test_contracts/blockinfo_tester</name>
+  </compound>
+  <compound refid="dir_09ea38167bcd18bebf21602c52ea2b53" kind="dir"><name>system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester</name>
+  </compound>
+  <compound refid="dir_bdd9a5d540de89e9fe90efdfc6973a4f" kind="dir"><name>common</name>
+  </compound>
+  <compound refid="dir_ffef2b95cecc8775c327d00648f9c8c4" kind="dir"><name>system/contracts</name>
+  </compound>
+  <compound refid="dir_e07794005b08a2cb4ebfb71a8fb8d774" kind="dir"><name>system/contracts/eosio.bios</name>
+  </compound>
+  <compound refid="dir_e337d4e641f7f8e19145893295d4d2fa" kind="dir"><name>system/contracts/eosio.bios/include/eosio.bios</name>
+  </compound>
+  <compound refid="dir_f077d51be07343bbf597eeb20cc1d08d" kind="dir"><name>system/contracts/eosio.boot</name>
+  </compound>
+  <compound refid="dir_40c74b2717cd3a8949b40b9dbaff488d" kind="dir"><name>system/contracts/eosio.boot/include/eosio.boot</name>
+  </compound>
+  <compound refid="dir_ce176606428438334767495850c86213" kind="dir"><name>system/contracts/eosio.msig</name>
+  </compound>
+  <compound refid="dir_fe51f45cd2a4eee3e812ea0f9b909c13" kind="dir"><name>system/contracts/eosio.msig/include/eosio.msig</name>
+  </compound>
+  <compound refid="dir_2128c9b58603b3333f12ada3d58d7e98" kind="dir"><name>system/contracts/eosio.system</name>
+  </compound>
+  <compound refid="dir_07d8095513c121083074e3ad70aa68c1" kind="dir"><name>system/contracts/eosio.system/include/eosio.system</name>
+  </compound>
+  <compound refid="dir_b13090aff7bc4a99d8becb580edae8dd" kind="dir"><name>system/contracts/eosio.token</name>
+  </compound>
+  <compound refid="dir_d22eeb84e97da362fc52f7adf416c651" kind="dir"><name>system/contracts/eosio.token/include/eosio.token</name>
+  </compound>
+  <compound refid="dir_6d87d66b4207d4f27c04b85c214ccd60" kind="dir"><name>system/contracts/eosio.wrap</name>
+  </compound>
+  <compound refid="dir_c6fa302b7178ac141dbe1d4e625f0998" kind="dir"><name>system/contracts/eosio.wrap/include/eosio.wrap</name>
+  </compound>
+  <compound refid="dir_08248aaf9b78f63f0c466eaee30b0cd5" kind="dir"><name>system/contracts/eosio.bios/include</name>
+  </compound>
+  <compound refid="dir_b0051becfdad76ff107ba599d12443de" kind="dir"><name>system/contracts/eosio.boot/include</name>
+  </compound>
+  <compound refid="dir_e461500be802598d854d0b36cf5e54fe" kind="dir"><name>system/contracts/eosio.msig/include</name>
+  </compound>
+  <compound refid="dir_cd070083a45a40e05ca4d202ae14f219" kind="dir"><name>system/contracts/eosio.system/include</name>
+  </compound>
+  <compound refid="dir_c17616ab78943cfc34aae7d5443c2f25" kind="dir"><name>system/contracts/eosio.token/include</name>
+  </compound>
+  <compound refid="dir_bc72d101b77d550789fb3b3dc33669ab" kind="dir"><name>system/contracts/eosio.wrap/include</name>
+  </compound>
+  <compound refid="dir_97d7d39813020ece74876c8c8384c15f" kind="dir"><name>system/contracts/test_contracts/blockinfo_tester/include</name>
+  </compound>
+  <compound refid="dir_656aad15d99f9a978207731210ae2334" kind="dir"><name>marketplace</name>
+  </compound>
+  <compound refid="dir_cfc703efbd44a49c5257c82be2683191" kind="dir"><name>registrator</name>
+  </compound>
+  <compound refid="dir_10b6bef2923100c6a79e9a06d2bb5c05" kind="dir"><name>system/contracts/test_contracts/sendinline</name>
+  </compound>
+  <compound refid="dir_8227e9b4ea7c26213abc03b1561b6824" kind="dir"><name>soviet</name>
+  </compound>
+  <compound refid="dir_d12eb4bac3d37f149e776cd3b74981a7" kind="dir"><name>marketplace/src</name>
+  </compound>
+  <compound refid="dir_27832d3dfb1b61b60980c0b3d05084e7" kind="dir"><name>soviet/src</name>
+  </compound>
+  <compound refid="dir_4624ab8fb7ad97e7572d0f6df3712f65" kind="dir"><name>system/contracts/eosio.bios/src</name>
+  </compound>
+  <compound refid="dir_c9d8786bb80f0e52627acf7edb14e6de" kind="dir"><name>system/contracts/eosio.boot/src</name>
+  </compound>
+  <compound refid="dir_ad4449c1ff824f05abe5eec02d6cd361" kind="dir"><name>system/contracts/eosio.msig/src</name>
+  </compound>
+  <compound refid="dir_6a8acb4ca2e600d05e87e097f34e7223" kind="dir"><name>system/contracts/eosio.system/src</name>
+  </compound>
+  <compound refid="dir_c905ab711a6244052dbb1335bb842490" kind="dir"><name>system/contracts/eosio.token/src</name>
+  </compound>
+  <compound refid="dir_06ee2a12db410618c87e9de4c2c44dab" kind="dir"><name>system/contracts/eosio.wrap/src</name>
+  </compound>
+  <compound refid="dir_dfd2660ecd8965cf2080cd800bd51001" kind="dir"><name>system/contracts/test_contracts/blockinfo_tester/src</name>
+  </compound>
+  <compound refid="dir_ed0fdeee47dfaa5b112ebeb98d0b5821" kind="dir"><name>system/contracts/test_contracts/sendinline/src</name>
+  </compound>
+  <compound refid="dir_e8522150b400a43ebfdbd1fed060b8e2" kind="dir"><name>system</name>
+  </compound>
+  <compound refid="dir_6f90eff54b97e861d1c78bace5472a8a" kind="dir"><name>system/contracts/test_contracts</name>
+  </compound>
+</doxygenindex>

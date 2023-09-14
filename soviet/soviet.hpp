@@ -55,20 +55,29 @@ public:
 
   struct [[eosio::table, eosio::contract(SOVIET)]] counts : counts_base {};
  
-  struct [[eosio::table, eosio::contract(SOVIET)]] automator {
-    uint64_t id;
-    eosio::name coop_username;
-    uint64_t board_id;
-    eosio::name member;
-    eosio::name action_type;
-    eosio::name permission_name;
-    std::string encrypted_private_key;
+/**
+\ingroup public_tables
+\brief Таблица автоматизированных действий
+*
+* Таблица содержит набор действий, которые член совета автоматизировал.
+*
+* @note Таблица хранится в области памяти с именем аккаунта: @p _soviet и скоупом: @p coop_username
+*/
+struct [[eosio::table, eosio::contract(SOVIET)]] automator {
+    uint64_t id; ///< Уникальный идентификатор автоматизированного действия
+    eosio::name coop_username; ///< Имя кооператива, к которому относится данное автоматизированное действие
+    uint64_t board_id; ///< Идентификатор совета, который автоматизировал данное действие
+    eosio::name member; ///< Член совета, который автоматизировал данное действие
+    eosio::name action_type; ///< Тип автоматизированного действия
+    eosio::name permission_name; ///< Имя разрешения для авторизации действия
+    std::string encrypted_private_key; ///< Зашифрованный приватный ключ для авторизации действия
 
     uint64_t primary_key() const { return id; }
-    uint128_t by_member_and_action_type() const { return combine_ids(member.value, action_type.value); }
-    uint64_t by_action() const { return action_type.value; }
+    uint128_t by_member_and_action_type() const { return combine_ids(member.value, action_type.value); } ///< Индекс по члену совета и типу действия
+    uint64_t by_action() const { return action_type.value; } ///< Индекс по типу действия
 
-  };
+};
+
 
   typedef eosio::multi_index< "automator"_n, automator,
     eosio::indexed_by<"byaction"_n, eosio::const_mem_fun<automator, uint64_t, &automator::by_action>>,

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="eosio_8token_8contracts_8md" kind="file" language="Markdown">
+    <compoundname>eosio.token.contracts.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;close&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Close<sp/>Token<sp/>Balance</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Close<sp/>{{nowrap<sp/>owner}}’s<sp/>zero<sp/>quantity<sp/>balance&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{owner}}<sp/>agrees<sp/>to<sp/>close<sp/>their<sp/>zero<sp/>quantity<sp/>balance<sp/>for<sp/>the<sp/>{{symbol_to_symbol_code<sp/>symbol}}<sp/>token.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RAM<sp/>will<sp/>be<sp/>refunded<sp/>to<sp/>the<sp/>RAM<sp/>payer<sp/>of<sp/>the<sp/>{{symbol_to_symbol_code<sp/>symbol}}<sp/>token<sp/>balance<sp/>for<sp/>{{owner}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;create&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Create<sp/>New<sp/>Token</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Create<sp/>a<sp/>new<sp/>token&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{$action.account}}<sp/>agrees<sp/>to<sp/>create<sp/>a<sp/>new<sp/>token<sp/>with<sp/>symbol<sp/>{{asset_to_symbol_code<sp/>maximum_supply}}<sp/>to<sp/>be<sp/>managed<sp/>by<sp/>{{issuer}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>action<sp/>will<sp/>not<sp/>result<sp/>any<sp/>any<sp/>tokens<sp/>being<sp/>issued<sp/>into<sp/>circulation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{issuer}}<sp/>will<sp/>be<sp/>allowed<sp/>to<sp/>issue<sp/>tokens<sp/>into<sp/>circulation,<sp/>up<sp/>to<sp/>a<sp/>maximum<sp/>supply<sp/>of<sp/>{{maximum_supply}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RAM<sp/>will<sp/>deducted<sp/>from<sp/>{{$action.account}}’s<sp/>resources<sp/>to<sp/>create<sp/>the<sp/>necessary<sp/>records.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;issue&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Issue<sp/>Tokens<sp/>into<sp/>Circulation</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Issue<sp/>{{nowrap<sp/>quantity}}<sp/>into<sp/>circulation<sp/>and<sp/>transfer<sp/>into<sp/>{{nowrap<sp/>to}}’s<sp/>account&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>token<sp/>manager<sp/>agrees<sp/>to<sp/>issue<sp/>{{quantity}}<sp/>into<sp/>circulation,<sp/>and<sp/>transfer<sp/>it<sp/>into<sp/>{{to}}’s<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{#if<sp/>memo}}There<sp/>is<sp/>a<sp/>memo<sp/>attached<sp/>to<sp/>the<sp/>transfer<sp/>stating:</highlight></codeline>
+<codeline><highlight class="normal">{{memo}}</highlight></codeline>
+<codeline><highlight class="normal">{{/if}}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>{{to}}<sp/>does<sp/>not<sp/>have<sp/>a<sp/>balance<sp/>for<sp/>{{asset_to_symbol_code<sp/>quantity}},<sp/>or<sp/>the<sp/>token<sp/>manager<sp/>does<sp/>not<sp/>have<sp/>a<sp/>balance<sp/>for<sp/>{{asset_to_symbol_code<sp/>quantity}},<sp/>the<sp/>token<sp/>manager<sp/>will<sp/>be<sp/>designated<sp/>as<sp/>the<sp/>RAM<sp/>payer<sp/>of<sp/>the<sp/>{{asset_to_symbol_code<sp/>quantity}}<sp/>token<sp/>balance<sp/>for<sp/>{{to}}.<sp/>As<sp/>a<sp/>result,<sp/>RAM<sp/>will<sp/>be<sp/>deducted<sp/>from<sp/>the<sp/>token<sp/>manager’s<sp/>resources<sp/>to<sp/>create<sp/>the<sp/>necessary<sp/>records.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>action<sp/>does<sp/>not<sp/>allow<sp/>the<sp/>total<sp/>quantity<sp/>to<sp/>exceed<sp/>the<sp/>max<sp/>allowed<sp/>supply<sp/>of<sp/>the<sp/>token.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;open&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Open<sp/>Token<sp/>Balance</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Open<sp/>a<sp/>zero<sp/>quantity<sp/>balance<sp/>for<sp/>{{nowrap<sp/>owner}}&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{ram_payer}}<sp/>agrees<sp/>to<sp/>establish<sp/>a<sp/>zero<sp/>quantity<sp/>balance<sp/>for<sp/>{{owner}}<sp/>for<sp/>the<sp/>{{symbol_to_symbol_code<sp/>symbol}}<sp/>token.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>{{owner}}<sp/>does<sp/>not<sp/>have<sp/>a<sp/>balance<sp/>for<sp/>{{symbol_to_symbol_code<sp/>symbol}},<sp/>{{ram_payer}}<sp/>will<sp/>be<sp/>designated<sp/>as<sp/>the<sp/>RAM<sp/>payer<sp/>of<sp/>the<sp/>{{symbol_to_symbol_code<sp/>symbol}}<sp/>token<sp/>balance<sp/>for<sp/>{{owner}}.<sp/>As<sp/>a<sp/>result,<sp/>RAM<sp/>will<sp/>be<sp/>deducted<sp/>from<sp/>{{ram_payer}}’s<sp/>resources<sp/>to<sp/>create<sp/>the<sp/>necessary<sp/>records.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;retire&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Remove<sp/>Tokens<sp/>from<sp/>Circulation</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Remove<sp/>{{nowrap<sp/>quantity}}<sp/>from<sp/>circulation&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/token.png#207ff68b0406eaa56618b08bda81d6a0954543f36adc328ab3065f31a5c5d654</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>token<sp/>manager<sp/>agrees<sp/>to<sp/>remove<sp/>{{quantity}}<sp/>from<sp/>circulation,<sp/>taken<sp/>from<sp/>their<sp/>own<sp/>account.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{#if<sp/>memo}}<sp/>There<sp/>is<sp/>a<sp/>memo<sp/>attached<sp/>to<sp/>the<sp/>action<sp/>stating:</highlight></codeline>
+<codeline><highlight class="normal">{{memo}}</highlight></codeline>
+<codeline><highlight class="normal">{{/if}}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;h1<sp/>class=&quot;contract&quot;&gt;transfer&lt;/h1&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline><highlight class="normal">spec_version:<sp/>&quot;0.2.0&quot;</highlight></codeline>
+<codeline><highlight class="normal">title:<sp/>Transfer<sp/>Tokens</highlight></codeline>
+<codeline><highlight class="normal">summary:<sp/>&apos;Send<sp/>{{nowrap<sp/>quantity}}<sp/>from<sp/>{{nowrap<sp/>from}}<sp/>to<sp/>{{nowrap<sp/>to}}&apos;</highlight></codeline>
+<codeline><highlight class="normal">icon:<sp/>https://raw.githubusercontent.com/AntelopeIO/reference-contracts/main/contracts/icons/transfer.png#5dfad0df72772ee1ccc155e670c1d124f5c5122f1d5027565df38b418042d1dd</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{from}}<sp/>agrees<sp/>to<sp/>send<sp/>{{quantity}}<sp/>to<sp/>{{to}}.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">{{#if<sp/>memo}}There<sp/>is<sp/>a<sp/>memo<sp/>attached<sp/>to<sp/>the<sp/>transfer<sp/>stating:</highlight></codeline>
+<codeline><highlight class="normal">{{memo}}</highlight></codeline>
+<codeline><highlight class="normal">{{/if}}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>{{from}}<sp/>is<sp/>not<sp/>already<sp/>the<sp/>RAM<sp/>payer<sp/>of<sp/>their<sp/>{{asset_to_symbol_code<sp/>quantity}}<sp/>token<sp/>balance,<sp/>{{from}}<sp/>will<sp/>be<sp/>designated<sp/>as<sp/>such.<sp/>As<sp/>a<sp/>result,<sp/>RAM<sp/>will<sp/>be<sp/>deducted<sp/>from<sp/>{{from}}’s<sp/>resources<sp/>to<sp/>refund<sp/>the<sp/>original<sp/>RAM<sp/>payer.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>{{to}}<sp/>does<sp/>not<sp/>have<sp/>a<sp/>balance<sp/>for<sp/>{{asset_to_symbol_code<sp/>quantity}},<sp/>{{from}}<sp/>will<sp/>be<sp/>designated<sp/>as<sp/>the<sp/>RAM<sp/>payer<sp/>of<sp/>the<sp/>{{asset_to_symbol_code<sp/>quantity}}<sp/>token<sp/>balance<sp/>for<sp/>{{to}}.<sp/>As<sp/>a<sp/>result,<sp/>RAM<sp/>will<sp/>be<sp/>deducted<sp/>from<sp/>{{from}}’s<sp/>resources<sp/>to<sp/>create<sp/>the<sp/>necessary<sp/>records.</highlight></codeline>
+    </programlisting>
+    <location file="system/build/contracts/eosio.token/ricardian/eosio.token.contracts.md"/>
+  </compounddef>
+</doxygen>

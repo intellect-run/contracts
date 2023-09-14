@@ -1,0 +1,959 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classmarketplace" kind="class" language="C++" prot="public">
+    <compoundname>marketplace</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="marketplace_2marketplace_8hpp" local="no">marketplace.hpp</includes>
+    <innerclass refid="structmarketplace_1_1balances" prot="public">marketplace::balances</innerclass>
+    <innerclass refid="structmarketplace_1_1counts" prot="public">marketplace::counts</innerclass>
+    <innerclass refid="structmarketplace_1_1exchange__params" prot="public">marketplace::exchange_params</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmarketplace_1aa7c0193de8af681a5e36bdc3fb75d595" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>marketplace::marketplace</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>marketplace</name>
+        <qualifiedname>marketplace::marketplace</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор контракта &quot;marketplace&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="30" column="3" bodyfile="marketplace/marketplace.hpp" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmarketplace_1a4a1a5d78b2606e4883239fc79afdfb40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>marketplace::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="34" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::newid</definition>
+        <argsstring>(uint64_t id, eosio::name type)</argsstring>
+        <name>newid</name>
+        <qualifiedname>marketplace::newid</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Пустой метод регистрации нового идентификатора</para>
+<para>Этот метод используется для возврата информации из контракта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>тип идентификатора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="39" column="9" bodyfile="marketplace/marketplace.cpp" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaada4a6d50780714dc9cfd6356a28a3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::authorize</definition>
+        <argsstring>(uint64_t exchange_id)</argsstring>
+        <name>authorize</name>
+        <qualifiedname>marketplace::authorize</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Авторизация обмена советом. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Метод используется для подтверждения согласия совета на заявленный обмен. Обычно этот метод вызывается после прохождения определенного процесса голосования или принятия решения советом. Авторизованный обмен считается утвержденным и может быть выполнен.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки на обмен, которую следует авторизовать.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_soviet</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="42" column="9" bodyfile="marketplace/src/soviet.cpp" bodystart="15" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga74c30d5573748d4cf4c5a660568b2a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::offer</definition>
+        <argsstring>(const exchange_params &amp;params)</argsstring>
+        <name>offer</name>
+        <qualifiedname>marketplace::offer</qualifiedname>
+        <param>
+          <type>const <ref refid="structmarketplace_1_1exchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создать заявку на имущественный паевой взнос. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю создать заявку на имущественный паевой взнос в системе.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры для создания заявки на имущественный паевой взнос.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>params.username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="52" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gab643c84304eeca5b09587fa01ee7a5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::order</definition>
+        <argsstring>(const exchange_params &amp;params)</argsstring>
+        <name>order</name>
+        <qualifiedname>marketplace::order</qualifiedname>
+        <param>
+          <type>const <ref refid="structmarketplace_1_1exchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создать заявку на денежный паевой взнос. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю создать заявку на денежный паевой взнос в системе.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры для создания заявки на денежный паевой взнос.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>params.username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="73" column="9" bodyfile="marketplace/src/change.cpp" bodystart="35" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad92430513caeffc680137faf448dfa62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::accept</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>accept</name>
+        <qualifiedname>marketplace::accept</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение готовности выполнить заявку. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю, который получил предложение по своей заявке, подтвердить свою готовность его принять и выполнить. При этом формируется пакет документов, который отправляется в совет на утверждение.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, подтверждающего готовность выполнить предложение. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, которое следует подтвердить.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="81" column="9" bodyfile="marketplace/src/change.cpp" bodystart="198" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga5a22790e2e3d7b7e99fe2bfab6c921ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::decline</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id, std::string meta)</argsstring>
+        <name>decline</name>
+        <qualifiedname>marketplace::decline</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отказ от предложения. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет пользователю отклонить предложение, представленное к его заявке. Выполняются следующие проверки:<itemizedlist>
+<listitem><para>Существование предложения с указанным ID.</para>
+</listitem><listitem><para>Существование основной заявки.</para>
+</listitem><listitem><para>Предложение находится в статусе &quot;ожидание&quot;.</para>
+</listitem></itemizedlist>
+</para>
+<para>Если отклонено предложение к заявке типа &quot;order&quot;, осуществляется возврат токенов пользователю, которому были заблокированы токены при создании предложения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, отклоняющего предложение. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, которое следует отклонить. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Дополнительные метаданные, связанные с отказом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="82" column="9" bodyfile="marketplace/src/change.cpp" bodystart="250" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga7a94bccd35c4e34b2be7278ecd23092f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::complete</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>complete</name>
+        <qualifiedname>marketplace::complete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Подписание акта о приёме-передаче имущества. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>После успешного получения товара, получатель подписывает акт о приёме-передаче, что свидетельствует о юридическом завершении сделки. Этот акт делает пакет документов по данной сделке полным. После проведения ряда проверок, обновляются статусы и количество объектов в основной заявке и предложении. Если все объекты основной заявки обработаны, заявка удаляется из публикации. В зависимости от типа предложения, может осуществляться перевод токенов.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-получателя товара. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, под которым следует подписать акт.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="85" column="9" bodyfile="marketplace/src/change.cpp" bodystart="289" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad65f1fa4ca14d3e25d2910a38770edaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::cancel</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>cancel</name>
+        <qualifiedname>marketplace::cancel</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Отмена заявки и возврат токенов. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Позволяет пользователю отменить родительскую или дочернюю заявку, а также обеспечивает возврат токенов владельцу (если применимо). При отмене проверяется наличие заявки и её текущий статус.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего отмену. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки для отмены.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="87" column="9" bodyfile="marketplace/src/change.cpp" bodystart="362" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga6424522b5a905f3340618bc496b0e8db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::update</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id, eosio::asset price_for_piece, std::string data, std::string meta)</argsstring>
+        <name>update</name>
+        <qualifiedname>marketplace::update</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>price_for_piece</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отмена заявки и возврат токенов. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Позволяет пользователю отменить родительскую или дочернюю заявку, а также обеспечивает возврат токенов владельцу (если применимо). При отмене проверяется наличие заявки и её текущий статус. Если заявка является родительской, вызывается метод <computeroutput>cancel_parent_order</computeroutput>, иначе — <computeroutput>cancel_child_order</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего отмену. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки для отмены.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="89" column="9" bodyfile="marketplace/src/change.cpp" bodystart="455" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga22590103c02d594a96c7fa0021c3cf6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::addpieces</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id, uint64_t new_pieces)</argsstring>
+        <name>addpieces</name>
+        <qualifiedname>marketplace::addpieces</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>new_pieces</declname>
+        </param>
+        <briefdescription>
+<para>Добавление единиц товара к заявке. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Метод позволяет владельцу заявки дополнительно увеличить количество товара, доступное для обмена в рамках указанной заявки. Используется, когда у продавца появляется дополнительное количество товара, которое он хочет добавить к существующей заявке.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего добавление. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, к которой добавляются единицы товара. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>new_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество новых единиц товара, которые следует добавить к заявке.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="90" column="9" bodyfile="marketplace/src/change.cpp" bodystart="486" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga3517422842b666b51776938bcebb2e2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::moderate</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>moderate</name>
+        <qualifiedname>marketplace::moderate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Модерация товара на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод предназначен для модерации товара перед его публикацией на маркетплейсе. Метод может быть вызван только администратором маркетплейса.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-администратора, который вызывает данный метод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор товара, который нужно опубликовать после модерации.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="93" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="15" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga7b9e65c0a9b8fc66441dd858d3bf7713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::prohibit</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id, std::string meta)</argsstring>
+        <name>prohibit</name>
+        <qualifiedname>marketplace::prohibit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отказ в прохождении модерации заявки на товар. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для администраторов маркетплейса, чтобы отказать в публикации товара после его модерации. При отказе администратор указывает причину отказа в параметре <computeroutput>meta</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-администратора, который вызывает данный метод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор товара, публикацию которого нужно запретить. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Строковое описание или причина, по которой товар не прошел модерацию.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="94" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="48" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga330151d5b275e35f3f2d29b7d1d28a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::unpublish</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>unpublish</name>
+        <qualifiedname>marketplace::unpublish</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Снять товар с публикации на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для снятия товара с публикации. Только владелец товара может снять его с публикации.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, являющегося владельцем заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, которую следует снять с публикации.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="95" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="78" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gafb7c81428848bbc7e9401cdbfa4544d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::publish</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>publish</name>
+        <qualifiedname>marketplace::publish</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Опубликовать товар на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет владельцу товара опубликовать его на маркетплейсе. Для публикации товар должен находиться в статусе &quot;unpublished&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, являющегося владельцем заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, которую следует опубликовать.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="96" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="103" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmarketplace_1a41fdf6803d401a4917a7d31d60190ec3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::create</definition>
+        <argsstring>(eosio::name type, const exchange_params &amp;params)</argsstring>
+        <name>create</name>
+        <qualifiedname>marketplace::create</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmarketplace_1_1exchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создание заявки на обмен </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип заявки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры заявки</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Общая функция для создания как родительских, так и дочерних заявок. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="75" column="15" bodyfile="marketplace/src/change.cpp" bodystart="69" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmarketplace_1a250d91530423ff0e919ca9f59f11d862" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::create_parent_order</definition>
+        <argsstring>(eosio::name type, const exchange_params &amp;params)</argsstring>
+        <name>create_parent_order</name>
+        <qualifiedname>marketplace::create_parent_order</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmarketplace_1_1exchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создание родительской заявки </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип заявки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры заявки</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Специализированная функция для создания родительской заявки. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="76" column="15" bodyfile="marketplace/src/change.cpp" bodystart="95" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classmarketplace_1a0a0434b6e5396d58690f72ee123b8385" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::create_child_order</definition>
+        <argsstring>(eosio::name type, const exchange_params &amp;params)</argsstring>
+        <name>create_child_order</name>
+        <qualifiedname>marketplace::create_child_order</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmarketplace_1_1exchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создание дочерней заявки </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип заявки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры заявки</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Специализированная функция для создания дочерних заявок, связанных с родительской заявкой. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="77" column="15" bodyfile="marketplace/src/change.cpp" bodystart="141" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classmarketplace_1a16d1a74dbd360dde5e296a0fc71e3c6d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::cancel_parent_order</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>cancel_parent_order</name>
+        <qualifiedname>marketplace::cancel_parent_order</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Отмена родительской заявки. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Вызывается из <computeroutput>cancel</computeroutput>, если заявка является родительской. Выполняется проверка, что заявка не имеет заблокированных единиц товара, и удаляется из хранилища.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, осуществляющего отмену заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID родительской заявки, которую нужно отменить. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="78" column="15" bodyfile="marketplace/src/change.cpp" bodystart="387" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classmarketplace_1ac55f3326e70c3ffe87122bb39c86f002" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::cancel_child_order</definition>
+        <argsstring>(eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>cancel_child_order</name>
+        <qualifiedname>marketplace::cancel_child_order</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Отмена дочерней заявки. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Вызывается из <computeroutput>cancel</computeroutput>, если заявка является дочерней. Обновляет количество оставшихся и заблокированных единиц товара в родительской заявке и удаляет дочернюю заявку из хранилища. В зависимости от статуса и типа заявки возможен возврат токенов &quot;покупателю&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, осуществляющего отмену заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID дочерней заявки, которую нужно отменить. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="79" column="15" bodyfile="marketplace/src/change.cpp" bodystart="406" bodyend="441"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Основной класс контракта &quot;marketplace&quot;. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Включает в себя методы для работы с заявками на обмен, управления балансами и административные действия. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>marketplace</label>
+        <link refid="classmarketplace"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>marketplace</label>
+        <link refid="classmarketplace"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="marketplace/marketplace.hpp" line="24" column="1" bodyfile="marketplace/marketplace.hpp" bodystart="24" bodyend="101"/>
+    <listofallmembers>
+      <member refid="group__public__actions_1gad92430513caeffc680137faf448dfa62" prot="public" virt="non-virtual"><scope>marketplace</scope><name>accept</name></member>
+      <member refid="group__public__actions_1ga22590103c02d594a96c7fa0021c3cf6c" prot="public" virt="non-virtual"><scope>marketplace</scope><name>addpieces</name></member>
+      <member refid="classmarketplace_1a4a1a5d78b2606e4883239fc79afdfb40" prot="public" virt="non-virtual"><scope>marketplace</scope><name>apply</name></member>
+      <member refid="group__public__actions_1gaada4a6d50780714dc9cfd6356a28a3dc" prot="public" virt="non-virtual"><scope>marketplace</scope><name>authorize</name></member>
+      <member refid="group__public__actions_1gad65f1fa4ca14d3e25d2910a38770edaa" prot="public" virt="non-virtual"><scope>marketplace</scope><name>cancel</name></member>
+      <member refid="classmarketplace_1ac55f3326e70c3ffe87122bb39c86f002" prot="public" virt="non-virtual"><scope>marketplace</scope><name>cancel_child_order</name></member>
+      <member refid="classmarketplace_1a16d1a74dbd360dde5e296a0fc71e3c6d" prot="public" virt="non-virtual"><scope>marketplace</scope><name>cancel_parent_order</name></member>
+      <member refid="group__public__actions_1ga7a94bccd35c4e34b2be7278ecd23092f" prot="public" virt="non-virtual"><scope>marketplace</scope><name>complete</name></member>
+      <member refid="classmarketplace_1a41fdf6803d401a4917a7d31d60190ec3" prot="public" virt="non-virtual"><scope>marketplace</scope><name>create</name></member>
+      <member refid="classmarketplace_1a0a0434b6e5396d58690f72ee123b8385" prot="public" virt="non-virtual"><scope>marketplace</scope><name>create_child_order</name></member>
+      <member refid="classmarketplace_1a250d91530423ff0e919ca9f59f11d862" prot="public" virt="non-virtual"><scope>marketplace</scope><name>create_parent_order</name></member>
+      <member refid="group__public__actions_1ga5a22790e2e3d7b7e99fe2bfab6c921ea" prot="public" virt="non-virtual"><scope>marketplace</scope><name>decline</name></member>
+      <member refid="classmarketplace_1aa7c0193de8af681a5e36bdc3fb75d595" prot="public" virt="non-virtual"><scope>marketplace</scope><name>marketplace</name></member>
+      <member refid="group__public__actions_1ga3517422842b666b51776938bcebb2e2f" prot="public" virt="non-virtual"><scope>marketplace</scope><name>moderate</name></member>
+      <member refid="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" prot="public" virt="non-virtual"><scope>marketplace</scope><name>newid</name></member>
+      <member refid="group__public__actions_1ga74c30d5573748d4cf4c5a660568b2a60" prot="public" virt="non-virtual"><scope>marketplace</scope><name>offer</name></member>
+      <member refid="group__public__actions_1gab643c84304eeca5b09587fa01ee7a5eb" prot="public" virt="non-virtual"><scope>marketplace</scope><name>order</name></member>
+      <member refid="group__public__actions_1ga7b9e65c0a9b8fc66441dd858d3bf7713" prot="public" virt="non-virtual"><scope>marketplace</scope><name>prohibit</name></member>
+      <member refid="group__public__actions_1gafb7c81428848bbc7e9401cdbfa4544d2" prot="public" virt="non-virtual"><scope>marketplace</scope><name>publish</name></member>
+      <member refid="group__public__actions_1ga330151d5b275e35f3f2d29b7d1d28a06" prot="public" virt="non-virtual"><scope>marketplace</scope><name>unpublish</name></member>
+      <member refid="group__public__actions_1ga6424522b5a905f3340618bc496b0e8db" prot="public" virt="non-virtual"><scope>marketplace</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

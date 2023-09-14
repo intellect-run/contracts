@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="common_2marketplace_8hpp" kind="file" language="C++">
+    <compoundname>marketplace.hpp</compoundname>
+    <includedby refid="marketplace_2marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/marketplace.hpp</label>
+        <link refid="common_2marketplace_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="2">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_2marketplace_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structexchange" prot="public">exchange</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="common_2marketplace_8hpp_1a55235a3802ae31bc4c340a496b506d6f" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;exchange&quot;_n, <ref refid="structexchange" kindref="compound">exchange</ref>, eosio::indexed_by&lt;&quot;bycoop&quot;_n, eosio::const_mem_fun&lt; <ref refid="structexchange" kindref="compound">exchange</ref>, uint64_t, &amp;<ref refid="structexchange_1aad91922434c8226846d393a6960a343b" kindref="member">exchange::by_coop</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structexchange" kindref="compound">exchange</ref>, uint64_t, &amp;<ref refid="structexchange_1af6641a816f36ce6af1c7c3a9e7ee78c2" kindref="member">exchange::by_status</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <ref refid="structexchange" kindref="compound">exchange</ref>, uint64_t, &amp;<ref refid="structexchange_1ab6ecb17793b182ce81385431fc597573" kindref="member">exchange::by_type</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byparent&quot;_n, eosio::const_mem_fun&lt; <ref refid="structexchange" kindref="compound">exchange</ref>, uint64_t, &amp;<ref refid="structexchange_1addeb8bcc639717b6e95f9e792fd2aa0e" kindref="member">exchange::by_parent</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;exchange&quot;_n, exchange, eosio::indexed_by&lt;&quot;bycoop&quot;_n, eosio::const_mem_fun&lt;exchange, uint64_t, &amp;exchange::by_coop&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;exchange, uint64_t, &amp;exchange::by_status&gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;exchange, uint64_t, &amp;exchange::by_type&gt; &gt;, eosio::indexed_by&lt;&quot;byparent&quot;_n, eosio::const_mem_fun&lt;exchange, uint64_t, &amp;exchange::by_parent&gt; &gt; &gt; exchange_index</definition>
+        <argsstring></argsstring>
+        <name>exchange_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Тип мультииндекса для таблицы обменов </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/marketplace.hpp" line="56" column="5" bodyfile="common/marketplace.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structexchange" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(MARKETPLACE)]]<sp/><ref refid="structexchange" kindref="compound">exchange</ref><sp/>{</highlight></codeline>
+<codeline lineno="29" refid="structexchange_1a8e84e7623af395f8d56d3689b997bc92" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1a8e84e7623af395f8d56d3689b997bc92" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="structexchange_1a6ddc83225c4f9279f07e103d353b93e5" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1a6ddc83225c4f9279f07e103d353b93e5" kindref="member">parent_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="structexchange_1abff4e8a374497e677c49ecbddd10f2da" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexchange_1abff4e8a374497e677c49ecbddd10f2da" kindref="member">coop_username</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="structexchange_1acaa2e38908cc4759522a519ab4e5b020" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexchange_1acaa2e38908cc4759522a519ab4e5b020" kindref="member">type</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="structexchange_1aa0662d5405ca80e5ff7ecde0f44f3245" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexchange_1aa0662d5405ca80e5ff7ecde0f44f3245" kindref="member">status</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34" refid="structexchange_1aeeddb9da07fc4c3abb417e4c5ce4f5d9" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexchange_1aeeddb9da07fc4c3abb417e4c5ce4f5d9" kindref="member">username</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35" refid="structexchange_1ac91a681db1b7c3fefde2ffea19f2c36f" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexchange_1ac91a681db1b7c3fefde2ffea19f2c36f" kindref="member">contract</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="structexchange_1aa55de52fe23c589fa161933eca54e1eb" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structexchange_1aa55de52fe23c589fa161933eca54e1eb" kindref="member">price_for_piece</ref>;</highlight></codeline>
+<codeline lineno="37" refid="structexchange_1a5e0edd89a689c143a9b3b890808b88a6" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1a5e0edd89a689c143a9b3b890808b88a6" kindref="member">remain_pieces</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38" refid="structexchange_1ae7df4bbffa11cd7102b591f0dff45ede" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1ae7df4bbffa11cd7102b591f0dff45ede" kindref="member">blocked_pieces</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="structexchange_1a425a1dc5b79cb40849e9ff1cfe24d2d1" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1a425a1dc5b79cb40849e9ff1cfe24d2d1" kindref="member">delivered_pieces</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="structexchange_1add5daca8e65c7bdfc41163844bb1d07a" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structexchange_1add5daca8e65c7bdfc41163844bb1d07a" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="structexchange_1a5febab5dc90693a173066e1c190bbb80" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structexchange_1a5febab5dc90693a173066e1c190bbb80" kindref="member">meta</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="structexchange_1a3cd67e59b84642a2b8b834ec897967fa" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1a3cd67e59b84642a2b8b834ec897967fa" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structexchange_1a8e84e7623af395f8d56d3689b997bc92" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="44" refid="structexchange_1aad91922434c8226846d393a6960a343b" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1aad91922434c8226846d393a6960a343b" kindref="member">by_coop</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>coop_username.value;}<sp/></highlight></codeline>
+<codeline lineno="45" refid="structexchange_1af6641a816f36ce6af1c7c3a9e7ee78c2" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1af6641a816f36ce6af1c7c3a9e7ee78c2" kindref="member">by_status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="46" refid="structexchange_1ab6ecb17793b182ce81385431fc597573" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1ab6ecb17793b182ce81385431fc597573" kindref="member">by_type</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>type.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="47" refid="structexchange_1addeb8bcc639717b6e95f9e792fd2aa0e" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexchange_1addeb8bcc639717b6e95f9e792fd2aa0e" kindref="member">by_parent</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structexchange_1a6ddc83225c4f9279f07e103d353b93e5" kindref="member">parent_id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;exchange&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structexchange" kindref="compound">exchange</ref>,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycoop&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;exchange,<sp/>uint64_t,<sp/>&amp;exchange::by_coop&gt;&gt;,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;exchange,<sp/>uint64_t,<sp/>&amp;exchange::by_status&gt;&gt;,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;exchange,<sp/>uint64_t,<sp/>&amp;exchange::by_type&gt;&gt;,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byparent&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;exchange,<sp/>uint64_t,<sp/>&amp;exchange::by_parent&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="56" refid="common_2marketplace_8hpp_1a55235a3802ae31bc4c340a496b506d6f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="common_2marketplace_8hpp_1a55235a3802ae31bc4c340a496b506d6f" kindref="member">exchange_index</ref>;<sp/></highlight></codeline>
+    </programlisting>
+    <location file="common/marketplace.hpp"/>
+  </compounddef>
+</doxygen>
