@@ -8,16 +8,16 @@
 
 static constexpr uint64_t _auction_name_length_limit = 5;
 
-static constexpr eosio::name _ano = "ano"_n;
-static constexpr eosio::name _draft = "draft"_n;
+static constexpr eosio::name _ano = "ano.test"_n;
+static constexpr eosio::name _draft = "draft.test"_n;
 static constexpr eosio::name _marketplace =
-    "marketplace"_n; /*!< имя контракта */
+    "market.test"_n; /*!< имя контракта */
 static constexpr eosio::name _soviet =
-    "soviet"_n; /*!< дополнительная константа */
-static constexpr eosio::name _registrator = "registrator"_n;
+    "soviet.test"_n; /*!< дополнительная константа */
+static constexpr eosio::name _registrator = "reg.test"_n;
 static constexpr eosio::name _system = "eosio"_n;
 static constexpr eosio::name _partners =
-      "part"_n; /*!< имя аккаунта контракта хранилища партнёров */
+      "part.test"_n; /*!< имя аккаунта контракта хранилища партнёров */
 
 static constexpr eosio::name _regaccount_action = "joincoop"_n;
 static constexpr eosio::name _change_action = "change"_n;
