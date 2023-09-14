@@ -12,6 +12,8 @@ namespace eosiosystem {
 void system_contract::bidname(const name& bidder, const name& newname, const asset& bid) {
     require_auth(bidder);
     
+    check(false, "service is temporary unavailable");
+
     // Дополнительная проверка: имя должно быть короче 6 символов и не содержать точек
     std::string newname_str = newname.to_string();
     check(newname_str.size() <= _auction_name_length_limit, "only names with length <= 5 are allowed for auction");

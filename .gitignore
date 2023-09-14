@@ -3,3 +3,4 @@ soviet/soviet.wasm
 registrator/registrator.abi
 registrator/registrator.wasm
 networks.sh
+system/build/*

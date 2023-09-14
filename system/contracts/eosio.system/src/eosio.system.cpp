@@ -440,6 +440,8 @@ void native::newaccount(const name& creator,
                         ignore<authority> owner, 
                         ignore<authority> active) {
     
+    check(has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа");
+    
     std::string account_name_str = new_account_name.to_string();
     size_t name_length = account_name_str.size();
     size_t dot_position = account_name_str.find('.');
@@ -461,7 +463,6 @@ void native::newaccount(const name& creator,
         bids.erase(current);
     } else if (name_length > _auction_name_length_limit && name_length < 12) {
         // Регистрация возможна только при наличии подписи аккаунта `_registrator`
-        require_auth(_registrator);
         check(dot_position == std::string::npos, "Names from 6 to 11 characters cannot have dots.");
     }
 

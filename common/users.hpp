@@ -40,7 +40,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   std::string uid;
   eosio::checksum256 uid_hash;
   eosio::name type;        // user | org
-  eosio::name registrator; /*!< имя аккаунта регистратора */
+  eosio::name payer; /*!< имя аккаунта регистратора */
   eosio::name referer;
   
   eosio::asset registration_amount; /*!< количество токенов к оплате */
@@ -103,51 +103,6 @@ typedef eosio::multi_index<"users"_n, users,
   eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<users, uint64_t,
                                                        &users::by_verified>>
 > users_index;
-
-struct bank {
-  std::string account; //Номер расчётного счёта
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec last_update;
-  bool is_active;
-};
-
-struct new_org_struct {
-  eosio::name username;
-  uint64_t coop_id;
-
-  std::string name; //Полное наименование
-  std::string short_name; //Краткое наименование;
-  std::string address; //юридический адрес;
-  std::string ogrn;
-  std::string inn;
-  std::string logo;
-  std::string phone;
-  std::string email;
-  std::string registration; //дата регистрации юрлица
-  std::string website;
-  std::vector <bank> accounts;
-  bool is_cooperative = false;
-  std::optional<eosio::name> coop_type;
-  std::optional<eosio::name> token_contract;
-  std::optional<std::string> slug; 
-  std::optional<std::string> announce;
-  std::optional<std::string> description;
-  std::optional<uint64_t> members;
-  std::optional<eosio::asset> initial;//Вступительный взнос
-  std::optional<eosio::asset> minimum;//Минимальный взнос
-  std::optional<eosio::asset> membership;//Членский взнос
-  std::optional<eosio::name> period;//Периодичность
-  //  (0, _('per case')), 	 - зависит от программы
-	// (1, _('daily')),
-	// (2, _('weekly')),
-	// (3, _('monthly')),
-	// (4, _('quarterly')),
-	// (5, _('half a year')),
-	// (6, _('annually')),
-	// (7, _('onetime')),
-
-}; 
-
 
 
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
