@@ -52,7 +52,7 @@ using namespace eosio;
   accounts.emplace(payer, [&](auto &n) {
     n.username = username;
     n.status = "pending"_n;
-    n.payer = payer;
+    n.registrator = payer;
     n.registration_amount = total_pay;
     n.referer = referer;
     n.uid = uid;
@@ -92,8 +92,7 @@ using namespace eosio;
  */
 [[eosio::action]] void registrator::reguser(
    eosio::name username,
-   uint64_t storage_id,
-   std::string data_id
+   std::string profile_hash
 ) {  
 
   require_auth(username);
@@ -118,8 +117,7 @@ using namespace eosio;
 
    users.emplace(username, [&](auto &acc) {
     acc.username = username;
-    acc.storage_id = storage_id;
-    acc.data_id = data_id;
+    acc.profile_hash = profile_hash;
   });
 }
 
