@@ -2,28 +2,18 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
-    <title>Описание системы заявок</title>
+    <title>Обзор контрактов</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>В системе имеются два типа заявок: order (заказ) и offer (предложение), а также два уровня заявок: родительская (base) и встречная (quote). Используется одна таблица заявок: <ref refid="structexchange" kindref="compound">exchange(_marketplace, _marketplace)</ref>. Встречная заявка всегда должна быть противополжного типа к родительской.</para>
-<para><bold>Группы заявок:</bold></para>
-<para><bold>1. Группа предложений от родителя:</bold><itemizedlist>
-<listitem><para>Parent: type == &apos;offer&apos; &amp;&amp; (parent_id == 0) =&gt; имущественный паевый взнос</para>
-</listitem><listitem><para>Child: type == &apos;order&apos; &amp;&amp; (parent_id &gt; 0) =&gt; денежный паевый взнос</para>
-</listitem></itemizedlist>
-</para>
-<para><bold>2. Группа заказа от родителя:</bold><itemizedlist>
-<listitem><para>Parent: type == &quot;order&quot; &amp;&amp; (parent_id == 0) =&gt; денежный паевый взнос</para>
-</listitem><listitem><para>Child: type == &quot;offer&quot; &amp;&amp; (parent_id &gt; 0) =&gt; имущественный паевый взнос</para>
-</listitem></itemizedlist>
-</para>
-<para><bold>Обозначения:</bold><itemizedlist>
-<listitem><para>order =&gt; денежный паевый взнос</para>
-</listitem><listitem><para>offer =&gt; имущественный паевый взнос </para>
+<para><itemizedlist>
+<listitem><para>_registrator - контракт регистратора аккаунтов, физических и юридических лиц</para>
+</listitem><listitem><para>_marketplace - контракт обмена всё на всё</para>
+</listitem><listitem><para>_soviet - контракт советов кооперативов</para>
+</listitem><listitem><para>_system - системный контракт делегатов при АНО </para>
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
-    <location file="marketplace/src/change.cpp"/>
+    <location file="common/consts.hpp"/>
   </compounddef>
 </doxygen>

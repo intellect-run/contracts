@@ -7,13 +7,13 @@ using namespace eosio;
 #define SYSTEM "eosio"
 #define PARTNERS "part"
 
-// /**
-//  * @mainpage Обзор контрактов
-//  * 
-//  * - @subpage Contract1Page
-//  * - @subpage Contract2Page
-//  * ...
-//  */
+/**
+ * @mainpage Обзор контрактов
+ * - _registrator - контракт регистратора аккаунтов, физических и юридических лиц
+ * - _marketplace - контракт обмена всё на всё
+ * - _soviet - контракт советов кооперативов
+ * - _system - системный контракт делегатов при АНО
+ */
 
 
 /**
@@ -35,6 +35,7 @@ using namespace eosio;
 * @ingroup public_consts
 * @{ 
 */
+
 static constexpr uint64_t _auction_name_length_limit = 5;
 static constexpr eosio::name _ano = "ano"_n;
 static constexpr eosio::name _draft = "draft"_n;

@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Контракты", "index.html", [
+    [ "Обзор контрактов", "index.html", null ],
     [ "Константы", "group__public__consts.html", null ],
     [ "Действия", "group__public__actions.html", null ],
     [ "Таблицы", "group__public__tables.html", null ],

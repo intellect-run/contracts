@@ -1511,4 +1511,6 @@
   </compound>
   <compound refid="dir_6f90eff54b97e861d1c78bace5472a8a" kind="dir"><name>system/contracts/test_contracts</name>
   </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
 </doxygenindex>
