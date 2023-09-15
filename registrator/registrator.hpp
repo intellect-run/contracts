@@ -6,6 +6,7 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
+
 #include "../common/consts.hpp"
 #include "../common/coops.hpp"
 #include "../common/permissions.hpp"
@@ -14,25 +15,23 @@
 #include "../common/balances.hpp"
 #include "../common/users.hpp"
 
-/**
-\defgroup public_consts CONSTS
-\brief Константы контракта
-*/
 
 /**
-\defgroup public_actions ACTIONS
-\brief Методы действий контракта
-*/
-
-/**
-\defgroup public_tables TABLES
-\brief Структуры таблиц контракта
-*/
-
-/**
- * @brief      Начните ознакомление здесь.
+ *  \ingroup public_contracts
+ *
+ *  @brief  Класс `registrator` служит воротами в блокчейн-систему для новых участников, позволяя регистрировать аккаунты,
+ *  а также карточки физических и юридических лиц. Через данный контракт участники могут посылать заявления в
+ *  совет кооперативов на вступление и получать подтверждения о принятии их заявлений.
+ *
+ *  Основные функции класса:
+ *  - Регистрация новых аккаунтов с различными параметрами (CPU, NET, RAM и т.д.).
+ *  - Регистрация карточек физических и юридических лиц.
+ *  - Обновление метаданных пользователей.
+ *  - Отправка заявлений на вступление в любой кооператив.
+ *  - Создание и изменение ключей доступа к аккаунтам.
+ *  
+ *  \note Этот класс служит основой для регистрации и идентификации участников в блокчейн-среде.
  */
-
 class [[eosio::contract(REGISTRATOR)]] registrator : public eosio::contract {
 
 public:
@@ -40,8 +39,7 @@ public:
               eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
 
-  [[eosio::action]] void update(eosio::name username, std::string uid,
-                                std::string meta);
+  [[eosio::action]] void update(eosio::name username, std::string meta);
   [[eosio::action]] void confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position);
 
   [[eosio::action]] void reguser(eosio::name username, std::string profile_hash);
@@ -53,24 +51,23 @@ public:
   [[eosio::action]] void verificate(eosio::name username);
 
   [[eosio::action]] void newaccount(
-      eosio::name registrator, eosio::name referer,
-      eosio::name username, std::string uid, eosio::public_key public_key,
-      eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta);
+    eosio::name payer, eosio::name referer,
+    eosio::name username, eosio::public_key public_key,
+    std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,
                                    eosio::public_key public_key);
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
-
+  
   /**
-   * @ingroup public_consts
-   * @{
-   */
-
-  /**
-   * @}
-   */
-
+     * @brief      Таблица хранения глобальной сети партнёров
+     * @ingroup public_tables
+     * @contract _me
+     * @scope _me
+     * @table partners
+     * @details Таблица хранит реферальные связи партнёров, их профили и глобальные статусы.
+  */
   struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
   
 };

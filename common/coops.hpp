@@ -1,35 +1,54 @@
 #pragma once
 
-
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая членов доски.
+ * @details Эта структура содержит информацию о членах доски, включая их уникальные имена, статус участия в голосовании,
+ * название должности и позицию в доске.
+ */
 struct board_member {
-  eosio::name username;
-  bool is_voting;
-  std::string position_title;
-  eosio::name position;
-    // (CHAIRMAN, _('chairman')),
-		// (CHAIRMAN_VP, _('vpchairman')),
-		// (SECRETARY, _('secretary')),	
-		// (ACCOUNTING, _('accounting')),
-		// (MEMBER, _('member')),
-		// (INVITED, _(‘invited')),
+  eosio::name username; ///< Уникальное имя члена доски.
+  bool is_voting; ///< Флаг, указывающий, имеет ли член доски право голоса.
+  std::string position_title; ///< Название должности члена доски.
+  eosio::name position; ///< Позиция члена в доске:
+  // (CHAIRMAN, _('chairman')),
+  // (CHAIRMAN_VP, _('vpchairman')),
+  // (SECRETARY, _('secretary')),
+  // (ACCOUNTING, _('accounting')),
+  // (MEMBER, _('member')),
+  // (INVITED, _(‘invited')),
 };
-
+/**
+ * @ingroup public_tables
+ * @brief Структура советов кооперативов
+ * @details Эта структура содержит информацию о досках кооператива, их типе, названии, описании и членах.
+ */
 struct [[eosio::table, eosio::contract(SOVIET)]] boards {
-  uint64_t id;
-  eosio::name type;
-//    (soviet, _('Board of Members')),		# Совет кооператива / участка
-// 		(executive, _('Executive Board')),		# Правление
-// 		(audit, _('Audit and Revision Board')),	# Ревизионный
-// 		(other, _('Other committee')),		# Другая комиссия
-  std::string name;
-  std::string description;
-  std::vector <board_member> members;
-  
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec last_update;
+  uint64_t id; ///< Уникальный идентификатор доски.
+  eosio::name type; ///< Тип доски:
+  // (soviet, _('Board of Members')),   # Совет кооператива
+  // (executive, _('Executive Board')), # Правление
+  // (audit, _('Audit and Revision Board')),  # Ревизионный
+  // (other, _('Other committee')),   # Другая комиссия
+  std::string name; ///< Название доски.
+  std::string description; ///< Описание доски.
+  std::vector<board_member> members; ///< Список членов доски.
 
+  eosio::time_point_sec created_at; ///< Время создания доски.
+  eosio::time_point_sec last_update; ///< Время последнего обновления информации о доске.
+
+
+  /**
+   * @brief Возвращает первичный ключ доски.
+   * @return uint64_t - первичный ключ, равный уникальному идентификатору доски.
+   */
   uint64_t primary_key() const { return id; }
-  uint64_t by_type() const {return type.value;}
+
+  /**
+   * @brief Возвращает ключ для индексации по типу доски.
+   * @return uint64_t - ключ, равный значению типа доски.
+   */
+  uint64_t by_type() const { return type.value; }
 
   bool is_valid_member(eosio::name member) const {
     for (const auto& m : members) {
@@ -75,34 +94,29 @@ typedef eosio::multi_index< "boards"_n, boards,
 eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<boards, uint64_t,
                                                        &boards::by_type>>> boards_index;
 
-/**
- * @brief Таблица администраторов для контракта "soviet"
- * 
- * Эта таблица используется для хранения информации об администраторах и их правах в системе.
- * 
- * @param username Имя администратора, используемое как первичный ключ
- * @param rights Вектор прав, которыми обладает администратор
- * @param meta Дополнительная метаинформация, связанная с администратором
- * 
- * Пример использования:
- * @code
- * admins_index admins(_me, _me.value);
- * auto admin = admins.find(username.value);
- * @endcode
- */
 
+/**
+ * @ingroup public_structs
+ * @brief Структура, представляющая права доступа.
+ * @details Эта структура содержит информацию о правах доступа, связанных с конкретным контрактом и действием.
+ */
 struct right {
-  eosio::name contract;
-  eosio::name action_name;
+  eosio::name contract; ///< Имя контракта, к которому применяется право доступа.
+  eosio::name action_name; ///< Имя действия, к которому применяется право доступа.
 };
 
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая администраторов кооператива.
+ * @details Эта структура содержит информацию об администраторах, их уникальных именах, должностях и правах.
+ */
 struct [[eosio::table, eosio::contract(SOVIET)]] staff {
-  eosio::name username; ///< Уникальное имя администратора
-  std::string position_title;
-  std::vector<right> rights; ///< Список прав администратора
- 
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec updated_at;
+  eosio::name username; ///< Уникальное имя администратора.
+  std::string position_title; ///< Название должности администратора.
+  std::vector<right> rights; ///< Список прав администратора.
+
+  eosio::time_point_sec created_at; ///< Время создания записи об администраторе.
+  eosio::time_point_sec updated_at; ///< Время последнего обновления информации об администраторе.
 
   uint64_t primary_key() const { return username.value; } ///< Первичный ключ для индексации по имени администратора
 
@@ -119,34 +133,48 @@ struct [[eosio::table, eosio::contract(SOVIET)]] staff {
 typedef eosio::multi_index<"staff"_n, staff> staff_index; ///< Тип мультииндекса для таблицы администраторов
 
 
+
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая членов кооператива.
+ * @details Эта структура содержит информацию о членах кооператива, включая их уникальные имена, дату создания, дату последнего обновления,
+ * дату последнего минимального платежа, должность, позицию, флаги их статуса и участия.
+ */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] members {
-  eosio::name username;
-  eosio::time_point_sec created_at;
-  eosio::time_point_sec last_update;
-  eosio::time_point_sec last_min_pay;
-  std::string position_title;
-  eosio::name position;
-  // (7, _('chairman')),
-  // (6, _('vpchairman')),
-  // (5, _('director')),
-  // (4, _('vpdirector')),
-  // (3, _('boardmember')),
-  // (2, _('execmember')),
-  // (1, _('votingmember')),
-  // (0, _('assocmember')),
-  bool is_accepted;
-  bool is_initial;
-  bool is_minimum;
-  bool is_voting;
+  eosio::name username; ///< Уникальное имя члена кооператива.
+  eosio::time_point_sec created_at; ///< Время создания записи о члене.
+  eosio::time_point_sec last_update; ///< Время последнего обновления информации о члене.
+  eosio::time_point_sec last_min_pay; ///< Время последнего минимального платежа.
+  std::string position_title; ///< Название должности члена.
+  eosio::name position; ///< Позиция члена в кооперативе:
+  // (('chairman')),
+  // (('vpchairman')),
+  // (('director')),
+  // (('vpdirector')),
+  // (('boardmember')),
+  // (('execmember')),
+  // (('votingmember')),
+  // (('assocmember')),
+  bool is_accepted; ///< Флаг, указывающий, принят ли член в кооператив.
+  bool is_initial; ///< Флаг, указывающий, является ли член начальным.
+  bool is_minimum; ///< Флаг, указывающий, является ли член членом с минимальными взносами.
+  bool is_voting; ///< Флаг, указывающий, имеет ли член право голоса.
 
- uint64_t primary_key() const {
+  /**
+   * @brief Возвращает первичный ключ учетной записи члена кооператива.
+   * @return uint64_t - первичный ключ, равный значению имени члена кооператива.
+   */
+  uint64_t primary_key() const {
     return username.value;
- } /*!< return username - primary_key */
+  } /*!< return username - primary_key */
 
+  /**
+   * @brief Возвращает ключ для индексации по времени последнего минимального платежа.
+   * @return uint64_t - ключ, равный количеству секунд с начала эпохи Unix.
+   */
   uint64_t bylastpay() const {
     return last_min_pay.sec_since_epoch();
   }
-
 };
 
 typedef eosio::multi_index< "members"_n, members,
@@ -154,30 +182,80 @@ typedef eosio::multi_index< "members"_n, members,
 > members_index;
 
 
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая решения кооператива.
+ * @details Эта структура содержит информацию о решениях, включая уникальный идентификатор, имя кооператива, тип решения,
+ * идентификатор карточки, списки голосов "за" и "против", а также различные флаги состояния решения.
+ */
 struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
-  uint64_t id;
-  eosio::name coop_username;
-  eosio::name type; // openproposal | +regaccount | change | contribute | withdraw
-  uint64_t card_id;
+  uint64_t id; ///< Уникальный идентификатор решения.
+  eosio::name coop_username; ///< Имя кооператива, связанного с решением.
+  eosio::name type; ///< Тип решения:
+  // openproposal | regaccount | change | contribute | withdraw
+  uint64_t card_id; ///< Идентификатор карточки, связанной с решением.
 
-  std::vector<eosio::name> votes_for;
-  std::vector<eosio::name> votes_against;
+  std::vector<eosio::name> votes_for; ///< Список имен, голосовавших "за" решение.
+  std::vector<eosio::name> votes_against; ///< Список имен, голосовавших "против" решения.
   
-  bool approved = false;   //сигнальный флаг, что решение советом принято
-  bool validated = false;   //сигнальный флаг, что администратор подтверждает валидность
-  bool authorized = false; //получена авторизация председателя после голосования и валидации до исполнения
-  bool certified = false; //получено сертификация секретаря;
-  bool executed = false;   //исполнять будем отдельным действием для торжественности момента
+  bool approved = false; ///< Сигнальный флаг, указывающий, что решение советом принято.
+  bool validated = false; ///< Сигнальный флаг, указывающий, что администратор подтверждает валидность решения.
+  bool authorized = false; ///< Флаг, указывающий, что получена авторизация председателя после голосования и валидации до исполнения.
+  bool certified = false; ///< Флаг, указывающий, что получено сертификация секретаря.
+  bool executed = false; ///< Сигнальный флаг, указывающий, что решение будет исполнено.
 
+  /**
+   * @brief Возвращает первичный ключ решения.
+   * @return uint64_t - первичный ключ, равный уникальному идентификатору решения.
+   */
   uint64_t primary_key() const { return id; }
-  uint64_t by_coop() const {return coop_username.value;} 
+
+  /**
+   * @brief Возвращает ключ для индексации по имени кооператива.
+   * @return uint64_t - ключ, равный значению имени кооператива.
+   */
+  uint64_t by_coop() const { return coop_username.value; } 
+
+  /**
+   * @brief Возвращает ключ для индексации по идентификатору карточки.
+   * @return uint64_t - ключ, равный идентификатору карточки.
+   */
   uint64_t by_card() const { return card_id; }
+
+  /**
+   * @brief Возвращает ключ для индексации по типу решения.
+   * @return uint64_t - ключ, равный значению типа решения.
+   */
   uint64_t bytype() const { return type.value; }
 
+  /**
+   * @brief Возвращает ключ для индексации по статусу "принято".
+   * @return uint64_t - ключ, равный статусу "принято" (1, если решение принято, иначе 0).
+   */
   uint64_t byapproved() const { return approved; }
+
+  /**
+   * @brief Возвращает ключ для индексации по статусу "подтверждено".
+   * @return uint64_t - ключ, равный статусу "подтверждено" (1, если решение подтверждено, иначе 0).
+   */
   uint64_t byvalidated() const { return validated; }
+
+  /**
+   * @brief Возвращает ключ для индексации по статусу "авторизовано".
+   * @return uint64_t - ключ, равный статусу "авторизовано" (1, если решение авторизовано, иначе 0).
+   */
   uint64_t byauthorized() const { return authorized; }
-  uint64_t bycertified() const { return certified;}
+
+  /**
+   * @brief Возвращает ключ для индексации по статусу "сертифицировано".
+   * @return uint64_t - ключ, равный статусу "сертифицировано" (1, если решение сертифицировано, иначе 0).
+   */
+  uint64_t bycertified() const { return certified; }
+
+  /**
+   * @brief Возвращает ключ для индексации по статусу "исполнено".
+   * @return uint64_t - ключ, равный статусу "исполнено" (1, если решение исполнено, иначе 0).
+   */
   uint64_t byexecuted() const { return executed; }
 
   void check_for_any_vote_exist(eosio::name member) const {
