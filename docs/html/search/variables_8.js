@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['id_0',['id',['../structbalances__base.html#a2069a54454c59cae6ac2a977002bc8ce',1,'balances_base::id()'],['../structboards.html#a4902e87f13247db8f837629544f12a6a',1,'boards::id()'],['../structdecisions.html#aa61841427ff58ac67bf67d16c00c0250',1,'decisions::id()'],['../structdrafts.html#ae4f6a2e4ba90a7043096bd4e794d6bf3',1,'drafts::id()'],['../structexchange.html#a8e84e7623af395f8d56d3689b997bc92',1,'exchange::id()'],['../structeosio_1_1automator.html#a71904acdde50a9e49b8cd4e65074cfc1',1,'eosio::automator::id()'],['../structeosio_1_1joincoops.html#a2400b81922f344fbfa41dda06c2caa4d',1,'eosio::joincoops::id()'],['../structeosiosystem_1_1powerup__order.html#a0c852ce9dc447d27818c6f76c9966f5b',1,'eosiosystem::powerup_order::id()']]],
+  ['id_0',['id',['../structbalances__base.html#a2069a54454c59cae6ac2a977002bc8ce',1,'balances_base::id()'],['../structboards.html#a4902e87f13247db8f837629544f12a6a',1,'boards::id()'],['../structdecisions.html#aa61841427ff58ac67bf67d16c00c0250',1,'decisions::id()'],['../structdrafts.html#ae4f6a2e4ba90a7043096bd4e794d6bf3',1,'drafts::id()'],['../structexchange.html#a8e84e7623af395f8d56d3689b997bc92',1,'exchange::id()'],['../structautomator.html#a9389163367c7579bd9725a83bb27cef6',1,'automator::id()'],['../structjoincoops.html#ac4a3e9cdd6ef21101afeae01c2ed2be1',1,'joincoops::id()'],['../structeosiosystem_1_1powerup__order.html#a0c852ce9dc447d27818c6f76c9966f5b',1,'eosiosystem::powerup_order::id()']]],
   ['inflation_5fpay_5ffactor_1',['inflation_pay_factor',['../structeosiosystem_1_1eosio__global__state4.html#a5978c2508b9d874e8191992236852b2f',1,'eosiosystem::eosio_global_state4']]],
   ['inflation_5fprecision_2',['inflation_precision',['../namespaceeosiosystem.html#a3721a156697a43ad47f62beaa02a33a0',1,'eosiosystem']]],
   ['initial_3',['initial',['../structorgs.html#ad2dd42d38888aadcd9b212d26dfd4b8e',1,'orgs::initial()'],['../structnew__org__struct.html#aa523837eadf48d60a5fa372af4915249',1,'new_org_struct::initial()']]],
@@ -14,12 +14,12 @@ var searchData=
   ['is_5finitial_11',['is_initial',['../structmembers.html#a2f5e873854edba0bf3571dbaab59507b',1,'members']]],
   ['is_5fminimum_12',['is_minimum',['../structmembers.html#aa96a971d1a0387c007951780417248be',1,'members']]],
   ['is_5fopen_13',['is_open',['../structeosiosystem_1_1rex__order.html#a4bc7bda7076a0a6b3b410ec83d2eb365',1,'eosiosystem::rex_order']]],
-  ['is_5fpaid_14',['is_paid',['../structeosio_1_1joincoops.html#ab3b0842b664a04a69858d83714845dca',1,'eosio::joincoops::is_paid()'],['../structeosio_1_1changes.html#a4884a28fe0214a60358b488618b942b5',1,'eosio::changes::is_paid()']]],
+  ['is_5fpaid_14',['is_paid',['../structjoincoops.html#ad10d6d51a81f467d3827bded4b0cebcd',1,'joincoops::is_paid()'],['../structchanges.html#a16ca5f53a822961a6ab1e11913cfe03f',1,'changes::is_paid()']]],
   ['is_5fproxy_15',['is_proxy',['../structeosiosystem_1_1voter__info.html#aee50442b79d5561a967486e6b7a61e65',1,'eosiosystem::voter_info']]],
-  ['is_5frecieved_16',['is_recieved',['../structeosio_1_1changes.html#add264769c554aed739ee82a27d555118',1,'eosio::changes']]],
+  ['is_5frecieved_16',['is_recieved',['../structchanges.html#ac0327befbffc12aa37ae94d3ef4edef5',1,'changes']]],
   ['is_5fstandart_17',['is_standart',['../structdrafts.html#a6654276273aa6f2624ea41188c5e7c9b',1,'drafts']]],
   ['is_5fverified_18',['is_verified',['../structverification.html#aeb6702bd4b7903963252735d6f760c50',1,'verification']]],
   ['is_5fvoting_19',['is_voting',['../structboard__member.html#a20b8902343fc67a6f8a0665a4e40b330',1,'board_member::is_voting()'],['../structmembers.html#ae8725768e25ad2331e36549792566f73',1,'members::is_voting()']]],
-  ['is_5fwithdrawed_20',['is_withdrawed',['../structeosio_1_1changes.html#a1cf86a750b9919c95c922bee629928ac',1,'eosio::changes']]],
+  ['is_5fwithdrawed_20',['is_withdrawed',['../structchanges.html#ad59598d066419e721d72a24730cc6fbe',1,'changes']]],
   ['issuer_21',['issuer',['../structeosio_1_1token_1_1currency__stats.html#a98c87418ed2e156ca2bd94a8e51a0b9f',1,'eosio::token::currency_stats']]]
 ];

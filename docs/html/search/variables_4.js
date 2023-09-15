@@ -2,7 +2,7 @@ var searchData=
 [
   ['data_0',['data',['../structdrafts.html#a7b0471d233cac54714ebd5f4a2b3ff56',1,'drafts::data()'],['../structexchange.html#add5daca8e65c7bdfc41163844bb1d07a',1,'exchange::data()'],['../structmarketplace_1_1exchange__params.html#a8a6d429d9f3451bf507ed556258ae9aa',1,'marketplace::exchange_params::data()']]],
   ['decay_5fsecs_1',['decay_secs',['../structeosiosystem_1_1powerup__config__resource.html#aaf607638f0aa2bc03080307342367da4',1,'eosiosystem::powerup_config_resource::decay_secs()'],['../structeosiosystem_1_1powerup__state__resource.html#a4402b1bf923b042aded39e7296f0a658',1,'eosiosystem::powerup_state_resource::decay_secs()']]],
-  ['decision_5fid_2',['decision_id',['../structeosio_1_1autosigner.html#ae723c9212461794be834a55e0169a6c9',1,'eosio::autosigner']]],
+  ['decision_5fid_2',['decision_id',['../structautosigner.html#a2d1155e3a9d63342575c616944f30a4c',1,'autosigner']]],
   ['default_5fannual_5frate_3',['default_annual_rate',['../namespaceeosiosystem.html#acc1a38de77d814642baee725124491d2',1,'eosiosystem']]],
   ['default_5fdecay_5fsecs_4',['default_decay_secs',['../structeosiosystem_1_1powerup__state__resource.html#a7f3faa714dfa8be991d7cd3120959b96',1,'eosiosystem::powerup_state_resource']]],
   ['default_5fexponent_5',['default_exponent',['../structeosiosystem_1_1powerup__state__resource.html#a7757876b32f5da7946f13c72d0271cb8',1,'eosiosystem::powerup_state_resource']]],

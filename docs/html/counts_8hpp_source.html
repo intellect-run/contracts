@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Контракты: Исходный файл common/counts.hpp</title>
+<title>Документация: Исходный файл common/counts.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Контракты
+   <div id="projectname">Документация
    </div>
   </td>
  </tr>
@@ -111,18 +111,18 @@ $(document).ready(function(){initNavTree('counts_8hpp_source.html',''); initResi
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="counts_8hpp.html#aeb06beaf4402f0222167ef9d12eacd5c">   26</a></span>uint64_t <a class="code hl_function" href="counts_8hpp.html#aeb06beaf4402f0222167ef9d12eacd5c">get_global_id</a>(eosio::name _me, eosio::name key) {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_typedef" href="counts_8hpp.html#a5af27e8af61127ac08bf8af64f4e4766">counts_index</a> counts(_me, _me.value);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">auto</span> count = counts.find(key.value);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_typedef" href="counts_8hpp.html#a5af27e8af61127ac08bf8af64f4e4766">counts_index</a> <a class="code hl_struct" href="structcounts.html">counts</a>(_me, _me.value);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">auto</span> count = <a class="code hl_struct" href="structcounts.html">counts</a>.find(key.value);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    uint64_t <span class="keywordtype">id</span> = 1;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (count == counts.end()) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      counts.emplace(_me, [&amp;](<span class="keyword">auto</span> &amp;c) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (count == <a class="code hl_struct" href="structcounts.html">counts</a>.end()) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      <a class="code hl_struct" href="structcounts.html">counts</a>.emplace(_me, [&amp;](<span class="keyword">auto</span> &amp;c) {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        c.key = key;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        c.value = id;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      });</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="keywordtype">id</span> = count-&gt;value + 1;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      counts.modify(count, _me, [&amp;](<span class="keyword">auto</span> &amp;c) { c.value = id; });</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="keywordtype">id</span> = count-&gt;<a class="code hl_variable" href="structcounts__base.html#a7e8ded653625d24a13ae3b651c42dd5a">value</a> + 1;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <a class="code hl_struct" href="structcounts.html">counts</a>.modify(count, _me, [&amp;](<span class="keyword">auto</span> &amp;c) { c.value = id; });</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> id;</div>
@@ -136,6 +136,7 @@ $(document).ready(function(){initNavTree('counts_8hpp_source.html',''); initResi
 <div class="ttc" id="astructcounts__base_html_a79af91982641a07988d9cf8f01dc1fd1"><div class="ttname"><a href="structcounts__base.html#a79af91982641a07988d9cf8f01dc1fd1">counts_base::keyvalue</a></div><div class="ttdeci">uint128_t keyvalue() const</div><div class="ttdef"><b>Definition:</b> counts.hpp:13</div></div>
 <div class="ttc" id="astructcounts__base_html_a7e8ded653625d24a13ae3b651c42dd5a"><div class="ttname"><a href="structcounts__base.html#a7e8ded653625d24a13ae3b651c42dd5a">counts_base::value</a></div><div class="ttdeci">uint64_t value</div><div class="ttdef"><b>Definition:</b> counts.hpp:4</div></div>
 <div class="ttc" id="astructcounts__base_html_acabcbd93c1b35dca98c77646bbfda21d"><div class="ttname"><a href="structcounts__base.html#acabcbd93c1b35dca98c77646bbfda21d">counts_base::keyskey</a></div><div class="ttdeci">uint128_t keyskey() const</div><div class="ttdef"><b>Definition:</b> counts.hpp:9</div></div>
+<div class="ttc" id="astructcounts_html"><div class="ttname"><a href="structcounts.html">counts</a></div><div class="ttdef"><b>Definition:</b> soviet.hpp:70</div></div>
 <div class="ttc" id="autils_8hpp_html_a9674246df019d9c71da6884b1fd0fe39"><div class="ttname"><a href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a></div><div class="ttdeci">static uint128_t combine_ids(const uint64_t &amp;x, const uint64_t &amp;y)</div><div class="ttdef"><b>Definition:</b> utils.hpp:2</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

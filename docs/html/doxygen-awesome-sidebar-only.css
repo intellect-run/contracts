@@ -93,6 +93,10 @@ html {
         margin-left: var(--side-nav-fixed-width) !important;
     }
 
+    nav ul.navList > li ul {
+        display: block;
+    }
+
     #MSearchBox {
         width: calc(var(--side-nav-fixed-width) - calc(2 * var(--spacing-medium)));
     }

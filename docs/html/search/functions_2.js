@@ -6,10 +6,10 @@ var searchData=
   ['cancel_5fchild_5forder_3',['cancel_child_order',['../classmarketplace.html#ac55f3326e70c3ffe87122bb39c86f002',1,'marketplace']]],
   ['cancel_5fparent_5forder_4',['cancel_parent_order',['../classmarketplace.html#a16d1a74dbd360dde5e296a0fc71e3c6d',1,'marketplace']]],
   ['canceldelay_5',['canceldelay',['../classeosiobios_1_1bios.html#a7b70dcae7153a74de611cc78e59b0352',1,'eosiobios::bios::canceldelay()'],['../classeosioboot_1_1boot.html#a8e9b77d3fb7fc8112975038e71161d4b',1,'eosioboot::boot::canceldelay()'],['../classeosiosystem_1_1native.html#ac2da52c0f6c1698bbe76a84f23917feb',1,'eosiosystem::native::canceldelay()']]],
-  ['cancelvote_6',['cancelvote',['../group__public__actions.html#gac53e1df4741d4e54d05fefbcdd8612b7',1,'eosio::soviet']]],
+  ['cancelvote_6',['cancelvote',['../group__public__actions.html#gac53e1df4741d4e54d05fefbcdd8612b7',1,'soviet']]],
   ['cfgpowerup_7',['cfgpowerup',['../classeosiosystem_1_1system__contract.html#ae71212071f747832a2a56eb4868d9c81',1,'eosiosystem::system_contract']]],
-  ['change_8',['change',['../group__public__actions.html#ga51caad33b4bf87669059fe0314d674be',1,'eosio::soviet']]],
-  ['change_5feffect_9',['change_effect',['../classeosio_1_1soviet.html#a8dada84517e3b465fe811da5fe72f88e',1,'eosio::soviet']]],
+  ['change_8',['change',['../group__public__actions.html#ga51caad33b4bf87669059fe0314d674be',1,'soviet']]],
+  ['change_5feffect_9',['change_effect',['../classsoviet.html#a8dada84517e3b465fe811da5fe72f88e',1,'soviet']]],
   ['changebw_10',['changebw',['../classeosiosystem_1_1system__contract.html#aa4121046f43083640f3276a4e7974572',1,'eosiosystem::system_contract']]],
   ['changekey_11',['changekey',['../group__public__actions.html#ga68df314fe90a719f00f0931c097bc6c5',1,'registrator']]],
   ['channel_5fnamebid_5fto_5frex_12',['channel_namebid_to_rex',['../classeosiosystem_1_1system__contract.html#a6a8b738310e28209d7ed24fb94cb8853',1,'eosiosystem::system_contract']]],
@@ -35,5 +35,5 @@ var searchData=
   ['create_32',['create',['../classmarketplace.html#a41fdf6803d401a4917a7d31d60190ec3',1,'marketplace::create()'],['../classeosio_1_1token.html#a5277670549e2458dd4a4fab4c56a9599',1,'eosio::token::create()']]],
   ['create_5fchild_5forder_33',['create_child_order',['../classmarketplace.html#a0a0434b6e5396d58690f72ee123b8385',1,'marketplace']]],
   ['create_5fparent_5forder_34',['create_parent_order',['../classmarketplace.html#a250d91530423ff0e919ca9f59f11d862',1,'marketplace']]],
-  ['createboard_35',['createboard',['../group__public__actions.html#gad1fc0777d9b64aeaeb1cde7f413222cb',1,'eosio::soviet']]]
+  ['createboard_35',['createboard',['../group__public__actions.html#gad1fc0777d9b64aeaeb1cde7f413222cb',1,'soviet']]]
 ];

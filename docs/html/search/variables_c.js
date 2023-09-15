@@ -9,6 +9,6 @@ var searchData=
   ['new_5fproducers_6',['new_producers',['../structeosiobios_1_1block__header.html#a75189b8a7b99f93b14f9b775bf343396',1,'eosiobios::block_header::new_producers()'],['../structeosiosystem_1_1block__header.html#a209c1b178d315a0f672d628675f065ac',1,'eosiosystem::block_header::new_producers()']]],
   ['new_5fram_5fper_5fblock_7',['new_ram_per_block',['../structeosiosystem_1_1eosio__global__state2.html#ad29c5ed6cc975beb7578f57aaf20c98f',1,'eosiosystem::eosio_global_state2']]],
   ['newname_8',['newname',['../structeosiosystem_1_1name__bid.html#a3463fcad67e50421775df9e215fcc6f5',1,'eosiosystem::name_bid']]],
-  ['notice_9',['notice',['../structverification.html#a231be135ab1c6c218ca0ed86383d043c',1,'verification::notice()'],['../structeosio_1_1joincoops.html#a198fbc9e86daba2b45e29ff0f5fd7704',1,'eosio::joincoops::notice()']]],
+  ['notice_9',['notice',['../structverification.html#a231be135ab1c6c218ca0ed86383d043c',1,'verification::notice()'],['../structjoincoops.html#a2aa5cf144690ce5d537aceb9e68e15cf',1,'joincoops::notice()']]],
   ['null_5faccount_10',['null_account',['../classeosiosystem_1_1system__contract.html#a0b608cd46d931874c80e9b72c4f0d664',1,'eosiosystem::system_contract']]]
 ];

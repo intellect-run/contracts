@@ -6,6 +6,6 @@ var searchData=
   ['approval_3',['approval',['../structeosio_1_1multisig_1_1approval.html',1,'eosio::multisig']]],
   ['approvals_5finfo_4',['approvals_info',['../structeosio_1_1multisig_1_1approvals__info.html',1,'eosio::multisig']]],
   ['authority_5',['authority',['../structauthority.html',1,'authority'],['../structeosiobios_1_1authority.html',1,'eosiobios::authority'],['../structeosioboot_1_1authority.html',1,'eosioboot::authority'],['../structeosiosystem_1_1authority.html',1,'eosiosystem::authority']]],
-  ['automator_6',['automator',['../structeosio_1_1automator.html',1,'eosio']]],
-  ['autosigner_7',['autosigner',['../structeosio_1_1autosigner.html',1,'eosio']]]
+  ['automator_6',['automator',['../structautomator.html',1,'']]],
+  ['autosigner_7',['autosigner',['../structautosigner.html',1,'']]]
 ];

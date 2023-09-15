@@ -18,7 +18,7 @@ var searchData=
   ['setram_15',['setram',['../classeosiosystem_1_1system__contract.html#ad8a6eb47fd97c9f243019d93916ff78f',1,'eosiosystem::system_contract']]],
   ['setramrate_16',['setramrate',['../classeosiosystem_1_1system__contract.html#a7d984add31b6060bb59d472f9f1bd1a1',1,'eosiosystem::system_contract']]],
   ['setrex_17',['setrex',['../classeosiosystem_1_1system__contract.html#a1b875a922b7ab8079b742eb8e714ae48',1,'eosiosystem::system_contract']]],
-  ['setrights_18',['setrights',['../group__public__actions.html#gab568d02a607f4a7c8310a4387ef2a37e',1,'eosio::soviet']]],
+  ['setrights_18',['setrights',['../group__public__actions.html#gab568d02a607f4a7c8310a4387ef2a37e',1,'soviet']]],
   ['stake2vote_19',['stake2vote',['../namespaceeosiosystem.html#a3e036636d2cc92c741db234dd33870db',1,'eosiosystem']]],
   ['sub_5fbalance_20',['sub_balance',['../classeosio_1_1token.html#a28f25eaa6d0e7017f3d8760ad16960bc',1,'eosio::token::sub_balance()'],['../balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854',1,'sub_balance():&#160;balances.hpp']]],
   ['system_5fcontract_21',['system_contract',['../classeosiosystem_1_1system__contract.html#ae1a0434a7adf53cc3a168f1b2f947ebd',1,'eosiosystem::system_contract']]]

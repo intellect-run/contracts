@@ -75,8 +75,6 @@ namespace eosioboot {
    };
 
    /**
-    * @defgroup eosioboot eosio.boot
-    * @ingroup eosiocontracts
     *
     * eosio.boot is a extremely minimalistic system contract that only supports the native actions and an
     * activate action that allows activating desired protocol features prior to deploying a system contract

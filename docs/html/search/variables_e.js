@@ -10,7 +10,7 @@ var searchData=
   ['perblock_5fbucket_7',['perblock_bucket',['../structeosiosystem_1_1eosio__global__state.html#ab7c0fbe51aa0335e5048be97bf453db7',1,'eosiosystem::eosio_global_state']]],
   ['period_8',['period',['../structnew__org__struct.html#a296dc59f88491363bb011f6424361e12',1,'new_org_struct::period()'],['../structorgs.html#a93ab1b5c27d0b55d80651a72353beec5',1,'orgs::period()']]],
   ['permission_9',['permission',['../structpermission__level__weight.html#a8e66350534de3fc26309013f5ade74b8',1,'permission_level_weight::permission()'],['../structeosiobios_1_1permission__level__weight.html#a541c2041fbf4a2847144a156531ed3bb',1,'eosiobios::permission_level_weight::permission()'],['../structeosioboot_1_1permission__level__weight.html#a5354d5a9ed36751c733ca4788058bf34',1,'eosioboot::permission_level_weight::permission()'],['../structeosiosystem_1_1permission__level__weight.html#ac98d5c5795870835a76e2c1d73bda998',1,'eosiosystem::permission_level_weight::permission()']]],
-  ['permission_5fname_10',['permission_name',['../structeosio_1_1automator.html#aae93d7e6be417bf12838a1b3a0871bfe',1,'eosio::automator']]],
+  ['permission_5fname_10',['permission_name',['../structautomator.html#a4d145638d25608ddf9c5d737f9fe6da2',1,'automator']]],
   ['pervote_5fbucket_11',['pervote_bucket',['../structeosiosystem_1_1eosio__global__state.html#a1533ba61f8191c5323d28a19684fe0bd',1,'eosiosystem::eosio_global_state']]],
   ['phone_12',['phone',['../structnew__org__struct.html#a9cd8be190fa2b64609ac7cac26a21342',1,'new_org_struct::phone()'],['../structorgs.html#abbe8d02b45decc5efbe76645d07588b7',1,'orgs::phone()']]],
   ['pieces_13',['pieces',['../structmarketplace_1_1exchange__params.html#a05c403df4f9fc0242e968b5d4256aaaa',1,'marketplace::exchange_params']]],

@@ -3,12 +3,21 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title=""/>
-    <!-- <tab type="pages" visible="yes" title="" intro=""/> -->
+    <tab type="pages" visible="yes" title="" intro=""/>
+    <tab type="modules" visible="yes" title="Группы" intro="На данной странице представлены ключевые компоненты нашей системы. Благодаря структурному разделению документации на группы, вы легко найдете интересующую информацию о контрактах, действиях, структурах и других важных элементах платформы."/>
     <!-- <tab type="modules" visible="yes" title="" intro=""/> -->
+   <!--  <tab type="user" visible="yes" url="@ref public_contracts" title="Контракты" intro=""/>
     <tab type="user" visible="yes" url="@ref public_consts" title="Константы" intro=""/>
     <tab type="user" visible="yes" url="@ref public_actions" title="Действия" intro=""/>
     <tab type="user" visible="yes" url="@ref public_tables" title="Таблицы" intro=""/>
-
+ -->
+    <!-- <tab type="classes" visible="yes" title="">
+      <tab type="classlist" visible="yes" title="" intro=""/>
+      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title=""/> 
+      <tab type="hierarchy" visible="yes" title="" intro=""/>
+      <tab type="classmembers" visible="yes" title="" intro=""/>
+    </tab>
+     -->
     <!-- <tab type="namespaces" visible="yes" title="">
       <tab type="namespacelist" visible="yes" title="" intro=""/>
       <tab type="namespacemembers" visible="yes" title="" intro=""/>
@@ -20,12 +29,6 @@
       <tab type="interfaceindex" visible="$ALPHABETICAL_INDEX" title=""/> 
       <tab type="interfacehierarchy" visible="yes" title="" intro=""/>
     </tab>
-    <tab type="classes" visible="yes" title="">
-      <tab type="classlist" visible="yes" title="" intro=""/>
-      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title=""/> 
-      <tab type="hierarchy" visible="yes" title="" intro=""/>
-      <tab type="classmembers" visible="yes" title="" intro=""/>
-    </tab>
     <tab type="structs" visible="yes" title="">
       <tab type="structlist" visible="yes" title="" intro=""/>
       <tab type="structindex" visible="$ALPHABETICAL_INDEX" title=""/> 
@@ -35,9 +38,9 @@
       <tab type="exceptionindex" visible="$ALPHABETICAL_INDEX" title=""/> 
       <tab type="exceptionhierarchy" visible="yes" title="" intro=""/>
     </tab> -->
-    <tab type="files" visible="yes" title="">
-      <tab type="filelist" visible="yes" title="" intro=""/>
-      <tab type="globals" visible="yes" title="" intro=""/>
+    <tab type="files" visible="yes" title="Файлы" intro="Здесь вы можете исследовать программный код контрактов">
+      <tab type="filelist" visible="yes" title="Обозреватель" intro=""/>
+      <tab type="globals" visible="yes" title="" intro="Список членов"/>
     </tab>
     <!-- <tab type="examples" visible="yes" title="" intro=""/>   -->
   </navindex>

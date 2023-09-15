@@ -13,6 +13,6 @@ var searchData=
   ['block_5ftimestamp_10',['block_timestamp',['../structeosiosystem_1_1block__info_1_1block__info__record.html#afaa04cfe4be674be7f3d4d497e90c072',1,'eosiosystem::block_info::block_info_record']]],
   ['blocked_5fpieces_11',['blocked_pieces',['../structexchange.html#ae7df4bbffa11cd7102b591f0dff45ede',1,'exchange']]],
   ['blocks_5fper_5fday_12',['blocks_per_day',['../namespaceeosiosystem.html#a0a989239fac055dbc55e5e6bd05f8f5f',1,'eosiosystem']]],
-  ['board_5fid_13',['board_id',['../structeosio_1_1automator.html#a3e9167336a434487762cffd8af1db0da',1,'eosio::automator']]],
+  ['board_5fid_13',['board_id',['../structautomator.html#af9991df3151a7d8205c4205caf993a92',1,'automator']]],
   ['bpay_5faccount_14',['bpay_account',['../classeosiosystem_1_1system__contract.html#aeec189aa121eaf90aee0c180cd59cc26',1,'eosiosystem::system_contract']]]
 ];

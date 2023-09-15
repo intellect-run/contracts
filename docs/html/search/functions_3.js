@@ -10,5 +10,5 @@ var searchData=
   ['deposit_7',['deposit',['../classeosiosystem_1_1system__contract.html#a99e6b1b401c6a8a023f61ed2b52e98d7',1,'eosiosystem::system_contract']]],
   ['determine_5fram_5fprice_8',['determine_ram_price',['../namespaceeosiosystem.html#a554d168bb3ecdd68b09cabaabe5a90a5',1,'eosiosystem']]],
   ['direct_5fconvert_9',['direct_convert',['../structeosiosystem_1_1exchange__state.html#a048b1798df129a50aade23df905cd87b',1,'eosiosystem::exchange_state']]],
-  ['disautomate_10',['disautomate',['../group__public__actions.html#gae253ba528c69482ca3370ce5fcc02f61',1,'eosio::soviet']]]
+  ['disautomate_10',['disautomate',['../group__public__actions.html#gae253ba528c69482ca3370ce5fcc02f61',1,'soviet']]]
 ];

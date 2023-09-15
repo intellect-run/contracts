@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['consts_0',['CONSTS',['../group__public__consts.html',1,'']]]
+  ['константы_0',['Константы',['../group__public__consts.html',1,'']]],
+  ['контракты_1',['Контракты',['../group__public__contracts.html',1,'']]]
 ];

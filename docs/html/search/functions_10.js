@@ -21,7 +21,7 @@ var searchData=
   ['rex_5floans_5favailable_18',['rex_loans_available',['../classeosiosystem_1_1system__contract.html#a719d5ebcb8b11ac1813373d6c0b7c70b',1,'eosiosystem::system_contract']]],
   ['rex_5fsystem_5finitialized_19',['rex_system_initialized',['../classeosiosystem_1_1system__contract.html#a99cf9915dea4dab19066fea896a3269f',1,'eosiosystem::system_contract']]],
   ['rexexec_20',['rexexec',['../classeosiosystem_1_1system__contract.html#a21d675936f040b2dcdcebff3765a60a7',1,'eosiosystem::system_contract']]],
-  ['rmstaff_21',['rmstaff',['../group__public__actions.html#gaff2ccc480f8674e7b2f1592ccff4f17b',1,'eosio::soviet']]],
+  ['rmstaff_21',['rmstaff',['../group__public__actions.html#gaff2ccc480f8674e7b2f1592ccff4f17b',1,'soviet']]],
   ['rmvproducer_22',['rmvproducer',['../classeosiosystem_1_1system__contract.html#a2a41dc1871059a536a55626b8c76f5b9',1,'eosiosystem::system_contract']]],
   ['runrex_23',['runrex',['../classeosiosystem_1_1system__contract.html#ae6107f7d60481e9d2ceceb3bc11f9e58',1,'eosiosystem::system_contract']]]
 ];

@@ -24,13 +24,10 @@
 */
 var NAVTREE =
 [
-  [ "Контракты", "index.html", [
-    [ "Обзор контрактов", "index.html", null ],
-    [ "Константы", "group__public__consts.html", null ],
-    [ "Действия", "group__public__actions.html", null ],
-    [ "Таблицы", "group__public__tables.html", null ],
+  [ "Документация", "index.html", [
+    [ "Группы", "modules.html", "modules" ],
     [ "Файлы", "files.html", [
-      [ "Файлы", "files.html", "files_dup" ],
+      [ "Обозреватель", "files.html", "files_dup" ],
       [ "Список членов всех файлов", "globals.html", [
         [ "Указатель", "globals.html", null ],
         [ "Функции", "globals_func.html", null ],
@@ -44,7 +41,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"admin_8cpp.html"
+"admin_8cpp.html",
+"limit__auth__changes_8hpp.html#ab6669b0a3e740568b4ff28936a6ac5d5",
+"structusers.html#ae07b933da6c46eb7dfe70f5c95ade143"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

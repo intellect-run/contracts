@@ -24,11 +24,9 @@
 */
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
-{text:"Константы",url:"group__public__consts.html"},
-{text:"Действия",url:"group__public__actions.html"},
-{text:"Таблицы",url:"group__public__tables.html"},
+{text:"Группы",url:"modules.html"},
 {text:"Файлы",url:"files.html",children:[
-{text:"Файлы",url:"files.html"},
+{text:"Обозреватель",url:"files.html"},
 {text:"Список членов всех файлов",url:"globals.html",children:[
 {text:"Указатель",url:"globals.html",children:[
 {text:"_",url:"globals.html#index__5F"},
@@ -39,6 +37,7 @@ var menudata={children:[
 {text:"e",url:"globals.html#index_e"},
 {text:"g",url:"globals.html#index_g"},
 {text:"h",url:"globals.html#index_h"},
+{text:"j",url:"globals.html#index_j"},
 {text:"m",url:"globals.html#index_m"},
 {text:"o",url:"globals.html#index_o"},
 {text:"p",url:"globals.html#index_p"},

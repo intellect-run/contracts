@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eosio_2eboot_0',['eosio.boot',['../group__eosioboot.html',1,'']]]
+  ['структуры_0',['Структуры',['../group__public__structures.html',1,'']]]
 ];

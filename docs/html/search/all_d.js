@@ -8,7 +8,7 @@ var searchData=
   ['max_5fprice_5',['max_price',['../structeosiosystem_1_1powerup__config__resource.html#a7eaa914ee1cff949e5721d526e0e8308',1,'eosiosystem::powerup_config_resource::max_price()'],['../structeosiosystem_1_1powerup__state__resource.html#a9792d8b112772e112a51193873e020f2',1,'eosiosystem::powerup_state_resource::max_price()']]],
   ['max_5fram_5fsize_6',['max_ram_size',['../structeosiosystem_1_1eosio__global__state.html#a2a2f2607dd31f0623a7d5185bf967c4d',1,'eosiosystem::eosio_global_state']]],
   ['max_5fsupply_7',['max_supply',['../structeosio_1_1token_1_1currency__stats.html#ab83559b6e1cdd215cf7b60153009a966',1,'eosio::token::currency_stats']]],
-  ['member_8',['member',['../structeosio_1_1automator.html#a00ee4d8eb850b5a594e7fe5bc2f37252',1,'eosio::automator']]],
+  ['member_8',['member',['../structautomator.html#a7bb8cdadaa140b733497e80fdecf49ab',1,'automator']]],
   ['members_9',['members',['../structmembers.html',1,'members'],['../structboards.html#a784be337829b64e7caaa6c6657f5c262',1,'boards::members()']]],
   ['members_5fcount_10',['members_count',['../structorgs.html#a36a73688848c389a2f2626df93ce9d0d',1,'orgs']]],
   ['members_5findex_11',['members_index',['../coops_8hpp.html#a5606c7bd2cd3481be33ac3ae62e198db',1,'coops.hpp']]],
