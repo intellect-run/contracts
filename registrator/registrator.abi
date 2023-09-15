@@ -20,14 +20,6 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "uid",
-                    "type": "string"
-                },
-                {
-                    "name": "uid_hash",
-                    "type": "checksum256"
-                },
-                {
                     "name": "type",
                     "type": "name"
                 },
@@ -321,7 +313,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "registrator",
+                    "name": "payer",
                     "type": "name"
                 },
                 {
@@ -333,24 +325,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "uid",
-                    "type": "string"
-                },
-                {
                     "name": "public_key",
                     "type": "public_key"
-                },
-                {
-                    "name": "cpu",
-                    "type": "asset"
-                },
-                {
-                    "name": "net",
-                    "type": "asset"
-                },
-                {
-                    "name": "ram_bytes",
-                    "type": "uint64"
                 },
                 {
                     "name": "meta",
@@ -503,10 +479,6 @@
                 {
                     "name": "username",
                     "type": "name"
-                },
-                {
-                    "name": "uid",
-                    "type": "string"
                 },
                 {
                     "name": "meta",

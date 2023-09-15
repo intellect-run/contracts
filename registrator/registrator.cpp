@@ -3,26 +3,22 @@
 /**
  * @brief Регистрирует новый аккаунт.
  * 
- * Действие позволяет создать новый аккаунт, выполнив все необходимые шаги по резервированию RAM, 
- * делегированию CPU и NET, а также регистрации пользователя в контракте.
+ * Действие позволяет создать новый аккаунт.
  * @note Авторизация требуется от аккаунта: @p payer
  *
  * @param payer Аккаунт, который оплачивает создание нового аккаунта.
  * @param referer Реферер, который представил нового пользователя.
- * @param username Имя нового аккаунта.
+ * @param username Имя нового аккаунта (от 5 до 12 символов).
  * @param public_key Открытый ключ нового аккаунта.
- * @param cpu Количество AXON, делегированных на CPU для нового аккаунта.
- * @param net Количество AXON, делегированных на NET для нового аккаунта.
- * @param ram_bytes Количество RAM в байтах для нового аккаунта.
  * @param meta Дополнительная мета-информация.
  *
- * 
  * @ingroup public_actions
  */
 [[eosio::action]] void registrator::newaccount(
     eosio::name payer, eosio::name referer,
     eosio::name username, eosio::public_key public_key,
-    eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta) {
+    std::string meta) {
+  
   require_auth(payer);
   
   authority active_auth;
@@ -31,9 +27,12 @@
   active_auth.keys.emplace_back(keypermission);
 
   authority owner_auth;
-  auto ram_price = eosiosystem::determine_ram_price(ram_bytes);
+  auto ram_price = eosiosystem::determine_ram_price(_ram_bytes);
+  eosio::asset cpu = asset(_stake_cpu_amount, _root_symbol);
+  eosio::asset net = asset(_stake_net_amount, _root_symbol);
 
   eosio::asset total_pay = cpu + net + ram_price;
+  
   sub_balance(_registrator, payer, total_pay, _root_contract);
   owner_auth.threshold = 1;
   eosio::permission_level permission(_registrator, eosio::name("eosio.code"));

@@ -51,9 +51,9 @@ public:
   [[eosio::action]] void verificate(eosio::name username);
 
   [[eosio::action]] void newaccount(
-      eosio::name registrator, eosio::name referer,
-      eosio::name username, eosio::public_key public_key,
-      eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta);
+    eosio::name payer, eosio::name referer,
+    eosio::name username, eosio::public_key public_key,
+    std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,
                                    eosio::public_key public_key);
