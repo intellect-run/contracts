@@ -38,24 +38,20 @@ struct verification {
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   eosio::name username; ///< Имя аккаунта гостя. Имя пользователя в системе.
+  eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
+  eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
+  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
   eosio::name status; ///< Статус аккаунта:
+  std::string meta; ///< Дополнительная мета-информация о аккаунте.
   // "pending" - ожидание утверждения советом,
   // "active" - активный аккаунт;
   // "blocked" - заблокированный аккаунт;
   // "deleted" - удален пользователем;
-  
   uint64_t reputation; ///< Репутация аккаунта, возможно, связанная с его деятельностью.
-  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
-  eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
-  eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
-  
   eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
-  std::string meta; ///< Дополнительная мета-информация о аккаунте.
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
-  eosio::time_point_sec last_update; ///< Время последнего обновления информации об аккаунте.
   eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
-  eosio::time_point_sec signature_last_update; ///< Время последнего обновления подписи аккаунта.
-
+  
   /**
    * @brief Возвращает первичный ключ учетной записи аккаунта.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта.
@@ -114,6 +110,7 @@ struct storage {
   std::string uid; ///< Идентификатор данных в хранилище
 };
 
+
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая учетные записи пользователей.
@@ -121,8 +118,8 @@ struct storage {
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; ///< Имя аккаунта пользователя.
-  std::vector<storage> storages;
-  verification verification; ///< Информация о верификации пользователя.
+  std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
+  std::vector<verification> verifications; ///< Информация о верификации пользователя.
 
   /**
    * @brief Возвращает первичный ключ учетной записи пользователя.
@@ -132,19 +129,9 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
     return username.value;
   } /*!< return username - primary_key */
   
-  /**
-   * @brief Возвращает ключ по статусу верификации пользователя.
-   * @return uint64_t - ключ, равный 1, если пользователь верифицирован, иначе 0.
-   */
-  uint64_t by_verified() const {
-    return verification.is_verified == true ? 1 : 0;
-  }
 };
 
-typedef eosio::multi_index<"users"_n, users,
-  eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<users, uint64_t,
-                                                       &users::by_verified>>
-> users_index;
+typedef eosio::multi_index<"users"_n, users>users_index;
 
 
 /**
