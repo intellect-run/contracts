@@ -69,7 +69,7 @@ using namespace eosio;
 
 static constexpr uint64_t _auction_name_length_limit = 5;
 static constexpr eosio::name _ano = "ano.test"_n;
-static constexpr eosio::name _draft = "draft.test"_n;
+static constexpr eosio::name _draft = "drafttest"_n;
 static constexpr eosio::name _marketplace =
     "market.test"_n; /*!< имя контракта */
 static constexpr eosio::name _soviet =
